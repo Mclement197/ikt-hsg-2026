@@ -1,0 +1,17 @@
+# XeLaTeX preserves the Metropolis theme's Fira typography.
+$pdf_mode = 5;
+$xelatex = 'xelatex -synctex=1 -interaction=nonstopmode -file-line-error -halt-on-error %O %S';
+
+# Keep the preview PDF beside its SyncTeX data and all intermediate files.
+$out_dir = 'build';
+$aux_dir = 'build';
+
+# Resolve build/demo.bib from the source directory, including with Git Bash's Perl.
+$bibtex_fudge = 0;
+
+# Publish only the finished PDF next to the LaTeX source (latexmk 4.87+).
+$out2_dir = '.';
+@out2_exts = ('pdf');
+
+# Include Beamer's intermediate files when running latexmk -c.
+$clean_ext = 'nav snm vrb';
