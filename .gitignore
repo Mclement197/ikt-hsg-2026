@@ -1,0 +1,4 @@
+# Keep build configuration and bibliography; ignore generated LaTeX files.
+/presentation/build/*
+!/presentation/build/latexmkrc
+!/presentation/build/demo.bib

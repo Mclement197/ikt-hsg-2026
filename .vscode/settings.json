@@ -1,0 +1,41 @@
+{
+  "[latex]": {
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000
+  },
+  "latex-workshop.latex.autoBuild.run": "onFileChange",
+  "latex-workshop.latex.autoClean.run": "never",
+  "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": false,
+  "latex-workshop.latex.outDir": "%DIR%/build",
+  "latex-workshop.latex.auxDir": "%DIR%/build",
+  "latex-workshop.latex.recipe.default": "first",
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "Presentation (XeLaTeX + BibTeX)",
+      "tools": ["presentation-latexmk"]
+    }
+  ],
+  "latex-workshop.latex.tools": [
+    {
+      "name": "presentation-latexmk",
+      "command": "latexmk",
+      "args": [
+        "-r",
+        "%DIR%/build/latexmkrc",
+        "-cd",
+        "%DOC%"
+      ]
+    }
+  ],
+  "latex-workshop.latex.clean.method": "command",
+  "latex-workshop.latex.clean.args": [
+    "-r",
+    "%DIR%/build/latexmkrc",
+    "-cd",
+    "-c",
+    "%DOC%"
+  ],
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.view.pdf.tab.editorGroup": "right",
+  "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click"
+}
