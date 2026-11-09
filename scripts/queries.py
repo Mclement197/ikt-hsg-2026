@@ -5,8 +5,10 @@ root_path = Path(__file__).parent.parent
 
 conn = sqlite3.connect(root_path / "database/electromobility.db")
 
-additional_tax_querry = (root_path / "database" / "queries" / "additional_tax.sql").read_text(encoding="utf-8")
-expected_revenue_querry = (root_path / "database" / "queries" / "expected_revenue.sql").read_text(encoding="utf-8")
+additional_tax_querry = (root_path / "database/queries/additional_tax.sql").read_text(encoding="utf-8")
+expected_revenue_querry = (root_path / "database/queries/expected_revenue.sql").read_text(encoding="utf-8")
+
+
 
 def queries(query_type: int):
     if query_type == 1:
