@@ -81,8 +81,6 @@ CREATE TABLE IF NOT EXISTS payments (
 )
 """)
 
-conn.executescript((root_path / "database" / "queries" / "sample_data.sql").read_text(encoding="utf-8"))
-
 conn.commit()
 conn.close()
 
