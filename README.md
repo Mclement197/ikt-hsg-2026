@@ -21,7 +21,7 @@ This means that the system must coordinate vehicule owners, MOT inspections, the
 | scope and assumptions | explain the system that I will be designing |
 | Business processes | Model three processes, including one for management reporting |
 | Data modelling | Create an Entity-Relationship (ER) diagram |
-| Database | Implement your relational database and insert five business transactions |
+| Database | Implement my relational database and insert five business transactions |
 | SQL analysis | Create two meaningful SQL queries, each involving at least two tables |
 | Enterprise architecture | Explain three risks, three corresponding architecture principles and their practical effects |
 | AI reflection | Explain and critically evaluate your use of AI, including a concrete error you corrected |
