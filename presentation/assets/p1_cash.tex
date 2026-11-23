@@ -1,0 +1,10 @@
+\begin{tikzpicture}
+\node[event] (a) at (0,0) {Declaration\\accepted};
+\node[function] (b) at (3.2,0) {Calculate and notify\\advance due\\{\scriptsize [Authority]}};
+\node[event] (c) at (6.4,0) {Advance due\\determined};
+\node[function] (d) at (9.6,0) {Pay advance\\{\scriptsize [Owner]}};
+\node[event] (e) at (9.6,-1.7) {Advance payment\\received};
+\node[function] (f) at (6.4,-1.7) {Record and allocate\\payment\\{\scriptsize [Authority]}};
+\node[event] (g) at (3.2,-1.7) {Advance payment\\recorded};
+\foreach \s/\t in {a/b,b/c,c/d,d/e,e/f,f/g} \draw[flow] (\s)--(\t);
+\end{tikzpicture}

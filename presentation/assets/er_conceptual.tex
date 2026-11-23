@@ -1,0 +1,17 @@
+% Six conceptual entities. FK attributes appear in the relational dictionary.
+% Set \erdetail to 1 before input for the full attribute view.
+\begin{tikzpicture}
+\node[entity] (o) at (0,0) {\textbf{Vehicle owner}\\\# * owner ID\\{}* full name\ifnum\erdetail=1\\{}* postal address\fi};
+\node[entity] (v) at (5.3,0) {\textbf{Vehicle}\\\# * vehicle ID\\{}* registration number\\{}* vehicle type};
+\node[entity] (i) at (10.6,0) {\textbf{MOT inspection}\\\# * inspection ID\\{}* odometer miles\ifnum\erdetail=1\\{}* inspection date\\{}* centre reference\fi};
+\node[entity] (p) at (0,-3.1) {\textbf{Payment}\\\# * payment ID\\{}* type; * amount (pence)\ifnum\erdetail=1\\{}* paid timestamp\fi};
+\node[entity] (d) at (5.3,-3.1) {\textbf{Declaration}\\\# * declaration ID\\{}* estimated miles\ifnum\erdetail=1\\{}* period start\\{}* period end (exclusive)\\{}* advance due (pence)\\{}* submitted at\fi};
+\node[entity] (a) at (10.6,-3.1) {\textbf{Tax assessment}\\\# * assessment ID\\{}* final liability (pence)\ifnum\erdetail=1\\{}* assessed timestamp\fi};
+\draw[relation] (o)--node[relabel,above]{owns} node[relabel,pos=.1,below]{1} node[relabel,pos=.88,below]{0..*}(v);
+\draw[relation] (v)--node[relabel,above]{has readings} node[relabel,pos=.1,below]{1} node[relabel,pos=.88,below]{0..*}(i);
+\draw[relation] (v)--node[relabel,right]{is declared for} node[relabel,pos=.12,left]{1} node[relabel,pos=.88,left]{0..*}(d);
+\draw[relation] (p)--node[relabel,above]{is paid against} node[relabel,pos=.12,below]{0..*} node[relabel,pos=.9,below]{1}(d);
+\draw[relation] (d)--node[relabel,above]{is assessed\\by} node[relabel,pos=.1,below]{1} node[relabel,pos=.87,below]{0..1}(a);
+\draw[relation] ($(i.south)+(-.75,0)$)--node[relabel,pos=.18,left]{1} node[relabel,pos=.8,left]{0..1} node[relabel,pos=.48,left]{opens} ($(a.north)+(-.75,0)$);
+\draw[relation] ($(i.south)+(.75,0)$)--node[relabel,pos=.18,right]{1} node[relabel,pos=.8,right]{0..1} node[relabel,pos=.48,right]{closes} ($(a.north)+(.75,0)$);
+\end{tikzpicture}

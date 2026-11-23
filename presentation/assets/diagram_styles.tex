@@ -1,0 +1,39 @@
+% Editable native TikZ diagrams. All dimensions are in centimetres.
+\usetikzlibrary{arrows.meta,positioning,calc,shapes.geometric,fit}
+% Six-sided event with rectangular text area and cardinal anchors.
+\makeatletter
+\pgfdeclareshape{epcevent}{
+  \inheritsavedanchors[from=rectangle]
+  \inheritanchorborder[from=rectangle]
+  \inheritanchor[from=rectangle]{center}
+  \inheritanchor[from=rectangle]{text}
+  \inheritanchor[from=rectangle]{north}
+  \inheritanchor[from=rectangle]{south}
+  \inheritanchor[from=rectangle]{east}
+  \inheritanchor[from=rectangle]{west}
+  \backgroundpath{
+    \northeast \pgf@xa=\pgf@x \pgf@ya=\pgf@y
+    \southwest \pgf@xb=\pgf@x \pgf@yb=\pgf@y
+    \pgfpathmoveto{\pgfpoint{\pgf@xb}{0pt}}
+    \pgfpathlineto{\pgfpoint{\pgf@xb+5pt}{\pgf@ya}}
+    \pgfpathlineto{\pgfpoint{\pgf@xa-5pt}{\pgf@ya}}
+    \pgfpathlineto{\pgfpoint{\pgf@xa}{0pt}}
+    \pgfpathlineto{\pgfpoint{\pgf@xa-5pt}{\pgf@yb}}
+    \pgfpathlineto{\pgfpoint{\pgf@xb+5pt}{\pgf@yb}}
+    \pgfpathclose
+  }
+}
+\makeatother
+\tikzset{
+  flow/.style={-{Stealth[length=1.7mm]},draw=ink,line width=.65pt},
+  event/.style={shape=epcevent,draw=muted,fill=mist,minimum height=.65cm,text width=2.0cm,align=center,font=\linespread{1}\fontsize{8.5}{10}\selectfont,inner xsep=6pt,inner ysep=3pt},
+  function/.style={rectangle,rounded corners=2pt,draw=accent,fill=accent!9,minimum height=.77cm,text width=2.0cm,align=center,font=\linespread{1}\fontsize{8.5}{10}\selectfont,inner sep=4pt},
+  xor/.style={circle,draw=ink,fill=white,minimum size=.48cm,inner sep=0pt,font=\fontsize{7}{8}\selectfont\bfseries},
+  role/.style={font=\linespread{1}\fontsize{7}{8}\selectfont,text=muted,align=center},
+  entity/.style={rectangle,rounded corners=4pt,draw=accent,fill=accent!5,text width=3.35cm,align=left,font=\linespread{1}\fontsize{8.5}{10}\selectfont,inner sep=6pt},
+  relation/.style={draw=ink,line width=.6pt},
+  relabel/.style={font=\linespread{1}\fontsize{7.3}{8.5}\selectfont,fill=white,inner sep=1.5pt,text=ink,align=center},
+  component/.style={rectangle,rounded corners=3pt,draw=accent,fill=accent!7,text width=3cm,minimum height=.9cm,align=center,font=\linespread{1}\small,inner sep=5pt}
+}
+\newcommand{\epclegend}{\par\smallskip{\fontsize{7}{8}\selectfont\color{muted}EPC: hexagon = state/event; rounded box = activity/function; arrow = control flow; XOR = exactly one branch. [Role] is an annotation.\par}}
+\newcommand{\erlegend}{\par\smallskip{\fontsize{7}{8}\selectfont\color{muted}\# = identifier; * = mandatory attribute; o = optional (none here). Rounded entities follow VL03. Extension: explicit endpoint ranges replace line-style optionality/crow's feet; lines are non-directional relationships.\par}}
