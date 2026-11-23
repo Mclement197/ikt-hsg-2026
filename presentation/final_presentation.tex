@@ -1,344 +1,354 @@
-\documentclass[10pt]{beamer}
-
-\usetheme[progressbar=frametitle]{metropolis}
-\usepackage{appendixnumberbeamer}
-
-\usepackage{booktabs}
-\usepackage[scale=2]{ccicons}
-
-\usepackage{pgfplots}
-\usepgfplotslibrary{dateplot}
-\usepackage{pgfplotsthemetol}
-\pgfplotsset{compat=1.18}
-
-\usepackage{xspace}
-\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
-
-\title{Metropolis}
-\subtitle{A modern beamer theme}
-% \date{\today}
-\date{}
-\author{Matthias Vogelgesang}
-\institute{Center for modern beamer themes}
-% \titlegraphic{\hfill\includegraphics[height=1.5cm]{logo.pdf}}
+\RequirePackage{fix-cm}
+\documentclass[10pt,aspectratio=169]{beamer}
+\usetheme[progressbar=none,block=fill]{metropolis}
+\geometry{paperwidth=180mm,paperheight=101.25mm}
+\usepackage{booktabs,tabularx,array,listings,tikz}
+\definecolor{ink}{HTML}{17343B}
+\definecolor{accent}{HTML}{007F78}
+\definecolor{muted}{HTML}{52666C}
+\definecolor{mist}{HTML}{F0F4F4}
+\setbeamercolor{normal text}{fg=ink,bg=white}
+\setbeamercolor{alerted text}{fg=accent}
+\setbeamercolor{frametitle}{fg=white,bg=ink}
+\setbeamercolor{progress bar}{fg=accent,bg=mist}
+\setbeamercolor{block title}{fg=accent,bg=mist}
+\setbeamercolor{block body}{fg=ink,bg=mist}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{frame footer}{Mathis Clément\enspace |\enspace HSG · HS2026\enspace |\enspace English draft}
+\setbeamertemplate{frame numbering}{\insertframenumber/19}
+\setbeamerfont{frametitle}{size=\large}
+\pdfstringdefDisableCommands{\def\enspace{ }\def\translate#1{#1}}
+\setbeamersize{text margin left=8mm,text margin right=8mm}
+\setbeameroption{hide notes}
+\newcommand{\sources}[1]{\par\vfill{\fontsize{6.5}{7.8}\selectfont\color{muted}#1\par}}
+\newcommand{\keyline}[1]{\par\medskip{\large\color{accent}\bfseries #1}\par}
+\newcommand{\code}[1]{\texttt{\detokenize{#1}}}
+\newcommand{\confirm}[1]{{\small\textbf{AUTHOR CONFIRMATION REQUIRED:} #1}}
+\newcommand{\erdetail}{0}
+\renewcommand{\arraystretch}{1.18}
+\renewcommand{\tabularxcolumn}[1]{>{\raggedright\arraybackslash}p{#1}}
+\lstset{language=SQL,basicstyle=\linespread{1}\ttfamily\fontsize{8}{9.4}\selectfont,
+  keywordstyle=\color{accent}\bfseries,commentstyle=\color{muted},
+  stringstyle=\color{ink},showstringspaces=false,breaklines=true,
+  columns=fullflexible,keepspaces=true,aboveskip=3pt,belowskip=3pt,
+  frame=none,tabsize=2}
+\input{assets/diagram_styles}
+\title{Designing a Mileage-Based\\Electric Vehicle Tax System}
+\subtitle{Case A: Electromobility\enspace |\enspace English review draft}
+\author{Mathis Clément}
+\institute{University of St. Gallen (HSG)\\Information and Communication Technology · HS2026}
+\date{9 November 2026}
+\hypersetup{pdftitle={Designing a Mileage-Based Electric Vehicle Tax System},pdfauthor={Mathis Clément},pdfsubject={HSG IKT HS2026 — English review draft}}
 
 \begin{document}
 
-\maketitle
-
-\begin{frame}{Table of contents}
-  \setbeamertemplate{section in toc}[sections numbered]
-  \tableofcontents%[hideallsubsections]
+% 1 — 15 seconds
+\begin{frame}[plain]
+\vspace{7mm}
+{\LARGE\bfseries Designing a Mileage-Based\\Electric Vehicle Tax System\par}
+\vspace{3mm}{\color{accent}\rule{\textwidth}{1pt}}\par
+{\large Case A: Electromobility\par}
+\medskip
+\textbf{Mathis Clément}\par
+University of St. Gallen (HSG)\\
+Information and Communication Technology · HS2026
+\par\medskip
+{\small English review draft · 9 November 2026}
 \end{frame}
 
-\section[Intro]{Introduction}
-
-\begin{frame}[fragile]{Metropolis}
-
-  The \themename theme is a Beamer theme with minimal visual noise
-  inspired by the \href{https://github.com/hsrmbeamertheme/hsrmbeamertheme}{\textsc{hsrm} Beamer
-  Theme} by Benjamin Weiss.
-
-  Enable the theme by loading
-
-  \begin{verbatim}    \documentclass{beamer}
-    \usetheme{metropolis}\end{verbatim}
-
-  Note, that you have to have Mozilla's \emph{Fira Sans} font and XeTeX
-  installed to enjoy this wonderful typography.
-\end{frame}
-\begin{frame}[fragile]{Sections}
-  Sections group slides of the same topic
-
-  \begin{verbatim}    \section{Elements}\end{verbatim}
-
-  for which \themename provides a nice progress indicator \ldots
-
-\end{frame}
-
-\section{Titleformats}
-
-\begin{frame}{Metropolis titleformats}
-  \themename supports 4 different titleformats:
-  \begin{itemize}
-    \item Regular
-    \item \textsc{Smallcaps}
-    \item \textsc{allsmallcaps}
-    \item ALLCAPS
-  \end{itemize}
-  They can either be set at once for every title type or individually.
+% 2 — 40 seconds
+\begin{frame}{Tax distance travelled, without tracking journeys}
+\begin{columns}[T,onlytextwidth]
+\column{.46\textwidth}
+\begin{block}{The assignment's rates}
+\textbf{BEV}: battery electric vehicle\\
+\alert{3 pence per mile}\par\medskip
+\textbf{PHEV}: plug-in hybrid electric vehicle\\
+\alert{1.5 pence per mile}
+\end{block}
+\column{.51\textwidth}
+\textbf{Four actors, distinct responsibilities}
+\begin{itemize}\itemsep3pt
+\item Owners declare mileage and pay.
+\item MOT inspection centres verify readings.
+\item DVLA supplies vehicle-registration data.
+\item Tax authority assesses, settles and reports.
+\end{itemize}
+\end{columns}
+\keyline{Estimate → advance → verified miles → settlement → management information}
+{\small MOT = Ministry of Transport test. DVLA = Driver and Vehicle Licensing Agency; external reference authority in the design.}
+\sources{[C] Cases IKT, HS2026, PDF p. 3. Rates and scenario are assignment inputs, not a claim about enacted UK law. No live agency connection is implemented.}
 \end{frame}
 
-\subsection{Tricks}
-
-{
-  \metroset{titleformat frame=smallcaps}
-\begin{frame}{Small caps}
-  This frame uses the \texttt{smallcaps} titleformat.
-
-  \begin{alertblock}{Potential Problems}
-    Be aware, that not every font supports small caps. If for example you typeset your presentation with pdfTeX and the Computer Modern Sans Serif font, every text in smallcaps will be typeset with the Computer Modern Serif font instead.
-  \end{alertblock}
-\end{frame}
-}
-
-{
-\metroset{titleformat frame=allsmallcaps}
-\begin{frame}{All small caps}
-  This frame uses the \texttt{allsmallcaps} titleformat.
-
-  \begin{alertblock}{Potential problems}
-    As this titleformat also uses smallcaps you face the same problems as with the \texttt{smallcaps} titleformat. Additionally this format can cause some other problems. Please refer to the documentation if you consider using it.
-
-    As a rule of thumb: Just use it for plaintext-only titles.
-  \end{alertblock}
-\end{frame}
-}
-
-{
-\metroset{titleformat frame=allcaps}
-\begin{frame}{All caps}
-  This frame uses the \texttt{allcaps} titleformat.
-
-  \begin{alertblock}{Potential Problems}
-    This titleformat is not as problematic as the \texttt{allsmallcaps} format, but basically suffers from the same deficiencies. So please have a look at the documentation if you want to use it.
-  \end{alertblock}
-\end{frame}
-}
-
-\section{Elements}
-
-\begin{frame}[fragile]{Typography}
-      \begin{verbatim}The theme provides sensible defaults to
-\emph{emphasize} text, \alert{accent} parts
-or show \textbf{bold} results.\end{verbatim}
-
-  \begin{center}becomes\end{center}
-
-  The theme provides sensible defaults to \emph{emphasize} text,
-  \alert{accent} parts or show \textbf{bold} results.
+% 3 — 50 seconds
+\begin{frame}{A narrow scope makes the annual logic explainable}
+\begin{tabularx}{\textwidth}{@{}p{.44\textwidth}X@{}}
+\toprule
+\textbf{Assumption} & \textbf{Design consequence}\\\midrule
+One billing year: 1 Apr 2028–31 Mar 2029 & \code{period_end = 2029-04-01} is exclusive.\\
+One unchanged owner; fixed rates; miles & No ownership or rate-period splits.\\
+Verified readings at both boundaries; no reset & Closing minus opening gives actual miles.\\
+One declaration and final assessment per vehicle/year & Assessment may be absent while work is in progress.\\
+Integer pence; half-pennies upwards & Round once after mileage × rate.\\\bottomrule
+\end{tabularx}\par
+\medskip
+\textbf{Boundary:} conceptual processes + local SQLite prototype, using fictional records.
+\par\smallskip
+{\small Excluded: website, authentication, real payments, live agencies, transfers, new-vehicle MOT exceptions, fraud, appeals, penalties and production deployment.}
+\sources{[S] Scope.md, §§4–6. [L1] Modelling, PDF p. 54: purposeful reduction of detail. Calculation rules: A1.}
 \end{frame}
 
-\begin{frame}{Font feature test}
-  \begin{itemize}
-    \item Regular
-    \item \textit{Italic}
-    \item \textsc{SmallCaps}
-    \item \textbf{Bold}
-    \item \textbf{\textit{Bold Italic}}
-    \item \textbf{\textsc{Bold SmallCaps}}
-    \item \texttt{Monospace}
-    \item \texttt{\textit{Monospace Italic}}
-    \item \texttt{\textbf{Monospace Bold}}
-    \item \texttt{\textbf{\textit{Monospace Bold Italic}}}
-  \end{itemize}
+% 4 — 50 seconds
+\begin{frame}{Process 1 | An estimate creates an advance, not final tax}
+\noindent{\small Accepted-declaration path; validation rejection is shown in the complete model, A2–A3.\par}
+\begin{center}\input{assets/p1_overview}\end{center}
+\epclegend
+\sources{[L2] Processes, PDF pp. 21–25; [E] EPC cheat sheet, p. 1. Process design is supported by stored demonstration records, not an automated workflow.}
 \end{frame}
 
-\begin{frame}{Lists}
-  \begin{columns}[T,onlytextwidth]
-    \column{0.33\textwidth}
-      Items
-      \begin{itemize}
-        \item Milk \item Eggs \item Potatos
-      \end{itemize}
-
-    \column{0.33\textwidth}
-      Enumerations
-      \begin{enumerate}
-        \item First, \item Second and \item Last.
-      \end{enumerate}
-
-    \column{0.33\textwidth}
-      Descriptions
-      \begin{description}
-        \item[PowerPoint] Meeh. \item[Beamer] Yeeeha.
-      \end{description}
-  \end{columns}
-\end{frame}
-\begin{frame}{Animation}
-  \begin{itemize}[<+- | alert@+>]
-    \item \alert<4>{This is\only<4>{ really} important}
-    \item Now this
-    \item And now this
-  \end{itemize}
-\end{frame}
-\begin{frame}{Figures}
-  \begin{figure}
-    \newcounter{density}
-    \setcounter{density}{20}
-    \begin{tikzpicture}
-      \def\couleur{alerted text.fg}
-      \path[coordinate] (0,0)  coordinate(A)
-                  ++( 90:5cm) coordinate(B)
-                  ++(0:5cm) coordinate(C)
-                  ++(-90:5cm) coordinate(D);
-      \draw[fill=\couleur!\thedensity] (A) -- (B) -- (C) --(D) -- cycle;
-      \foreach \x in {1,...,40}{%
-          \pgfmathsetcounter{density}{\thedensity+20}
-          \setcounter{density}{\thedensity}
-          \path[coordinate] coordinate(X) at (A){};
-          \path[coordinate] (A) -- (B) coordinate[pos=.10](A)
-                              -- (C) coordinate[pos=.10](B)
-                              -- (D) coordinate[pos=.10](C)
-                              -- (X) coordinate[pos=.10](D);
-          \draw[fill=\couleur!\thedensity] (A)--(B)--(C)-- (D) -- cycle;
-      }
-    \end{tikzpicture}
-    \caption{Rotated square from
-    \href{http://www.texample.net/tikz/examples/rotated-polygons/}{texample.net}.}
-  \end{figure}
-\end{frame}
-\begin{frame}{Tables}
-  \begin{table}
-    \caption{Largest cities in the world (source: Wikipedia)}
-    \begin{tabular}{lr}
-      \toprule
-      City & Population\\
-      \midrule
-      Mexico City & 20,116,842\\
-      Shanghai & 19,210,000\\
-      Peking & 15,796,450\\
-      Istanbul & 14,160,467\\
-      \bottomrule
-    \end{tabular}
-  \end{table}
-\end{frame}
-\begin{frame}{Blocks}
-  Three different block environments are pre-defined and may be styled with an
-  optional background color.
-
-  \begin{columns}[T,onlytextwidth]
-    \column{0.5\textwidth}
-      \begin{block}{Default}
-        Block content.
-      \end{block}
-
-      \begin{alertblock}{Alert}
-        Block content.
-      \end{alertblock}
-
-      \begin{exampleblock}{Example}
-        Block content.
-      \end{exampleblock}
-
-    \column{0.5\textwidth}
-
-      \metroset{block=fill}
-
-      \begin{block}{Default}
-        Block content.
-      \end{block}
-
-      \begin{alertblock}{Alert}
-        Block content.
-      \end{alertblock}
-
-      \begin{exampleblock}{Example}
-        Block content.
-      \end{exampleblock}
-
-  \end{columns}
-\end{frame}
-\begin{frame}{Math}
-  \begin{equation*}
-    e = \lim_{n\to \infty} \left(1 + \frac{1}{n}\right)^n
-  \end{equation*}
-\end{frame}
-\begin{frame}{Line plots}
-  \begin{figure}
-    \begin{tikzpicture}
-      \begin{axis}[
-        mlineplot,
-        width=0.9\textwidth,
-        height=6cm,
-      ]
-
-        \addplot {sin(deg(x))};
-        \addplot+[samples=100] {sin(deg(2*x))};
-
-      \end{axis}
-    \end{tikzpicture}
-  \end{figure}
-\end{frame}
-\begin{frame}{Bar charts}
-  \begin{figure}
-    \begin{tikzpicture}
-      \begin{axis}[
-        mbarplot,
-        xlabel={Foo},
-        ylabel={Bar},
-        width=0.9\textwidth,
-        height=6cm,
-      ]
-
-      \addplot plot coordinates {(1, 20) (2, 25) (3, 22.4) (4, 12.4)};
-      \addplot plot coordinates {(1, 18) (2, 24) (3, 23.5) (4, 13.2)};
-      \addplot plot coordinates {(1, 10) (2, 19) (3, 25) (4, 15.2)};
-
-      \legend{lorem, ipsum, dolor}
-
-      \end{axis}
-    \end{tikzpicture}
-  \end{figure}
-\end{frame}
-\begin{frame}{Quotes}
-  \begin{quote}
-    Veni, Vidi, Vici
-  \end{quote}
+% 5 — 60 seconds
+\begin{frame}{Process 2 | Assessment and cash are separate events}
+\begin{center}\input{assets/p2_overview}\end{center}
+\epclegend
+\sources{Overview ends at authorisation. Full reading checks and cash-completion paths: A4–A5. [S] Scope.md; [L2] PDF pp. 21–25.}
 \end{frame}
 
-{%
-\setbeamertemplate{frame footer}{My custom footer}
-\begin{frame}[fragile]{Frame footer}
-    \themename defines a custom beamer template to add a text to the footer. It can be set via
-    \begin{verbatim}\setbeamertemplate{frame footer}{My custom footer}\end{verbatim}
-\end{frame}
-}
-
-\begin{frame}{References}
-  Some references to showcase [allowframebreaks] \cite{knuth92,ConcreteMath,Simpson,Er01,greenwade93}
-\end{frame}
-
-\section{Conclusion}
-
-\begin{frame}{Summary}
-
-  Get the source of this theme and the demo presentation from
-
-  \begin{center}\url{github.com/matze/mtheme}\end{center}
-
-  The theme \emph{itself} is licensed under a
-  \href{http://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons
-  Attribution-ShareAlike 4.0 International License}.
-
-  \begin{center}\ccbysa\end{center}
-
+% 6 — 45 seconds
+\begin{frame}{Process 3 | Validated aggregates support planning}
+\noindent{\small Accepted-data path; quality rejection and the planning decision are detailed in A6–A7.\par}
+\begin{center}\input{assets/p3_overview}\end{center}
+\begin{columns}[T,onlytextwidth]
+\column{.48\textwidth}\textbf{Analysis 1: advance liability by type}\\Plan expected advances and understand mileage mix.
+\column{.48\textwidth}\textbf{Analysis 2: gross settlement adjustments}\\Plan additional-assessment and refund workload.
+\end{columns}
+\epclegend
+\sources{[L4] Databases and BI, PDF pp. 48–49. Implemented SQL: expected\_revenue.sql and additional\_tax.sql. Outstanding cash is a separate validation calculation.}
 \end{frame}
 
-{\setbeamercolor{palette primary}{fg=black, bg=yellow}
-\begin{frame}[standout]
-  Questions?
+% 7 — 70 seconds
+\begin{frame}{Six entities connect responsibility, evidence and money}
+\begin{center}\input{assets/er_conceptual}\end{center}
+\erlegend
+\sources{[L3] Data modelling, PDF pp. 26–31, especially p. 28; [DB] schema and metadata. Ranges describe the entity at that endpoint, for one entity at the other end. Full attributes and inspection-role reuse: A8–A9.}
 \end{frame}
-}
+
+% 8 — 40 seconds
+\begin{frame}{SQLite implements the structure, not every business rule}
+\begin{columns}[T,onlytextwidth]
+\column{.47\textwidth}
+\textbf{Six relations from six entities}
+\begin{itemize}\itemsep3pt
+\item \code{vehicle_owners}, \code{vehicles}
+\item \code{declarations}, \code{mot_inspections}
+\item \code{tax_assessments}, \code{payments}
+\end{itemize}
+\textbf{Implemented integrity}\\
+Primary keys, foreign keys, mandatory fields and uniqueness constraints.
+\column{.49\textwidth}
+\textbf{Still a workflow responsibility}
+\begin{itemize}\itemsep3pt
+\item Same vehicle for declaration and readings.
+\item Correct dates and non-decreasing mileage.
+\item Allowed types and correct tax arithmetic.
+\end{itemize}
+\textbf{Storage choices}\\
+Money: integer pence. Dates/timestamps: SQLite \code{TEXT}. Derived due/liability amounts are stored as an assessment record.
+\end{columns}
+\keyline{Inserted amounts are evidence of cases, not an automatic tax engine.}
+\sources{[DB] scripts/setup\_database.py; PRAGMA metadata. Foreign-key enforcement must be enabled per connection. [L4] PDF pp. 15–18. Full mapping/schema: A10–A14.}
+\end{frame}
+
+% 9 — 65 seconds
+\begin{frame}{Five cases exercise the same settlement process}
+\begin{columns}[T,onlytextwidth]
+\column{.60\textwidth}
+\small
+\begin{tabular}{@{}clrrl@{}}\toprule
+Case & Type & Advance & Final & Outcome\\\midrule
+1 & BEV & £300 & £360 & £60 extra, paid\\
+2 & BEV & £300 & £240 & £60 refunded\\
+3 & BEV & £300 & £300 & No adjustment\\
+4 & PHEV & £120 & £150 & £30 extra, paid\\
+5 & PHEV & £150 & £180 & \alert{£30 still owed}\\\bottomrule
+\end{tabular}
+\par\medskip
+5 owners + 5 vehicles + 5 declarations +\\10 inspections + 5 assessments + 8 payments\\= \textbf{38 linked rows, five business cases}.
+\column{.36\textwidth}
+\begin{block}{Case 5: trace the balance}
+22,000 − 10,000 = \textbf{12,000 miles}\par\smallskip
+12,000 miles × 1.5 p/mile\\= 18,000 p = \textbf{£180}\par\smallskip
+£180 liability − £150 received\\= \alert{£30 outstanding}
+\end{block}
+\end{columns}
+\sources{[DB] Read-only recomputation of all five cases. All advances are paid; case 5 has no additional-payment record. Full evidence: A15–A17. Fictional examples, not a population estimate.}
+\end{frame}
+
+% 10 — 55 seconds
+\begin{frame}[fragile]{Analysis 1 | Plan the advance liability by vehicle type}
+\textbf{Question:} what advance amounts and mileage were declared for 2028/29?
+\begin{center}
+\begin{tabular}{@{}lcrrr@{}}\toprule
+Start year & Type & Vehicles & Declared miles & Advance liability\\\midrule
+2028 & BEV & 3 & 30,000 & £900.00\\
+2028 & PHEV & 2 & 18,000 & £270.00\\\bottomrule
+\end{tabular}
+\end{center}
+\begin{lstlisting}
+FROM declarations AS d
+JOIN vehicles AS v ON d.vehicle_id = v.vehicle_id
+GROUP BY strftime('%Y', d.period_start), v.vehicle_type
+\end{lstlisting}
+\textbf{JOIN} supplies the type; \textbf{GROUP BY} forms year/type groups; sums give mileage and advance liability.
+\keyline{£1,170 planned advances; a billing-year measure, not calendar-year cash.}
+\sources{[Q1] database/queries/expected\_revenue.sql, executed unchanged. 2028/29 billing year, grouped by start year 2028. Original output alias: expected\_revenue\_gbp. Complete SQL/output: A18.}
+\end{frame}
+
+% 11 — 60 seconds
+\begin{frame}[fragile]{Analysis 2 | Plan the scale of settlement adjustments}
+\begin{center}
+\begin{tabular}{@{}crrrrr@{}}\toprule
+Start year & Assessed & Extra cases & Refund cases & Extra tax & Refunds\\\midrule
+2028 & 5 & 3 & 1 & £120.00 & £60.00\\\bottomrule
+\end{tabular}
+\end{center}
+\begin{lstlisting}
+JOIN tax_assessments AS a ON d.declaration_id = a.declaration_id
+SUM(CASE WHEN a.final_tax_pence > d.advance_due_pence
+    THEN a.final_tax_pence - d.advance_due_pence ELSE 0 END)
+\end{lstlisting}
+{\small Excerpt: the conditional sum counts only positive differences; a second expression handles refunds.}
+\medskip
+\begin{columns}[T,onlytextwidth]
+\column{.48\textwidth}\textbf{Planning meaning}\\Three additional assessments and one refund indicate settlement-processing work. One case needs no adjustment.
+\column{.48\textwidth}\textbf{Cash distinction}\\The query does not join payments.\\\alert{£120 assessed ≠ £30 still outstanding.}
+\end{columns}
+\sources{[Q2] database/queries/additional\_tax.sql, executed unchanged. Comparison is with advance due (all paid in this sample). Full SQL/output: A19–A20; supplementary cash check: A21.}
+\end{frame}
+
+% 12 — 30 seconds
+\begin{frame}{From a local prototype to a proposed operating architecture}
+\begin{center}\input{assets/architecture}\end{center}
+\textbf{Transition:} agree responsibilities and interfaces, validate operational processing, then introduce a reporting snapshot as load grows.
+\sources{Target view: every component to the right of “Current prototype” is proposed. Arrows represent data exchange; dashed arrow represents evolution. [L5] PDF pp. 12, 15–16.}
+\end{frame}
+
+% 13 — 25 seconds
+\begin{frame}{1 | Protect tax processing as workloads grow}
+\begin{block}{Risk → principle}
+Annual declaration peaks and heavy reports can slow or interrupt processing.\\
+\textbf{Separate workloads and design critical processing for resilient growth.}
+\end{block}
+\textbf{Concrete decision:} run heavy management queries on a reporting snapshot; keep operational tax/payment processing recoverable.
+\par\medskip
+\textbf{Proposed validation:} test peak loads and recovery; if asynchronous transfers are added, retry the same payment without counting it twice.
+\par\medskip
+\textbf{Trade-off:} fresher reports cost more processing and operational effort. A snapshot introduces an explicit reporting delay.
+\sources{Architecture chain 1 of 3. These are target decisions and tests, not achieved service levels. [L4] PDF pp. 48–49; [L5] pp. 12, 15–16; [L6] p. 18.}
+\end{frame}
+
+% 14 — 25 seconds
+\begin{frame}{2 | Make responsibility for shared data explicit}
+\begin{block}{Risk → principle}
+Inconsistent identifiers, units and out-of-order records can create wrong assessments.\\
+\textbf{Define authoritative ownership and standardised, versioned interfaces.}
+\end{block}
+\textbf{Concrete decision:} proposed ownership is DVLA for registration, MOT providers for verified readings, and the tax authority for assessments.
+\par\medskip
+\textbf{Proposed validation:} interface contracts require stable identifiers, miles, explicit dates and provenance; test duplicates and out-of-order readings before release.
+\par\medskip
+\textbf{Trade-off:} shared contracts reduce ambiguity but require partner coordination and version management.
+\sources{Architecture chain 2 of 3. No live interfaces or automated cross-agency controls exist in the prototype. [L5] PDF pp. 12, 15–16; [L6] p. 18.}
+\end{frame}
+
+% 15 — 25 seconds
+\begin{frame}{3 | Limit exposure of personal and financial data}
+\begin{block}{Risk → principle}
+More users, partners and reports increase opportunities for inappropriate access.\\
+\textbf{Minimise personal data and enforce least-privilege access.}
+\end{block}
+\textbf{Concrete decision:} retain odometer totals, not journey/GPS histories; give management aggregates and operational roles only necessary records.
+\par\medskip
+\textbf{Proposed validation:} the authority assigns retention and access-review owners; test denied access and review logs. Protect data in transfer and storage.
+\par\medskip
+\textbf{Trade-off:} reduced access and retention limit ad-hoc investigation. Record which evidence is genuinely needed for an assessment.
+\sources{Architecture chain 3 of 3. Access controls, encryption, logs and retention governance are proposed; legal compliance has not been established. [C] p. 3; [L5–L6].}
+\end{frame}
+
+% 16 — 45 seconds
+\begin{frame}{AI reflection 1 | Assistance does not transfer responsibility}
+\begin{columns}[T,onlytextwidth]
+\column{.49\textwidth}
+\textbf{Documented assistance}
+\begin{itemize}\itemsep4pt
+\item Explanations and drafts for scope, process/ER models, SQLite, sample data and SQL.
+\item This English deck, diagram revisions, script, build and verification.
+\end{itemize}
+\textbf{Why useful:} quick alternatives and clear explanations for a small prototype.
+\column{.47\textwidth}
+\textbf{Human responsibility}
+\begin{itemize}\itemsep4pt
+\item Understand and defend the design and the meaning of each result.
+\item Review the draft and acknowledge assistance.
+\item Record the final narration personally; generated speech is prohibited.
+\end{itemize}
+\end{columns}
+\medskip
+\confirm{Which substantive activities did the author deliberately do without AI, and why? No historical non-use is inferred.}
+\sources{[P] Supplied presentation brief: prior AI-use context. [C] PDF pp. 1–2, 4 (Task 7a). Separate HSG AI-use declaration is still required.}
+\end{frame}
+
+% 17 — 55 seconds
+\begin{frame}{AI reflection 2 | A plausible label changed the business meaning}
+\begin{columns}[T,onlytextwidth]
+\column{.47\textwidth}
+\begin{block}{AI-assisted original description}
+“Outstanding amounts and refunds by period.”\par\smallskip
+The reporting drawing proposes that output, but the implemented query compares \textbf{final tax with advance due}.
+\end{block}
+\column{.49\textwidth}
+\begin{block}{Correction in this draft}
+Label Analysis 2 \textbf{gross settlement adjustments}.\par\smallskip
+Use signed payment totals for remaining balances:\\
+£1,230 − (£1,170 + £90 − £60)\\
+= \alert{£30 outstanding}.
+\end{block}
+\end{columns}
+\textbf{Detection:} compare the proposed indicator with the query's tables and reconcile the payments. £120 is assessed extra tax; £90 has already been received.
+\par\smallskip
+\textbf{Course lesson:} integrated management information needs a precise business definition, not just valid SQL.
+\sources{[D3] 03\_management\_reporting.drawio, queriesbody; file metadata agent=Codex supports AI-assisted provenance. [Q2], [DB]; [L4] PDF pp. 48–49. Comparison/correction performed by the presentation agent, not claimed as the author's independent discovery.}
+\end{frame}
+
+% 18 — 45 seconds
+\begin{frame}{AI reflection 3 | Validate with the course, then claim only your work}
+\textbf{Checks completed by the presentation agent}
+\begin{itemize}\itemsep4pt
+\item EPC: state/activity alternation, start/end events, XOR outcomes and role labels.
+\item ER: endpoint cardinalities checked against keys, uniqueness and optional assessment.
+\item SQLite: integrity and foreign-key checks passed; schema/data replay matched in memory.
+\item Business meaning: all five mileage/rate calculations and signed payments reconciled.
+\end{itemize}
+\textbf{Why course knowledge matters:} foreign keys alone cannot validate the vehicle of both readings; a successful aggregate can still answer the wrong question.
+\par\medskip
+\confirm{Identify checks personally repeated and exclusively personal design decisions, with evidence. Simple code and English-first are documented preferences, not proof of independent system design.}
+\sources{[L2–L4]; assets/database\_verification.json and editable diagram sources. Task 7c–7d: personal authorship statements remain specifically unresolved.}
+\end{frame}
+
+% 19 — 20 seconds
+\begin{frame}{A traceable annual workflow, with a clear prototype boundary}
+\keyline{Estimate → evidence → liability → cash → useful management information}
+\begin{itemize}\itemsep9pt
+\item Three process models connect to six SQLite tables and five settlement cases.
+\item Two real SQL analyses support advance planning and settlement workload.
+\item The key distinction holds: \textbf{£1,230 assessed = £1,200 net cash + £30 receivable}.
+\end{itemize}
+\medskip
+\textbf{Limits:} one fictional year; exceptional cases and operational controls remain outside this prototype. Three architecture principles guide the next stage.
+\sources{End of narrated English draft. Appendix A1–A23 contains complete models, implementation evidence, SQL, results and sources. Final course delivery requires German voice-over PowerPoint and separate database submission.}
+\end{frame}
 
 \appendix
-
-\begin{frame}[fragile]{Backup slides}
-  Sometimes, it is useful to add slides at the end of your presentation to
-  refer to during audience questions.
-
-  The best way to do this is to include the \verb|appendixnumberbeamer|
-  package in your preamble and call \verb|\appendix| before your backup slides.
-
-  \themename will automatically turn off slide numbering and progress bars for
-  slides in the appendix.
-\end{frame}
-
-\begin{frame}[allowframebreaks]{References}
-
-  \bibliography{build/demo}
-  \bibliographystyle{abbrv}
-
-\end{frame}
-
+\setcounter{framenumber}{0}
+\setbeamertemplate{frame numbering}{A\insertframenumber}
+\input{assets/appendix}
 \end{document}

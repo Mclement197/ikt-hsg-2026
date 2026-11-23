@@ -1,0 +1,12 @@
+\begin{tikzpicture}
+\node[event] (a) at (0,0) {Reporting date\\reached};
+\node[function] (b) at (2.85,0) {Extract period data\\{\scriptsize [Analyst]}};
+\node[event] (c) at (5.7,0) {Dataset\\available};
+\node[function] (d) at (8.55,0) {Check data quality\\{\scriptsize [Controlling]}};
+\node[event] (e) at (11.4,0) {Dataset\\accepted};
+\node[function] (f) at (11.4,-1.6) {Run both analyses\\{\scriptsize [Analyst]}};
+\node[event] (g) at (8.55,-1.6) {Aggregates\\available};
+\node[function] (h) at (5.7,-1.6) {Review and release\\{\scriptsize [Management]}};
+\node[event] (i) at (2.85,-1.6) {Report\\released};
+\foreach \s/\t in {a/b,b/c,c/d,d/e,e/f,f/g,g/h,h/i} \draw[flow] (\s)--(\t);
+\end{tikzpicture}
