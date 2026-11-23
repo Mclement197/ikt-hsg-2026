@@ -2,3 +2,4 @@
 /presentation/build/*
 !/presentation/build/latexmkrc
 !/presentation/build/demo.bib
+presentation/final_presentation.pdf
