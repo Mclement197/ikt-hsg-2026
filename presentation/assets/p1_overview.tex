@@ -1,0 +1,15 @@
+\begin{tikzpicture}
+\node[event] (a) at (0,0) {Declaration\unskip\\period open};
+\node[function] (b) at (2.85,0) {Submit estimate\\{\scriptsize [Owner]}};
+\node[event] (c) at (5.7,0) {Declaration\\submitted};
+\node[function] (d) at (8.55,0) {Validate declaration\\{\scriptsize [Authority]}};
+\node[event] (e) at (11.4,0) {Declaration\\accepted};
+\node[function] (f) at (11.4,-1.6) {Calculate advance\\{\scriptsize [Authority]}};
+\node[event] (g) at (8.55,-1.6) {Advance due\\determined};
+\node[function] (h) at (5.7,-1.6) {Pay advance\\{\scriptsize [Owner]}};
+\node[event] (i) at (2.85,-1.6) {Advance payment\\received};
+\node[function] (j) at (0,-1.6) {Record payment\\{\scriptsize [Authority]}};
+\node[event] (k) at (0,-3.1) {Advance payment\\recorded};
+\foreach \s/\t in {a/b,b/c,c/d,d/e,e/f,f/g,g/h,h/i,i/j,j/k} \draw[flow] (\s)--(\t);
+\node[align=left,text width=9cm,anchor=west,font=\small] at (2.2,-3.1) {A declaration stores \textbf{advance due}. A payment records \textbf{cash received}.\\The advance can exist before any final assessment.};
+\end{tikzpicture}

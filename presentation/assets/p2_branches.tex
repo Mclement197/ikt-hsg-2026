@@ -1,0 +1,17 @@
+\begin{tikzpicture}[function/.append style={text width=3.2cm},event/.append style={text width=2.8cm}]
+\node[event] (a) at (0,0) {Additional\\amount due};
+\node[function] (b) at (0,-1.15) {Issue additional invoice\\{\scriptsize [Authority]}};
+\node[event] (c) at (0,-2.3) {Invoice issued};
+\node[function] (d) at (0,-3.5) {Receive and record\\owner's payment\\{\scriptsize [Authority]}};
+\node[event] (e) at (0,-4.75) {Additional payment\\recorded};
+\node[event] (f) at (5.1,0) {No adjustment\\required};
+\node[function] (g) at (5.1,-1.15) {Issue zero-balance\\confirmation\\{\scriptsize [Authority]}};
+\node[event] (h) at (5.1,-2.3) {Account balanced};
+\node[event] (i) at (10.2,0) {Refund due};
+\node[function] (j) at (10.2,-1.15) {Authorise refund\\{\scriptsize [Authority]}};
+\node[event] (k) at (10.2,-2.3) {Refund authorised};
+\node[function] (l) at (10.2,-3.5) {Transfer and record\\refund to owner\\{\scriptsize [Authority]}};
+\node[event] (m) at (10.2,-4.75) {Refund paid\\and recorded};
+\foreach \s/\t in {a/b,b/c,c/d,d/e,f/g,g/h,i/j,j/k,k/l,l/m} \draw[flow] (\s)--(\t);
+\node[align=left,text width=4.1cm,font=\fontsize{8.5}{10}\selectfont] at (5.1,-3.9) {Case 5 has no additional receipt: its payment branch remains open.\\Invoice status is a process state, not a stored database field.};
+\end{tikzpicture}

@@ -1,0 +1,23 @@
+\begin{tikzpicture}
+\node[event] (a) at (0,0) {Boundary readings\\available};
+\node[function] (b) at (3.2,0) {Validate and assess\\{\scriptsize [Authority]}};
+\node[event] (c) at (6.4,0) {Final liability\\recorded};
+\node[function] (d) at (9.6,0) {Compare with\\paid advance\\{\scriptsize [Authority]}};
+\node[xor] (x) at (9.6,-1.1) {XOR};
+\foreach \s/\t in {a/b,b/c,c/d,d/x} \draw[flow] (\s)--(\t);
+\node[event] (e) at (0,-2) {Additional\\amount due};
+\node[event] (f) at (4.8,-2) {No adjustment\\required};
+\node[event] (g) at (9.6,-2) {Refund due};
+\draw[flow] (x.west)--(0,-1.1)--(e);
+\draw[flow] (x.west)--(4.8,-1.1)--(f);
+\draw[flow] (x)--(g);
+\node[function] (h) at (0,-3.15) {Issue invoice\\{\scriptsize [Authority]}};
+\node[function] (i) at (4.8,-3.15) {Confirm balance\\{\scriptsize [Authority]}};
+\node[function] (j) at (9.6,-3.15) {Authorise refund\\{\scriptsize [Authority]}};
+\node[event] (k) at (0,-4.25) {Invoice issued};
+\node[event] (l) at (4.8,-4.25) {Account balanced};
+\node[event] (m) at (9.6,-4.25) {Refund authorised};
+\foreach \s/\t in {e/h,h/k,f/i,i/l,g/j,j/m} \draw[flow] (\s)--(\t);
+\node[role,anchor=west,text width=2.1cm] at (1.35,-4.1) {Payment still needed\\(case 5 is open)};
+\node[role,anchor=west,text width=1.8cm] at (10.9,-4.1) {Refund transfer\\still needed};
+\end{tikzpicture}

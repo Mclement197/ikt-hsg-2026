@@ -1,0 +1,10 @@
+\begin{tikzpicture}[function/.append style={text width=2.6cm},event/.append style={text width=2.45cm}]
+\node[event] (a) at (0,0) {Dataset\\accepted};
+\node[function] (b) at (3.2,0) {Run advance and\\adjustment queries\\{\scriptsize [Analyst]}};
+\node[event] (c) at (6.4,0) {Management\\indicators ready};
+\node[function] (d) at (9.6,0) {Review and release\\report\\{\scriptsize [Management]}};
+\node[event] (e) at (9.6,-1.7) {Report released};
+\node[function] (f) at (6.4,-1.7) {Plan revenue and\\settlement capacity\\{\scriptsize [Management]}};
+\node[event] (g) at (3.2,-1.7) {Planning decision\\documented};
+\foreach \s/\t in {a/b,b/c,c/d,d/e,e/f,f/g} \draw[flow] (\s)--(\t);
+\end{tikzpicture}
