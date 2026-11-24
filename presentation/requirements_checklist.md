@@ -2,18 +2,18 @@
 
 ## Deliverable and numbering
 
-- **English review draft:** `final_presentation.tex` and `final_presentation.pdf` are the sole main deck. The existing XeLaTeX/Metropolis build and `build/` preview location are retained.
-- **19 narrated slides + 23 unnarrated appendix slides = 42 PDF pages.** Main slide numbers equal PDF page numbers. Appendix **A*n*** is PDF page **19 + *n*** (A1 = 20, A23 = 42).
-- `speaker_notes_en.md` follows the 19 slide titles/numbers. Its 1,703 spoken words target **13:40**, including approximately 90 seconds of pauses at a 140-word/minute speaking pace. This is an estimate, not a timed recording.
+- **English review draft:** `final_presentation.tex` and included `.tex` files are the master. `export_pptx.py` rebuilds it and exports `final_presentation.pptx`; the ignored PDF is a preview.
+- **19 main slides with English notes + 23 unnarrated appendices = 42 slides.** Appendix **A*n*** is PowerPoint slide **19 + *n*** (A1 = 20, A23 = 42). There is no recorded voice-over.
+- `speaker_notes_en.md` follows the 19 main titles. Its 1,615 words have a **13:15** slide budget. Rehearse the final German script and time the actual recording.
 - **Not the final submission:** German voice-over PowerPoint, personal narration, author-confirmed reflection, the separate HSG AI declaration and separate database upload remain required. See `author_review.md`.
 
 ## Mandatory Tasks 1–7
 
 | Requirement | Main slides | Appendix / evidence | Draft status |
 |---|---|---|---|
-| 1. Focus and justified assumptions | 2–3 | A1; `Scope.md`; explicit exclusive period end, fixed owner/rates, miles, boundary readings, integer pence and exclusions | Covered |
+| 1. Focus and justified assumptions | 2–3 | A1; `Scope.md`; exclusive period end, liable owner per segment, fixed case rates, verified miles and integer pence | Covered |
 | 2. Three important modelled processes | 4–6 | Complete EPCs on A2–A7; editable TikZ sources, notation legend, state/activity alternation, roles and XOR | Covered |
-| 2. Process 1: declaration and advance | 4 | A2 validation/rejection; A3 advance receipt and recording | Covered |
+| 2. Process 1: declaration and advance | 4 | A2 validation of period/vehicle/liable owner or correction; A3 advance due and receipt | Covered |
 | 2. Process 2: MOT verification and settlement | 5, 9 | A4 evidence/assessment; A5 additional/no-adjustment/refund paths, invoice versus receipt and incomplete case 5 | Covered |
 | 2. Aggregated information for management | 6, 10–11 | A6 quality/withholding; A7 release and planning decision; actual query meanings | Covered |
 | 3. Conceptual ER model covering processes | 7 | A8 full entity/attribute/relationship view; A9 endpoint cardinalities, optional assessment and two inspection roles; declared lecture-notation extension | Covered |
@@ -28,11 +28,11 @@
 | 6. Concrete practical effects, decision and trade-off/target measure per chain | 13–15 | Snapshot/capacity/recovery/retry test; data contracts/duplicate-order tests; role restrictions/retention/access reviews | Covered, explicitly proposed |
 | 6. Business/IT and current-to-target transition | 12 | Current local scripts/SQLite versus proposed actors, operational processing/data, reporting and cross-cutting controls | Covered |
 | 7. Approximately 2–3 reflection slides | 16–18 | Exactly three reflection slides; source/attribution A23 | Covered |
-| 7a. Actual AI use and reasons | 16 | Prior assistance from supplied brief; this session's actual work in A23 | Covered |
-| 7a. Deliberate non-use and reasons | 16 | Narrow **AUTHOR CONFIRMATION REQUIRED** statement; `author_review.md` item 1 | Personal information unresolved |
+| 7a. Actual AI use and reasons | 16 | Prior assistance from supplied brief; post-meeting work in A23 | Documented; author to confirm |
+| 7a. Deliberate non-use and reasons | 16 | **AUTHOR INPUT REQUIRED**; `author_review.md`, 7a | Personal information unresolved |
 | 7b. Concrete unsound proposal, correction and detection | 17 | D3's original outstanding-amount label versus actual gross-adjustment query; £120 assessed versus £30 outstanding; Codex metadata plus documented context support AI-assisted provenance | Covered; correction attributed to agent |
 | 7c. Validation and course-specific knowledge | 18 | EPC rules, cardinalities/constraints, database checks, mileage/rounding and payment reconciliation; verification JSON | Agent checks covered; author's own checks need confirmation |
-| 7d. Exclusively personal design decisions and evidence | 18 | Explicitly distinguishes documented preferences from independent design ownership; `author_review.md` item 3 | Personal information unresolved |
+| 7d. Exclusively personal design decisions and evidence | 18 | Specify the choice, where it is visible, and its evidence (or none); `author_review.md`, 7d | Personal information unresolved |
 
 The content is complete to the extent supported by available evidence. The marked personal statements are deliberately not fabricated and must be resolved before final submission.
 
@@ -44,18 +44,18 @@ The content is complete to the extent supported by available evidence. The marke
 | No live DVLA integration or DVLA table | Slides 2, 8, 12 |
 | Integer pence, half-up rounding once, exclusive boundary | Slide 3; A1 |
 | Five business cases and unpaid PHEV worked example | Slide 9; A15–A17 |
-| Same inspection can close one period and open the next | Slide 7; A9 |
+| Current versus liable owner; one reading can close one segment and open the next | Slides 3, 7–8; A8–A10, A12–A13 |
 | What constraints do and do not enforce | Slide 8; A9–A14 |
 | Dates/timestamps really stored as TEXT | Slide 8; A10–A14 |
 | An assessment is not a receipt; positive refunds must be subtracted | Slides 5, 11, 17; A1, A16, A20–A21 |
 | No inference of national revenue from fictional cases | Slide 9 and its notes |
 | Complete readable SQL statements and outputs | A18–A20; supplementary cash check A21 |
 | Course and project references; actual AI attribution | References adjacent to content; A22–A23 |
-| Original model preservation and documented corrections | `assets/README.md`; presentation-specific editable TikZ files |
+| Editable models and traceable correction | `diagrams/`, root combined drawing and `assets/*.tex`; original reporting wording at `bab8c0f` |
 
 ## Source basis
 
-The assignment and relevant course files were found locally in `C:\Users\mathi\Downloads` and inspected. The deck does **not** rely only on the supplied prompt's summary. References use PDF page positions:
+The post-meeting review checked the actual `Cases-IKT-HS2026.pdf` (Downloads), pp. 1–4. The lecture references below are those recorded by the earlier English draft and retained in A22. Numbers are PDF positions:
 
 - `Cases-IKT-HS2026.pdf`, pp. 1–4: formal deliverables, case and Tasks 1–7.
 - `VL01 Einführung und Modellierung.pdf`, p. 54.
@@ -66,7 +66,7 @@ The assignment and relevant course files were found locally in `C:\Users\mathi\D
 - `VL05 Architektur und Integration.pdf`, pp. 12, 15–16.
 - `VL06 IT-Strategie und Enterprise Transformation.pdf`, p. 18.
 
-Project baseline: current clean working tree at **`a2d2b2a`**, not the older commit assumed in the supplied prompt. Actual schema and sample results matched the prompt's numerical baseline. Obsolete README paths and the empty query placeholder were not used as implementation evidence.
+Project baseline: **`bab8c0f`** on `main`, 23 November 2026. Only the local generated PDF had prior uncommitted changes; a backup was made before building from LaTeX. The schema, inserts and working database in this revision are the implementation evidence.
 
 ## Verification record
 
@@ -75,9 +75,10 @@ Database evidence is reproducible with `python presentation/assets/verify_databa
 - Database opened read-only (`mode=ro`, `query_only`) and hashed before/after.
 - `PRAGMA integrity_check`: **ok**; `PRAGMA foreign_key_check`: **no violations**.
 - Table/column, FK and unique-index metadata inspected. Actual CREATE statements and sample inserts replayed only in an in-memory database, matching all 38 rows and the schema.
+- Updating only the current registration in the replay preserved the liable owner of case 5. The five annual examples contain no transfer records.
 - Both required query files executed unchanged, with outputs shown on slides 10–11 / A18–A20.
 - Every case checked for same-vehicle boundary readings, chronology/non-decreasing miles, fixed case rate, half-up integer-pence arithmetic and advance paid.
 - Supplementary cash SQL executed with per-declaration aggregation. Total final liability **123,000 pence**, net cash **120,000 pence**, remaining **3,000 pence**.
 - These checks validate the current sample, not all possible inputs or missing schema-level business controls.
 
-Build and visual review passed: all 42 final pages were rendered and inspected, with no overfull boxes, compilation warnings, off-page text or detected text collisions. The 19 script titles match the PDF. The shareable and preview PDFs are identical, and the final diff contains only presentation-related files. Detailed evidence is in `verification.md`.
+The build, layout, PowerPoint opening checks and narration estimate are recorded in [verification.md](verification.md). The official declaration, personal reflection and timed German delivery require the author's input.

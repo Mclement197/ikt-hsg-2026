@@ -1,6 +1,6 @@
 # Editable presentation assets
 
-All diagrams are native TikZ, included by `../final_presentation.tex`; the compiled deck therefore contains vector shapes and selectable text. Edit English labels in the `.tex` files for the later German version. No raster image generator was used.
+All presentation diagrams are native TikZ, included by `../final_presentation.tex`; the fresh PDF has vector shapes and selectable text. PowerPoint uses rendered slide images plus editable speaker notes. Edit labels in the `.tex` files before exporting a later German version.
 
 ## Model sources
 
@@ -17,15 +17,15 @@ All diagrams are native TikZ, included by `../final_presentation.tex`; the compi
 
 The EPCs use state-based events, verb-based activities, event/function alternation, start/end events and exclusive choice after activities. Bracketed roles are annotations, not control-flow nodes. Repeated events at page boundaries are continuations of the same process instance. Overview contractions are explained on the associated slides. Modelled notifications, review, payment transfers and validation are not claims of implemented automation.
 
-The lecture ER example on PDF page 28 of the locally supplied VL03 was visually inspected. Rounded entity boxes and `#`, `*`, `o` attribute markers follow that example. **Declared extension:** numerical endpoint ranges replace the example's line-style optionality and crow's feet. Lines have no arrow/direction semantics. An endpoint range describes how many entities at that endpoint can relate to one at the opposite endpoint. All conceptual attributes here are mandatory; `o` is explained but unused. Conceptual relationships become FKs in the implementation dictionary; the conceptual view does not duplicate them as FK attributes.
+Rounded entity boxes and `#`, `*`, `o` attribute markers follow the VL03 example (PDF p. 28). **Declared extension:** numerical endpoint ranges replace the example's line-style optionality and crow's feet. Lines are non-directional. An endpoint range describes how many entities at that endpoint can relate to one at the opposite endpoint. All conceptual attributes here are mandatory; `o` is explained but unused. Conceptual relationships become FKs in the implementation dictionary.
 
-Corrections relative to the existing individual draw.io files:
+## How the editable models correspond
 
-1. Reporting outputs now name the implemented queries accurately: estimated advance liability by type/start year and gross settlement adjustments by start year. Outstanding cash is explicitly supplementary validation.
-2. The reporting design proceeds to a planning decision and treats quality/review responsibilities as designed human activities, rather than implying a deployed reporting service.
-3. The settlement model explicitly checks the pair of readings and distinguishes an issued invoice/authorised refund from a recorded transfer. Case 5 is an unfinished payment path. No stored invoice status is invented.
-4. Dates/timestamps are labelled SQLite TEXT in the mapping. Cross-record rules are separated from enforced constraints. Numeric endpoint multiplicities explain the optional assessment and separate opening/closing reuse limits.
-5. The tall original diagrams are split into readable landscape views. The root `eved_scope_and_processes.drawio` and original `diagrams/` files are preserved.
+- P1 identifies the liable owner for the period. In the ER drawing the owner's two relationships are **current registration** and **period liability**. A later registration update leaves the declaration's owner and assessment unchanged.
+- P2 checks both readings and separates an invoice/authorised refund from recorded cash. Case 5 is an unfinished payment path. Invoice status is a modelled event, not a database column.
+- P3 ends in a planning decision. Both the individual and combined draw.io pages show advance liability by type/start year and gross assessed adjustments by start year. Outstanding cash needs separate signed-payment data.
+- The tall editable process pages in `diagrams/business_processes/` are also present in the root combined `.drawio`. A2–A7 present the same full paths as six landscape panels. `diagrams/er_diagram/eved_er_diagram.drawio` is the editable logical model; `schema.dot` and `schema.svg` are FK views regenerated from SQLite metadata using `scripts/sqlite-schema-diagram.sql` and Graphviz.
+- To inspect the **historical** AI error in its original context: `git show bab8c0f:diagrams/business_processes/03_management_reporting.drawio` (cell `queriesbody`). Compare with `database/queries/additional_tax.sql`, which has no payments join.
 
 ## Verification evidence
 
@@ -35,7 +35,7 @@ Run from the repository root:
 python presentation/assets/verify_database.py
 ```
 
-This uses only the Python standard library, opens the database with SQLite `mode=ro` plus `query_only`, inspects metadata/integrity/foreign keys, executes the actual queries, checks all five settlements with `Decimal(..., ROUND_HALF_UP)`, and compares the actual schema/sample inserts against an in-memory reconstruction. A before/after SHA-256 establishes that the database bytes were unchanged. Results are generated in `database_verification.json`. These are sample checks, not new application functionality or proof of production controls.
+This uses only the Python standard library, opens the database with SQLite `mode=ro` plus `query_only`, checks the five cases and actual query results, recalculates pence with `ROUND_HALF_UP`, and compares every row and table definition with an in-memory replay. It changes a current owner **only in that replay** to check the historical link. The before/after SHA-256 refers to the read-only check of the **new** deliverable. Results are in `database_verification.json`.
 
 `outstanding_validation.sql` is the additional payment reconciliation on A21. It aggregates signed payments per declaration before joining assessments, avoiding duplicated liabilities. The two required SQL files are included directly from `database/queries/`; the essential CREATE statements are included directly from `scripts/setup_database.py`.
 
@@ -46,12 +46,12 @@ cd presentation
 latexmk -r build/latexmkrc final_presentation.tex
 ```
 
-Preview/intermediates remain in `build/`; the shareable copy is `final_presentation.pdf`. The old `build/demo.bib` is an unused preserved support file; references are deliberately listed in A22–A23 rather than using a fabricated bibliography.
+The generated preview is `final_presentation.pdf`; `build/` holds intermediates. From the repo root, `uv run presentation/export_pptx.py` forces a new build before exporting every slide. See the [README](../../README.md) for recording and hand-in. `build/demo.bib` is a preserved support file; references are on A22–A23.
 
 For repeatable page rendering and script/slide checks (temporary dependencies, without changing project dependencies):
 
 ```sh
-uv run --no-project --with pymupdf --with pillow python presentation/assets/review_pdf.py
+uv run --no-project --with pymupdf==1.26.7 --with pillow python presentation/assets/review_pdf.py
 ```
 
-Run this command from the repository root. It renders all 42 pages, creates contact sheets and `pdf_review.json` in ignored `presentation/build/review/`, checks text bounds and possible text collisions, and verifies the 19 script titles against the PDF. It does not replace visual inspection of shapes, arrows and spacing.
+Run this from the repository root after building. It renders all 42 pages, makes contact sheets and `pdf_review.json` in ignored `presentation/build/review/`, checks text bounds/collisions, notes and timing, and checks all six appendix listing ranges against the complete CREATE statements. Inspect shapes, arrows and spacing visually as well.

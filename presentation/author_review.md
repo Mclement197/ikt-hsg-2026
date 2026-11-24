@@ -1,17 +1,19 @@
 # Author review — unresolved items and final-submission steps
 
-## Personal confirmations required
+## AUTHOR INPUT REQUIRED — replace the placeholders before recording
 
-1. **Slide 16 / Task 7a:** Name a substantive activity you deliberately performed without AI and explain why. If there was no such activity, say so honestly and explain your approach; do not invent non-use.
-2. **Slide 18 / Task 7c:** Which checks have you personally repeated and understood? The completed checks currently credited in the deck were performed by the presentation agent. Confirm your own checks before changing the attribution or narrating them as personal work.
-3. **Slide 18 / Task 7d:** Identify exclusively personal system-design decisions and evidence of how you made them (for example, an earlier note or a specific choice made before AI advice). Simple-code and English-first preferences alone do not establish this. If no substantive decision was exclusively yours, give an honest account and resolve how to address Task 7d with the course staff.
+- [ ] **7a · slide 16:** Confirm where AI helped and why. Name an activity you deliberately did without AI and your reason, or explicitly say none and explain. The required personal voice-over is not evidence of earlier independent design work.
+- [ ] **7c · slide 18:** Identify a check you actually performed. Record the case, query or diagram path, what you expected, what you observed, and which EPC, ER or SQL course concept let you judge it. Keep your own dated output or note. The agent's verification report does not establish that you repeated it.
+- [ ] **7d · slide 18:** Identify one substantive decision made exclusively by you, why you chose it, where it is visible in the solution, and its evidence (e.g. a dated sketch or pre-AI note). If none qualifies, say so. Simple code and English-first were preferences; the period-owner revision implements meeting feedback.
+
+**7b attribution:** retain the earlier presentation agent's comparison of the baseline reporting diagram with the SQL and payments. The post-meeting revision fixed the actual drawing. Do not narrate the discovery as your own unless independently supported.
 
 ## Final-submission steps
 
 - Review and approve the English substance, including the three personal statements above; update the corresponding slides, notes and requirements checklist.
-- Translate all slide explanations, diagram labels and narration into German. Keep the course/source titles and exact SQL identifiers accurate. The current PDF is an English review draft.
-- Prepare a **PowerPoint** containing every model and solution element, including the appendices. Inspect all converted figures, text and code. A PDF alone does not fulfil the specified deliverable.
+- After approval, translate the LaTeX explanations, diagram labels and speaker notes into German. Keep source titles and SQL identifiers accurate. Align translated notes headings with the new slide titles.
+- Re-export the PowerPoint from source (see [README](../README.md)), keeping all 19 main slides and 23 appendices. Inspect the translated diagrams, code and layout. Save the German recording as a separate file.
 - Record narration in **your own spoken voice**. Generated speech is prohibited. Rehearse and check the final German recording is **no longer than 15 minutes**; leave the appendix unnarrated unless needed within that limit.
-- Complete the separate **HSG AI-use declaration** using the actual official instructions. Include the previous AI-assisted work and this presentation session. The reflection slides supplement, not replace, the declaration.
+- Complete the separate **HSG AI-use declaration** using the official instructions. Include earlier AI-assisted work, English presentation preparation and this post-meeting revision/export. The reflection slides supplement, not replace, the declaration.
 - Upload the developed **SQLite database separately** together with the required presentation/declaration material. The database for this project is `database/electromobility.db`.
 - Submit your individual work through **Canvas / Studynet by 14 December 2026, 23:59**, according to *Cases IKT, HS2026*, PDF pp. 1–2. No upload or submission has been performed by the agent.

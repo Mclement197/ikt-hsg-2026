@@ -23,6 +23,15 @@ assert len(sections) == 19
 words = sum(len(re.findall(r"\b[\w]+(?:[’'-][\w]+)*\b", section.split("\n", 1)[1]))
             for section in sections)
 budgets = sum(int(re.search(r"— (\d+) s", section).group(1)) for section in sections)
+assert budgets <= 15 * 60
+
+# Check the appendix's six source ranges against the actual, complete CREATE
+# statements, so an edit above a listing cannot silently shift its evidence.
+setup = (PRESENTATION.parent / "scripts/setup_database.py").read_text(encoding="utf-8")
+appendix = (PRESENTATION / "assets/appendix.tex").read_text(encoding="utf-8")
+ranges = re.findall(r"firstline=(\d+),lastline=(\d+)\]\{\.\./scripts/setup_database\.py\}", appendix)
+listed = ["\n".join(setup.splitlines()[int(start)-1:int(end)]) for start, end in ranges]
+assert len(listed) == 6 and listed == re.findall(r"^CREATE TABLE .*?^\)$", setup, re.M | re.S)
 text_pages, off_page, collisions = [], [], []
 for number, page in enumerate(pdf, 1):
     page.get_pixmap(matrix=pymupdf.Matrix(2, 2)).save(OUT / f"page-{number:02}.png")
@@ -76,6 +85,7 @@ report = {"pages": len(pdf), "main_slides": 19, "appendix_slides": 23,
           "spoken_words": words, "budget_seconds": budgets,
           "off_page_text": off_page, "possible_text_collisions": collisions,
           "slide_note_titles_match": True,
+          "six_complete_ddl_listings": True,
           "all_pages_rendered": True,
           "visual_inspection_required": True}
 (OUT / "pdf_review.json").write_text(json.dumps(report, indent=2)+"\n", encoding="utf-8")

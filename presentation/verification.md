@@ -1,61 +1,49 @@
-# Verification — English presentation draft
+# Verification · 23 November 2026 English review draft
 
-Completed on **9 November 2026** by the presentation agent, against the working tree based on commit `a2d2b2a`.
+The post-meeting agent checked this working tree against the local **Cases-IKT-HS2026.pdf**, pp. 1–4, and the meeting brief. The starting commit on `main` was `bab8c0f`. The only pre-existing change was `presentation/final_presentation.pdf`; the exact local copy was backed up before building and is also available locally as `presentation/build/pre-meeting-local.pdf`. Slide content came from the LaTeX, diagrams, SQL and working database.
 
-## Build and visual review
+## Database and ownership
 
-- Built successfully with the existing command, from `presentation/`:
-
-  ```sh
-  latexmk -r build/latexmkrc final_presentation.tex
-  ```
-
-- Final XeLaTeX log: **no compilation errors, LaTeX/package warnings, missing-character messages or overfull boxes**.
-- The shareable `final_presentation.pdf` and editor-preview `build/final_presentation.pdf` are byte-identical. SyncTeX was generated in `build/`. Build configuration and editor settings are unchanged.
-- Final PDF: **42 widescreen pages**, comprising **19 narrated slides and A1–A23**. No extra notes pages, overlay duplicates, template demonstration slides, sample author or dummy references remain.
-- **Every final PDF page was rendered and visually inspected.** Detailed diagram pages were also inspected individually. Revisions corrected overlapping EPC nodes, cramped ER attributes, table/prose spacing, hidden overview qualifications, the architecture labels and SQL overflow.
-- Native TikZ shapes/labels are vector content. Complete EPC models are split over paired appendix pages rather than reduced to tiny tall diagrams. Conceptual ER notation includes an explicit extension legend.
-- Automated text review found **no off-page text or potential inter-block text collisions**. This supplemented the visual review; it did not substitute for inspection of shapes and arrows.
-- Generated review images, contact sheets, extracted text and machine-readable results are in ignored `build/review/`. Recreate them with `assets/review_pdf.py` as documented in `assets/README.md`.
-
-## Data and numerical checks
-
-`assets/verify_database.py` opened the committed database in read-only mode, inspected schema metadata and executed the real SQL files. It also rebuilt the actual schema and inserts in memory and compared all records.
+The original database was backed up. `scripts/setup_database.py` and `scripts/load_db.py` created a separate candidate with foreign keys enabled. The candidate passed `presentation/assets/verify_database.py` before replacing the deliverable; the verifier then ran again against `database/electromobility.db` to produce [database_verification.json](assets/database_verification.json).
 
 | Check | Result |
 |---|---|
-| SQLite integrity | `ok` |
-| Foreign-key violations | None |
-| Row counts | 5 owners, 5 vehicles, 5 declarations, 10 inspections, 5 assessments, 8 payments = 38 |
-| Actual schema and inserts replayed in memory | Matched committed schema and rows |
-| Analysis 1 | BEV: 3 vehicles, 30,000 miles, £900; PHEV: 2 vehicles, 18,000 miles, £270 |
-| Analysis 2 | 5 assessed declarations; 3 additional cases; 1 refund case; £120 extra tax assessed; £60 refunds assessed |
-| Advances due and received | £1,170 |
-| Final assessed liability | £1,230 |
-| Additional receipts / refunds paid | £90 / £60 |
-| Net cash / remaining balance | £1,200 / £30 |
-| Database preserved | Byte-identical to both the starting checksum and `HEAD` |
+| Integrity / `foreign_key_check` | `ok` / zero violations |
+| Schema and sample replay | Six CREATE statements and all inserts reproduced the deliverable in memory |
+| Records | 5 owners, 5 vehicles, 5 declarations, 10 inspections, 5 assessments, 8 payments. All 38 rows matched the original backup on every pre-existing column. |
+| Period owner | Both owner columns are mandatory FKs to `vehicle_owners`. In the disposable replay, changing vehicle 5's registration from owner 5 to 2 left its assessed declaration liable to owner 5. No transfer case was added to the sample. |
+| Settlement evidence | Five distinct assessed declarations. Both readings matched the vehicle and exact period dates; their difference was non-negative. Advance and final tax matched miles × rate with half-up penny rounding. |
+| Checked database SHA-256 | `7301f099339e94dc5bf68ed3a695c55095b4c1e656295042e6794942e2dad6e1` (unchanged by read-only verification) |
 
-Database SHA-256:
+### Actual outputs
 
-```text
-e0c910ad63a5d846cd105e4b0452946477cadfc1bf9f01e6938f4f491e2ee26f
-```
+`python scripts/queries.py` executed both original statements. The grouping year is the year the declaration period **starts**.
 
-All five cases were checked for vehicle consistency, exact period-boundary readings, increasing dates/non-decreasing mileage, actual miles, the fixed case rates, half-up pence calculations and signed payments. The additional cash SQL aggregates payments per declaration before joining assessments. Full metadata, case records, query outputs and totals are retained in `assets/database_verification.json`.
+| Analysis 1: start year | Vehicle type | Distinct vehicles | Declared miles | Estimated advance liability |
+|---|---|---:|---:|---:|
+| 2028 | BEV | 3 | 30,000 | £900 |
+| 2028 | PHEV | 2 | 18,000 | £270 |
 
-These are checks of the supplied demonstration data. They do not imply that omitted business validations, tax automation, real payments, agency integrations or production controls have been implemented.
+| Analysis 2: start year | Assessed declarations | Additional cases | Refund cases | Gross additional tax assessed | Gross refunds assessed |
+|---|---:|---:|---:|---:|---:|
+| 2028 | 5 | 3 | 1 | £120 | £60 |
 
-## Coverage, narration and provenance
+Analysis 2 compares final tax with advance **due**. The separate `assets/outstanding_validation.sql` was also run directly with SQLite: cases 1–4 returned £0 remaining; case 5 returned £180 final, £150 net cash, **£30 remaining**. Across the sample:
 
-- `requirements_checklist.md` maps all seven tasks, including 7a–7d, to exact slide/appendix numbers and evidence.
-- Counted **three EPC models**, **five Process 2 cases**, **two required multi-table SQL analyses**, **three numbered architecture risk/principle/effect chains** and **three reflection slides**.
-- The 19 script titles and their numbers were checked against the final PDF. Speaker notes contain **1,703 spoken words**; slide budgets total **820 seconds**.
-- Estimated delivery is **13:40** at 140 words/minute plus about 90 seconds for diagram pointing and pauses. At 130 words/minute with the same pauses it is about **14:36**. No recording was generated or timed; German delivery must be rehearsed separately.
-- The actual assignment and relevant course PDFs were inspected locally; the VL03 ER example and EPC cheat sheet were visually read. Source IDs and PDF page positions are included in A22–A23 and near the relevant content.
-- The reporting-label error is evidenced by the existing drawing and actual query. AI-assisted provenance is supported by the drawing's `agent="Codex"` metadata and the supplied context. The correction and checks are attributed to this presentation agent, not to an invented independent student discovery.
-- Only presentation-related files changed. Application scripts, source SQL, original model files, the database, `.vscode/settings.json` and `presentation/build/latexmkrc` were preserved. No commit, push, pull request or external submission was made.
+- Liability: £1,170 advance due + £120 additional assessed − £60 refunds assessed = **£1,230 final tax**.
+- Cash: £1,170 advances received + £90 additional receipts − £60 refunds paid = **£1,200 net received**.
+- Receivable: £1,230 − £1,200 = **£30**. Signed payments are summed per declaration before joining to assessments.
 
-## Remaining author work
+## Models, build and PowerPoint
 
-The English draft is complete for substantive review. Three specifically personal items remain: deliberate AI non-use and its reason, checks personally repeated, and exclusively personal design decisions with evidence. They are flagged on slides 16/18 and in `author_review.md`, which also lists German translation, PowerPoint preparation, own-voice narration, HSG AI declaration and separate database upload.
+- Parsed the editable draw.io XML: all three combined process pages matched their individual graphs. Their connected paths start/end with events, alternate events and role-labelled functions, and branch at XORs. P1 records period liability, P2 distinguishes authorisation from cash, and P3 reports the two SQL measures. The logical ER drawing's columns, SQLite types and eight FK relationships matched database metadata.
+- Built with `latexmk -r build/latexmkrc final_presentation.tex` from `presentation/`. The first rendering check found appendix overflow. After shortening the affected text, `uv run presentation/export_pptx.py` forced a fresh build. The final XeLaTeX log had no overfull boxes, missing characters or LaTeX/package warnings. The two generated preview PDFs matched byte-for-byte.
+- `assets/review_pdf.py` rendered all **42** final pages. The 19 main titles matched the notes, A1–A23 were in order, and all six appendix DDL ranges contained the full corresponding CREATE statements. No off-page text or potential inter-block text collisions were detected. All 11 contact sheets were visually inspected, including the revised ER, cardinalities and schema listings.
+- The PowerPoint package reopened successfully. All **42 embedded 2560×1440 images** matched independent renders of the corresponding fresh PDF pages in order. All **19 main notes** matched the Markdown; there are no appendix notes or audio files.
+- **Microsoft PowerPoint 16.0** opened the actual `.pptx` read-only and rendered all 42 slides at 1280×720. It reported a **960×540 pt (16:9)** slide size and the correct appendix order through A23. Its ER and detailed SQL renderings were also inspected. Local review outputs are under ignored `presentation/build/review/` and `presentation/build/review-office/`.
+
+## Narration and author input
+
+The 19 English sections cover Tasks 1–7 in **1,615 words** with a **795-second (13:15) budget**; assumptions get 25 seconds. At 130 words/minute plus 90 seconds for pauses, estimated delivery is **13:55**. This is not a recording or a measurement of German speech.
+
+The earlier presentation agent identified the “outstanding amounts” error in the baseline reporting diagram. The post-meeting edits corrected both editable versions. The checks above are agent checks. [Author review](author_review.md) lists the remaining 7a, 7c and 7d personal evidence, German translation, own-voice recording and timing, official HSG AI declaration and separate database submission.

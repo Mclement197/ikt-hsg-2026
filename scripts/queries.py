@@ -1,35 +1,15 @@
 import sqlite3
 from pathlib import Path
 
-root_path = Path(__file__).parent.parent
+database = Path(__file__).resolve().parents[1] / "database"
+conn = sqlite3.connect((database / "electromobility.db").as_uri() + "?mode=ro", uri=True)
 
-conn = sqlite3.connect(root_path / "database/electromobility.db")
-
-additional_tax_querry = (root_path / "database/queries/additional_tax.sql").read_text(encoding="utf-8")
-expected_revenue_querry = (root_path / "database/queries/expected_revenue.sql").read_text(encoding="utf-8")
-
-
-
-def queries(query_type: int):
-    if query_type == 1:
-        sql = additional_tax_querry
-    elif query_type == 2:
-        sql = expected_revenue_querry
-    else:
-        print("Choose 1 for additional tax or 2 for expected revenue.")
-        return
-
-    cursor = conn.execute(sql)
-
-    # Print column names
+for filename in ("expected_revenue.sql", "additional_tax.sql"):
+    print(filename)
+    cursor = conn.execute((database / "queries" / filename).read_text(encoding="utf-8"))
     print([column[0] for column in cursor.description])
-
-    # Print result rows
-    for row in cursor.fetchall():
+    for row in cursor:
         print(row)
-
-
-queries(1)
-queries(2)
+    print()
 
 conn.close()

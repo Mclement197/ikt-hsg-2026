@@ -1,5 +1,5 @@
 {
-  "database_sha256": "e0c910ad63a5d846cd105e4b0452946477cadfc1bf9f01e6938f4f491e2ee26f",
+  "database_sha256": "7301f099339e94dc5bf68ed3a695c55095b4c1e656295042e6794942e2dad6e1",
   "database_unchanged": true,
   "integrity_check": [
     "ok"
@@ -26,6 +26,14 @@
         },
         {
           "cid": 2,
+          "name": "owner_id",
+          "type": "INTEGER",
+          "notnull": 1,
+          "dflt_value": null,
+          "pk": 0
+        },
+        {
+          "cid": 3,
           "name": "period_start",
           "type": "TEXT",
           "notnull": 1,
@@ -33,7 +41,7 @@
           "pk": 0
         },
         {
-          "cid": 3,
+          "cid": 4,
           "name": "period_end",
           "type": "TEXT",
           "notnull": 1,
@@ -41,7 +49,7 @@
           "pk": 0
         },
         {
-          "cid": 4,
+          "cid": 5,
           "name": "estimated_miles",
           "type": "INTEGER",
           "notnull": 1,
@@ -49,7 +57,7 @@
           "pk": 0
         },
         {
-          "cid": 5,
+          "cid": 6,
           "name": "advance_due_pence",
           "type": "INTEGER",
           "notnull": 1,
@@ -57,7 +65,7 @@
           "pk": 0
         },
         {
-          "cid": 6,
+          "cid": 7,
           "name": "submitted_at",
           "type": "TEXT",
           "notnull": 1,
@@ -68,6 +76,16 @@
       "foreign_keys": [
         {
           "id": 0,
+          "seq": 0,
+          "table": "vehicle_owners",
+          "from": "owner_id",
+          "to": "owner_id",
+          "on_update": "NO ACTION",
+          "on_delete": "NO ACTION",
+          "match": "NONE"
+        },
+        {
+          "id": 1,
           "seq": 0,
           "table": "vehicles",
           "from": "vehicle_id",
@@ -86,7 +104,7 @@
           },
           {
             "seqno": 1,
-            "cid": 2,
+            "cid": 3,
             "name": "period_start"
           }
         ]
@@ -453,6 +471,9 @@
       "declaration_id": 1,
       "vehicle_type": "BEV",
       "vehicle_id": 1,
+      "liable_owner_id": 1,
+      "current_owner_id": 1,
+      "assessed_at": "2029-04-02T09:00:00Z",
       "period_start": "2028-04-01",
       "period_end": "2029-04-01",
       "estimated_miles": 10000,
@@ -477,6 +498,9 @@
       "declaration_id": 2,
       "vehicle_type": "BEV",
       "vehicle_id": 2,
+      "liable_owner_id": 2,
+      "current_owner_id": 2,
+      "assessed_at": "2029-04-02T09:00:00Z",
       "period_start": "2028-04-01",
       "period_end": "2029-04-01",
       "estimated_miles": 10000,
@@ -501,6 +525,9 @@
       "declaration_id": 3,
       "vehicle_type": "BEV",
       "vehicle_id": 3,
+      "liable_owner_id": 3,
+      "current_owner_id": 3,
+      "assessed_at": "2029-04-02T09:00:00Z",
       "period_start": "2028-04-01",
       "period_end": "2029-04-01",
       "estimated_miles": 10000,
@@ -525,6 +552,9 @@
       "declaration_id": 4,
       "vehicle_type": "PHEV",
       "vehicle_id": 4,
+      "liable_owner_id": 4,
+      "current_owner_id": 4,
+      "assessed_at": "2029-04-02T09:00:00Z",
       "period_start": "2028-04-01",
       "period_end": "2029-04-01",
       "estimated_miles": 8000,
@@ -549,6 +579,9 @@
       "declaration_id": 5,
       "vehicle_type": "PHEV",
       "vehicle_id": 5,
+      "liable_owner_id": 5,
+      "current_owner_id": 5,
+      "assessed_at": "2029-04-02T09:00:00Z",
       "period_start": "2028-04-01",
       "period_end": "2029-04-01",
       "estimated_miles": 10000,
@@ -614,5 +647,6 @@
     "gross_refunds_assessed": 6000
   },
   "memory_replay_matches": true,
+  "registration_change_preserves_liable_owner_in_replay": true,
   "business_rule_sample_checks": "passed; not schema-enforced guarantees"
 }
