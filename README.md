@@ -1,104 +1,45 @@
-# ikt-hsg-2026
+# IKT HS2026 · Case A: UK electric vehicle mileage tax
 
-## Project - Case A (Electromobility)
+**[English review PowerPoint](presentation/final_presentation.pptx)** · **[SQLite database](database/electromobility.db)** · [Scope and assumptions](Scope.md)
 
-Design an IT system that allows the UK government to tax electric vehicules based on the distance they drive
-- Standard gas powered vehicules contribute in the same way because they pay a tax on gas, electric vehicules dont
-Therefore the following rates apply:
-- Fully electric vehicule: 3 pence/mile 
-- Plug-in hybrid vehicule: 1.5 pence/mile
+The case charges 3 pence per mile for battery electric vehicles (BEV) and 1.5 for plug-in hybrids (PHEV). Owners estimate distance; MOT readings establish actual miles without a journey history. The tax authority assesses the difference. Money is stored in integer pence, rounded once after multiplication, half-pennies upwards.
 
-The following structure must be implemented:
-1. Vehicule owners: give an estimate of their annual mileage 
-2. Tax authority: calculates tax and collects payment
-3. MOT inspection: records the actual odometer of the vehicule 
-4. issues additional tax or refund
-This means that the system must coordinate vehicule owners, MOT inspections, the DVLA and tax authorities while protecting personal data
+## Follow one case through the design
 
-### What needs to be built
-| Task | What is to be done |
-| -------- | ------- |
-| scope and assumptions | explain the system that I will be designing |
-| Business processes | Model three processes, including one for management reporting |
-| Data modelling | Create an Entity-Relationship (ER) diagram |
-| Database | Implement my relational database and insert five business transactions |
-| SQL analysis | Create two meaningful SQL queries, each involving at least two tables |
-| Enterprise architecture | Explain three risks, three corresponding architecture principles and their practical effects |
-| AI reflection | Explain and critically evaluate your use of AI, including a concrete error you corrected |
+1. **Declaration and advance:** record the vehicle, the owner liable for the period, estimated miles and advance due. Record advance cash on receipt. `vehicles.owner_id` is the **current registered owner**; `declarations.owner_id` is the **historical liable owner**. Updating a registration does not move an old assessment to the new owner.
+2. **Verification and settlement:** the five fictional cases follow the normal 2028/29 annual cycle. In case 5, the odometer rose from 10,000 to 22,000 miles. At 1.5 pence/mile, those 12,000 miles give **£180 final tax**. Its paid advance is £150. There is no additional receipt, so **£30 remains owed**. Issuing an invoice or authorising a refund is distinct from a cash transfer.
+3. **Management reporting:** [Analysis 1](database/queries/expected_revenue.sql) groups declared miles and estimated advance liability by vehicle type and **period start year**. [Analysis 2](database/queries/additional_tax.sql) compares final assessments with **advance due**, reporting gross extras and refunds by start year. The [separate cash check](presentation/assets/outstanding_validation.sql) sums signed payments per declaration before joining assessments.
 
-#### Three business processes
-Three business processes:
-1. Annual mileage declaration and advance payment: How owners register their estimated mileage and pay the preliminary tax.
-2. MOT verification and final settlement: How authorities verify the driven distance, calculate the final liability and issue refunds or additional invoices.
-3. Management reporting: How authorities aggregate mileage, payments and outstanding liabilities to forecast tax revenue and support decisions.
+A transfer could use one verified handover reading to close the outgoing owner's period and open a new declaration for the incoming owner. The model allows several segments in a year. Unique `(vehicle_id, period_start)` prevents duplicate starts, not overlapping periods. Transfer processing and transfer-specific valuation are not automated.
 
-#### Database tables
+Edit the three EPCs in [`diagrams/business_processes/`](diagrams/business_processes/) or inspect them with the context page in [`eved_scope_and_processes.drawio`](eved_scope_and_processes.drawio). The [logical ER drawing and schema views](diagrams/er_diagram/) show the six tables. The EPCs describe agency and human tasks; the runnable prototype consists of the database, sample inserts and SQL.
 
-| Table | Information |
-|---|---|
-| `vehicle_owners` | Vehicle owner details |
-| `vehicles` | Vehicle type and tax rate |
-| `declarations` | Estimated annual mileage |
-| `mot_inspections` | Recorded odometer readings |
-| `payments` | Advance payments and adjustments |
-| `tax_assessments` | Final tax liabilities and balances |
+## Run the database demonstration
 
-
-
-
-
-
-Base structure:
-
-```text
-ikt-hsg-2026/
-│
-├── .vscode/                 # LaTeX Workshop configuration
-│
-├── database/
-│   ├── schema.sql
-│   ├── sample_data.sql
-│   ├── queries.sql
-│   └── electromobility.db
-│
-├── diagrams/
-│   ├── business_processes/
-│   └── er_diagram/
-│
-├── presentation/
-│   ├── final_presentation.tex
-│   ├── final_presentation.pdf
-│   └── build/              # Build configuration, bibliography, and generated files
-│
-├── scripts/
-│   └── setup_database.py
-│
-└── README.md
-```
-
-## LaTeX presentation
-
-1. Open the **repository root (`ikt-hsg-2026`)** in VS Code so that `.vscode/settings.json` is loaded.
-2. Open `presentation/final_presentation.tex`. LaTeX files auto-save after one second; LaTeX Workshop rebuilds on changes and refreshes the PDF preview.
-3. Press **Ctrl+Alt+V** from the LaTeX source to open the side-by-side LaTeX Workshop PDF preview. **Double-click text in that preview** to jump to the corresponding source. **Ctrl+Alt+J** jumps from the source to the PDF.
-4. Use `presentation/final_presentation.pdf` for presenting or sharing. Each build updates this copy automatically.
-
-The editing preview uses `presentation/build/final_presentation.pdf`, beside its SyncTeX mapping. Open it through **Ctrl+Alt+V** for PDF-to-source navigation. All intermediate files, logs, and SyncTeX data stay in `presentation/build/`. The template's example references are in `build/demo.bib`; the build settings are in `build/latexmkrc`. These two support files are versioned; generated build files are ignored by Git.
-
-### Build from a terminal
-
-Requires a LaTeX distribution with XeLaTeX, BibTeX, the Metropolis packages and Fira fonts, plus Perl and latexmk 4.87 or newer. These tools and LaTeX Workshop are already installed on the current Windows setup.
-
-From `presentation/`, build once:
+From the repository root, using Python's standard library:
 
 ```sh
-latexmk -r build/latexmkrc final_presentation.tex
+python scripts/queries.py
+python presentation/assets/verify_database.py
 ```
 
-To rebuild automatically on saved changes outside VS Code (stop with Ctrl+C):
+The first command prints both result tables in presentation order. The second opens the deliverable read-only, replays the schema and inserts in memory, verifies the owner links and five settlements, and writes [the evidence JSON](presentation/assets/database_verification.json). The whole sample reconciles as **£1,230 assessed = £1,200 net received + £30 outstanding**. Open `database/electromobility.db` directly in SQLite or SQLiteStudio for inspection.
+
+To reproduce the database **without touching the deliverable**, choose a new, unused path in an existing directory:
 
 ```sh
-latexmk -r build/latexmkrc -pvc -view=none final_presentation.tex
+python scripts/setup_database.py presentation/build/case-review.db
+python scripts/load_db.py presentation/build/case-review.db
+python presentation/assets/verify_database.py presentation/build/case-review.db
 ```
 
-LaTeX Workshop handles watching while editing in VS Code. **Ctrl+Alt+B** also starts a build manually.
+Setup creates the six tables; load executes [`sample_data.sql`](database/queries/sample_data.sql) **once** on empty tables. Both enable foreign keys on their own connection. A candidate check does not replace the deliverable's evidence. If replacing the deliverable, retain a backup, verify the candidate first, then repeat the default verification.
+
+## Edit, rebuild and record the PowerPoint
+
+The master is [`presentation/final_presentation.tex`](presentation/final_presentation.tex) and its [editable TikZ and appendix sources](presentation/assets/). The English [speaker notes](presentation/speaker_notes_en.md) cover slides **1–19**; **A1–A23** contain the complete models, schema, queries, results and sources. [Task coverage](presentation/requirements_checklist.md) · [Verification](presentation/verification.md) · [Author input required](presentation/author_review.md).
+
+- **Preview:** from `presentation/`, run `latexmk -r build/latexmkrc final_presentation.tex`. Requires XeLaTeX, Metropolis and Fira fonts, Perl and latexmk 4.87+. The generated `final_presentation.pdf` is ignored. In VS Code, open the repo root and use LaTeX Workshop (**Ctrl+Alt+B** build, **Ctrl+Alt+V** preview).
+- **Export:** from the **repository root**, run `uv run presentation/export_pptx.py`. [uv](https://docs.astral.sh/uv/) installs the script's pinned rendering/PowerPoint dependencies in isolation. The exporter forces a new LaTeX build, checks the titles and order, and writes `presentation/final_presentation.pptx`. All 42 slides are 16:9, with one high-resolution picture per slide and editable notes on the first 19. Slide elements are not individually editable in PowerPoint; change the LaTeX/TikZ and export again.
+- **Record after author review and German translation:** open the PowerPoint and **Save As** a separate recording copy, so future exports do not replace your recording. Use **Record → From Beginning**, speak in **your own voice**, and stop after slide 19. Keep every appendix slide in the file without narration. Save the timings, check them in Slide Sorter, and play back slides 1–19 with audio to confirm the German recording is **at most 15:00**.
+- **Hand in:** upload the German voice-over PowerPoint and `database/electromobility.db` separately, and complete the official HSG AI-use declaration. The English deck contains no recording.

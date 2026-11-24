@@ -23,7 +23,7 @@
 \newcommand{\sources}[1]{\par\vfill{\fontsize{6.5}{7.8}\selectfont\color{muted}#1\par}}
 \newcommand{\keyline}[1]{\par\medskip{\large\color{accent}\bfseries #1}\par}
 \newcommand{\code}[1]{\texttt{\detokenize{#1}}}
-\newcommand{\confirm}[1]{{\small\textbf{AUTHOR CONFIRMATION REQUIRED:} #1}}
+\newcommand{\confirm}[1]{{\small\textbf{AUTHOR INPUT REQUIRED:} #1}}
 \newcommand{\erdetail}{0}
 \renewcommand{\arraystretch}{1.18}
 \renewcommand{\tabularxcolumn}[1]{>{\raggedright\arraybackslash}p{#1}}
@@ -37,7 +37,7 @@
 \subtitle{Case A: Electromobility\enspace |\enspace English review draft}
 \author{Mathis Clément}
 \institute{University of St. Gallen (HSG)\\Information and Communication Technology · HS2026}
-\date{9 November 2026}
+\date{23 November 2026}
 \hypersetup{pdftitle={Designing a Mileage-Based Electric Vehicle Tax System},pdfauthor={Mathis Clément},pdfsubject={HSG IKT HS2026 — English review draft}}
 
 \begin{document}
@@ -53,7 +53,7 @@
 University of St. Gallen (HSG)\\
 Information and Communication Technology · HS2026
 \par\medskip
-{\small English review draft · 9 November 2026}
+{\small English review draft · 23 November 2026}
 \end{frame}
 
 % 2 — 40 seconds
@@ -80,21 +80,20 @@ Information and Communication Technology · HS2026
 \sources{[C] Cases IKT, HS2026, PDF p. 3. Rates and scenario are assignment inputs, not a claim about enacted UK law. No live agency connection is implemented.}
 \end{frame}
 
-% 3 — 50 seconds
+% 3 — 25 seconds
 \begin{frame}{A narrow scope makes the annual logic explainable}
 \begin{tabularx}{\textwidth}{@{}p{.44\textwidth}X@{}}
 \toprule
 \textbf{Assumption} & \textbf{Design consequence}\\\midrule
-One billing year: 1 Apr 2028–31 Mar 2029 & \code{period_end = 2029-04-01} is exclusive.\\
-One unchanged owner; fixed rates; miles & No ownership or rate-period splits.\\
-Verified readings at both boundaries; no reset & Closing minus opening gives actual miles.\\
-One declaration and final assessment per vehicle/year & Assessment may be absent while work is in progress.\\
-Integer pence; half-pennies upwards & Round once after mileage × rate.\\\bottomrule
+Five annual cases: Apr 2028–Mar 2029 & \code{period_end = 2029-04-01} is exclusive.\\
+One liable owner per declaration period & A handover would close one segment and open the next at a verified reading.\\
+Verified boundary readings; no reset & Closing minus opening gives actual miles.\\
+Fixed rates; money in integer pence & Round once after multiplication, half-pennies upwards.\\\bottomrule
 \end{tabularx}\par
 \medskip
 \textbf{Boundary:} conceptual processes + local SQLite prototype, using fictional records.
 \par\smallskip
-{\small Excluded: website, authentication, real payments, live agencies, transfers, new-vehicle MOT exceptions, fraud, appeals, penalties and production deployment.}
+{\small The model allows shorter ownership segments. The prototype does not process transfers or value those segments automatically.}
 \sources{[S] Scope.md, §§4–6. [L1] Modelling, PDF p. 54: purposeful reduction of detail. Calculation rules: A1.}
 \end{frame}
 
@@ -143,16 +142,16 @@ Integer pence; half-pennies upwards & Round once after mileage × rate.\\\bottom
 \item \code{tax_assessments}, \code{payments}
 \end{itemize}
 \textbf{Implemented integrity}\\
-Primary keys, foreign keys, mandatory fields and uniqueness constraints.
+The vehicle references its current owner. A separate required FK on the declaration preserves who is liable.
 \column{.49\textwidth}
 \textbf{Still a workflow responsibility}
 \begin{itemize}\itemsep3pt
 \item Same vehicle for declaration and readings.
-\item Correct dates and non-decreasing mileage.
+\item Non-overlapping periods and valid readings.
 \item Allowed types and correct tax arithmetic.
 \end{itemize}
 \textbf{Storage choices}\\
-Money: integer pence. Dates/timestamps: SQLite \code{TEXT}. Derived due/liability amounts are stored as an assessment record.
+Money: integer pence. Dates/timestamps: SQLite \code{TEXT}. Advance due is stored on the declaration; final liability on its assessment.
 \end{columns}
 \keyline{Inserted amounts are evidence of cases, not an automatic tax engine.}
 \sources{[DB] scripts/setup\_database.py; PRAGMA metadata. Foreign-key enforcement must be enabled per connection. [L4] PDF pp. 15–18. Full mapping/schema: A10–A14.}
@@ -199,7 +198,7 @@ JOIN vehicles AS v ON d.vehicle_id = v.vehicle_id
 GROUP BY strftime('%Y', d.period_start), v.vehicle_type
 \end{lstlisting}
 \textbf{JOIN} supplies the type; \textbf{GROUP BY} forms year/type groups; sums give mileage and advance liability.
-\keyline{£1,170 planned advances; a billing-year measure, not calendar-year cash.}
+\keyline{£1,170 planned advances, grouped by period start year.}
 \sources{[Q1] database/queries/expected\_revenue.sql, executed unchanged. 2028/29 billing year, grouped by start year 2028. Original output alias: expected\_revenue\_gbp. Complete SQL/output: A18.}
 \end{frame}
 
@@ -281,7 +280,7 @@ More users, partners and reports increase opportunities for inappropriate access
 \textbf{Documented assistance}
 \begin{itemize}\itemsep4pt
 \item Explanations and drafts for scope, process/ER models, SQLite, sample data and SQL.
-\item This English deck, diagram revisions, script, build and verification.
+\item English slides and notes, diagram corrections, data checks and PowerPoint export.
 \end{itemize}
 \textbf{Why useful:} quick alternatives and clear explanations for a small prototype.
 \column{.47\textwidth}
@@ -293,7 +292,7 @@ More users, partners and reports increase opportunities for inappropriate access
 \end{itemize}
 \end{columns}
 \medskip
-\confirm{Which substantive activities did the author deliberately do without AI, and why? No historical non-use is inferred.}
+\confirm{7a: Name a task deliberately done without AI and why, or explain if none.}
 \sources{[P] Supplied presentation brief: prior AI-use context. [C] PDF pp. 1–2, 4 (Task 7a). Separate HSG AI-use declaration is still required.}
 \end{frame}
 
@@ -303,11 +302,11 @@ More users, partners and reports increase opportunities for inappropriate access
 \column{.47\textwidth}
 \begin{block}{AI-assisted original description}
 “Outstanding amounts and refunds by period.”\par\smallskip
-The reporting drawing proposes that output, but the implemented query compares \textbf{final tax with advance due}.
+The earlier reporting drawing promised this. Yet the query joins declarations to assessments, never to payments.
 \end{block}
 \column{.49\textwidth}
 \begin{block}{Correction in this draft}
-Label Analysis 2 \textbf{gross settlement adjustments}.\par\smallskip
+The revised model reports \textbf{gross adjustments}: final tax minus advance due.\par\smallskip
 Use signed payment totals for remaining balances:\\
 £1,230 − (£1,170 + £90 − £60)\\
 = \alert{£30 outstanding}.
@@ -316,21 +315,20 @@ Use signed payment totals for remaining balances:\\
 \textbf{Detection:} compare the proposed indicator with the query's tables and reconcile the payments. £120 is assessed extra tax; £90 has already been received.
 \par\smallskip
 \textbf{Course lesson:} integrated management information needs a precise business definition, not just valid SQL.
-\sources{[D3] 03\_management\_reporting.drawio, queriesbody; file metadata agent=Codex supports AI-assisted provenance. [Q2], [DB]; [L4] PDF pp. 48–49. Comparison/correction performed by the presentation agent, not claimed as the author's independent discovery.}
+\sources{7b: [D3] original queriesbody at baseline bab8c0f (agent=Codex); [Q2], [DB], [L4] pp. 48–49. The earlier presentation agent identified the mismatch; the post-meeting revision corrected the editable drawing too.}
 \end{frame}
 
 % 18 — 45 seconds
 \begin{frame}{AI reflection 3 | Validate with the course, then claim only your work}
-\textbf{Checks completed by the presentation agent}
+\textbf{7c | How the agents checked the design}
 \begin{itemize}\itemsep4pt
-\item EPC: state/activity alternation, start/end events, XOR outcomes and role labels.
-\item ER: endpoint cardinalities checked against keys, uniqueness and optional assessment.
-\item SQLite: integrity and foreign-key checks passed; schema/data replay matched in memory.
-\item Business meaning: all five mileage/rate calculations and signed payments reconciled.
+\item EPC: follow each XOR to an end event. An invoice is not a receipt.
+\item ER: trace an assessment back to its declaration. Changing the current registration in a disposable copy left the liable owner unchanged.
+\item SQL: recalculate miles from both readings and reconcile liability with signed cash.
 \end{itemize}
-\textbf{Why course knowledge matters:} foreign keys alone cannot validate the vehicle of both readings; a successful aggregate can still answer the wrong question.
+\textbf{Course insight:} a foreign key proves the reading exists, not that it belongs to the right vehicle. A valid join can still answer the wrong planning question.
 \par\medskip
-\confirm{Identify checks personally repeated and exclusively personal design decisions, with evidence. Simple code and English-first are documented preferences, not proof of independent system design.}
+\confirm{7c: Which check did you personally perform, and with what result? 7d: Identify an exclusively personal design choice and evidence, or state if none.}
 \sources{[L2–L4]; assets/database\_verification.json and editable diagram sources. Task 7c–7d: personal authorship statements remain specifically unresolved.}
 \end{frame}
 

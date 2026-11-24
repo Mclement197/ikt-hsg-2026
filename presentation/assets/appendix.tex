@@ -28,7 +28,7 @@ Remaining balance (pence) & Final liability − net payments. Positive = owner o
 \begin{center}\input{assets/p1_cash}\end{center}
 \begin{columns}[T,onlytextwidth]
 \column{.48\textwidth}\textbf{Inputs and rules}\\Accepted estimate, vehicle type and period. Calculate miles × rate; round once half upwards.
-\column{.48\textwidth}\textbf{Data effect}\\Store \code{advance_due_pence} in the declaration; create an \code{ADVANCE} payment when received.
+\column{.48\textwidth}\textbf{Data effect}\\Store the liable \code{owner_id} and \code{advance_due_pence} in the declaration; record \code{ADVANCE} cash on receipt.
 \end{columns}
 \medskip
 {\small Payment failure and debt collection are outside the model. All five demonstration advances were received. Notification/payment activities are conceptual; only records are implemented.}
@@ -70,22 +70,23 @@ Gross extra tax/refunds by start year & Plan settlement-processing capacity and 
 \renewcommand{\erdetail}{1}
 \begin{center}\input{assets/er_conceptual}\end{center}
 \erlegend
-\sources{All non-FK implementation attributes are represented conceptually; foreign keys implement the named relationships (A10–A14). Endpoint ranges give multiplicity for one entity at the opposite end. [L3] PDF p. 28.}
+\sources{All attributes shown; named relationships map to the foreign keys on A10–A14. [L3] PDF p. 28.}
 \end{frame}
 
 \begin{frame}{A9 | Cardinalities, lifecycle and inspection reuse}
 \small
 \begin{tabularx}{\textwidth}{@{}p{.37\textwidth}X@{}}\toprule
 \textbf{Relationship} & \textbf{Meaning and implementation}\\\midrule
-Owner 1 — 0..* Vehicle & A vehicle has one owner; an owner can have none or many. Owner changes are outside this model.\\
-Vehicle 1 — 0..* Declaration / Inspection & Each declaration/inspection belongs to one vehicle. Multiple periods/readings can exist over time.\\
-Declaration 1 — 0..* Payment & Each payment has one declaration; no assessment is needed for an advance.\\
-Declaration 1 — 0..1 Assessment & Each assessment has one declaration; a declaration may not yet be assessed. Unique assessment declaration FK.\\
-Inspection 1 — 0..1 Assessment, per role & Each assessment requires one opening and one closing reading. Each inspection may be used at most once in each role.\\\bottomrule
+Owner 1 — 0..* Vehicle & One current registered owner per vehicle.\\
+Owner 1 — 0..* Declaration & The assessment inherits its declaration's liable owner.\\
+Vehicle 1 — 0..* Declaration / Inspection & One vehicle per row; several segments per year are possible.\\
+Declaration 1 — 0..* Payment & An advance can precede assessment.\\
+Declaration 1 — 0..1 Assessment & At most one final decision (unique declaration FK).\\
+Inspection 1 — 0..1 Assessment, per role & An assessment needs two readings, each unique in its role.\\\bottomrule
 \end{tabularx}\par
 \medskip
-\textbf{Reuse example:} the 1 April 2029 inspection may close 2028/29 \emph{and} open 2029/30. Separate unique opening/closing keys permit reuse across the two roles. The second period is not in the sample.
-\sources{[DB] Actual schema constraints. Required distinct readings, same vehicle and chronology are validated assumptions, not guaranteed by these foreign keys. [L3–L4].}
+\textbf{At handover:} one verified reading would close the outgoing owner's segment and open the incoming owner's. The model allows this reuse; transfer processing and valuation are not automated.
+\sources{[DB], [L3–L4]. Same vehicle, distinct readings and valid boundary dates require business checks.}
 \end{frame}
 
 \begin{frame}{A10 | Relational mapping and dictionary: owners to declarations}
@@ -93,13 +94,13 @@ Inspection 1 — 0..1 Assessment, per role & Each assessment requires one openin
 \begin{tabularx}{\textwidth}{@{}p{.27\textwidth}X@{}}\toprule
 \textbf{Relation / concept} & \textbf{Columns: type and meaning}\\\midrule
 \code{vehicle_owners}\newline Vehicle owner & \code{owner_id} INTEGER PK; \code{full_name}, \code{postal_address} TEXT. Stores the responsible fictional owner.\\\addlinespace
-\code{vehicles}\newline Vehicle & \code{vehicle_id} INTEGER PK; \code{owner_id} INTEGER FK → owners; \code{registration_number} TEXT UNIQUE; \code{vehicle_type} TEXT (BEV/PHEV by convention). Rate is not a stored column.\\\addlinespace
-\code{declarations}\newline Annual declaration & \code{declaration_id} INTEGER PK; \code{vehicle_id} INTEGER FK → vehicles; \code{period_start}, \code{period_end} TEXT; \code{estimated_miles}, \code{advance_due_pence} INTEGER; \code{submitted_at} TEXT. UNIQUE(vehicle\_id, period\_start).\\\bottomrule
+\code{vehicles}\newline Current registration & \code{vehicle_id} INTEGER PK; \code{owner_id} INTEGER FK → current owner; \code{registration_number} TEXT UNIQUE; \code{vehicle_type} TEXT (BEV/PHEV). Rate is not stored.\\\addlinespace
+\code{declarations}\newline Declaration period & \code{declaration_id} INTEGER PK; \code{vehicle_id} INTEGER FK → vehicle; \code{owner_id} INTEGER FK → liable owner; \code{period_start}, \code{period_end} TEXT; \code{estimated_miles}, \code{advance_due_pence} INTEGER; \code{submitted_at} TEXT. UNIQUE(vehicle\_id, period\_start).\\\bottomrule
 \end{tabularx}\par
 \medskip
-\textbf{Mapping:} each entity becomes a relation; one-to-many relationships place the foreign key on the many side. No junction table is required.
+\textbf{Mapping:} place the foreign key on the many side of each one-to-many relationship.
 \par\smallskip
-\textbf{Keys and nulls:} each PK is \code{INTEGER PRIMARY KEY}; all other columns are explicitly \code{NOT NULL}. Dates are text values, not a native SQLite date storage class.
+\textbf{Storage:} integer primary keys; all other fields are \code{NOT NULL}. SQLite dates are text here.
 \sources{[DB] scripts/setup\_database.py and PRAGMA table\_info/foreign\_key\_list/index\_list. [L3] PDF p. 15; [L4] pp. 15–18.}
 \end{frame}
 
@@ -119,37 +120,37 @@ All non-PK fields are explicitly \code{NOT NULL}. Stored derived amounts provide
 \begin{frame}[fragile]{A12 | Schema evidence: owner and vehicle master data}
 \begin{columns}[T,onlytextwidth]
 \column{.43\textwidth}
-\lstinputlisting[language=SQL,firstline=11,lastline=15]{../scripts/setup_database.py}
+\lstinputlisting[language=SQL,firstline=13,lastline=17]{../scripts/setup_database.py}
 \column{.53\textwidth}
-\lstinputlisting[language=SQL,firstline=20,lastline=26]{../scripts/setup_database.py}
+\lstinputlisting[language=SQL,firstline=22,lastline=28]{../scripts/setup_database.py}
 \end{columns}
 \medskip
-\textbf{Enforced:} one referenced owner per vehicle (with foreign keys enabled), a unique registration number, mandatory name/address/type.
+\textbf{Enforced:} one referenced current owner per vehicle (with foreign keys enabled), a unique registration number, mandatory name/address/type.
 \par\medskip
-\textbf{Not enforced:} type must be BEV/PHEV, authentic registration data, or ownership stability during a period. These are assumptions and verification responsibilities.
+\textbf{Current versus historical:} updating this registration does not reassign a declaration. Its liable owner is a separate foreign key (A13); verifying the registration is a designed agency task.
 \sources{Verbatim CREATE statements from [DB] scripts/setup\_database.py, checked against sqlite\_master. Setup creates tables; scripts/load\_db.py separately inserts the sample.}
 \end{frame}
 
 \begin{frame}[fragile]{A13 | Schema evidence: one declaration and reading per key}
 \begin{columns}[T,onlytextwidth]
 \column{.50\textwidth}
-\lstinputlisting[language=SQL,firstline=31,lastline=41]{../scripts/setup_database.py}
+\lstinputlisting[language=SQL,firstline=33,lastline=45]{../scripts/setup_database.py}
 \column{.46\textwidth}
-\lstinputlisting[language=SQL,firstline=46,lastline=54]{../scripts/setup_database.py}
+\lstinputlisting[language=SQL,firstline=50,lastline=58]{../scripts/setup_database.py}
 \end{columns}
 \medskip
-\textbf{Uniqueness is precise:} one declaration per vehicle and \emph{start date}, not an automatic rule against overlapping periods; one inspection per vehicle and inspection date.
+\textbf{Uniqueness:} one declaration per vehicle/start date; one inspection per vehicle/reading date.
 \par\smallskip
-Dates, mileage order and the validity of the period still need business checks.
-\sources{Verbatim CREATE statements from [DB], checked against metadata. The sample uses one fixed 2028/29 period. Foreign keys are enabled in setup and loading connections.}
+Different start dates can still overlap. Period boundaries and mileage order need business checks.
+\sources{[DB] Actual CREATE statements; foreign keys enabled in setup and loading.}
 \end{frame}
 
 \begin{frame}[fragile]{A14 | Schema evidence: assessment is optional; payments are many}
 \begin{columns}[T,onlytextwidth]
 \column{.57\textwidth}
-\lstinputlisting[language=SQL,basicstyle=\linespread{1}\ttfamily\fontsize{7.3}{9}\selectfont,firstline=59,lastline=69]{../scripts/setup_database.py}
+\lstinputlisting[language=SQL,basicstyle=\linespread{1}\ttfamily\fontsize{7.3}{9}\selectfont,firstline=63,lastline=73]{../scripts/setup_database.py}
 \column{.39\textwidth}
-\lstinputlisting[language=SQL,basicstyle=\linespread{1}\ttfamily\fontsize{7.3}{9}\selectfont,firstline=74,lastline=81]{../scripts/setup_database.py}
+\lstinputlisting[language=SQL,basicstyle=\linespread{1}\ttfamily\fontsize{7.3}{9}\selectfont,firstline=78,lastline=85]{../scripts/setup_database.py}
 \end{columns}
 \medskip
 \textbf{Why keep both entities?} The final liability is a tax decision; payments are completed cash movements. A declaration can have an advance before an assessment exists.
@@ -201,8 +202,8 @@ Refund records contain positive values; the £60 is subtracted to obtain net cas
 \begin{tabularx}{\textwidth}{@{}p{.26\textwidth}X@{}}\toprule
 \textbf{Relation / key} & \textbf{Inserted case evidence}\\\midrule
 Owner 5 & Emma Example; 5 Example Road, Birmingham (fictional).\\
-Vehicle 5 & owner\_id 5; registration DEMO005; type PHEV.\\
-Declaration 5 & vehicle\_id 5; 2028-04-01 to exclusive 2029-04-01; estimate 10,000 miles; advance 15,000 pence.\\
+Vehicle 5 & current owner\_id 5; registration DEMO005; type PHEV.\\
+Declaration 5 & vehicle\_id 5; liable owner\_id 5; 2028-04-01 to exclusive 2029-04-01; estimate 10,000 miles; advance 15,000 pence.\\
 Inspections 9 and 10 & vehicle\_id 5; 10,000 miles on 2028-04-01; 22,000 miles on 2029-04-01; centre DEMO-MOT-05.\\
 Assessment 5 & declaration\_id 5; opening ID 9; closing ID 10; final liability 18,000 pence.\\
 Payment 5 & declaration\_id 5; ADVANCE; 15,000 pence; received 2028-04-01T10:00:00Z. No ADDITIONAL payment.\\\bottomrule
@@ -217,12 +218,12 @@ This case is assessed but has not completed Process 2's payment branch. The unpa
 \smallskip
 \small
 \begin{tabular}{@{}lcrrr@{}}\toprule
-Start year & Type & Vehicles & Declared miles & Expected revenue GBP\\\midrule
+Start year & Type & Vehicles & Declared miles & Advance liability GBP\\\midrule
 2028 & BEV & 3 & 30,000 & 900.00\\
 2028 & PHEV & 2 & 18,000 & 270.00\\\bottomrule
 \end{tabular}
 \par\smallskip
-Column headings abbreviate the SQL aliases. \code{expected_revenue_gbp} means \textbf{estimated advance liability}, grouped by billing-period start year, not final liability or cash receipts.
+The alias \code{expected_revenue_gbp} means \textbf{estimated advance liability}. Each vehicle counts once per type/start-year group; miles and amounts sum across its declarations. This is not cash received.
 \sources{[Q1] Exact file, executed read-only. Two joined tables: declarations and vehicles. Rounding here formats sums of already-stored pence as GBP; it is not the mileage tax calculation.}
 \end{frame}
 
@@ -291,23 +292,23 @@ L5 & HSG, \emph{VL05 Architektur und Integration}, HS2026. & 12, 15–16\\
 L6 & HSG, \emph{VL06 IT-Strategie und Enterprise Transformation}, HS2026. & 18\\\bottomrule
 \end{tabularx}\par
 \medskip
-Page references are PDF positions, not necessarily printed slide numbers. Course files were found in the author's Downloads folder and inspected on 9 November 2026. Titles retain their original language; presentation explanations are English.
+Page references are PDF positions. The earlier English draft records the lecture references; the post-meeting revision also checked the local assignment, pp. 1–4. Course files are not part of the submission.
 \sources{Concepts are applied to the case; no external claim about current UK tax law is made. Course materials are referenced, not redistributed with this draft.}
 \end{frame}
 
 \begin{frame}{A23 | Sources: project evidence and AI attribution}
 \fontsize{8.3}{10.2}\selectfont
-\textbf{Project:} Mathis Clément, \emph{ikt-hsg-2026}, working tree at commit \code{a2d2b2a}, inspected 9 November 2026.\\
+\textbf{Project:} Mathis Clément, \emph{ikt-hsg-2026}. Post-meeting working tree, 23 November 2026; baseline \code{bab8c0f}.\\
 \url{https://github.com/Mclement197/ikt-hsg-2026}
 \begin{description}
-\item[S] \code{Scope.md}; context from \code{README.md}, \code{questions.md}.
+\item[S] \code{Scope.md}; run and hand-in instructions in \code{README.md}.
 \item[DB] \code{scripts/setup_database.py}, \code{scripts/load_db.py}; \code{database/electromobility.db}; \code{database/queries/sample_data.sql}.
 \item[Q1–Q2] \code{database/queries/expected_revenue.sql}, \code{additional_tax.sql}.
 \item[D1–D3] Individual \code{diagrams/business_processes/*.drawio}; [D3] is \code{03_management_reporting.drawio}. ER reference files in \code{diagrams/er_diagram/}.
-\item[P] Author-supplied \code{opencode_english_presentation_prompt.md}, 9 November 2026; context of earlier AI assistance and English-first request.
+\item[P] Author-supplied English deck brief and 23 November meeting implementation brief (local); the earlier draft records the scope of AI assistance.
 \end{description}
-\textbf{AI attribution:} OpenAI GPT-6 Astra, used through OpenCode in this session, assisted with source review, English slides/script, TikZ diagrams, SQL reconciliation and build/layout checks. Earlier model files identify \code{agent="Codex"}; no earlier model version or personal discovery is inferred.
+\textbf{AI attribution:} the earlier OpenCode presentation agent identified the reporting error; the baseline drawing records \code{agent="Codex"}. OpenAI GPT-6.2 Astra via OpenCode revised the schema, models and English deck after the meeting, checked the data and prepared the PowerPoint export.
 \par\smallskip
 The author's final review, personal design claims and separate HSG AI-use declaration remain required. Diagram notation adaptations and presentation-specific corrections are documented in \code{assets/README.md}.
-\sources{Editable vector diagrams are newly prepared for this deck using course notation with declared extensions. Existing Metropolis theme retained; original template demonstration content and bibliography are not used.}
+\sources{Editable model sources: diagrams/ and presentation/assets/. The PowerPoint uses rendered slides from the corrected LaTeX source.}
 \end{frame}

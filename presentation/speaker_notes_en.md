@@ -4,7 +4,7 @@ Mathis Clément · HSG · Information and Communication Technology · HS2026
 
 Narrate slides **1–19 only**. Appendices A1–A23 are reference material. Timing is an estimate, not a timed recording. Delivery budgets include pauses and pointing at diagrams; final timing must be rehearsed again after German translation. The personal statements flagged on slides 16 and 18 are tracked separately in `author_review.md`.
 
-**Timing calculation:** 1,703 spoken words (headings and this introduction excluded). At 140 words/minute, speech takes about 12 min 10 s; approximately 90 s for diagram pointing and pauses gives **13 min 40 s**, matching the 820 s slide budgets below. At 130 words/minute plus the same pauses, allow about 14 min 36 s. No audio has been generated or timed.
+**Timing budget:** 13 min 15 s across slides 1–19. Use the spare 1 min 45 s below the limit for the author's reflection, diagram pointing or slower delivery. The measured word count and pace estimate are in `verification.md`.
 
 ## 1. Designing a Mileage-Based Electric Vehicle Tax System — 15 s
 
@@ -14,13 +14,13 @@ This project designs a mileage-based electric vehicle tax system for Case A. The
 
 The assignment describes a tax based on distance rather than journey tracking. Battery electric vehicles pay three pence per mile; plug-in hybrids pay one and a half. These are the case assumptions. Owners estimate their mileage and pay an advance. MOT inspection centres verify odometer readings. The DVLA is the external authority for vehicle-registration data, while the tax authority calculates liability, records payments and prepares management information. The information chain runs from the estimate through verified distance to settlement. No live agency connection is implemented here.
 
-## 3. A narrow scope makes the annual logic explainable — 50 s
+## 3. A narrow scope makes the annual logic explainable — 25 s
 
-The prototype covers one billing year, from April 2028 through March 2029. The database stores the first of April 2029 as the exclusive end, and takes the closing reading at that boundary. Each vehicle keeps the same owner, and rates remain fixed. Verified readings exist at both boundaries, with no odometer reset. These assumptions make subtraction meaningful and avoid splitting liability. Amounts are integer pence, rounded once after multiplication, with half-pennies upwards. A declaration can exist before its assessment. Following the course's modelling concept, the scope deliberately reduces detail to explain the annual workflow. Exceptional cases and production services remain outside it.
+The five examples cover April 2028 through March 2029. We use miles, verified boundary readings and fixed rates, rounding once to the penny. A declaration names the owner liable for its period. A handover would split the year at a verified reading. The prototype stores that distinction without automating transfers or their valuation.
 
 ## 4. Process 1 | An estimate creates an advance, not final tax — 50 s
 
-The first process begins when the declaration period opens. An owner submits estimated mileage, and the authority validates the declaration and vehicle. This view follows the accepted path; the appendix also shows rejection and a correction request. The authority calculates the advance, the owner pays, and the authority records that receipt. Notice the alternation between states in hexagons and activities in rounded boxes. The bracketed roles identify responsibility, rather than adding steps to the control flow. The important data distinction is between the amount due in the declaration and cash actually received in payments. Neither is yet the final tax liability.
+The first process begins when the declaration period opens. The owner submits an estimate. The authority checks the vehicle, dates and liable owner and records that person on the accepted declaration. The appendix shows what happens if a correction is needed. The authority calculates the advance, the owner pays, and only then is there a receipt. The hexagons are states; the rounded boxes are activities. Bracketed roles identify who acts. The amount due belongs to the declaration and the cash received belongs to a payment. Neither is yet the final tax.
 
 ## 5. Process 2 | Assessment and cash are separate events — 60 s
 
@@ -32,11 +32,11 @@ Management reporting starts on a reporting date. The analyst extracts period rec
 
 ## 7. Six entities connect responsibility, evidence and money — 70 s
 
-The conceptual model contains six entities. An owner can have several vehicles, but each vehicle has exactly one owner in this prototype. A vehicle can accumulate declarations and inspections over time. Each declaration can have many payments and zero or one final assessment. That optional assessment is important during the workflow, even though all five sample declarations are already assessed. Every assessment references one declaration and two inspection roles: opening and closing. Each inspection can be used at most once in each role. It can still close one period and open the next. Payments link to declarations because an advance arrives before final assessment. The rounded entities and attribute markers follow the lecture example; explicit endpoint ranges replace its line conventions to make multiplicities unambiguous. The appendix gives all attributes and explains this notation extension.
+There are two lines from the owner for a reason. The vehicle tells us who is registered now. The declaration tells us who owes tax for a particular period. If the vehicle changes hands, last period's assessment still leads back to the outgoing owner. Several declarations can therefore belong to the same vehicle in one year. A declaration can have many payments but at most one assessment. An advance need not wait for assessment. Every assessment uses an opening and a closing inspection. A reading can close one segment and open the next, because the uniqueness constraint applies separately to each role. Read the range beside an entity as the number of those entities allowed for one at the opposite end. The appendix shows the full attribute view.
 
 ## 8. SQLite implements the structure, not every business rule — 40 s
 
-Each conceptual entity maps to a SQLite table. Keys identify records, foreign keys connect them, and uniqueness prevents certain duplicates. These constraints do not establish every business rule. A valid inspection reference does not prove that the inspection concerns the declaration's vehicle. Dates, increasing mileage and allowed types also need validation. Dates and timestamps are stored as text. Due and assessed amounts are stored in integer pence as simple records of the decision. The sample contains inserted amounts, rather than demonstrating an automatic tax-calculation engine.
+Each entity maps to one SQLite table. Both owner references are mandatory, but one can change without moving past liability. Vehicle and start date must be unique on declarations. That stops two identical starts, but not overlapping periods. Similarly, a foreign key only proves an inspection exists, not that it concerns the right vehicle. The data check therefore compares vehicles, dates and mileage. Dates are text; money is integer pence. The sample stores the decisions as rows rather than running an automatic tax engine.
 
 ## 9. Five cases exercise the same settlement process — 65 s
 
@@ -72,11 +72,11 @@ AI has supported explanations and drafts for the scope, models, database, sample
 
 ## 17. AI reflection 2 | A plausible label changed the business meaning — 55 s
 
-There is a concrete mismatch in the AI-assisted reporting drawing. It proposes outstanding amounts and refunds, while the implemented query calculates differences between final tax and advance due. The file identifies Codex as its agent, supporting AI-assisted provenance. During this draft's review, the presentation agent compared that label with the SQL and the payments. The correction is to call the result gross settlement adjustments and calculate remaining balances separately. Final liability of twelve hundred and thirty pounds minus net cash of twelve hundred leaves thirty outstanding. This avoids treating already collected amounts as unpaid. The course's distinction between transaction records and integrated management indicators explains why running SQL successfully was not enough.
+The original AI-assisted reporting drawing promised outstanding amounts. The earlier presentation agent compared that label with the tables in the query. There was no payments table: the query could not know if anyone had paid. The editable model now calls this gross settlement adjustments. One hundred and twenty pounds was assessed as additional tax, but ninety pounds of that has been received. A separate check groups signed cash per declaration, then subtracts it from final liability. That leaves only thirty pounds unpaid. The distinction changes a management decision: staffing for three additional assessments is different from collecting one open balance.
 
 ## 18. AI reflection 3 | Validate with the course, then claim only your work — 45 s
 
-The presentation agent checked EPC event and function rules, ER cardinalities against constraints, database integrity and foreign keys, and every sample mileage calculation and signed payment balance. The actual schema and inserts also reproduced the database in memory. These checks combine technical execution with course concepts. Referential integrity cannot prove the readings concern the correct vehicle, and aggregation requires a precise business definition. Personally repeated checks and exclusively personal system-design decisions still require confirmation. The documented preferences for simple code and an English-first draft are genuine preferences, but they do not establish independent ownership of substantive design decisions.
+The agent checks used course concepts, not just software output. In the EPC an invoice is a state before payment. In the ER model, changing vehicle five's current registration in a disposable copy left its assessed declaration with the original owner. In SQLite, matching both readings to the vehicle and recalculating the tax and signed cash checked the business meaning. Before recording, the author must identify a check personally performed and its result, and say which design choice, if any, was exclusively their own. Those claims need personal evidence.
 
 ## 19. A traceable annual workflow, with a clear prototype boundary — 20 s
 

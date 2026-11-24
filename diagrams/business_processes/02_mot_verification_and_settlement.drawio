@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <mxfile host="app.diagrams.net" agent="Codex" version="24.7.17" type="device"><diagram id="eved-2" name="02 - MOT and final settlement">
-    <mxGraphModel dx="1440" dy="1440" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1440" pageHeight="1440" math="0" shadow="0" background="#FFFFFF">
+    <mxGraphModel dx="1440" dy="1440" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1440" pageHeight="1640" math="0" shadow="0" background="#FFFFFF">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -16,7 +16,7 @@
         <mxCell id="rulestitle" value="CALCULATION" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#17324D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;fontStyle=1;text;spacing=0;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="82" y="193" width="306" height="36" />
         </mxCell>
-        <mxCell id="rulesbody" value="Actual miles = closing reading&#10;minus opening reading.&#10;&#10;Final tax = actual miles × rate.&#10;Round tax to the nearest penny.&#10;&#10;Balance = final tax minus&#10;advance payments received.&#10;&#10;Positive: extra payment due&#10;Negative: refund due&#10;Zero: no adjustment" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;text;spacing=0;" vertex="1" parent="1">
+        <mxCell id="rulesbody" value="Actual miles = closing − opening.&#10;Check vehicle, boundary dates and&#10;non-decreasing odometer miles.&#10;&#10;Final tax = actual miles × rate;&#10;round once, half-pennies upwards.&#10;&#10;At settlement, subtract the advance&#10;received. Positive: invoice;&#10;negative: refund; zero: balanced." style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;text;spacing=0;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="82" y="241" width="306" height="460" />
         </mxCell>
         <mxCell id="examplebg" value="" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=18;fontColor=#17324D;fillColor=#F1F5FA;strokeColor=#D4DFEB;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
@@ -37,62 +37,68 @@
         <mxCell id="verified" value="Closing reading verified" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="580" y="375" width="280" height="60" />
         </mxCell>
-        <mxCell id="calculate" value="Calculate actual mileage&#10;and final tax&#10;[Tax authority]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
+        <mxCell id="validate_pair" value="Validate both boundary readings&#10;[Tax authority]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="560" y="465" width="320" height="80" />
         </mxCell>
-        <mxCell id="assessed" value="Final tax assessed" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
+        <mxCell id="pair_accepted" value="Reading pair accepted" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="580" y="575" width="280" height="60" />
         </mxCell>
-        <mxCell id="compare" value="Compare final tax&#10;with paid advance&#10;[Tax authority]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
+        <mxCell id="calculate" value="Calculate miles and record&#10;final liability&#10;[Tax authority]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="560" y="665" width="320" height="80" />
         </mxCell>
+        <mxCell id="assessed" value="Final liability recorded" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="580" y="775" width="280" height="60" />
+        </mxCell>
+        <mxCell id="compare" value="Compare final tax&#10;with paid advance&#10;[Tax authority]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="560" y="865" width="320" height="80" />
+        </mxCell>
         <mxCell id="decision" value="XOR" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#17324D;fillColor=white;strokeColor=#17324D;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;fontStyle=1;ellipse;aspect=fixed;spacing=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="698" y="785" width="44" height="44" />
+          <mxGeometry as="geometry" x="698" y="985" width="44" height="44" />
         </mxCell>
         <mxCell id="due" value="Additional amount due" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="140" y="875" width="280" height="60" />
-        </mxCell>
-        <mxCell id="dueaction" value="Issue additional invoice&#10;[Tax authority]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="120" y="965" width="320" height="80" />
-        </mxCell>
-        <mxCell id="duestate" value="Additional invoice issued" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="140" y="1075" width="280" height="60" />
         </mxCell>
-        <mxCell id="duepay" value="Receive and record payment&#10;[Tax authority]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
+        <mxCell id="dueaction" value="Issue additional invoice&#10;[Tax authority]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="120" y="1165" width="320" height="80" />
         </mxCell>
-        <mxCell id="dueend" value="Additional payment recorded" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
+        <mxCell id="duestate" value="Additional invoice issued" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="140" y="1275" width="280" height="60" />
         </mxCell>
+        <mxCell id="duepay" value="Receive and record payment&#10;[Tax authority]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="120" y="1365" width="320" height="80" />
+        </mxCell>
+        <mxCell id="dueend" value="Additional payment recorded" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="140" y="1475" width="280" height="60" />
+        </mxCell>
         <mxCell id="zero" value="No adjustment required" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="580" y="875" width="280" height="60" />
-        </mxCell>
-        <mxCell id="zeroaction" value="Issue zero-balance confirmation&#10;[Tax authority]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="560" y="965" width="320" height="80" />
-        </mxCell>
-        <mxCell id="zerostate" value="Account balanced" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="580" y="1075" width="280" height="60" />
         </mxCell>
+        <mxCell id="zeroaction" value="Issue zero-balance confirmation&#10;[Tax authority]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="560" y="1165" width="320" height="80" />
+        </mxCell>
+        <mxCell id="zerostate" value="Account balanced" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="580" y="1275" width="280" height="60" />
+        </mxCell>
         <mxCell id="refund" value="Overpayment established" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1020" y="875" width="280" height="60" />
-        </mxCell>
-        <mxCell id="refundaction" value="Approve refund&#10;[Tax authority]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1000" y="965" width="320" height="80" />
-        </mxCell>
-        <mxCell id="refundstate" value="Refund authorised" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="1020" y="1075" width="280" height="60" />
         </mxCell>
-        <mxCell id="refundpay" value="Execute and record refund&#10;[Tax authority]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
+        <mxCell id="refundaction" value="Approve refund&#10;[Tax authority]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="1000" y="1165" width="320" height="80" />
         </mxCell>
-        <mxCell id="refundend" value="Refund recorded" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
+        <mxCell id="refundstate" value="Refund authorised" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="1020" y="1275" width="280" height="60" />
         </mxCell>
-        <mxCell id="open" value="An issued invoice or authorised refund can remain open&#10;between steps and appear in management reporting." style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#54687D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;text;spacing=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="480" y="1200" width="480" height="95" />
+        <mxCell id="refundpay" value="Execute and record refund&#10;[Tax authority]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1000" y="1365" width="320" height="80" />
         </mxCell>
-        <mxCell id="footer" value="Draft assumptions: no owner changes, missing readings or odometer resets. Monetary amounts in examples use the case rates." style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#54687D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;text;spacing=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="60" y="1385" width="1320" height="35" />
+        <mxCell id="refundend" value="Refund recorded" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1020" y="1475" width="280" height="60" />
+        </mxCell>
+        <mxCell id="open" value="Case 5: £180 assessed, £150 received. No extra receipt:&#10;£30 remains due. Invoice status is not a stored field." style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#54687D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;text;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="480" y="1400" width="480" height="95" />
+        </mxCell>
+        <mxCell id="footer" value="The declaration identifies the liable owner. Verification and settlement are modelled agency tasks; payment rows represent completed cash movements." style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#54687D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;text;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="60" y="1585" width="1320" height="35" />
         </mxCell>
         <mxCell id="edge-0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="start" target="record">
           <mxGeometry as="geometry" relative="1" />
@@ -100,7 +106,13 @@
         <mxCell id="edge-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="record" target="verified">
           <mxGeometry as="geometry" relative="1" />
         </mxCell>
-        <mxCell id="edge-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="verified" target="calculate">
+        <mxCell id="edge-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="verified" target="validate_pair">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="edge-check" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="validate_pair" target="pair_accepted">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="edge-accept" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="pair_accepted" target="calculate">
           <mxGeometry as="geometry" relative="1" />
         </mxCell>
         <mxCell id="edge-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="calculate" target="assessed">
@@ -115,7 +127,7 @@
         <mxCell id="edge-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="decision" target="due">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
-              <mxPoint x="280" y="807" />
+              <mxPoint x="280" y="1007" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -143,7 +155,7 @@
         <mxCell id="edge-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="decision" target="refund">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
-              <mxPoint x="1160" y="807" />
+              <mxPoint x="1160" y="1007" />
             </Array>
           </mxGeometry>
         </mxCell>

@@ -1,9 +1,11 @@
 import sqlite3
+import sys
 from pathlib import Path
 
 root_path = Path(__file__).parent.parent
 
-conn = sqlite3.connect(root_path / "database/electromobility.db")
+db_path = Path(sys.argv[1]) if len(sys.argv) > 1 else root_path / "database/electromobility.db"
+conn = sqlite3.connect(db_path)
 conn.execute("PRAGMA foreign_keys = ON")
 
 # Vehicle owners
@@ -15,7 +17,7 @@ CREATE TABLE IF NOT EXISTS vehicle_owners (
 )
 """)
 
-# Vehicles
+# Vehicles: owner_id is the current registration.
 conn.execute("""
 CREATE TABLE IF NOT EXISTS vehicles (
     vehicle_id INTEGER PRIMARY KEY,
@@ -26,17 +28,19 @@ CREATE TABLE IF NOT EXISTS vehicles (
 )
 """)
 
-# Annual mileage declarations
+# Declarations: owner_id is the person liable for this period.
 conn.execute("""
 CREATE TABLE IF NOT EXISTS declarations (
     declaration_id INTEGER PRIMARY KEY,
     vehicle_id INTEGER NOT NULL,
+    owner_id INTEGER NOT NULL,
     period_start TEXT NOT NULL,
     period_end TEXT NOT NULL,
     estimated_miles INTEGER NOT NULL,
     advance_due_pence INTEGER NOT NULL,
     submitted_at TEXT NOT NULL,
     FOREIGN KEY (vehicle_id) REFERENCES vehicles(vehicle_id),
+    FOREIGN KEY (owner_id) REFERENCES vehicle_owners(owner_id),
     UNIQUE (vehicle_id, period_start)
 )
 """)

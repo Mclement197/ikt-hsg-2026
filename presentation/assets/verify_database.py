@@ -1,18 +1,21 @@
 """Read-only presentation evidence; run from any directory with standard Python.
 
-The committed database is opened with mode=ro. Schema/sample replay uses memory.
+An optional path checks a candidate DB without publishing an evidence report.
+The database is opened with mode=ro. Schema/sample replay uses memory.
 This validates the sample, not a production tax engine or all possible inputs.
 """
 import ast
 import hashlib
 import json
 import sqlite3
+import sys
 from decimal import Decimal, ROUND_HALF_UP
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 ASSETS = Path(__file__).resolve().parent
-DB = ROOT / "database/electromobility.db"
+DELIVERABLE = ROOT / "database/electromobility.db"
+DB = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else DELIVERABLE
 before = hashlib.sha256(DB.read_bytes()).hexdigest()
 conn = sqlite3.connect(DB.as_uri() + "?mode=ro", uri=True)
 conn.row_factory = sqlite3.Row
@@ -41,11 +44,21 @@ for table in tables:
         },
         "rows": conn.execute(f'SELECT COUNT(*) FROM "{table}"').fetchone()[0],
     }
+assert {t: metadata[t]["rows"] for t in tables} == {
+    "vehicle_owners": 5, "vehicles": 5, "declarations": 5,
+    "mot_inspections": 10, "tax_assessments": 5, "payments": 8}
+for table in ("vehicles", "declarations"):
+    assert any(c["name"] == "owner_id" and c["notnull"] for c in metadata[table]["columns"])
+    assert any((fk["from"], fk["table"], fk["to"]) == ("owner_id", "vehicle_owners", "owner_id")
+               for fk in metadata[table]["foreign_keys"])
 
 analyses = {}
 for name in ("expected_revenue", "additional_tax"):
     sql = (ROOT / f"database/queries/{name}.sql").read_text(encoding="utf-8")
     analyses[name] = rows(sql)
+assert [tuple(r.values()) for r in analyses["expected_revenue"]] == [
+    ("2028", "BEV", 3, 30000, 900), ("2028", "PHEV", 2, 18000, 270)]
+assert [tuple(r.values()) for r in analyses["additional_tax"]] == [("2028", 5, 3, 1, 120, 60)]
 
 case_sql = """
 WITH cash AS (
@@ -56,6 +69,7 @@ WITH cash AS (
   FROM payments GROUP BY declaration_id
 )
 SELECT d.declaration_id, v.vehicle_type, d.vehicle_id,
+  d.owner_id AS liable_owner_id, v.owner_id AS current_owner_id, a.assessed_at,
   d.period_start, d.period_end, d.estimated_miles, d.advance_due_pence,
   o.inspection_id AS opening_id, c.inspection_id AS closing_id,
   o.vehicle_id AS opening_vehicle, c.vehicle_id AS closing_vehicle,
@@ -77,13 +91,19 @@ LEFT JOIN cash ON cash.declaration_id=d.declaration_id
 ORDER BY d.declaration_id
 """
 cases = rows(case_sql)
+assert [c["declaration_id"] for c in cases] == [1, 2, 3, 4, 5]
+assert [c["remaining_balance"] for c in cases] == [0, 0, 0, 0, 3000]
 supplementary = rows((ASSETS / "outstanding_validation.sql").read_text(encoding="utf-8"))
-assert [(r["declaration_id"], r["remaining_gbp"]) for r in supplementary] == [
-    (c["declaration_id"], c["remaining_balance"] / 100) for c in cases]
+assert [tuple(r.values()) for r in supplementary] == [
+    (c["declaration_id"], c["final_tax_pence"] / 100, c["net_cash"] / 100,
+     c["remaining_balance"] / 100) for c in cases]
 for case in cases:
+    # Only the five annual examples have this property.
+    assert case["liable_owner_id"] == case["current_owner_id"] == case["declaration_id"]
     assert case["vehicle_id"] == case["opening_vehicle"] == case["closing_vehicle"]
     assert case["opening_date"] == case["period_start"] == "2028-04-01"
     assert case["closing_date"] == case["period_end"] == "2029-04-01"
+    assert case["opening_date"] < case["closing_date"] <= case["assessed_at"][:10]
     assert case["opening_id"] != case["closing_id"]
     assert case["actual_miles"] >= 0 and case["estimated_miles"] >= 0
     rate = {"BEV": Decimal("3"), "PHEV": Decimal("1.5")}[case["vehicle_type"]]
@@ -120,6 +140,14 @@ for table in tables:
     get_sql = "SELECT sql FROM sqlite_master WHERE type='table' AND name=?"
     assert normalize(memory.execute(get_sql, (table,)).fetchone()[0]) == normalize(
         conn.execute(get_sql, (table,)).fetchone()[0])
+
+# Change only the current registration in the disposable replay. The historical
+# assessment must still resolve to the period's owner through its declaration.
+memory.execute("UPDATE vehicles SET owner_id=2 WHERE vehicle_id=5")
+assert memory.execute("""
+    SELECT v.owner_id, d.owner_id FROM tax_assessments a
+    JOIN declarations d USING (declaration_id) JOIN vehicles v USING (vehicle_id)
+    WHERE a.assessment_id=5""").fetchone() == (2, 5)
 memory.close()
 conn.close()
 after = hashlib.sha256(DB.read_bytes()).hexdigest()
@@ -135,9 +163,11 @@ report = {"database_sha256": before, "database_unchanged": True,
           "metadata": metadata, "analyses": analyses, "cases": cases,
           "supplementary_outstanding": supplementary,
           "totals_pence": totals, "memory_replay_matches": True,
+          "registration_change_preserves_liable_owner_in_replay": True,
           "business_rule_sample_checks": "passed; not schema-enforced guarantees"}
-(ASSETS / "database_verification.json").write_text(
-    json.dumps(report, indent=2) + "\n", encoding="utf-8")
+if DB == DELIVERABLE:
+    (ASSETS / "database_verification.json").write_text(
+        json.dumps(report, indent=2) + "\n", encoding="utf-8")
 print(json.dumps({"counts": {t: metadata[t]["rows"] for t in tables},
                   "analyses": analyses, "totals_pence": totals,
                   "database_unchanged": before == after,

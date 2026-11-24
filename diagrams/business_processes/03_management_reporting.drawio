@@ -40,13 +40,13 @@
         <mxCell id="inputstitle" value="REPORTING DATA" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#17324D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;fontStyle=1;text;spacing=0;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="872" y="193" width="486" height="36" />
         </mxCell>
-        <mxCell id="inputsbody" value="Vehicles and vehicle types&#10;Declarations and expected mileage&#10;Inspections and actual mileage&#10;Tax assessments and recorded payments&#10;&#10;Use vehicle + billing period to align records.&#10;Aggregate payments per assessment before&#10;joining to avoid multiplying revenue totals." style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;text;spacing=0;" vertex="1" parent="1">
+        <mxCell id="inputsbody" value="Q1: declarations + vehicles (vehicle type).&#10;Q2: declarations + final tax assessments.&#10;Both group by billing-period start year.&#10;&#10;Separate cash check: aggregate signed payments per&#10;declaration before joining to final assessments." style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;text;spacing=0;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="872" y="241" width="486" height="285" />
         </mxCell>
         <mxCell id="start" value="Reporting date reached" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="390" y="175" width="280" height="60" />
         </mxCell>
-        <mxCell id="extract" value="Extract billing-period records&#10;[Reporting service]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
+        <mxCell id="extract" value="Extract billing-period records&#10;[Analyst]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="370" y="265" width="320" height="80" />
         </mxCell>
         <mxCell id="available" value="Reporting dataset available" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
@@ -61,22 +61,22 @@
         <mxCell id="valid" value="Reporting data accepted" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="390" y="670" width="280" height="60" />
         </mxCell>
-        <mxCell id="aggregate" value="Aggregate revenue, mileage&#10;and balances&#10;[Reporting service]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
+        <mxCell id="aggregate" value="Run advance liability and&#10;gross adjustment queries&#10;[Analyst]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="370" y="760" width="320" height="80" />
         </mxCell>
         <mxCell id="indicators" value="Management indicators&#10;available" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="390" y="870" width="280" height="60" />
         </mxCell>
-        <mxCell id="prepare" value="Assess revenue outlook&#10;and prepare report&#10;[Controlling]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
+        <mxCell id="prepare" value="Review and release report&#10;[Authority management]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="370" y="960" width="320" height="80" />
         </mxCell>
-        <mxCell id="draft" value="Management report prepared" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
+        <mxCell id="draft" value="Management report released" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="390" y="1070" width="280" height="60" />
         </mxCell>
-        <mxCell id="release" value="Review and release&#10;management report&#10;[Authority management]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
+        <mxCell id="release" value="Plan advances and settlement capacity&#10;[Authority management]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="370" y="1160" width="320" height="80" />
         </mxCell>
-        <mxCell id="end" value="Management report released" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
+        <mxCell id="end" value="Planning decision documented" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="390" y="1270" width="280" height="60" />
         </mxCell>
         <mxCell id="invalid" value="Data quality issues detected" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
@@ -91,10 +91,10 @@
         <mxCell id="queriesbg" value="" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=18;fontColor=#17324D;fillColor=#F1F5FA;strokeColor=#D4DFEB;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="850" y="1020" width="530" height="325" />
         </mxCell>
-        <mxCell id="queriestitle" value="TWO SQL ANALYSES TO IMPLEMENT" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#17324D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;fontStyle=1;text;spacing=0;" vertex="1" parent="1">
+        <mxCell id="queriestitle" value="TWO IMPLEMENTED SQL ANALYSES" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#17324D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;fontStyle=1;text;spacing=0;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="872" y="1038" width="486" height="36" />
         </mxCell>
-        <mxCell id="queriesbody" value="1. Assessed revenue by vehicle type and period.&#10;   Supports comparison of the revenue base.&#10;&#10;2. Outstanding amounts and refunds by period.&#10;   Supports cash-flow and workload planning.&#10;&#10;Keep receivables and refunds separate.&#10;Management output contains aggregated data." style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;text;spacing=0;" vertex="1" parent="1">
+        <mxCell id="queriesbody" value="1. Distinct vehicles, declared miles and estimated&#10;advance liability by type and period start year.&#10;&#10;2. Assessed declarations, extra/refund cases and&#10;gross additional tax/refunds by period start year.&#10;Compare final tax with advance due, not cash.&#10;&#10;Use the separate payment check for receivables." style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;text;spacing=0;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="872" y="1086" width="486" height="245" />
         </mxCell>
         <mxCell id="footer" value="Basis: Case A, task 2 (management information) and task 5 (two multi-table analyses). No production data warehouse required." style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#54687D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;text;spacing=0;" vertex="1" parent="1">

@@ -68,7 +68,7 @@
         <mxCell id="ownerstype2" value="TEXT" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=12;fontColor=#52677C;align=right;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="owners">
           <mxGeometry as="geometry" x="317" y="154" width="91" height="30" />
         </mxCell>
-        <mxCell id="ownersfoot" value="One stable owner per vehicle in this prototype." style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=13;fontColor=#52677C;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="owners">
+        <mxCell id="ownersfoot" value="An owner may hold current registrations and be liable for past declarations." style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=13;fontColor=#52677C;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="owners">
           <mxGeometry as="geometry" x="16" y="194" width="388" height="42" />
         </mxCell>
         <mxCell id="vehicles" value="" style="group;container=1;collapsible=0;connectable=1;" vertex="1" parent="1">
@@ -83,7 +83,7 @@
         <mxCell id="vehiclestitle" value="vehicles" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=23;fontColor=#FFFFFF;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontStyle=1;" vertex="1" parent="vehicles">
           <mxGeometry as="geometry" x="18" y="4" width="384" height="40" />
         </mxCell>
-        <mxCell id="vehiclescaption" value="Vehicle master data" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=15;fontColor=#52677C;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="vehicles">
+        <mxCell id="vehiclescaption" value="Current registered owner and vehicle type" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=15;fontColor=#52677C;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="vehicles">
           <mxGeometry as="geometry" x="18" y="49" width="384" height="33" />
         </mxCell>
         <mxCell id="vehiclesrow0" value="" style="rounded=0;fillColor=#F3F6FB;strokeColor=none;" vertex="1" parent="vehicles">
@@ -131,10 +131,10 @@
         <mxCell id="vehiclesfield3" value="vehicle_type" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=16;fontColor=#17324D;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="vehicles">
           <mxGeometry as="geometry" x="74" y="188" width="239" height="30" />
         </mxCell>
-        <mxCell id="vehiclestype3" value="BEV | PHEV" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=12;fontColor=#52677C;align=right;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="vehicles">
+        <mxCell id="vehiclestype3" value="TEXT" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=12;fontColor=#52677C;align=right;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="vehicles">
           <mxGeometry as="geometry" x="317" y="188" width="91" height="30" />
         </mxCell>
-        <mxCell id="vehiclesfoot" value="Tax rate follows vehicle_type; fixed case rates." style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=13;fontColor=#52677C;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="vehicles">
+        <mxCell id="vehiclesfoot" value="BEV or PHEV by convention; the rate is not a column." style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=13;fontColor=#52677C;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="vehicles">
           <mxGeometry as="geometry" x="16" y="228" width="388" height="42" />
         </mxCell>
         <mxCell id="inspections" value="" style="group;container=1;collapsible=0;connectable=1;" vertex="1" parent="1">
@@ -185,7 +185,7 @@
         <mxCell id="inspectionsfield2" value="inspection_date" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=16;fontColor=#17324D;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="inspections">
           <mxGeometry as="geometry" x="74" y="154" width="239" height="30" />
         </mxCell>
-        <mxCell id="inspectionstype2" value="DATE" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=12;fontColor=#52677C;align=right;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="inspections">
+        <mxCell id="inspectionstype2" value="TEXT" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=12;fontColor=#52677C;align=right;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="inspections">
           <mxGeometry as="geometry" x="317" y="154" width="91" height="30" />
         </mxCell>
         <mxCell id="inspectionsrow3" value="" style="rounded=0;fillColor=#FFFFFF;strokeColor=none;" vertex="1" parent="inspections">
@@ -287,17 +287,17 @@
         <mxCell id="paymentsfield4" value="paid_at" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=16;fontColor=#17324D;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="payments">
           <mxGeometry as="geometry" x="74" y="222" width="239" height="30" />
         </mxCell>
-        <mxCell id="paymentstype4" value="DATETIME" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=12;fontColor=#52677C;align=right;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="payments">
+        <mxCell id="paymentstype4" value="TEXT" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=12;fontColor=#52677C;align=right;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="payments">
           <mxGeometry as="geometry" x="317" y="222" width="91" height="30" />
         </mxCell>
         <mxCell id="paymentsfoot" value="Types: ADVANCE, ADDITIONAL, REFUND." style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=13;fontColor=#52677C;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="payments">
           <mxGeometry as="geometry" x="16" y="262" width="388" height="42" />
         </mxCell>
         <mxCell id="declarations" value="" style="group;container=1;collapsible=0;connectable=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="660" y="720" width="420" height="380" />
+          <mxGeometry as="geometry" x="660" y="720" width="420" height="414" />
         </mxCell>
         <mxCell id="declarationsbg" value="" style="rounded=0;fillColor=#FFFFFF;strokeColor=#AEBFD3;strokeWidth=1.5;" vertex="1" parent="declarations">
-          <mxGeometry as="geometry" x="0" y="0" width="420" height="380" />
+          <mxGeometry as="geometry" x="0" y="0" width="420" height="414" />
         </mxCell>
         <mxCell id="declarationshead" value="" style="rounded=0;fillColor=#7652A4;strokeColor=#7652A4;" vertex="1" parent="declarations">
           <mxGeometry as="geometry" x="0" y="0" width="420" height="48" />
@@ -305,7 +305,7 @@
         <mxCell id="declarationstitle" value="declarations" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=23;fontColor=#FFFFFF;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontStyle=1;" vertex="1" parent="declarations">
           <mxGeometry as="geometry" x="18" y="4" width="384" height="40" />
         </mxCell>
-        <mxCell id="declarationscaption" value="Accepted annual mileage declarations" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=15;fontColor=#52677C;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="declarations">
+        <mxCell id="declarationscaption" value="One liable owner per declaration period" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=15;fontColor=#52677C;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="declarations">
           <mxGeometry as="geometry" x="18" y="49" width="384" height="33" />
         </mxCell>
         <mxCell id="declarationsrow0" value="" style="rounded=0;fillColor=#F3F6FB;strokeColor=none;" vertex="1" parent="declarations">
@@ -335,13 +335,13 @@
         <mxCell id="declarationsrow2" value="" style="rounded=0;fillColor=#F3F6FB;strokeColor=none;" vertex="1" parent="declarations">
           <mxGeometry as="geometry" x="0" y="152" width="420" height="34" />
         </mxCell>
-        <mxCell id="declarationskey2" value="" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=12;fontColor=#7652A4;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontStyle=1;" vertex="1" parent="declarations">
+        <mxCell id="declarationskey2" value="FK" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=12;fontColor=#7652A4;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontStyle=1;" vertex="1" parent="declarations">
           <mxGeometry as="geometry" x="12" y="154" width="55" height="30" />
         </mxCell>
-        <mxCell id="declarationsfield2" value="period_start" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=16;fontColor=#17324D;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="declarations">
+        <mxCell id="declarationsfield2" value="owner_id" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=16;fontColor=#17324D;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="declarations">
           <mxGeometry as="geometry" x="74" y="154" width="239" height="30" />
         </mxCell>
-        <mxCell id="declarationstype2" value="DATE" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=12;fontColor=#52677C;align=right;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="declarations">
+        <mxCell id="declarationstype2" value="INTEGER" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=12;fontColor=#52677C;align=right;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="declarations">
           <mxGeometry as="geometry" x="317" y="154" width="91" height="30" />
         </mxCell>
         <mxCell id="declarationsrow3" value="" style="rounded=0;fillColor=#FFFFFF;strokeColor=none;" vertex="1" parent="declarations">
@@ -350,10 +350,10 @@
         <mxCell id="declarationskey3" value="" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=12;fontColor=#7652A4;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontStyle=1;" vertex="1" parent="declarations">
           <mxGeometry as="geometry" x="12" y="188" width="55" height="30" />
         </mxCell>
-        <mxCell id="declarationsfield3" value="period_end" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=16;fontColor=#17324D;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="declarations">
+        <mxCell id="declarationsfield3" value="period_start" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=16;fontColor=#17324D;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="declarations">
           <mxGeometry as="geometry" x="74" y="188" width="239" height="30" />
         </mxCell>
-        <mxCell id="declarationstype3" value="DATE" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=12;fontColor=#52677C;align=right;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="declarations">
+        <mxCell id="declarationstype3" value="TEXT" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=12;fontColor=#52677C;align=right;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="declarations">
           <mxGeometry as="geometry" x="317" y="188" width="91" height="30" />
         </mxCell>
         <mxCell id="declarationsrow4" value="" style="rounded=0;fillColor=#F3F6FB;strokeColor=none;" vertex="1" parent="declarations">
@@ -362,10 +362,10 @@
         <mxCell id="declarationskey4" value="" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=12;fontColor=#7652A4;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontStyle=1;" vertex="1" parent="declarations">
           <mxGeometry as="geometry" x="12" y="222" width="55" height="30" />
         </mxCell>
-        <mxCell id="declarationsfield4" value="estimated_miles" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=16;fontColor=#17324D;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="declarations">
+        <mxCell id="declarationsfield4" value="period_end" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=16;fontColor=#17324D;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="declarations">
           <mxGeometry as="geometry" x="74" y="222" width="239" height="30" />
         </mxCell>
-        <mxCell id="declarationstype4" value="INTEGER" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=12;fontColor=#52677C;align=right;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="declarations">
+        <mxCell id="declarationstype4" value="TEXT" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=12;fontColor=#52677C;align=right;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="declarations">
           <mxGeometry as="geometry" x="317" y="222" width="91" height="30" />
         </mxCell>
         <mxCell id="declarationsrow5" value="" style="rounded=0;fillColor=#FFFFFF;strokeColor=none;" vertex="1" parent="declarations">
@@ -374,7 +374,7 @@
         <mxCell id="declarationskey5" value="" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=12;fontColor=#7652A4;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontStyle=1;" vertex="1" parent="declarations">
           <mxGeometry as="geometry" x="12" y="256" width="55" height="30" />
         </mxCell>
-        <mxCell id="declarationsfield5" value="advance_due_pence" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=16;fontColor=#17324D;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="declarations">
+        <mxCell id="declarationsfield5" value="estimated_miles" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=16;fontColor=#17324D;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="declarations">
           <mxGeometry as="geometry" x="74" y="256" width="239" height="30" />
         </mxCell>
         <mxCell id="declarationstype5" value="INTEGER" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=12;fontColor=#52677C;align=right;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="declarations">
@@ -386,14 +386,26 @@
         <mxCell id="declarationskey6" value="" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=12;fontColor=#7652A4;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontStyle=1;" vertex="1" parent="declarations">
           <mxGeometry as="geometry" x="12" y="290" width="55" height="30" />
         </mxCell>
-        <mxCell id="declarationsfield6" value="submitted_at" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=16;fontColor=#17324D;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="declarations">
+        <mxCell id="declarationsfield6" value="advance_due_pence" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=16;fontColor=#17324D;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="declarations">
           <mxGeometry as="geometry" x="74" y="290" width="239" height="30" />
         </mxCell>
-        <mxCell id="declarationstype6" value="DATETIME" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=12;fontColor=#52677C;align=right;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="declarations">
+        <mxCell id="declarationstype6" value="INTEGER" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=12;fontColor=#52677C;align=right;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="declarations">
           <mxGeometry as="geometry" x="317" y="290" width="91" height="30" />
         </mxCell>
-        <mxCell id="declarationsfoot" value="UQ(vehicle_id, period_start): one per year." style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=13;fontColor=#52677C;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="declarations">
-          <mxGeometry as="geometry" x="16" y="330" width="388" height="42" />
+        <mxCell id="declarationsrow7" value="" style="rounded=0;fillColor=#FFFFFF;strokeColor=none;" vertex="1" parent="declarations">
+          <mxGeometry as="geometry" x="0" y="322" width="420" height="34" />
+        </mxCell>
+        <mxCell id="declarationskey7" value="" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=12;fontColor=#7652A4;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontStyle=1;" vertex="1" parent="declarations">
+          <mxGeometry as="geometry" x="12" y="324" width="55" height="30" />
+        </mxCell>
+        <mxCell id="declarationsfield7" value="submitted_at" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=16;fontColor=#17324D;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="declarations">
+          <mxGeometry as="geometry" x="74" y="324" width="239" height="30" />
+        </mxCell>
+        <mxCell id="declarationstype7" value="TEXT" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=12;fontColor=#52677C;align=right;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="declarations">
+          <mxGeometry as="geometry" x="317" y="324" width="91" height="30" />
+        </mxCell>
+        <mxCell id="declarationsfoot" value="UQ(vehicle_id, period_start) only rules out duplicate starts; periods can still overlap." style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=13;fontColor=#52677C;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="declarations">
+          <mxGeometry as="geometry" x="16" y="364" width="388" height="42" />
         </mxCell>
         <mxCell id="assessments" value="" style="group;container=1;collapsible=0;connectable=1;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="1260" y="720" width="420" height="346" />
@@ -407,7 +419,7 @@
         <mxCell id="assessmentstitle" value="tax_assessments" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=23;fontColor=#FFFFFF;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontStyle=1;" vertex="1" parent="assessments">
           <mxGeometry as="geometry" x="18" y="4" width="384" height="40" />
         </mxCell>
-        <mxCell id="assessmentscaption" value="Final annual tax decisions" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=15;fontColor=#52677C;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="assessments">
+        <mxCell id="assessmentscaption" value="Final tax decisions for a declaration period" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=15;fontColor=#52677C;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="assessments">
           <mxGeometry as="geometry" x="18" y="49" width="384" height="33" />
         </mxCell>
         <mxCell id="assessmentsrow0" value="" style="rounded=0;fillColor=#F3F6FB;strokeColor=none;" vertex="1" parent="assessments">
@@ -467,7 +479,7 @@
         <mxCell id="assessmentsfield4" value="assessed_at" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=16;fontColor=#17324D;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="assessments">
           <mxGeometry as="geometry" x="74" y="222" width="239" height="30" />
         </mxCell>
-        <mxCell id="assessmentstype4" value="DATETIME" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=12;fontColor=#52677C;align=right;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="assessments">
+        <mxCell id="assessmentstype4" value="TEXT" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=12;fontColor=#52677C;align=right;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="assessments">
           <mxGeometry as="geometry" x="317" y="222" width="91" height="30" />
         </mxCell>
         <mxCell id="assessmentsrow5" value="" style="rounded=0;fillColor=#FFFFFF;strokeColor=none;" vertex="1" parent="assessments">
@@ -491,13 +503,22 @@
         <mxCell id="has_inspections" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#526B8A;strokeWidth=2;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=16;endSize=16;exitX=1;exitY=0.43884892086330934;exitDx=0;exitDy=0;entryX=0;entryY=0.391025641025641;entryDx=0;entryDy=0;" edge="1" parent="1" source="vehicles" target="inspections">
           <mxGeometry as="geometry" relative="1" />
         </mxCell>
+        <mxCell id="period_liability" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#526B8A;strokeWidth=2;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=16;endSize=16;exitX=1;exitY=0.85;exitDx=0;exitDy=0;entryX=0.2;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="owners" target="declarations">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="550" y="387" />
+              <mxPoint x="550" y="645" />
+              <mxPoint x="744" y="645" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
         <mxCell id="has_declarations" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#526B8A;strokeWidth=2;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=16;endSize=16;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="vehicles" target="declarations">
           <mxGeometry as="geometry" relative="1" />
         </mxCell>
-        <mxCell id="cash_movements" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#526B8A;strokeWidth=2;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=16;endSize=16;exitX=0;exitY=0.4105263157894737;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="declarations" target="payments">
+        <mxCell id="cash_movements" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#526B8A;strokeWidth=2;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=16;endSize=16;exitX=0;exitY=0.37681159;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="declarations" target="payments">
           <mxGeometry as="geometry" relative="1" />
         </mxCell>
-        <mxCell id="final_decision" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#526B8A;strokeWidth=2;startArrow=ERmandOne;endArrow=ERzeroToOne;startFill=0;endFill=0;startSize=16;endSize=16;exitX=1;exitY=0.4105263157894737;exitDx=0;exitDy=0;entryX=0;entryY=0.4508670520231214;entryDx=0;entryDy=0;" edge="1" parent="1" source="declarations" target="assessments">
+        <mxCell id="final_decision" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#526B8A;strokeWidth=2;startArrow=ERmandOne;endArrow=ERzeroToOne;startFill=0;endFill=0;startSize=16;endSize=16;exitX=1;exitY=0.37681159;exitDx=0;exitDy=0;entryX=0;entryY=0.4508670520231214;entryDx=0;entryDy=0;" edge="1" parent="1" source="declarations" target="assessments">
           <mxGeometry as="geometry" relative="1" />
         </mxCell>
         <mxCell id="opening" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#35785B;strokeWidth=2;startArrow=ERmandOne;endArrow=ERzeroToOne;startFill=0;endFill=0;startSize=16;endSize=16;exitX=0.2;exitY=1;exitDx=0;exitDy=0;entryX=0.2;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="inspections" target="assessments">
@@ -509,7 +530,7 @@
         <mxCell id="title" value="eVED | Entity–Relationship Diagram" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=32;fontColor=#17324D;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontStyle=1;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="60" y="35" width="1620" height="55" />
         </mxCell>
-        <mxCell id="subtitle" value="Proposed logical model • six entities • crow’s foot cardinalities • all shapes and connectors are editable" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#52677C;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+        <mxCell id="subtitle" value="Logical SQLite model • six entities • crow’s foot cardinalities • all shapes and connectors are editable" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#52677C;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="60" y="100" width="1620" height="35" />
         </mxCell>
         <mxCell id="legendtitle" value="HOW TO READ THE MODEL" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#17324D;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontStyle=1;" vertex="1" parent="1">
@@ -533,31 +554,34 @@
         <mxCell id="integritytitle" value="INTEGRITY RULES" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#17324D;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontStyle=1;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="82" y="1173" width="476" height="32" />
         </mxCell>
-        <mxCell id="integritybody" value="• Both readings belong to the declared vehicle.&#10;• Reading dates match the period boundaries.&#10;• Closing miles ≥ opening miles.&#10;• Each reading is used at most once per role.&#10;• All shown fields are required (NOT NULL)." style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=17;fontColor=#17324D;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+        <mxCell id="integritybody" value="• Check both readings refer to the declared vehicle.&#10;• Check boundary dates and non-decreasing miles.&#10;• Each inspection FK is UNIQUE within its role.&#10;• All non-PK fields are NOT NULL." style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=17;fontColor=#17324D;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="82" y="1221" width="476" height="126" />
         </mxCell>
         <mxCell id="moneytitle" value="PAYMENTS AND BALANCES" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#17324D;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontStyle=1;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="632" y="1173" width="506" height="32" />
         </mxCell>
-        <mxCell id="moneybody" value="• Advances can exist before a final assessment.&#10;• Additional payments / refunds need an assessment.&#10;• amount_pence &gt; 0; REFUND is an outflow.&#10;• Open balance = final tax − net cash received.&#10;• Net cash = advances + extras − refunds." style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=17;fontColor=#17324D;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+        <mxCell id="moneybody" value="• Advances may precede an assessment.&#10;• Extras/refunds follow assessment in the process.&#10;• Sample: positive pence; REFUND is an outflow.&#10;• Open balance = final tax − net cash received.&#10;• Net cash = advances + extras − refunds." style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=17;fontColor=#17324D;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="632" y="1221" width="506" height="126" />
         </mxCell>
         <mxCell id="designtitle" value="DESIGN CHOICES" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#17324D;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontStyle=1;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="1212" y="1173" width="446" height="32" />
         </mxCell>
-        <mxCell id="designbody" value="• BEV: 3p/mile; PHEV: 1.5p/mile.&#10;• Integer pence; round half-pennies upwards.&#10;• Actual miles and balances are calculated.&#10;• Rates and ownership stay fixed in the prototype.&#10;• No live DVLA or MOT integrations are assumed." style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=17;fontColor=#17324D;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+        <mxCell id="designbody" value="• BEV: 3p/mile; PHEV: 1.5p/mile.&#10;• Integer pence; round once, half upwards.&#10;• A transfer would split the declaration period.&#10;• One boundary reading can serve both segments.&#10;• No transfer processing or valuation is automated." style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=17;fontColor=#17324D;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="1212" y="1221" width="446" height="126" />
         </mxCell>
-        <mxCell id="footer" value="Draft for Case A. Based on the README, the three process diagrams and IKT VL03. Compare this proposed model with schema.sql before implementation." style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=13;fontColor=#52677C;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+        <mxCell id="footer" value="Case A • IKT VL03 • logical view of scripts/setup_database.py. The presentation adds explicit endpoint ranges to its conceptual ER view." style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=13;fontColor=#52677C;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="60" y="1380" width="1620" height="25" />
         </mxCell>
-        <mxCell id="ownslabel" value="owns" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#526B8A;align=center;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=#FFFFFF;" vertex="1" parent="1">
+        <mxCell id="ownslabel" value="currently owns" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#526B8A;align=center;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=#FFFFFF;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="500" y="265" width="140" height="24" />
         </mxCell>
         <mxCell id="has_inspectionslabel" value="has readings" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#526B8A;align=center;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=#FFFFFF;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="1095" y="265" width="150" height="24" />
         </mxCell>
-        <mxCell id="has_declarationslabel" value="declares for period" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#526B8A;align=center;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=#FFFFFF;" vertex="1" parent="1">
+        <mxCell id="liabilitylabel" value="liable for period" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#526B8A;align=center;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="575" y="617" width="155" height="24" />
+        </mxCell>
+        <mxCell id="has_declarationslabel" value="has declarations" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#526B8A;align=center;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=#FFFFFF;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="765" y="560" width="210" height="38" />
         </mxCell>
         <mxCell id="cash_movementslabel" value="has payments" style="text;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#526B8A;align=center;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=#FFFFFF;" vertex="1" parent="1">

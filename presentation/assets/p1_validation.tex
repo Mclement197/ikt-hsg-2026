@@ -1,8 +1,8 @@
 \begin{tikzpicture}[function/.append style={text width=2.4cm},event/.append style={text width=2.35cm}]
 \node[event] (a) at (0,0) {Declaration\\period open};
-\node[function] (b) at (3.1,0) {Submit estimate\\for the year\\{\scriptsize [Owner]}};
+\node[function] (b) at (3.1,0) {Submit estimate\\for the period\\{\scriptsize [Owner]}};
 \node[event] (c) at (6.2,0) {Declaration\\submitted};
-\node[function] (d) at (9.3,0) {Check declaration\\and vehicle\\{\scriptsize [Authority]}};
+\node[function] (d) at (9.3,0) {Check vehicle, period\\and liable owner\\{\scriptsize [Authority]}};
 \node[xor] (x) at (9.3,-1.25) {XOR};
 \node[event] (ok) at (4,-2.1) {Declaration\\accepted};
 \node[event] (bad) at (9.3,-2.1) {Declaration\\rejected};
@@ -11,5 +11,5 @@
 \foreach \s/\t in {a/b,b/c,c/d,d/x,x/bad,bad/notify,notify/end} \draw[flow] (\s)--(\t);
 \draw[flow] (x.west)-|(ok.north);
 \node[role,text width=4cm] at (4,-2.9) {Continuation event on A3.\\Accepted declaration is stored.};
-\node[align=left,font=\fontsize{8.5}{10}\selectfont,text width=6.5cm,anchor=west] at (-1,-4.05) {Validate owner/vehicle reference, period, miles and type. Rejection ends this attempt; resubmission is possible.};
+\node[align=left,font=\fontsize{8.5}{10}\selectfont,text width=6.5cm,anchor=west] at (-1,-4.05) {Check the owner's registration for this period, mileage and type. Store that owner on acceptance. Rejection ends this attempt; the owner may resubmit.};
 \end{tikzpicture}

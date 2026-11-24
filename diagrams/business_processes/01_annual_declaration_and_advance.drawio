@@ -40,19 +40,19 @@
         <mxCell id="inputtitle" value="INPUTS / RULES" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#17324D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;fontStyle=1;text;spacing=0;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="872" y="193" width="486" height="36" />
         </mxCell>
-        <mxCell id="inputbody" value="Vehicle and owner reference data&#10;Estimated mileage + billing period&#10;&#10;BEV: 3 pence per mile&#10;PHEV: 1.5 pence per mile&#10;&#10;Advance amount = estimate × rate&#10;Round once to the nearest penny." style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;text;spacing=0;" vertex="1" parent="1">
+        <mxCell id="inputbody" value="Vehicle, liable owner and period&#10;Estimate in miles for that period&#10;&#10;BEV: 3 pence per mile&#10;PHEV: 1.5 pence per mile&#10;&#10;Advance due = estimate × rate&#10;Round once, half-pennies upwards." style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;text;spacing=0;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="872" y="241" width="486" height="285" />
         </mxCell>
         <mxCell id="start" value="Declaration period opened" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="390" y="175" width="280" height="60" />
         </mxCell>
-        <mxCell id="submit" value="Submit estimated annual mileage&#10;[Vehicle owner]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
+        <mxCell id="submit" value="Submit estimated period mileage&#10;[Vehicle owner]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="370" y="265" width="320" height="80" />
         </mxCell>
         <mxCell id="submitted" value="Declaration submitted" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="390" y="375" width="280" height="60" />
         </mxCell>
-        <mxCell id="check" value="Validate declaration and vehicle&#10;[Tax authority]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
+        <mxCell id="check" value="Validate vehicle, period&#10;and liable owner&#10;[Tax authority]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="370" y="465" width="320" height="80" />
         </mxCell>
         <mxCell id="decision" value="XOR" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#17324D;fillColor=white;strokeColor=#17324D;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;fontStyle=1;ellipse;aspect=fixed;spacing=0;" vertex="1" parent="1">
@@ -61,7 +61,7 @@
         <mxCell id="valid" value="Declaration accepted" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="390" y="670" width="280" height="60" />
         </mxCell>
-        <mxCell id="calc" value="Calculate advance tax amount&#10;[Tax authority]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
+        <mxCell id="calc" value="Calculate and notify advance due&#10;[Tax authority]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="370" y="760" width="320" height="80" />
         </mxCell>
         <mxCell id="calculated" value="Advance amount determined" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
@@ -94,7 +94,7 @@
         <mxCell id="writestitle" value="DATABASE EFFECT" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#17324D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;fontStyle=1;text;spacing=0;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="872" y="1038" width="486" height="36" />
         </mxCell>
-        <mxCell id="writesbody" value="Create a declaration for the vehicle and period.&#10;Record the amount actually received in payments.&#10;&#10;Payment failure and debt collection are omitted.&#10;A corrected declaration can be submitted again." style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;text;spacing=0;" vertex="1" parent="1">
+        <mxCell id="writesbody" value="Store the period’s liable owner on the declaration.&#10;A later registration change does not move that liability.&#10;Record an ADVANCE payment only on receipt.&#10;&#10;A rejected estimate may be resubmitted." style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;text;spacing=0;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="872" y="1086" width="486" height="180" />
         </mxCell>
         <mxCell id="footer" value="Basis: Case A + IKT VL02, pp. 22–25. Pink hexagons = events; green rectangles = functions; XOR selects one outcome." style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#54687D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;text;spacing=0;" vertex="1" parent="1">

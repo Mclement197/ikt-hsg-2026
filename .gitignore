@@ -1,4 +1,36 @@
-# Keep build configuration and bibliography; ignore generated LaTeX files.
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# Local settings and desktop files
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+
+# LaTeX intermediates
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.nav
+*.out
+*.snm
+*.synctex.gz
+*.toc
+*.vrb
+*.xdv
+
+# Build products, temporary export and layout reviews
 /presentation/build/*
 !/presentation/build/latexmkrc
 !/presentation/build/demo.bib
+/presentation/final_presentation.pdf
+/presentation/~$*.pptx
