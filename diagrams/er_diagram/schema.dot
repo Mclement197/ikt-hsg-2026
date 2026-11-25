@@ -20,32 +20,38 @@ declarations [label=<
 
 
                 <TR>
-                    <TD PORT="vehicle_id_to">&nbsp;</TD>
-                    <TD PORT="vehicle_id_from">vehicle_id</TD>
+                    <TD PORT="case_id_to">&nbsp;</TD>
+                    <TD PORT="case_id_from">case_id</TD>
                 </TR>
 
 
                 <TR>
-                    <TD PORT="owner_id_to">&nbsp;</TD>
-                    <TD PORT="owner_id_from">owner_id</TD>
+                    <TD PORT="revision_no_to">&nbsp;</TD>
+                    <TD PORT="revision_no_from">revision_no</TD>
                 </TR>
 
 
                 <TR>
-                    <TD PORT="period_start_to">&nbsp;</TD>
-                    <TD PORT="period_start_from">period_start</TD>
+                    <TD PORT="coverage_start_at_to">&nbsp;</TD>
+                    <TD PORT="coverage_start_at_from">coverage_start_at</TD>
                 </TR>
 
 
                 <TR>
-                    <TD PORT="period_end_to">&nbsp;</TD>
-                    <TD PORT="period_end_from">period_end</TD>
+                    <TD PORT="coverage_end_at_to">&nbsp;</TD>
+                    <TD PORT="coverage_end_at_from">coverage_end_at</TD>
                 </TR>
 
 
                 <TR>
                     <TD PORT="estimated_miles_to">&nbsp;</TD>
                     <TD PORT="estimated_miles_from">estimated_miles</TD>
+                </TR>
+
+
+                <TR>
+                    <TD PORT="tax_rate_id_to">&nbsp;</TD>
+                    <TD PORT="tax_rate_id_from">tax_rate_id</TD>
                 </TR>
 
 
@@ -60,18 +66,62 @@ declarations [label=<
                     <TD PORT="submitted_at_from">submitted_at</TD>
                 </TR>
 
+
+                <TR>
+                    <TD PORT="status_to">&nbsp;</TD>
+                    <TD PORT="status_from">status</TD>
+                </TR>
+
+
+                <TR>
+                    <TD PORT="supersedes_declaration_id_to">&nbsp;</TD>
+                    <TD PORT="supersedes_declaration_id_from">supersedes_declaration_id</TD>
+                </TR>
+
             </TABLE>
         >];
 
-mot_inspections [label=<
+mot_centres [label=<
             <TABLE BORDER="0" CELLSPACING="0" CELLBORDER="1">
                 <TR>
-                    <TD COLSPAN="2"><B>mot_inspections</B></TD>
+                    <TD COLSPAN="2"><B>mot_centres</B></TD>
                 </TR>
 
                 <TR>
-                    <TD PORT="inspection_id_to">🔑</TD>
-                    <TD PORT="inspection_id_from">inspection_id</TD>
+                    <TD PORT="mot_centre_id_to">🔑</TD>
+                    <TD PORT="mot_centre_id_from">mot_centre_id</TD>
+                </TR>
+
+
+                <TR>
+                    <TD PORT="centre_ref_to">&nbsp;</TD>
+                    <TD PORT="centre_ref_from">centre_ref</TD>
+                </TR>
+
+
+                <TR>
+                    <TD PORT="name_to">&nbsp;</TD>
+                    <TD PORT="name_from">name</TD>
+                </TR>
+
+
+                <TR>
+                    <TD PORT="postal_address_to">&nbsp;</TD>
+                    <TD PORT="postal_address_from">postal_address</TD>
+                </TR>
+
+            </TABLE>
+        >];
+
+odometer_readings [label=<
+            <TABLE BORDER="0" CELLSPACING="0" CELLBORDER="1">
+                <TR>
+                    <TD COLSPAN="2"><B>odometer_readings</B></TD>
+                </TR>
+
+                <TR>
+                    <TD PORT="reading_id_to">🔑</TD>
+                    <TD PORT="reading_id_from">reading_id</TD>
                 </TR>
 
 
@@ -82,8 +132,14 @@ mot_inspections [label=<
 
 
                 <TR>
-                    <TD PORT="inspection_date_to">&nbsp;</TD>
-                    <TD PORT="inspection_date_from">inspection_date</TD>
+                    <TD PORT="mot_centre_id_to">&nbsp;</TD>
+                    <TD PORT="mot_centre_id_from">mot_centre_id</TD>
+                </TR>
+
+
+                <TR>
+                    <TD PORT="observed_at_to">&nbsp;</TD>
+                    <TD PORT="observed_at_from">observed_at</TD>
                 </TR>
 
 
@@ -94,8 +150,114 @@ mot_inspections [label=<
 
 
                 <TR>
-                    <TD PORT="mot_centre_ref_to">&nbsp;</TD>
-                    <TD PORT="mot_centre_ref_from">mot_centre_ref</TD>
+                    <TD PORT="reading_kind_to">&nbsp;</TD>
+                    <TD PORT="reading_kind_from">reading_kind</TD>
+                </TR>
+
+
+                <TR>
+                    <TD PORT="verification_status_to">&nbsp;</TD>
+                    <TD PORT="verification_status_from">verification_status</TD>
+                </TR>
+
+
+                <TR>
+                    <TD PORT="evidence_ref_to">&nbsp;</TD>
+                    <TD PORT="evidence_ref_from">evidence_ref</TD>
+                </TR>
+
+
+                <TR>
+                    <TD PORT="recorded_at_to">&nbsp;</TD>
+                    <TD PORT="recorded_at_from">recorded_at</TD>
+                </TR>
+
+
+                <TR>
+                    <TD PORT="verified_at_to">&nbsp;</TD>
+                    <TD PORT="verified_at_from">verified_at</TD>
+                </TR>
+
+
+                <TR>
+                    <TD PORT="supersedes_reading_id_to">&nbsp;</TD>
+                    <TD PORT="supersedes_reading_id_from">supersedes_reading_id</TD>
+                </TR>
+
+            </TABLE>
+        >];
+
+ownership_periods [label=<
+            <TABLE BORDER="0" CELLSPACING="0" CELLBORDER="1">
+                <TR>
+                    <TD COLSPAN="2"><B>ownership_periods</B></TD>
+                </TR>
+
+                <TR>
+                    <TD PORT="ownership_id_to">🔑</TD>
+                    <TD PORT="ownership_id_from">ownership_id</TD>
+                </TR>
+
+
+                <TR>
+                    <TD PORT="vehicle_id_to">&nbsp;</TD>
+                    <TD PORT="vehicle_id_from">vehicle_id</TD>
+                </TR>
+
+
+                <TR>
+                    <TD PORT="owner_id_to">&nbsp;</TD>
+                    <TD PORT="owner_id_from">owner_id</TD>
+                </TR>
+
+
+                <TR>
+                    <TD PORT="valid_from_at_to">&nbsp;</TD>
+                    <TD PORT="valid_from_at_from">valid_from_at</TD>
+                </TR>
+
+
+                <TR>
+                    <TD PORT="valid_to_at_to">&nbsp;</TD>
+                    <TD PORT="valid_to_at_from">valid_to_at</TD>
+                </TR>
+
+            </TABLE>
+        >];
+
+payment_allocations [label=<
+            <TABLE BORDER="0" CELLSPACING="0" CELLBORDER="1">
+                <TR>
+                    <TD COLSPAN="2"><B>payment_allocations</B></TD>
+                </TR>
+
+                <TR>
+                    <TD PORT="allocation_id_to">🔑</TD>
+                    <TD PORT="allocation_id_from">allocation_id</TD>
+                </TR>
+
+
+                <TR>
+                    <TD PORT="payment_id_to">&nbsp;</TD>
+                    <TD PORT="payment_id_from">payment_id</TD>
+                </TR>
+
+
+                <TR>
+                    <TD PORT="case_id_to">&nbsp;</TD>
+                    <TD PORT="case_id_from">case_id</TD>
+                </TR>
+
+
+                <TR>
+                    <TD PORT="allocated_pence_to">&nbsp;</TD>
+                    <TD PORT="allocated_pence_from">allocated_pence</TD>
+                </TR>
+
+
+                <TR>
+                    <TD PORT="allocation_reference_to">&nbsp;</TD>
+                    <TD PORT="allocation_reference_from">allocation_reference</TD>
                 </TR>
 
             </TABLE>
@@ -114,14 +276,14 @@ payments [label=<
 
 
                 <TR>
-                    <TD PORT="declaration_id_to">&nbsp;</TD>
-                    <TD PORT="declaration_id_from">declaration_id</TD>
+                    <TD PORT="owner_id_to">&nbsp;</TD>
+                    <TD PORT="owner_id_from">owner_id</TD>
                 </TR>
 
 
                 <TR>
-                    <TD PORT="payment_type_to">&nbsp;</TD>
-                    <TD PORT="payment_type_from">payment_type</TD>
+                    <TD PORT="direction_to">&nbsp;</TD>
+                    <TD PORT="direction_from">direction</TD>
                 </TR>
 
 
@@ -134,6 +296,18 @@ payments [label=<
                 <TR>
                     <TD PORT="paid_at_to">&nbsp;</TD>
                     <TD PORT="paid_at_from">paid_at</TD>
+                </TR>
+
+
+                <TR>
+                    <TD PORT="source_system_to">&nbsp;</TD>
+                    <TD PORT="source_system_from">source_system</TD>
+                </TR>
+
+
+                <TR>
+                    <TD PORT="external_reference_to">&nbsp;</TD>
+                    <TD PORT="external_reference_from">external_reference</TD>
                 </TR>
 
             </TABLE>
@@ -152,20 +326,50 @@ tax_assessments [label=<
 
 
                 <TR>
-                    <TD PORT="declaration_id_to">&nbsp;</TD>
-                    <TD PORT="declaration_id_from">declaration_id</TD>
+                    <TD PORT="case_id_to">&nbsp;</TD>
+                    <TD PORT="case_id_from">case_id</TD>
                 </TR>
 
 
                 <TR>
-                    <TD PORT="opening_inspection_id_to">&nbsp;</TD>
-                    <TD PORT="opening_inspection_id_from">opening_inspection_id</TD>
+                    <TD PORT="revision_no_to">&nbsp;</TD>
+                    <TD PORT="revision_no_from">revision_no</TD>
                 </TR>
 
 
                 <TR>
-                    <TD PORT="closing_inspection_id_to">&nbsp;</TD>
-                    <TD PORT="closing_inspection_id_from">closing_inspection_id</TD>
+                    <TD PORT="opening_reading_id_to">&nbsp;</TD>
+                    <TD PORT="opening_reading_id_from">opening_reading_id</TD>
+                </TR>
+
+
+                <TR>
+                    <TD PORT="closing_reading_id_to">&nbsp;</TD>
+                    <TD PORT="closing_reading_id_from">closing_reading_id</TD>
+                </TR>
+
+
+                <TR>
+                    <TD PORT="tax_rate_id_to">&nbsp;</TD>
+                    <TD PORT="tax_rate_id_from">tax_rate_id</TD>
+                </TR>
+
+
+                <TR>
+                    <TD PORT="period_start_at_to">&nbsp;</TD>
+                    <TD PORT="period_start_at_from">period_start_at</TD>
+                </TR>
+
+
+                <TR>
+                    <TD PORT="period_end_at_to">&nbsp;</TD>
+                    <TD PORT="period_end_at_from">period_end_at</TD>
+                </TR>
+
+
+                <TR>
+                    <TD PORT="final_tax_pence_to">&nbsp;</TD>
+                    <TD PORT="final_tax_pence_from">final_tax_pence</TD>
                 </TR>
 
 
@@ -176,8 +380,110 @@ tax_assessments [label=<
 
 
                 <TR>
-                    <TD PORT="final_tax_pence_to">&nbsp;</TD>
-                    <TD PORT="final_tax_pence_from">final_tax_pence</TD>
+                    <TD PORT="status_to">&nbsp;</TD>
+                    <TD PORT="status_from">status</TD>
+                </TR>
+
+
+                <TR>
+                    <TD PORT="supersedes_assessment_id_to">&nbsp;</TD>
+                    <TD PORT="supersedes_assessment_id_from">supersedes_assessment_id</TD>
+                </TR>
+
+            </TABLE>
+        >];
+
+tax_cases [label=<
+            <TABLE BORDER="0" CELLSPACING="0" CELLBORDER="1">
+                <TR>
+                    <TD COLSPAN="2"><B>tax_cases</B></TD>
+                </TR>
+
+                <TR>
+                    <TD PORT="case_id_to">🔑</TD>
+                    <TD PORT="case_id_from">case_id</TD>
+                </TR>
+
+
+                <TR>
+                    <TD PORT="ownership_id_to">&nbsp;</TD>
+                    <TD PORT="ownership_id_from">ownership_id</TD>
+                </TR>
+
+
+                <TR>
+                    <TD PORT="tax_year_id_to">&nbsp;</TD>
+                    <TD PORT="tax_year_id_from">tax_year_id</TD>
+                </TR>
+
+
+                <TR>
+                    <TD PORT="created_at_to">&nbsp;</TD>
+                    <TD PORT="created_at_from">created_at</TD>
+                </TR>
+
+            </TABLE>
+        >];
+
+tax_rates [label=<
+            <TABLE BORDER="0" CELLSPACING="0" CELLBORDER="1">
+                <TR>
+                    <TD COLSPAN="2"><B>tax_rates</B></TD>
+                </TR>
+
+                <TR>
+                    <TD PORT="tax_rate_id_to">🔑</TD>
+                    <TD PORT="tax_rate_id_from">tax_rate_id</TD>
+                </TR>
+
+
+                <TR>
+                    <TD PORT="vehicle_type_id_to">&nbsp;</TD>
+                    <TD PORT="vehicle_type_id_from">vehicle_type_id</TD>
+                </TR>
+
+
+                <TR>
+                    <TD PORT="tax_year_id_to">&nbsp;</TD>
+                    <TD PORT="tax_year_id_from">tax_year_id</TD>
+                </TR>
+
+
+                <TR>
+                    <TD PORT="half_pence_per_mile_to">&nbsp;</TD>
+                    <TD PORT="half_pence_per_mile_from">half_pence_per_mile</TD>
+                </TR>
+
+            </TABLE>
+        >];
+
+tax_years [label=<
+            <TABLE BORDER="0" CELLSPACING="0" CELLBORDER="1">
+                <TR>
+                    <TD COLSPAN="2"><B>tax_years</B></TD>
+                </TR>
+
+                <TR>
+                    <TD PORT="tax_year_id_to">🔑</TD>
+                    <TD PORT="tax_year_id_from">tax_year_id</TD>
+                </TR>
+
+
+                <TR>
+                    <TD PORT="label_to">&nbsp;</TD>
+                    <TD PORT="label_from">label</TD>
+                </TR>
+
+
+                <TR>
+                    <TD PORT="starts_at_to">&nbsp;</TD>
+                    <TD PORT="starts_at_from">starts_at</TD>
+                </TR>
+
+
+                <TR>
+                    <TD PORT="ends_at_to">&nbsp;</TD>
+                    <TD PORT="ends_at_from">ends_at</TD>
                 </TR>
 
             </TABLE>
@@ -209,6 +515,32 @@ vehicle_owners [label=<
             </TABLE>
         >];
 
+vehicle_types [label=<
+            <TABLE BORDER="0" CELLSPACING="0" CELLBORDER="1">
+                <TR>
+                    <TD COLSPAN="2"><B>vehicle_types</B></TD>
+                </TR>
+
+                <TR>
+                    <TD PORT="vehicle_type_id_to">🔑</TD>
+                    <TD PORT="vehicle_type_id_from">vehicle_type_id</TD>
+                </TR>
+
+
+                <TR>
+                    <TD PORT="code_to">&nbsp;</TD>
+                    <TD PORT="code_from">code</TD>
+                </TR>
+
+
+                <TR>
+                    <TD PORT="description_to">&nbsp;</TD>
+                    <TD PORT="description_from">description</TD>
+                </TR>
+
+            </TABLE>
+        >];
+
 vehicles [label=<
             <TABLE BORDER="0" CELLSPACING="0" CELLBORDER="1">
                 <TR>
@@ -222,32 +554,39 @@ vehicles [label=<
 
 
                 <TR>
-                    <TD PORT="owner_id_to">&nbsp;</TD>
-                    <TD PORT="owner_id_from">owner_id</TD>
-                </TR>
-
-
-                <TR>
                     <TD PORT="registration_number_to">&nbsp;</TD>
                     <TD PORT="registration_number_from">registration_number</TD>
                 </TR>
 
 
                 <TR>
-                    <TD PORT="vehicle_type_to">&nbsp;</TD>
-                    <TD PORT="vehicle_type_from">vehicle_type</TD>
+                    <TD PORT="vehicle_type_id_to">&nbsp;</TD>
+                    <TD PORT="vehicle_type_id_from">vehicle_type_id</TD>
                 </TR>
 
             </TABLE>
         >];
 
-payments:declaration_id_from:e -> declarations:declaration_id_to:w
-tax_assessments:closing_inspection_id_from:e -> mot_inspections:inspection_id_to:w
-tax_assessments:opening_inspection_id_from:e -> mot_inspections:inspection_id_to:w
-tax_assessments:declaration_id_from:e -> declarations:declaration_id_to:w
-mot_inspections:vehicle_id_from:e -> vehicles:vehicle_id_to:w
-vehicles:owner_id_from:e -> vehicle_owners:owner_id_to:w
-declarations:owner_id_from:e -> vehicle_owners:owner_id_to:w
-declarations:vehicle_id_from:e -> vehicles:vehicle_id_to:w
+odometer_readings:supersedes_reading_id_from:e -> odometer_readings:reading_id_to:w
+odometer_readings:mot_centre_id_from:e -> mot_centres:mot_centre_id_to:w
+odometer_readings:vehicle_id_from:e -> vehicles:vehicle_id_to:w
+declarations:supersedes_declaration_id_from:e -> declarations:declaration_id_to:w
+declarations:tax_rate_id_from:e -> tax_rates:tax_rate_id_to:w
+declarations:case_id_from:e -> tax_cases:case_id_to:w
+tax_rates:tax_year_id_from:e -> tax_years:tax_year_id_to:w
+tax_rates:vehicle_type_id_from:e -> vehicle_types:vehicle_type_id_to:w
+tax_assessments:supersedes_assessment_id_from:e -> tax_assessments:assessment_id_to:w
+tax_assessments:tax_rate_id_from:e -> tax_rates:tax_rate_id_to:w
+tax_assessments:closing_reading_id_from:e -> odometer_readings:reading_id_to:w
+tax_assessments:opening_reading_id_from:e -> odometer_readings:reading_id_to:w
+tax_assessments:case_id_from:e -> tax_cases:case_id_to:w
+payment_allocations:case_id_from:e -> tax_cases:case_id_to:w
+payment_allocations:payment_id_from:e -> payments:payment_id_to:w
+payments:owner_id_from:e -> vehicle_owners:owner_id_to:w
+ownership_periods:owner_id_from:e -> vehicle_owners:owner_id_to:w
+ownership_periods:vehicle_id_from:e -> vehicles:vehicle_id_to:w
+tax_cases:tax_year_id_from:e -> tax_years:tax_year_id_to:w
+tax_cases:ownership_id_from:e -> ownership_periods:ownership_id_to:w
+vehicles:vehicle_type_id_from:e -> vehicle_types:vehicle_type_id_to:w
 
 }

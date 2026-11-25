@@ -1,177 +1,1119 @@
 <?xml version='1.0' encoding='utf-8'?>
-<mxfile host="app.diagrams.net" agent="Codex" version="24.7.17" type="device"><diagram id="eved-2" name="02 - MOT and final settlement">
-    <mxGraphModel dx="1440" dy="1440" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1440" pageHeight="1640" math="0" shadow="0" background="#FFFFFF">
+<mxfile host="app.diagrams.net" type="device" compressed="false">
+  <diagram id="p2-revised-process" name="Process">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2859" pageHeight="2822" math="0" shadow="0" background="#ffffff">
       <root>
         <mxCell id="0" />
-        <mxCell id="1" parent="0" />
-        <mxCell id="title" value="P2 | MOT verification and final settlement" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=32;fontColor=#17324D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;fontStyle=1;text;spacing=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="60" y="35" width="1320" height="60" />
-        </mxCell>
-        <mxCell id="subtitle" value="EPC process model • valid opening and closing readings • three mutually exclusive settlement outcomes" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#54687D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;text;spacing=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="60" y="100" width="1320" height="45" />
-        </mxCell>
-        <mxCell id="rulesbg" value="" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=18;fontColor=#17324D;fillColor=#F1F5FA;strokeColor=#D4DFEB;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="60" y="175" width="350" height="540" />
-        </mxCell>
-        <mxCell id="rulestitle" value="CALCULATION" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#17324D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;fontStyle=1;text;spacing=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="82" y="193" width="306" height="36" />
-        </mxCell>
-        <mxCell id="rulesbody" value="Actual miles = closing − opening.&#10;Check vehicle, boundary dates and&#10;non-decreasing odometer miles.&#10;&#10;Final tax = actual miles × rate;&#10;round once, half-pennies upwards.&#10;&#10;At settlement, subtract the advance&#10;received. Positive: invoice;&#10;negative: refund; zero: balanced." style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;text;spacing=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="82" y="241" width="306" height="460" />
-        </mxCell>
-        <mxCell id="examplebg" value="" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=18;fontColor=#17324D;fillColor=#F1F5FA;strokeColor=#D4DFEB;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1030" y="175" width="350" height="540" />
-        </mxCell>
-        <mxCell id="exampletitle" value="BEV EXAMPLE" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#17324D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;fontStyle=1;text;spacing=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1052" y="193" width="306" height="36" />
-        </mxCell>
-        <mxCell id="examplebody" value="Estimated mileage: 10,000 miles&#10;Advance paid: £300&#10;&#10;Actual 12,000 → final tax £360&#10;Additional payment: £60&#10;&#10;Actual 8,000 → final tax £240&#10;Refund: £60&#10;&#10;Actual 10,000 → no adjustment&#10;&#10;Readings match the billing period." style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;text;spacing=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1052" y="241" width="306" height="460" />
-        </mxCell>
-        <mxCell id="start" value="Billing period ended" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="580" y="175" width="280" height="60" />
-        </mxCell>
-        <mxCell id="record" value="Record verified closing reading&#10;[MOT centre]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="560" y="265" width="320" height="80" />
-        </mxCell>
-        <mxCell id="verified" value="Closing reading verified" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="580" y="375" width="280" height="60" />
-        </mxCell>
-        <mxCell id="validate_pair" value="Validate both boundary readings&#10;[Tax authority]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="560" y="465" width="320" height="80" />
-        </mxCell>
-        <mxCell id="pair_accepted" value="Reading pair accepted" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="580" y="575" width="280" height="60" />
-        </mxCell>
-        <mxCell id="calculate" value="Calculate miles and record&#10;final liability&#10;[Tax authority]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="560" y="665" width="320" height="80" />
-        </mxCell>
-        <mxCell id="assessed" value="Final liability recorded" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="580" y="775" width="280" height="60" />
-        </mxCell>
-        <mxCell id="compare" value="Compare final tax&#10;with paid advance&#10;[Tax authority]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="560" y="865" width="320" height="80" />
-        </mxCell>
-        <mxCell id="decision" value="XOR" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#17324D;fillColor=white;strokeColor=#17324D;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;fontStyle=1;ellipse;aspect=fixed;spacing=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="698" y="985" width="44" height="44" />
-        </mxCell>
-        <mxCell id="due" value="Additional amount due" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="140" y="1075" width="280" height="60" />
-        </mxCell>
-        <mxCell id="dueaction" value="Issue additional invoice&#10;[Tax authority]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="120" y="1165" width="320" height="80" />
-        </mxCell>
-        <mxCell id="duestate" value="Additional invoice issued" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="140" y="1275" width="280" height="60" />
-        </mxCell>
-        <mxCell id="duepay" value="Receive and record payment&#10;[Tax authority]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="120" y="1365" width="320" height="80" />
-        </mxCell>
-        <mxCell id="dueend" value="Additional payment recorded" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="140" y="1475" width="280" height="60" />
-        </mxCell>
-        <mxCell id="zero" value="No adjustment required" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="580" y="1075" width="280" height="60" />
-        </mxCell>
-        <mxCell id="zeroaction" value="Issue zero-balance confirmation&#10;[Tax authority]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="560" y="1165" width="320" height="80" />
-        </mxCell>
-        <mxCell id="zerostate" value="Account balanced" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="580" y="1275" width="280" height="60" />
-        </mxCell>
-        <mxCell id="refund" value="Overpayment established" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1020" y="1075" width="280" height="60" />
-        </mxCell>
-        <mxCell id="refundaction" value="Approve refund&#10;[Tax authority]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1000" y="1165" width="320" height="80" />
-        </mxCell>
-        <mxCell id="refundstate" value="Refund authorised" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1020" y="1275" width="280" height="60" />
-        </mxCell>
-        <mxCell id="refundpay" value="Execute and record refund&#10;[Tax authority]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1000" y="1365" width="320" height="80" />
-        </mxCell>
-        <mxCell id="refundend" value="Refund recorded" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1020" y="1475" width="280" height="60" />
-        </mxCell>
-        <mxCell id="open" value="Case 5: £180 assessed, £150 received. No extra receipt:&#10;£30 remains due. Invoice status is not a stored field." style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#54687D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;text;spacing=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="480" y="1400" width="480" height="95" />
-        </mxCell>
-        <mxCell id="footer" value="The declaration identifies the liable owner. Verification and settlement are modelled agency tasks; payment rows represent completed cash movements." style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#54687D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;text;spacing=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="60" y="1585" width="1320" height="35" />
-        </mxCell>
-        <mxCell id="edge-0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="start" target="record">
-          <mxGeometry as="geometry" relative="1" />
-        </mxCell>
-        <mxCell id="edge-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="record" target="verified">
-          <mxGeometry as="geometry" relative="1" />
-        </mxCell>
-        <mxCell id="edge-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="verified" target="validate_pair">
-          <mxGeometry as="geometry" relative="1" />
-        </mxCell>
-        <mxCell id="edge-check" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="validate_pair" target="pair_accepted">
-          <mxGeometry as="geometry" relative="1" />
-        </mxCell>
-        <mxCell id="edge-accept" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="pair_accepted" target="calculate">
-          <mxGeometry as="geometry" relative="1" />
-        </mxCell>
-        <mxCell id="edge-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="calculate" target="assessed">
-          <mxGeometry as="geometry" relative="1" />
-        </mxCell>
-        <mxCell id="edge-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="assessed" target="compare">
-          <mxGeometry as="geometry" relative="1" />
-        </mxCell>
-        <mxCell id="edge-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="compare" target="decision">
-          <mxGeometry as="geometry" relative="1" />
-        </mxCell>
-        <mxCell id="edge-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="decision" target="due">
-          <mxGeometry as="geometry" relative="1">
-            <Array as="points">
-              <mxPoint x="280" y="1007" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="edge-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="due" target="dueaction">
-          <mxGeometry as="geometry" relative="1" />
-        </mxCell>
-        <mxCell id="edge-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="dueaction" target="duestate">
-          <mxGeometry as="geometry" relative="1" />
-        </mxCell>
-        <mxCell id="edge-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="duestate" target="duepay">
-          <mxGeometry as="geometry" relative="1" />
-        </mxCell>
-        <mxCell id="edge-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="duepay" target="dueend">
-          <mxGeometry as="geometry" relative="1" />
-        </mxCell>
-        <mxCell id="edge-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="decision" target="zero">
-          <mxGeometry as="geometry" relative="1" />
-        </mxCell>
-        <mxCell id="edge-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="zero" target="zeroaction">
-          <mxGeometry as="geometry" relative="1" />
-        </mxCell>
-        <mxCell id="edge-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="zeroaction" target="zerostate">
-          <mxGeometry as="geometry" relative="1" />
-        </mxCell>
-        <mxCell id="edge-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="decision" target="refund">
-          <mxGeometry as="geometry" relative="1">
-            <Array as="points">
-              <mxPoint x="1160" y="1007" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="edge-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="refund" target="refundaction">
-          <mxGeometry as="geometry" relative="1" />
-        </mxCell>
-        <mxCell id="edge-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="refundaction" target="refundstate">
-          <mxGeometry as="geometry" relative="1" />
-        </mxCell>
-        <mxCell id="edge-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="refundstate" target="refundpay">
-          <mxGeometry as="geometry" relative="1" />
-        </mxCell>
-        <mxCell id="edge-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="refundpay" target="refundend">
-          <mxGeometry as="geometry" relative="1" />
-        </mxCell>
+        <mxCell id="flow" value="Control flow" parent="0" />
+        <mxCell id="context" value="Roles, systems and data" parent="0" />
+        <mxCell id="notes" value="Title and legend" parent="0" />
+        <object id="flow-0" label="" kind="control-flow" added="false">
+          <mxCell edge="1" parent="flow" source="start" target="record" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#697680;strokeWidth=1.4;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0045;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.004;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-1" label="" kind="control-flow" added="false">
+          <mxCell edge="1" parent="flow" source="record" target="verified" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#697680;strokeWidth=1.4;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0006;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0046;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-record-output" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="record" target="sat-record-output" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=1.0007;exitY=0.3415;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.0011;entryY=0.3788;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-2" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="verified" target="reading_merge" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0013;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0123;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-3" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="reading_merge" target="validate_pair" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0117;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0052;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-4" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="validate_pair" target="validation_split" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0015;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0077;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-5" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="validation_split" target="pair_accepted" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.4523;exitY=1.0103;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.9967;entryY=0.5071;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="1620.49" y="846.44" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="flow-6" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="validation_split" target="needs_clarification" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.7263;exitY=0.9497;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.2036;entryY=0.0919;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="1630.08" y="811.44" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="flow-16" label="" kind="control-flow" added="false">
+          <mxCell edge="1" parent="flow" source="pair_accepted" target="calculate" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#697680;strokeWidth=1.4;dashed=0;dashPattern=5 2;exitX=0.0688;exitY=0.643;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.8086;entryY=-0.0077;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-7" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="needs_clarification" target="request_clarification" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.7972;exitY=0.909;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.2951;entryY=-0.0044;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-8" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="request_clarification" target="clarification_requested" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0006;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0008;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-9" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="clarification_requested" target="resolve_issue" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0019;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.006;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-10" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="resolve_issue" target="clarification_split" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0015;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0077;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-11" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="clarification_split" target="corrected" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0083;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5026;entryY=-0.0027;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-12" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="clarification_split" target="unavailable" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=1.0003;exitY=0.5149;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.002;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="2460.16" y="1288.44" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="flow-15" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="corrected" target="reading_merge" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.9503;exitY=0.3989;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.0031;entryY=0.51;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="2210.72" y="572.44" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="flow-13" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="unavailable" target="hold" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0018;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0062;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-14" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="hold" target="withheld" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.6667;exitY=1.0006;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.6047;entryY=-0.0046;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-17" label="" kind="control-flow" added="false">
+          <mxCell edge="1" parent="flow" source="calculate" target="assessed" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#697680;strokeWidth=1.4;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0006;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0022;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-calculate-output" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="calculate" target="sat-calculate-output" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=0.9043;exitY=-0.0038;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.1478;entryY=-0.0036;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="1324.58" y="907.44" />
+                <mxPoint x="1589.03" y="907.44" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="flow-18" label="" kind="control-flow" added="false">
+          <mxCell edge="1" parent="flow" source="assessed" target="compare" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#697680;strokeWidth=1.4;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0042;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0056;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-19" label="" kind="control-flow" added="false">
+          <mxCell edge="1" parent="flow" source="compare" target="decision" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#697680;strokeWidth=1.4;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0015;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0077;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-20" label="" kind="control-flow" added="false">
+          <mxCell edge="1" parent="flow" source="decision" target="due" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#697680;strokeWidth=1.4;dashed=0;dashPattern=5 2;exitX=-0.0034;exitY=0.5149;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.9206;entryY=0.3382;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="966.85" y="1288.44" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="flow-23" label="" kind="control-flow" added="false">
+          <mxCell edge="1" parent="flow" source="decision" target="zero" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#697680;strokeWidth=1.4;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0083;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0009;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-26" label="" kind="control-flow" added="false">
+          <mxCell edge="1" parent="flow" source="decision" target="refund" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#697680;strokeWidth=1.4;dashed=0;dashPattern=5 2;exitX=1.0014;exitY=0.5149;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.1056;entryY=0.2852;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="1478.67" y="1288.44" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="flow-21" label="" kind="control-flow" added="false">
+          <mxCell edge="1" parent="flow" source="due" target="dueaction" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#697680;strokeWidth=1.4;dashed=0;dashPattern=5 2;exitX=0.4193;exitY=1.0042;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0058;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-22" label="" kind="control-flow" added="false">
+          <mxCell edge="1" parent="flow" source="dueaction" target="duestate" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#697680;strokeWidth=1.4;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0006;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0065;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-31" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="duestate" target="check_payment" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0016;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.001;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-32" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="check_payment" target="payment_split" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0004;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0014;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-33" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="payment_split" target="payment_confirmed" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=-0.0103;exitY=0.5046;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.7807;entryY=0.0588;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="556.3" y="1801.44" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="flow-35" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="payment_split" target="payment_unconfirmed" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.008;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.1999;entryY=0.0974;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-34" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="payment_confirmed" target="duepay" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.3215;exitY=1.002;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.6567;entryY=-0.0021;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-30" label="" kind="control-flow" added="false">
+          <mxCell edge="1" parent="flow" source="duepay" target="dueend" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#697680;strokeWidth=1.4;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0033;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.3465;entryY=-0.0044;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-duepay-output" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="duepay" target="sat-duepay-output" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=1.0008;exitY=0.351;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.0015;entryY=0.3591;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-45" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="dueend" target="completed_merge" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0018;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.0014;entryY=0.5094;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="460.16" y="2209.44" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="flow-36" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="payment_unconfirmed" target="document_payment_pending" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.7983;exitY=0.9059;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.306;entryY=-0.0042;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-37" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="document_payment_pending" target="payment_pending" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0033;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.6659;entryY=-0.0018;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-24" label="" kind="control-flow" added="false">
+          <mxCell edge="1" parent="flow" source="zero" target="zeroaction" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#697680;strokeWidth=1.4;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0042;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0058;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-25" label="" kind="control-flow" added="false">
+          <mxCell edge="1" parent="flow" source="zeroaction" target="zerostate" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#697680;strokeWidth=1.4;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0035;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5519;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-46" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="zerostate" target="completed_merge" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.4784;exitY=1.0042;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.3334;entryY=0.0266;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-27" label="" kind="control-flow" added="false">
+          <mxCell edge="1" parent="flow" source="refund" target="refundaction" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#697680;strokeWidth=1.4;dashed=0;dashPattern=5 2;exitX=0.5963;exitY=1.0042;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0058;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-28" label="" kind="control-flow" added="false">
+          <mxCell edge="1" parent="flow" source="refundaction" target="refundstate" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#697680;strokeWidth=1.4;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0006;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.4206;entryY=-0.0065;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-29" label="" kind="control-flow" added="false">
+          <mxCell edge="1" parent="flow" source="refundstate" target="refundpay" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#697680;strokeWidth=1.4;dashed=0;dashPattern=5 2;exitX=0.518;exitY=1.0016;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.001;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-38" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="refundpay" target="refund_split" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0004;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0014;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-39" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="refund_split" target="refund_confirmed" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.008;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.6622;entryY=-0.0009;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-42" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="refund_split" target="refund_unconfirmed" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=1.0083;exitY=0.5046;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.0811;entryY=0.3377;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="1936.56" y="1801.44" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="flow-40" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="refund_confirmed" target="record_refund" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.3378;exitY=1.0004;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0065;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-41" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="record_refund" target="refundend" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.3463;exitY=1.0033;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.6976;entryY=-0.0044;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-record_refund-output" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="record_refund" target="sat-record_refund-output" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=1;exitY=0.3702;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.0004;entryY=0.3393;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-47" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="refundend" target="completed_merge" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.0013;exitY=0.5053;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.6666;entryY=0.0189;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="1220.99" y="2112.44" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="flow-43" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="refund_unconfirmed" target="document_refund_pending" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.7438;exitY=1.0004;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.4556;entryY=-0.0065;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-44" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="document_refund_pending" target="refund_pending" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0033;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0044;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-48" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="completed_merge" target="reconcile" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0117;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0054;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-49" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="reconcile" target="balance_split" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0013;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0077;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-50" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="balance_split" target="balance_zero" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.3137;exitY=0.9717;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.9969;entryY=0.5068;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="1208.64" y="2483.44" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="flow-53" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="balance_split" target="residual" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.6271;exitY=0.9866;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.2037;entryY=0.0918;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="1219.61" y="2448.44" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="flow-51" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="balance_zero" target="close" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.4924;exitY=1.0033;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0013;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-52" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="close" target="closed" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0013;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0021;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-54" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="residual" target="document_residual" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.5048;exitY=1.0021;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.001;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-55" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="document_residual" target="balance_open" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0013;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0021;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-record-role" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-record-role" target="record" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=none;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=1.0019;exitY=0.3514;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.0009;entryY=0.38;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-validate_pair-role" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-validate_pair-role" target="validate_pair" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=none;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=0.5;exitY=-0.005;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.2083;entryY=-0.0013;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="1209.16" y="608.44" />
+                <mxPoint x="1560.91" y="608.44" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="assoc-validate_pair-input" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-validate_pair-input" target="validate_pair" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=-0.0017;exitY=0.6301;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.001;entryY=0.6702;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-validate_pair-system" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-validate_pair-system" target="validate_pair" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=none;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=1.0017;exitY=0.3518;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0;entryY=0.3433;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-request_clarification-role" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-request_clarification-role" target="request_clarification" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=none;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=1.002;exitY=0.3436;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.0007;entryY=0.3737;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-resolve_issue-role" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-resolve_issue-role" target="resolve_issue" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=none;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=1.002;exitY=0.3338;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.0007;entryY=0.3658;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-hold-role" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-hold-role" target="hold" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=none;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=0.5;exitY=1.0069;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.3333;entryY=1.0046;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="2044.16" y="1551.44" />
+                <mxPoint x="2419.49" y="1551.44" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="assoc-hold-input" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-hold-input" target="hold" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=-0.001;exitY=0.6338;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.0007;entryY=0.675;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-hold-system" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-hold-system" target="hold" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=none;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=1.0003;exitY=0.3564;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.0016;entryY=0.3481;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-calculate-role" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-calculate-role" target="calculate" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=none;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=0.5;exitY=-0.0017;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.0508;entryY=-0.0023;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="803.16" y="932.44" />
+                <mxPoint x="1123.16" y="932.44" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="assoc-calculate-input" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-calculate-input" target="calculate" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=-0.0002;exitY=0.6164;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.0015;entryY=0.6813;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-calculate-system" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-calculate-system" target="calculate" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=none;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=1.0002;exitY=0.3442;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.0012;entryY=0.3352;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-compare-role" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-compare-role" target="compare" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=none;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=0.5;exitY=1.0062;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.2081;entryY=1.0038;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="830.16" y="1252.44" />
+                <mxPoint x="1168.16" y="1252.44" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="assoc-compare-input" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-compare-input" target="compare" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=-0.002;exitY=0.6326;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.0007;entryY=0.6735;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-compare-system" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-compare-system" target="compare" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=none;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=1.002;exitY=0.3549;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.0007;entryY=0.3465;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-dueaction-role" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-dueaction-role" target="dueaction" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=none;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=1.002;exitY=0.3357;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.0001;entryY=0.3673;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-check_payment-role" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-check_payment-role" target="check_payment" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=none;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=1.0001;exitY=0.3433;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.001;entryY=0.3735;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-duepay-role" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-duepay-role" target="duepay" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=none;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=1.0003;exitY=0.3393;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.0001;entryY=0.3702;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-document_payment_pending-role" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-document_payment_pending-role" target="document_payment_pending" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=none;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=1.002;exitY=0.3393;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.0007;entryY=0.3702;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-zeroaction-role" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-zeroaction-role" target="zeroaction" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=none;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=1.002;exitY=0.3357;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.0007;entryY=0.3673;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-refundaction-role" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-refundaction-role" target="refundaction" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=none;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=1.002;exitY=0.3357;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.0007;entryY=0.3673;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-refundpay-role" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-refundpay-role" target="refundpay" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=none;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=1.0001;exitY=0.344;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0;entryY=0.335;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-record_refund-role" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-record_refund-role" target="record_refund" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=none;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=1.0014;exitY=0.3393;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.0004;entryY=0.3702;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-document_refund_pending-role" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-document_refund_pending-role" target="document_refund_pending" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=none;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=1.0002;exitY=0.3591;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.0003;entryY=0.351;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-reconcile-role" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-reconcile-role" target="reconcile" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=none;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=0.588;exitY=-0.0052;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.1183;entryY=-0.0017;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="829.18" y="2245.44" />
+                <mxPoint x="1135.39" y="2245.44" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="assoc-reconcile-input" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-reconcile-input" target="reconcile" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=-0.0006;exitY=0.6299;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.0011;entryY=0.6698;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-reconcile-system" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-reconcile-system" target="reconcile" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=none;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=1.002;exitY=0.3515;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.0007;entryY=0.3429;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-close-role" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-close-role" target="close" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=none;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=1.0003;exitY=0.3552;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.0002;entryY=0.3831;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-document_residual-role" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-document_residual-role" target="document_residual" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=none;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=1.002;exitY=0.3552;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.0007;entryY=0.3831;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="start" label="Billing period ended" description="The declared billing period has ended. This process assesses that declaration and keeps any unresolved assessment or cash case explicitly open." added="false" kind="event" model_id="start" phase="Obtain, validate and clarify reading evidence" original_label="Billing period ended" tooltip="Billing period ended&#10;&#10;The declared billing period has ended. This process assesses that declaration and keeps any unresolved assessment or cash case explicitly open.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#b72c7d;strokeWidth=1.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="1471.69" y="235.39" width="300.94" height="55.05" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="record" label="Record closing inspection&#10;result" description="The MOT centre records the observed odometer reading and inspection identity. If the required observation is unavailable, it records that missing evidence instead of inventing a reading. Tax-authority validation follows." role="MOT centre" system="MOT records (conceptual)" inputs="Vehicle identity&#10;Closing inspection evidence" outputs="Closing MOT reading or missing-evidence notice" added="false" kind="function" model_id="record" phase="Obtain, validate and clarify reading evidence" original_label="Record closing inspection result" tooltip="Record closing inspection result&#10;&#10;The MOT centre records the observed odometer reading and inspection identity. If the required observation is unavailable, it records that missing evidence instead of inventing a reading. Tax-authority validation follows.&#10;&#10;Role: MOT centre&#10;&#10;Application: MOT records (conceptual)&#10;&#10;Inputs: Vehicle identity; Closing inspection evidence&#10;&#10;Outputs: Closing MOT reading or missing-evidence notice">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#edf7ee;strokeColor=#347b42;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1508.66" y="335.68" width="227" height="52" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="verified" label="Closing inspection result&#10;recorded" description="The closing observation, or an explicit notice of missing evidence, is available for the tax authority. This does not yet mean the opening and closing pair is accepted." added="false" kind="event" model_id="verified" phase="Obtain, validate and clarify reading evidence" original_label="Closing inspection result recorded" tooltip="Closing inspection result recorded&#10;&#10;The closing observation, or an explicit notice of missing evidence, is available for the tax authority. This does not yet mean the opening and closing pair is accepted.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#b72c7d;strokeWidth=1.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="1443.53" y="432.72" width="357.26" height="84.83" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="reading_merge" label="XOR" description="XOR join: either the initial inspection result or clarified evidence arrives. The join does not wait for both." added="true" kind="xor" model_id="reading_merge" phase="Obtain, validate and clarify reading evidence" original_label="Submission or corrected evidence" tooltip="Submission or corrected evidence&#10;&#10;XOR join: either the initial inspection result or clarified evidence arrives. The join does not wait for both.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=10;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=2;fillColor=#657078;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=ellipse;perimeter=ellipsePerimeter;">
+            <mxGeometry x="1604.66" y="554.59" width="35" height="35" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="validate_pair" label="Validate both boundary&#10;readings" description="Check the declaration vehicle and liable period, the presence of both readings, matching vehicle identities, exact period-boundary dates and a closing odometer at least as high as the opening value. A missing, mismatched or decreasing reading blocks assessment." role="Tax authority" system="Tax assessment system (conceptual)" inputs="Declaration and billing period&#10;Opening MOT reading&#10;Closing MOT reading or missing-evidence notice" outputs="Reading-pair validation result" added="false" kind="function" model_id="validate_pair" phase="Obtain, validate and clarify reading evidence" original_label="Validate both boundary readings" tooltip="Validate both boundary readings&#10;&#10;Check the declaration vehicle and liable period, the presence of both readings, matching vehicle identities, exact period-boundary dates and a closing odometer at least as high as the opening value. A missing, mismatched or decreasing reading blocks assessment.&#10;&#10;Role: Tax authority&#10;&#10;Application: Tax assessment system (conceptual)&#10;&#10;Inputs: Declaration and billing period; Opening MOT reading; Closing MOT reading or missing-evidence notice&#10;&#10;Outputs: Reading-pair validation result">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#edf7ee;strokeColor=#347b42;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1517.16" y="634.59" width="210" height="52" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="validation_split" label="XOR" description="XOR split: exactly one validation outcome applies. A usable pair proceeds; a missing or inconsistent pair requires clarification." added="true" kind="xor" model_id="validation_split" phase="Obtain, validate and clarify reading evidence" original_label="Reading pair usable?" tooltip="Reading pair usable?&#10;&#10;XOR split: exactly one validation outcome applies. A usable pair proceeds; a missing or inconsistent pair requires clarification.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=10;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=2;fillColor=#657078;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=ellipse;perimeter=ellipsePerimeter;">
+            <mxGeometry x="1604.66" y="731.59" width="35" height="35" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="pair_accepted" label="Reading pair accepted" description="Both readings belong to the same declared vehicle and period and pass the mileage plausibility checks." added="false" kind="event" model_id="pair_accepted" phase="Obtain, validate and clarify reading evidence" original_label="Reading pair accepted" tooltip="Reading pair accepted&#10;&#10;Both readings belong to the same declared vehicle and period and pass the mileage plausibility checks.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#b72c7d;strokeWidth=1.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="1279.16" y="818.53" width="332" height="55.04" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="needs_clarification" label="Reading clarification&#10;required" description="Required evidence is missing or does not pass validation. No final tax is calculated from this pair." added="true" kind="event" model_id="needs_clarification" phase="Obtain, validate and clarify reading evidence" original_label="Reading clarification required" tooltip="Reading clarification required&#10;&#10;Required evidence is missing or does not pass validation. No final tax is calculated from this pair.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="1755.42" y="803.64" width="303.48" height="84.83" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="request_clarification" label="Request reading&#10;clarification" description="Ask the MOT centre for the specific missing evidence or correction. The request identifies the vehicle, dates and disputed fields." role="Tax authority" system="Case correspondence (conceptual)" inputs="Validation findings&#10;Declaration and inspection references" outputs="Reading clarification request" added="true" kind="function" model_id="request_clarification" phase="Obtain, validate and clarify reading evidence" original_label="Request reading clarification" tooltip="Request reading clarification&#10;&#10;Ask the MOT centre for the specific missing evidence or correction. The request identifies the vehicle, dates and disputed fields.&#10;&#10;Role: Tax authority&#10;&#10;Application: Case correspondence (conceptual)&#10;&#10;Inputs: Validation findings; Declaration and inspection references&#10;&#10;Outputs: Reading clarification request">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#edf7ee;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1935.66" y="940.01" width="209" height="52" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="clarification_requested" label="Reading clarification&#10;requested" description="The MOT centre has a concrete request to investigate the reading evidence." added="true" kind="event" model_id="clarification_requested" phase="Obtain, validate and clarify reading evidence" original_label="Reading clarification requested" tooltip="Reading clarification requested&#10;&#10;The MOT centre has a concrete request to investigate the reading evidence.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="1888.42" y="1043.55" width="303.48" height="84.83" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="resolve_issue" label="Review and correct&#10;inspection evidence" description="Review the original inspection evidence. Supply corrected or confirmed readings when supported by evidence; otherwise record that the required boundary reading cannot be established. Never estimate a missing verified boundary reading silently." role="MOT centre" system="MOT records (conceptual)" inputs="Reading clarification request&#10;Original inspection evidence" outputs="Corrected or confirmed reading evidence&#10;Unresolved-evidence finding, when applicable" added="true" kind="function" model_id="resolve_issue" phase="Obtain, validate and clarify reading evidence" original_label="Review and correct inspection evidence" tooltip="Review and correct inspection evidence&#10;&#10;Review the original inspection evidence. Supply corrected or confirmed readings when supported by evidence; otherwise record that the required boundary reading cannot be established. Never estimate a missing verified boundary reading silently.&#10;&#10;Role: MOT centre&#10;&#10;Application: MOT records (conceptual)&#10;&#10;Inputs: Reading clarification request; Original inspection evidence&#10;&#10;Outputs: Corrected or confirmed reading evidence; Unresolved-evidence finding, when applicable">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#edf7ee;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1935.66" y="1173.42" width="209" height="52" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="clarification_split" label="XOR" description="XOR split: usable evidence is supplied for revalidation, or the required evidence remains unavailable. A supplied correction still has to pass the tax authority validation." added="true" kind="xor" model_id="clarification_split" phase="Obtain, validate and clarify reading evidence" original_label="Required evidence established?" tooltip="Required evidence established?&#10;&#10;XOR split: usable evidence is supplied for revalidation, or the required evidence remains unavailable. A supplied correction still has to pass the tax authority validation.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=10;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=2;fillColor=#657078;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=ellipse;perimeter=ellipsePerimeter;">
+            <mxGeometry x="2022.66" y="1270.42" width="35" height="35" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="corrected" label="Clarified reading evidence&#10;supplied" description="Corrected or confirmed evidence returns to the same reading-validation step through the separate XOR join." added="true" kind="event" model_id="corrected" phase="Obtain, validate and clarify reading evidence" original_label="Clarified reading evidence supplied" tooltip="Clarified reading evidence supplied&#10;&#10;Corrected or confirmed evidence returns to the same reading-validation step through the separate XOR join.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="1848.67" y="1342.47" width="380.98" height="84.83" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="unavailable" label="Required reading evidence&#10;unavailable" description="The issue cannot be resolved within this process. The assessment must remain on hold." added="true" kind="event" model_id="unavailable" phase="Obtain, validate and clarify reading evidence" original_label="Required reading evidence unavailable" tooltip="Required reading evidence unavailable&#10;&#10;The issue cannot be resolved within this process. The assessment must remain on hold.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="2266.01" y="1342.47" width="388.3" height="84.83" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="hold" label="Document assessment hold" description="Record why assessment is withheld and notify the responsible case owner. This is an explicit unresolved outcome, not a zero-tax assessment." role="Tax authority" system="Case register (conceptual)" inputs="Unresolved-evidence finding&#10;Declaration reference" outputs="Assessment-hold record and notification" added="true" kind="function" model_id="hold" phase="Obtain, validate and clarify reading evidence" original_label="Document assessment hold" tooltip="Document assessment hold&#10;&#10;Record why assessment is withheld and notify the responsible case owner. This is an explicit unresolved outcome, not a zero-tax assessment.&#10;&#10;Role: Tax authority&#10;&#10;Application: Case register (conceptual)&#10;&#10;Inputs: Unresolved-evidence finding; Declaration reference&#10;&#10;Outputs: Assessment-hold record and notification">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#edf7ee;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="2338.16" y="1472.34" width="244" height="52" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="withheld" label="Assessment withheld; case&#10;open" description="No final assessment or settlement closure is claimed. Further evidence is required before this case can resume." added="true" kind="event" model_id="withheld" phase="Obtain, validate and clarify reading evidence" original_label="Assessment withheld; case open" tooltip="Assessment withheld; case open&#10;&#10;No final assessment or settlement closure is claimed. Further evidence is required before this case can resume.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="2266.01" y="1569.38" width="388.3" height="84.83" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="calculate" label="Calculate miles and record&#10;final liability" description="Subtract the accepted opening reading from the closing reading, apply the declared vehicle type rate and round the final amount once to integer pence, with half-pennies upwards. Record the assessment against this declaration and its historical liable owner." role="Tax authority" system="Tax assessment system (conceptual)" inputs="Accepted boundary readings&#10;Declaration and vehicle type&#10;Case rates: BEV 3p/mile; PHEV 1.5p/mile" outputs="Final tax assessment" added="false" kind="function" model_id="calculate" phase="Assess final tax and choose the settlement outcome" original_label="Calculate miles and record final liability" tooltip="Calculate miles and record final liability&#10;&#10;Subtract the accepted opening reading from the closing reading, apply the declared vehicle type rate and round the final amount once to integer pence, with half-pennies upwards. Record the assessment against this declaration and its historical liable owner.&#10;&#10;Role: Tax authority&#10;&#10;Application: Tax assessment system (conceptual)&#10;&#10;Inputs: Accepted boundary readings; Declaration and vehicle type; Case rates: BEV 3p/mile; PHEV 1.5p/mile&#10;&#10;Outputs: Final tax assessment">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#edf7ee;strokeColor=#347b42;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1111.16" y="940.01" width="236" height="52" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assessed" label="Final liability recorded" description="The final assessed tax is stored. This event establishes a liability, not a payment." added="false" kind="event" model_id="assessed" phase="Assess final tax and choose the settlement outcome" original_label="Final liability recorded" tooltip="Final liability recorded&#10;&#10;The final assessed tax is stored. This event establishes a liability, not a payment.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#b72c7d;strokeWidth=1.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="1067.33" y="1058.44" width="323.66" height="55.05" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="compare" label="Compare final tax with&#10;advance received" description="At initial settlement, subtract advance payments actually received and allocated to this declaration from the final assessed tax. Advance due is not evidence of cash received. Later completion checks use all net posted payments." role="Tax authority" system="Tax ledger (conceptual)" inputs="Final tax assessment&#10;Allocated advance receipts" outputs="Initial settlement difference" added="false" kind="function" model_id="compare" phase="Assess final tax and choose the settlement outcome" original_label="Compare final tax with advance received" tooltip="Compare final tax with advance received&#10;&#10;At initial settlement, subtract advance payments actually received and allocated to this declaration from the final assessed tax. Advance due is not evidence of cash received. Later completion checks use all net posted payments.&#10;&#10;Role: Tax authority&#10;&#10;Application: Tax ledger (conceptual)&#10;&#10;Inputs: Final tax assessment; Allocated advance receipts&#10;&#10;Outputs: Initial settlement difference">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#edf7ee;strokeColor=#347b42;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1124.66" y="1173.42" width="209" height="52" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="decision" label="XOR" description="XOR split: a positive difference requires additional payment, zero requires no transfer, and a negative difference requires a refund." added="false" kind="xor" model_id="decision" phase="Assess final tax and choose the settlement outcome" original_label="Initial settlement balance?" tooltip="Initial settlement balance?&#10;&#10;XOR split: a positive difference requires additional payment, zero requires no transfer, and a negative difference requires a refund.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=10;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=2;fillColor=#657078;strokeColor=#657078;strokeWidth=1.3;shadow=0;shape=ellipse;perimeter=ellipsePerimeter;">
+            <mxGeometry x="1211.66" y="1270.42" width="35" height="35" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="due" label="Additional amount due" description="Final assessed tax exceeds the advance actually received." added="false" kind="event" model_id="due" phase="Collect additional payment, confirm balance or transfer refund" original_label="Additional amount due" tooltip="Additional amount due&#10;&#10;Final assessed tax exceeds the advance actually received.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#b72c7d;strokeWidth=1.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="658.9" y="1357.36" width="334.52" height="55.05" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="dueaction" label="Issue additional invoice" description="Notify the liable owner of the additional amount to pay. Issuing an invoice does not create a payment receipt." role="Tax authority" system="Billing system (conceptual)" inputs="Initial settlement difference&#10;Declaration liable-owner details" outputs="Additional invoice" added="false" kind="function" model_id="dueaction" phase="Collect additional payment, confirm balance or transfer refund" original_label="Issue additional invoice" tooltip="Issue additional invoice&#10;&#10;Notify the liable owner of the additional amount to pay. Issuing an invoice does not create a payment receipt.&#10;&#10;Role: Tax authority&#10;&#10;Application: Billing system (conceptual)&#10;&#10;Inputs: Initial settlement difference; Declaration liable-owner details&#10;&#10;Outputs: Additional invoice">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#edf7ee;strokeColor=#347b42;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="694.16" y="1472.34" width="210" height="52" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="duestate" label="Additional invoice issued" description="The additional amount has been requested. The case is not yet paid or closed." added="false" kind="event" model_id="duestate" phase="Collect additional payment, confirm balance or transfer refund" original_label="Additional invoice issued" tooltip="Additional invoice issued&#10;&#10;The additional amount has been requested. The case is not yet paid or closed.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#b72c7d;strokeWidth=1.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="618.14" y="1584.27" width="362.04" height="55.05" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="check_payment" label="Check additional payment&#10;confirmation" description="At a payment-review point, determine whether an additional receipt has been confirmed and allocated to this declaration. Do not assume an invoice causes a bank receipt. A confirmed partial payment can be recorded, but the remaining balance check will keep the case open." role="Tax authority" system="Bank confirmation and tax ledger (conceptual)" inputs="Additional invoice&#10;Bank receipt confirmation, if any&#10;Existing payment records" outputs="Receipt confirmation result" added="true" kind="function" model_id="check_payment" phase="Collect additional payment, confirm balance or transfer refund" original_label="Check additional payment confirmation" tooltip="Check additional payment confirmation&#10;&#10;At a payment-review point, determine whether an additional receipt has been confirmed and allocated to this declaration. Do not assume an invoice causes a bank receipt. A confirmed partial payment can be recorded, but the remaining balance check will keep the case open.&#10;&#10;Role: Tax authority&#10;&#10;Application: Bank confirmation and tax ledger (conceptual)&#10;&#10;Inputs: Additional invoice; Bank receipt confirmation, if any; Existing payment records&#10;&#10;Outputs: Receipt confirmation result">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#edf7ee;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="682.66" y="1693.02" width="233" height="52" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="payment_split" label="XOR" description="XOR split: a confirmed receipt is recorded; without confirmation the payment remains outstanding. No statutory reminder deadline is assumed." added="true" kind="xor" model_id="payment_split" phase="Collect additional payment, confirm balance or transfer refund" original_label="Additional receipt confirmed?" tooltip="Additional receipt confirmed?&#10;&#10;XOR split: a confirmed receipt is recorded; without confirmation the payment remains outstanding. No statutory reminder deadline is assumed.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=10;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=2;fillColor=#657078;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=ellipse;perimeter=ellipsePerimeter;">
+            <mxGeometry x="781.66" y="1783.78" width="35" height="35" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="payment_confirmed" label="Additional receipt&#10;confirmed" description="The actual received amount and reference are known. This can be a full or partial receipt." added="true" kind="event" model_id="payment_confirmed" phase="Collect additional payment, confirm balance or transfer refund" original_label="Additional receipt confirmed" tooltip="Additional receipt confirmed&#10;&#10;The actual received amount and reference are known. This can be a full or partial receipt.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="350.11" y="1855.82" width="264.1" height="84.83" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="duepay" label="Record confirmed additional&#10;payment" description="Record only the actual confirmed amount as an ADDITIONAL payment allocated to the declaration. Ensure the same receipt is not posted twice. The common balance check determines whether the settlement is now complete." role="Tax authority" system="Payment ledger (conceptual)" inputs="Confirmed bank receipt&#10;Declaration and existing receipt references" outputs="Posted additional payment" added="false" kind="function" model_id="duepay" phase="Collect additional payment, confirm balance or transfer refund" original_label="Record confirmed additional payment" tooltip="Record confirmed additional payment&#10;&#10;Record only the actual confirmed amount as an ADDITIONAL payment allocated to the declaration. Ensure the same receipt is not posted twice. The common balance check determines whether the settlement is now complete.&#10;&#10;Role: Tax authority&#10;&#10;Application: Payment ledger (conceptual)&#10;&#10;Inputs: Confirmed bank receipt; Declaration and existing receipt references&#10;&#10;Outputs: Posted additional payment">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#edf7ee;strokeColor=#347b42;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="272.16" y="1979.19" width="248" height="52" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="dueend" label="Additional payment recorded" description="A confirmed additional payment has been posted. This does not itself prove that the full balance has been cleared." added="false" kind="event" model_id="dueend" phase="Collect additional payment, confirm balance or transfer refund" original_label="Additional payment recorded" tooltip="Additional payment recorded&#10;&#10;A confirmed additional payment has been posted. This does not itself prove that the full balance has been cleared.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#b72c7d;strokeWidth=1.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="251.75" y="2084.63" width="416.82" height="55.04" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="payment_unconfirmed" label="Additional receipt not&#10;confirmed" description="No new receipt can be posted on the available evidence." added="true" kind="event" model_id="payment_unconfirmed" phase="Collect additional payment, confirm balance or transfer refund" original_label="Additional receipt not confirmed" tooltip="Additional receipt not confirmed&#10;&#10;No new receipt can be posted on the available evidence.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="735.86" y="1855.82" width="316.6" height="84.83" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="document_payment_pending" label="Document payment&#10;outstanding" description="Keep the invoice and unpaid amount visible as an open case. This process does not add penalties or debt collection." role="Tax authority" system="Case register (conceptual)" inputs="Additional invoice&#10;Receipt confirmation result" outputs="Open payment case" added="true" kind="function" model_id="document_payment_pending" phase="Collect additional payment, confirm balance or transfer refund" original_label="Document payment outstanding" tooltip="Document payment outstanding&#10;&#10;Keep the invoice and unpaid amount visible as an open case. This process does not add penalties or debt collection.&#10;&#10;Role: Tax authority&#10;&#10;Application: Case register (conceptual)&#10;&#10;Inputs: Additional invoice; Receipt confirmation result&#10;&#10;Outputs: Open payment case">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#edf7ee;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="924.66" y="1979.19" width="209" height="52" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="payment_pending" label="Payment outstanding; case&#10;open" description="No settlement closure is recorded. A future confirmed receipt requires follow-up." added="true" kind="event" model_id="payment_pending" phase="Collect additional payment, confirm balance or transfer refund" original_label="Payment outstanding; case open" tooltip="Payment outstanding; case open&#10;&#10;No settlement closure is recorded. A future confirmed receipt requires follow-up.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="768.24" y="2069.74" width="391.84" height="84.83" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="zero" label="No adjustment required" description="The initial assessed liability equals the actual advance received." added="false" kind="event" model_id="zero" phase="Collect additional payment, confirm balance or transfer refund" original_label="No adjustment required" tooltip="No adjustment required&#10;&#10;The initial assessed liability equals the actual advance received.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#b72c7d;strokeWidth=1.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="1055.97" y="1357.36" width="346.38" height="55.05" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="zeroaction" label="Issue zero-balance&#10;confirmation" description="Confirm that the advance received covers the final assessment. No new cash transfer is created." role="Tax authority" system="Correspondence system (conceptual)" inputs="Final tax assessment&#10;Allocated advance receipts" outputs="Zero-balance confirmation" added="false" kind="function" model_id="zeroaction" phase="Collect additional payment, confirm balance or transfer refund" original_label="Issue zero-balance confirmation" tooltip="Issue zero-balance confirmation&#10;&#10;Confirm that the advance received covers the final assessment. No new cash transfer is created.&#10;&#10;Role: Tax authority&#10;&#10;Application: Correspondence system (conceptual)&#10;&#10;Inputs: Final tax assessment; Allocated advance receipts&#10;&#10;Outputs: Zero-balance confirmation">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#edf7ee;strokeColor=#347b42;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1124.66" y="1472.34" width="209" height="52" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="zerostate" label="Account balanced" description="The initial assessment and received advance match. The common final reconciliation confirms the recorded balance before closure." added="false" kind="event" model_id="zerostate" phase="Collect additional payment, confirm balance or transfer refund" original_label="Account balanced" tooltip="Account balanced&#10;&#10;The initial assessment and received advance match. The common final reconciliation confirms the recorded balance before closure.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#b72c7d;strokeWidth=1.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="1080.22" y="1691.49" width="269.88" height="55.05" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="refund" label="Overpayment established" description="The advance actually received exceeds the final assessed tax." added="false" kind="event" model_id="refund" phase="Collect additional payment, confirm balance or transfer refund" original_label="Overpayment established" tooltip="Overpayment established&#10;&#10;The advance actually received exceeds the final assessed tax.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#b72c7d;strokeWidth=1.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="1439.2" y="1357.36" width="373.92" height="55.05" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="refundaction" label="Approve refund" description="Approve repayment of the evidenced overpayment to the liable owner. Approval is distinct from a bank transfer." role="Tax authority" system="Refund approval register (conceptual)" inputs="Final assessment&#10;Actual advance receipts&#10;Overpayment amount and recipient details" outputs="Refund authorisation" added="false" kind="function" model_id="refundaction" phase="Collect additional payment, confirm balance or transfer refund" original_label="Approve refund" tooltip="Approve refund&#10;&#10;Approve repayment of the evidenced overpayment to the liable owner. Approval is distinct from a bank transfer.&#10;&#10;Role: Tax authority&#10;&#10;Application: Refund approval register (conceptual)&#10;&#10;Inputs: Final assessment; Actual advance receipts; Overpayment amount and recipient details&#10;&#10;Outputs: Refund authorisation">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#edf7ee;strokeColor=#347b42;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1557.66" y="1472.34" width="209" height="52" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="refundstate" label="Refund authorised" description="The refund is authorised but has not yet been confirmed as transferred." added="false" kind="event" model_id="refundstate" phase="Collect additional payment, confirm balance or transfer refund" original_label="Refund authorised" tooltip="Refund authorised&#10;&#10;The refund is authorised but has not yet been confirmed as transferred.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#b72c7d;strokeWidth=1.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="1545.55" y="1584.27" width="277.22" height="55.05" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="refundpay" label="Execute refund transfer" description="Send the authorised refund for transfer and obtain its confirmation status. Record payment-ledger cash only after confirmation. An unconfirmed transfer must be investigated before any retry to avoid duplicate refunds." role="Tax authority payments team" system="Bank interface (conceptual)" inputs="Refund authorisation&#10;Recipient and payment reference" outputs="Refund transfer confirmation or unconfirmed status" added="false" kind="function" model_id="refundpay" phase="Collect additional payment, confirm balance or transfer refund" original_label="Execute refund transfer" tooltip="Execute refund transfer&#10;&#10;Send the authorised refund for transfer and obtain its confirmation status. Record payment-ledger cash only after confirmation. An unconfirmed transfer must be investigated before any retry to avoid duplicate refunds.&#10;&#10;Role: Tax authority payments team&#10;&#10;Application: Bank interface (conceptual)&#10;&#10;Inputs: Refund authorisation; Recipient and payment reference&#10;&#10;Outputs: Refund transfer confirmation or unconfirmed status">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#edf7ee;strokeColor=#347b42;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1583.16" y="1693.02" width="212" height="52" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="refund_split" label="XOR" description="XOR split: a confirmed transfer can be posted as a refund; an unconfirmed or failed transfer remains pending." added="true" kind="xor" model_id="refund_split" phase="Collect additional payment, confirm balance or transfer refund" original_label="Refund transfer confirmed?" tooltip="Refund transfer confirmed?&#10;&#10;XOR split: a confirmed transfer can be posted as a refund; an unconfirmed or failed transfer remains pending.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=10;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=2;fillColor=#657078;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=ellipse;perimeter=ellipsePerimeter;">
+            <mxGeometry x="1671.66" y="1783.78" width="35" height="35" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="refund_confirmed" label="Refund transfer confirmed" description="The actual refund amount and transfer reference have been confirmed." added="true" kind="event" model_id="refund_confirmed" phase="Collect additional payment, confirm balance or transfer refund" original_label="Refund transfer confirmed" tooltip="Refund transfer confirmed&#10;&#10;The actual refund amount and transfer reference have been confirmed.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="1436.04" y="1870.71" width="382.24" height="55.05" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="record_refund" label="Record confirmed refund" description="Post the confirmed amount as a REFUND payment allocated to the declaration. Refund amounts reduce net cash retained. Do not post the same transfer twice." role="Tax authority" system="Payment ledger (conceptual)" inputs="Confirmed refund transfer&#10;Declaration and existing transfer references" outputs="Posted refund payment" added="true" kind="function" model_id="record_refund" phase="Collect additional payment, confirm balance or transfer refund" original_label="Record confirmed refund" tooltip="Record confirmed refund&#10;&#10;Post the confirmed amount as a REFUND payment allocated to the declaration. Refund amounts reduce net cash retained. Do not post the same transfer twice.&#10;&#10;Role: Tax authority&#10;&#10;Application: Payment ledger (conceptual)&#10;&#10;Inputs: Confirmed refund transfer; Declaration and existing transfer references&#10;&#10;Outputs: Posted refund payment">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#edf7ee;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1454.66" y="1979.19" width="221" height="52" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="refundend" label="Refund recorded" description="The completed refund has been recorded in the payment ledger." added="false" kind="event" model_id="refundend" phase="Collect additional payment, confirm balance or transfer refund" original_label="Refund recorded" tooltip="Refund recorded&#10;&#10;The completed refund has been recorded in the payment ledger.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#b72c7d;strokeWidth=1.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="1354.55" y="2084.63" width="253.22" height="55.04" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="refund_unconfirmed" label="Refund transfer unconfirmed" description="The transfer is failed or lacks confirmation. It cannot yet be treated as completed cash movement." added="true" kind="event" model_id="refund_unconfirmed" phase="Collect additional payment, confirm balance or transfer refund" original_label="Refund transfer unconfirmed" tooltip="Refund transfer unconfirmed&#10;&#10;The transfer is failed or lacks confirmation. It cannot yet be treated as completed cash movement.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="1902.75" y="1870.71" width="416.82" height="55.05" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="document_refund_pending" label="Document refund pending" description="Record the pending refund and transfer reference for follow-up. Keep the settlement open and investigate uncertain transfer status before retrying." role="Tax authority payments team" system="Case register (conceptual)" inputs="Refund authorisation&#10;Unconfirmed transfer status and reference" outputs="Open refund case" added="true" kind="function" model_id="document_refund_pending" phase="Collect additional payment, confirm balance or transfer refund" original_label="Document refund pending" tooltip="Document refund pending&#10;&#10;Record the pending refund and transfer reference for follow-up. Keep the settlement open and investigate uncertain transfer status before retrying.&#10;&#10;Role: Tax authority payments team&#10;&#10;Application: Case register (conceptual)&#10;&#10;Inputs: Refund authorisation; Unconfirmed transfer status and reference&#10;&#10;Outputs: Open refund case">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#edf7ee;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="2106.16" y="1979.19" width="234" height="52" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="refund_pending" label="Refund pending; case open" description="Refund authorisation remains unresolved. No settlement closure is claimed." added="true" kind="event" model_id="refund_pending" phase="Collect additional payment, confirm balance or transfer refund" original_label="Refund pending; case open" tooltip="Refund pending; case open&#10;&#10;Refund authorisation remains unresolved. No settlement closure is claimed.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="2024.84" y="2084.63" width="396.64" height="55.04" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="completed_merge" label="XOR" description="XOR join: exactly one settlement route reaches this point for this initial assessment. The inputs are an additional receipt recorded, an initially balanced account, or a refund recorded. It does not wait for all three." added="true" kind="xor" model_id="completed_merge" phase="Reconcile all cash and close only a cleared settlement" original_label="Completed outcome available" tooltip="Completed outcome available&#10;&#10;XOR join: exactly one settlement route reaches this point for this initial assessment. The inputs are an additional receipt recorded, an initially balanced account, or a refund recorded. It does not wait for all three.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=10;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=2;fillColor=#657078;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=ellipse;perimeter=ellipsePerimeter;">
+            <mxGeometry x="1197.66" y="2191.61" width="35" height="35" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="reconcile" label="Reconcile remaining&#10;settlement balance" description="Calculate final assessed tax minus all net cash posted to the declaration: advances plus additional receipts minus refunds transferred. Use the recorded amounts, not invoices or authorisations. A partial receipt or any residual overpayment prevents closure." role="Tax authority" system="Tax ledger (conceptual)" inputs="Final tax assessment&#10;All ADVANCE and ADDITIONAL receipts&#10;All confirmed REFUND payments" outputs="Remaining settlement balance" added="true" kind="function" model_id="reconcile" phase="Reconcile all cash and close only a cleared settlement" original_label="Reconcile remaining settlement balance" tooltip="Reconcile remaining settlement balance&#10;&#10;Calculate final assessed tax minus all net cash posted to the declaration: advances plus additional receipts minus refunds transferred. Use the recorded amounts, not invoices or authorisations. A partial receipt or any residual overpayment prevents closure.&#10;&#10;Role: Tax authority&#10;&#10;Application: Tax ledger (conceptual)&#10;&#10;Inputs: Final tax assessment; All ADVANCE and ADDITIONAL receipts; All confirmed REFUND payments&#10;&#10;Outputs: Remaining settlement balance">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#edf7ee;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1110.66" y="2271.61" width="209" height="52" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="balance_split" label="XOR" description="XOR split: exactly zero permits closure. Any positive or negative residual remains an open balance requiring follow-up." added="true" kind="xor" model_id="balance_split" phase="Reconcile all cash and close only a cleared settlement" original_label="Remaining balance zero?" tooltip="Remaining balance zero?&#10;&#10;XOR split: exactly zero permits closure. Any positive or negative residual remains an open balance requiring follow-up.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=10;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=2;fillColor=#657078;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=ellipse;perimeter=ellipsePerimeter;">
+            <mxGeometry x="1197.66" y="2368.61" width="35" height="35" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="balance_zero" label="Settlement balance cleared" description="Final assessed tax equals net cash retained after all recorded receipts and refunds." added="true" kind="event" model_id="balance_zero" phase="Reconcile all cash and close only a cleared settlement" original_label="Settlement balance cleared" tooltip="Settlement balance cleared&#10;&#10;Final assessed tax equals net cash retained after all recorded receipts and refunds.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="796.84" y="2455.54" width="396.64" height="55.05" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="close" label="Close settlement and notify&#10;owner" description="Mark the settlement complete only after the remaining recorded balance is zero. Retain the assessment, linked readings and receipt references, and issue a final statement to the liable owner." role="Tax authority" system="Settlement records and correspondence (conceptual)" inputs="Zero-balance reconciliation&#10;Assessment and payment references" outputs="Closed settlement record&#10;Final owner statement" added="true" kind="function" model_id="close" phase="Reconcile all cash and close only a cleared settlement" original_label="Close settlement and notify owner" tooltip="Close settlement and notify owner&#10;&#10;Mark the settlement complete only after the remaining recorded balance is zero. Retain the assessment, linked readings and receipt references, and issue a final statement to the liable owner.&#10;&#10;Role: Tax authority&#10;&#10;Application: Settlement records and correspondence (conceptual)&#10;&#10;Inputs: Zero-balance reconciliation; Assessment and payment references&#10;&#10;Outputs: Closed settlement record; Final owner statement">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#edf7ee;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="870.66" y="2562.52" width="243" height="52" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="closed" label="Settlement closed; owner&#10;notified" description="The full normal process is complete: a final assessment exists, net cash is reconciled and the owner has been notified." added="true" kind="event" model_id="closed" phase="Reconcile all cash and close only a cleared settlement" original_label="Settlement closed; owner notified" tooltip="Settlement closed; owner notified&#10;&#10;The full normal process is complete: a final assessment exists, net cash is reconciled and the owner has been notified.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="807.6" y="2651.57" width="369.12" height="84.83" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="residual" label="Non-zero settlement balance&#10;remains" description="A positive balance is still owed; a negative balance is an unresolved overpayment. Neither is treated as settled." added="true" kind="event" model_id="residual" phase="Reconcile all cash and close only a cleared settlement" original_label="Non-zero settlement balance remains" tooltip="Non-zero settlement balance remains&#10;&#10;A positive balance is still owed; a negative balance is an unresolved overpayment. Neither is treated as settled.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="1230.51" y="2440.65" width="413.3" height="84.83" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="document_residual" label="Document unresolved&#10;settlement balance" description="Record the residual amount and assign follow-up. This preserves partial-payment and overpayment cases without inventing a cash transfer or introducing enforcement." role="Tax authority" system="Case register (conceptual)" inputs="Remaining settlement balance&#10;Assessment and payment references" outputs="Open balance follow-up record" added="true" kind="function" model_id="document_residual" phase="Reconcile all cash and close only a cleared settlement" original_label="Document unresolved settlement balance" tooltip="Document unresolved settlement balance&#10;&#10;Record the residual amount and assign follow-up. This preserves partial-payment and overpayment cases without inventing a cash transfer or introducing enforcement.&#10;&#10;Role: Tax authority&#10;&#10;Application: Case register (conceptual)&#10;&#10;Inputs: Remaining settlement balance; Assessment and payment references&#10;&#10;Outputs: Open balance follow-up record">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#edf7ee;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1334.66" y="2562.52" width="209" height="52" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="balance_open" label="Settlement balance&#10;unresolved; case open" description="The process has reached an explicit unresolved outcome. Further payment, refund or correction work is required before closure." added="true" kind="event" model_id="balance_open" phase="Reconcile all cash and close only a cleared settlement" original_label="Settlement balance unresolved; case open" tooltip="Settlement balance unresolved; case open&#10;&#10;The process has reached an explicit unresolved outcome. Further payment, refund or correction work is required before closure.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="1273.16" y="2651.57" width="332" height="84.83" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-record-role" label="ROLE&#10;MOT centre" kind="satellite" association_type="role" activity_id="record" full_value="MOT centre" tooltip="MOT centre">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fff3d8;strokeColor=#b48127;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1324.16" y="340.68" width="148" height="42" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-record-output" label="OUTPUT&#10;Closing MOT reading or&#10;missing-evidence&#10;notice" kind="satellite" association_type="output" activity_id="record" full_value="Closing MOT reading or missing-evidence notice" tooltip="Closing MOT reading or missing-evidence notice">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#f0f2f4;strokeColor=#7b8790;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1772.16" y="327.68" width="160" height="68" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-validate_pair-role" label="ROLE&#10;Tax authority" kind="satellite" association_type="role" activity_id="validate_pair" full_value="Tax authority" tooltip="Tax authority">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fff3d8;strokeColor=#b48127;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1135.16" y="639.59" width="148" height="42" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-validate_pair-input" label="INPUT&#10;Declaration and&#10;billing period&#10;Opening MOT reading …" kind="satellite" association_type="input" activity_id="validate_pair" full_value="Declaration and billing period&#10;Opening MOT reading&#10;Closing MOT reading or missing-evidence notice" tooltip="Declaration and billing period&#10;Opening MOT reading&#10;Closing MOT reading or missing-evidence notice">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#f0f2f4;strokeColor=#7b8790;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1763.66" y="626.59" width="167" height="68" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-validate_pair-system" label="APPLICATION&#10;Tax assessment system&#10;(conceptual)" kind="satellite" association_type="system" activity_id="validate_pair" full_value="Tax assessment system (conceptual)" tooltip="Tax assessment system (conceptual)">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#e9f4fa;strokeColor=#327c9b;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1319.66" y="633.09" width="161" height="55" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-request_clarification-role" label="ROLE&#10;Tax authority" kind="satellite" association_type="role" activity_id="request_clarification" full_value="Tax authority" tooltip="Tax authority">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fff3d8;strokeColor=#b48127;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1751.16" y="945.01" width="148" height="42" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-resolve_issue-role" label="ROLE&#10;MOT centre" kind="satellite" association_type="role" activity_id="resolve_issue" full_value="MOT centre" tooltip="MOT centre">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fff3d8;strokeColor=#b48127;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1751.16" y="1178.42" width="148" height="42" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-hold-role" label="ROLE&#10;Tax authority" kind="satellite" association_type="role" activity_id="hold" full_value="Tax authority" tooltip="Tax authority">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fff3d8;strokeColor=#b48127;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1970.16" y="1477.34" width="148" height="42" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-hold-input" label="INPUT&#10;Unresolved-evidence&#10;finding&#10;Declaration reference" kind="satellite" association_type="input" activity_id="hold" full_value="Unresolved-evidence finding&#10;Declaration reference" tooltip="Unresolved-evidence finding&#10;Declaration reference">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#f0f2f4;strokeColor=#7b8790;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="2618.66" y="1464.34" width="151" height="68" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-hold-system" label="APPLICATION&#10;Case register&#10;(conceptual)" kind="satellite" association_type="system" activity_id="hold" full_value="Case register (conceptual)" tooltip="Case register (conceptual)">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#e9f4fa;strokeColor=#327c9b;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="2154.16" y="1470.84" width="148" height="55" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-calculate-role" label="ROLE&#10;Tax authority" kind="satellite" association_type="role" activity_id="calculate" full_value="Tax authority" tooltip="Tax authority">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fff3d8;strokeColor=#b48127;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="729.16" y="945.01" width="148" height="42" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-calculate-input" label="INPUT&#10;Accepted boundary&#10;readings&#10;Declaration and&#10;vehicle type …" kind="satellite" association_type="input" activity_id="calculate" full_value="Accepted boundary readings&#10;Declaration and vehicle type&#10;Case rates: BEV 3p/mile; PHEV 1.5p/mile" tooltip="Accepted boundary readings&#10;Declaration and vehicle type&#10;Case rates: BEV 3p/mile; PHEV 1.5p/mile">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#f0f2f4;strokeColor=#7b8790;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1383.16" y="925.51" width="148" height="81" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-calculate-system" label="APPLICATION&#10;Tax assessment system&#10;(conceptual)" kind="satellite" association_type="system" activity_id="calculate" full_value="Tax assessment system (conceptual)" tooltip="Tax assessment system (conceptual)">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#e9f4fa;strokeColor=#327c9b;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="913.66" y="938.51" width="161" height="55" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-calculate-output" label="OUTPUT&#10;Final tax assessment" kind="satellite" association_type="output" activity_id="calculate" full_value="Final tax assessment" tooltip="Final tax assessment">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#f0f2f4;strokeColor=#7b8790;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1567.16" y="945.01" width="148" height="42" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-compare-role" label="ROLE&#10;Tax authority" kind="satellite" association_type="role" activity_id="compare" full_value="Tax authority" tooltip="Tax authority">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fff3d8;strokeColor=#b48127;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="756.16" y="1178.42" width="148" height="42" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-compare-input" label="INPUT&#10;Final tax assessment&#10;Allocated advance&#10;receipts" kind="satellite" association_type="input" activity_id="compare" full_value="Final tax assessment&#10;Allocated advance receipts" tooltip="Final tax assessment&#10;Allocated advance receipts">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#f0f2f4;strokeColor=#7b8790;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1370.16" y="1165.42" width="148" height="68" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-compare-system" label="APPLICATION&#10;Tax ledger&#10;(conceptual)" kind="satellite" association_type="system" activity_id="compare" full_value="Tax ledger (conceptual)" tooltip="Tax ledger (conceptual)">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#e9f4fa;strokeColor=#327c9b;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="940.16" y="1171.92" width="148" height="55" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-dueaction-role" label="ROLE&#10;Tax authority" kind="satellite" association_type="role" activity_id="dueaction" full_value="Tax authority" tooltip="Tax authority">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fff3d8;strokeColor=#b48127;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="510.16" y="1477.34" width="148" height="42" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-check_payment-role" label="ROLE&#10;Tax authority" kind="satellite" association_type="role" activity_id="check_payment" full_value="Tax authority" tooltip="Tax authority">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fff3d8;strokeColor=#b48127;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="498.16" y="1698.02" width="148" height="42" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-duepay-role" label="ROLE&#10;Tax authority" kind="satellite" association_type="role" activity_id="duepay" full_value="Tax authority" tooltip="Tax authority">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fff3d8;strokeColor=#b48127;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="88.16" y="1984.19" width="148" height="42" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-duepay-output" label="OUTPUT&#10;Posted additional&#10;payment" kind="satellite" association_type="output" activity_id="duepay" full_value="Posted additional payment" tooltip="Posted additional payment">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#f0f2f4;strokeColor=#7b8790;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="556.16" y="1977.69" width="148" height="55" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-document_payment_pending-role" label="ROLE&#10;Tax authority" kind="satellite" association_type="role" activity_id="document_payment_pending" full_value="Tax authority" tooltip="Tax authority">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fff3d8;strokeColor=#b48127;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="740.16" y="1984.19" width="148" height="42" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-zeroaction-role" label="ROLE&#10;Tax authority" kind="satellite" association_type="role" activity_id="zeroaction" full_value="Tax authority" tooltip="Tax authority">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fff3d8;strokeColor=#b48127;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="940.16" y="1477.34" width="148" height="42" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-refundaction-role" label="ROLE&#10;Tax authority" kind="satellite" association_type="role" activity_id="refundaction" full_value="Tax authority" tooltip="Tax authority">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fff3d8;strokeColor=#b48127;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1373.16" y="1477.34" width="148" height="42" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-refundpay-role" label="ROLE&#10;Tax authority payments&#10;team" kind="satellite" association_type="role" activity_id="refundpay" full_value="Tax authority payments team" tooltip="Tax authority payments team">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fff3d8;strokeColor=#b48127;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1385.66" y="1691.52" width="161" height="55" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-record_refund-role" label="ROLE&#10;Tax authority" kind="satellite" association_type="role" activity_id="record_refund" full_value="Tax authority" tooltip="Tax authority">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fff3d8;strokeColor=#b48127;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1270.16" y="1984.19" width="148" height="42" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-record_refund-output" label="OUTPUT&#10;Posted refund payment" kind="satellite" association_type="output" activity_id="record_refund" full_value="Posted refund payment" tooltip="Posted refund payment">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#f0f2f4;strokeColor=#7b8790;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1712.16" y="1984.19" width="160" height="42" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-document_refund_pending-role" label="ROLE&#10;Tax authority payments&#10;team" kind="satellite" association_type="role" activity_id="document_refund_pending" full_value="Tax authority payments team" tooltip="Tax authority payments team">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fff3d8;strokeColor=#b48127;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1908.66" y="1977.69" width="161" height="55" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-reconcile-role" label="ROLE&#10;Tax authority" kind="satellite" association_type="role" activity_id="reconcile" full_value="Tax authority" tooltip="Tax authority">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fff3d8;strokeColor=#b48127;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="742.16" y="2276.61" width="148" height="42" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-reconcile-input" label="INPUT&#10;Final tax assessment&#10;All ADVANCE and&#10;ADDITIONAL receipts …" kind="satellite" association_type="input" activity_id="reconcile" full_value="Final tax assessment&#10;All ADVANCE and ADDITIONAL receipts&#10;All confirmed REFUND payments" tooltip="Final tax assessment&#10;All ADVANCE and ADDITIONAL receipts&#10;All confirmed REFUND payments">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#f0f2f4;strokeColor=#7b8790;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1356.16" y="2263.61" width="162" height="68" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-reconcile-system" label="APPLICATION&#10;Tax ledger&#10;(conceptual)" kind="satellite" association_type="system" activity_id="reconcile" full_value="Tax ledger (conceptual)" tooltip="Tax ledger (conceptual)">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#e9f4fa;strokeColor=#327c9b;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="926.16" y="2270.11" width="148" height="55" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-close-role" label="ROLE&#10;Tax authority" kind="satellite" association_type="role" activity_id="close" full_value="Tax authority" tooltip="Tax authority">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fff3d8;strokeColor=#b48127;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="686.16" y="2567.52" width="148" height="42" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-document_residual-role" label="ROLE&#10;Tax authority" kind="satellite" association_type="role" activity_id="document_residual" full_value="Tax authority" tooltip="Tax authority">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fff3d8;strokeColor=#b48127;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1150.16" y="2567.52" width="148" height="42" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="title" label="P2 | MOT verification and final settlement" kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=30;fontStyle=1;fontColor=#243d4a;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="55" y="30" width="2748.32" height="52" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="subtitle" label="Complete revised EPC  ·  19 functions  ·  27 events  ·  8 connectors  ·  Revision 2" kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=15;fontStyle=0;fontColor=#566b76;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="55" y="89" width="2748.32" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="legend-event" label="Event / state" kind="legend">
+          <mxCell vertex="1" parent="notes" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#b72c7d;strokeWidth=1.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="55" y="135" width="175" height="40" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="legend-function" label="Function / action" kind="legend">
+          <mxCell vertex="1" parent="notes" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#edf7ee;strokeColor=#347b42;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="250" y="135" width="190" height="40" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="legend-xor" label="XOR" kind="legend">
+          <mxCell vertex="1" parent="notes" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=10;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=2;fillColor=#657078;strokeColor=#657078;strokeWidth=1.3;shadow=0;shape=ellipse;perimeter=ellipsePerimeter;">
+            <mxGeometry x="465" y="135" width="40" height="40" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="legend-and" label="AND" kind="legend">
+          <mxCell vertex="1" parent="notes" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=10;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=2;fillColor=#657078;strokeColor=#657078;strokeWidth=1.3;shadow=0;shape=ellipse;perimeter=ellipsePerimeter;">
+            <mxGeometry x="522" y="135" width="40" height="40" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="legend-role" label="Role" kind="legend">
+          <mxCell vertex="1" parent="notes" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fff3d8;strokeColor=#b48127;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="590" y="135" width="145" height="40" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="legend-system" label="Application" kind="legend">
+          <mxCell vertex="1" parent="notes" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#e9f4fa;strokeColor=#327c9b;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="755" y="135" width="155" height="40" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="legend-input" label="Data input / output" kind="legend">
+          <mxCell vertex="1" parent="notes" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#f0f2f4;strokeColor=#7b8790;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="930" y="135" width="200" height="40" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="legend-notes" label="Blue outline / line: added or revised behaviour.    Dashed links: responsibility, application or data association." kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=12;fontStyle=0;fontColor=#566b76;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="55" y="183" width="1500" height="22" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="footer" label="Revised proposal from epc-process-explorer.html. Open the Notes page for assumptions. Activity properties contain full role, application and data allocations." kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=12;fontStyle=0;fontColor=#566b76;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="55" y="2776.6" width="2748.32" height="25" as="geometry" />
+          </mxCell>
+        </object>
       </root>
     </mxGraphModel>
   </diagram>
-  </mxfile>
+  <diagram id="p2-notes" name="Notes">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1220" pageHeight="1450" math="0" shadow="0" background="#ffffff">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="notes" value="Model notes" parent="0" />
+        <object id="notes-title" label="P2 | Model notes" kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=30;fontStyle=1;fontColor=#243d4a;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="50" y="40" width="1120" height="55" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="notes-subtitle" label="MOT verification and final settlement" kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=21;fontStyle=1;fontColor=#243d4a;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="50" y="100" width="1120" height="40" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="notes-summary" label="Complete proposed EPC from the end of the billing period through reading validation, assessment, cash&#10;settlement and final closure. Unresolved evidence, unpaid amounts and unconfirmed refunds remain explicit&#10;open-case outcomes." kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=16;fontStyle=0;fontColor=#243d4a;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="50" y="160" width="1120" height="81" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assumptions-title" label="Scope and assumptions" kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=21;fontStyle=1;fontColor=#243d4a;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="50" y="275" width="1120" height="34" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assumption-1" label="1. This extends the existing conceptual operating model. New case registers, payment confirmation checks, transfer&#10;   services and workflow states are proposed; the current SQLite prototype does not execute these tasks or store&#10;   their complete histories." kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=15;fontStyle=0;fontColor=#243d4a;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="50" y="325" width="1120" height="75" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assumption-2" label="2. The original demonstration assumes valid opening and closing readings. This proposed EPC broadens that&#10;   assumption to allow missing or inconsistent evidence and a clarification loop. The five existing demonstration&#10;   cases can continue to use valid readings." kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=15;fontStyle=0;fontColor=#243d4a;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="50" y="413" width="1120" height="75" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assumption-3" label="3. The initial settlement comparison uses advance cash actually received. Subsequent completion checks use all net&#10;   cash posted to the declaration, including additional receipts and completed refunds." kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=15;fontStyle=0;fontColor=#243d4a;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="50" y="501" width="1120" height="54" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assumption-4" label="4. Tax rates and rounding remain the case assumptions: BEV 3 pence per mile; PHEV 1.5 pence per mile; round once to&#10;   the nearest penny with half-pennies upwards." kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=15;fontStyle=0;fontColor=#243d4a;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="50" y="568" width="1120" height="54" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assumption-5" label="5. No legal reminder deadlines, penalties, fraud investigation, appeals or debt-collection process are introduced.&#10;   Open outcomes explicitly require later follow-up." kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=15;fontStyle=0;fontColor=#243d4a;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="50" y="635" width="1120" height="54" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assumption-6" label="6. An unconfirmed refund is not assumed failed or safe to retry. Confirmation and duplicate-reference checks must&#10;   precede recording or retrying transfers." kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=15;fontStyle=0;fontColor=#243d4a;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="50" y="702" width="1120" height="54" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="editing-title" label="Using the editable diagram" kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=21;fontStyle=1;fontColor=#243d4a;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="50" y="791" width="1120" height="34" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="editing-0" label="• Every process shape, label, connector and satellite object is a native draw.io element." kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=15;fontStyle=0;fontColor=#243d4a;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="50" y="840" width="1120" height="29" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="editing-1" label="• The Process page has separate layers for control flow, roles / systems / data, and the title / legend." kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=15;fontStyle=0;fontColor=#243d4a;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="50" y="877" width="1120" height="29" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="editing-2" label="• Activity custom properties retain the full description, role, application, inputs and outputs from the HTML." kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=15;fontStyle=0;fontColor=#243d4a;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="50" y="914" width="1120" height="29" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="editing-3" label="• Some visible satellite labels are abbreviated to keep the diagram readable. Full values remain in the properties." kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=15;fontStyle=0;fontColor=#243d4a;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="50" y="951" width="1120" height="29" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="editing-4" label="• Blue outlines and connections identify additions or revisions compared with the repository model." kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=15;fontStyle=0;fontColor=#243d4a;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="50" y="988" width="1120" height="29" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="editing-5" label="• This file contains the complete revised proposal from Revision 2 of the HTML. It does not change the repository." kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=15;fontStyle=0;fontColor=#243d4a;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="50" y="1025" width="1120" height="29" as="geometry" />
+          </mxCell>
+        </object>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

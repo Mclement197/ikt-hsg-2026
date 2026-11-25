@@ -37,7 +37,7 @@
 \subtitle{Case A: Electromobility\enspace |\enspace English review draft}
 \author{Mathis Clément}
 \institute{University of St. Gallen (HSG)\\Information and Communication Technology · HS2026}
-\date{23 November 2026}
+\date{25 November 2026}
 \hypersetup{pdftitle={Designing a Mileage-Based Electric Vehicle Tax System},pdfauthor={Mathis Clément},pdfsubject={HSG IKT HS2026 — English review draft}}
 
 \begin{document}
@@ -53,7 +53,7 @@
 University of St. Gallen (HSG)\\
 Information and Communication Technology · HS2026
 \par\medskip
-{\small English review draft · 23 November 2026}
+{\small English review draft · 25 November 2026}
 \end{frame}
 
 % 2 — 40 seconds
@@ -70,7 +70,7 @@ Information and Communication Technology · HS2026
 \textbf{Four actors, distinct responsibilities}
 \begin{itemize}\itemsep3pt
 \item Owners declare mileage and pay.
-\item MOT inspection centres verify readings.
+\item Authorised centres verify boundary readings.
 \item DVLA supplies vehicle-registration data.
 \item Tax authority assesses, settles and reports.
 \end{itemize}
@@ -85,16 +85,16 @@ Information and Communication Technology · HS2026
 \begin{tabularx}{\textwidth}{@{}p{.44\textwidth}X@{}}
 \toprule
 \textbf{Assumption} & \textbf{Design consequence}\\\midrule
-Five annual cases: Apr 2028–Mar 2029 & \code{period_end = 2029-04-01} is exclusive.\\
-One liable owner per declaration period & A handover would close one segment and open the next at a verified reading.\\
+Five settlements on four vehicles & \code{period_end = 2029-04-01} is exclusive.\\
+One liable owner per declaration period & The January handover closes one segment and opens the next at a verified reading.\\
 Verified boundary readings; no reset & Closing minus opening gives actual miles.\\
 Fixed rates; money in integer pence & Round once after multiplication, half-pennies upwards.\\\bottomrule
 \end{tabularx}\par
 \medskip
 \textbf{Boundary:} conceptual processes + local SQLite prototype, using fictional records.
 \par\smallskip
-{\small The model allows shorter ownership segments. The prototype does not process transfers or value those segments automatically.}
-\sources{[S] Scope.md, §§4–6. [L1] Modelling, PDF p. 54: purposeful reduction of detail. Calculation rules: A1.}
+{\small Alice retains her original demand and refund. Ben declares the remainder independently.}
+\sources{[S] Scope.md, “Periods, evidence and money”. [L1] Modelling, PDF p. 54: purposeful reduction of detail. Calculation rules: A1.}
 \end{frame}
 
 % 4 — 50 seconds
@@ -109,7 +109,7 @@ Fixed rates; money in integer pence & Round once after multiplication, half-penn
 \begin{frame}{Process 2 | Assessment and cash are separate events}
 \begin{center}\input{assets/p2_overview}\end{center}
 \epclegend
-\sources{Overview ends at authorisation. Full reading checks and cash-completion paths: A4–A5. [S] Scope.md; [L2] PDF pp. 21–25.}
+\sources{Overview ends at authorisation. Transfer review and buyer interface: A24. Settlement and cash: A4–A5. [S] Scope.md; [L2] PDF pp. 21–25.}
 \end{frame}
 
 % 6 — 45 seconds
@@ -117,7 +117,7 @@ Fixed rates; money in integer pence & Round once after multiplication, half-penn
 \noindent{\small Accepted-data path; quality rejection and the planning decision are detailed in A6–A7.\par}
 \begin{center}\input{assets/p3_overview}\end{center}
 \begin{columns}[T,onlytextwidth]
-\column{.48\textwidth}\textbf{Analysis 1: advance liability by type}\\Plan expected advances and understand mileage mix.
+\column{.48\textwidth}\textbf{Analysis 1: expected final tax by type}\\Combine assessed segments with estimates for open periods.
 \column{.48\textwidth}\textbf{Analysis 2: gross settlement adjustments}\\Plan additional-assessment and refund workload.
 \end{columns}
 \epclegend
@@ -128,7 +128,7 @@ Fixed rates; money in integer pence & Round once after multiplication, half-penn
 \begin{frame}{Six entities connect responsibility, evidence and money}
 \begin{center}\input{assets/er_conceptual}\end{center}
 \erlegend
-\sources{[L3] Data modelling, PDF pp. 26–31, especially p. 28; [DB] schema and metadata. Ranges describe the entity at that endpoint, for one entity at the other end. Full attributes and inspection-role reuse: A8–A9.}
+\sources{[L3] Data modelling, PDF pp. 26–31, especially p. 28; [DB] schema and metadata. Ranges describe the entity at that endpoint, for one entity at the other end. Full attributes and reading-role reuse: A8–A9.}
 \end{frame}
 
 % 8 — 40 seconds
@@ -138,17 +138,17 @@ Fixed rates; money in integer pence & Round once after multiplication, half-penn
 \textbf{Six relations from six entities}
 \begin{itemize}\itemsep3pt
 \item \code{vehicle_owners}, \code{vehicles}
-\item \code{declarations}, \code{mot_inspections}
+\item \code{declarations}, \code{odometer_readings}
 \item \code{tax_assessments}, \code{payments}
 \end{itemize}
 \textbf{Implemented integrity}\\
 The vehicle references its current owner. A separate required FK on the declaration preserves who is liable.
 \column{.49\textwidth}
-\textbf{Still a workflow responsibility}
+\textbf{Validated by the loader}
 \begin{itemize}\itemsep3pt
 \item Same vehicle for declaration and readings.
 \item Non-overlapping periods and valid readings.
-\item Allowed types and correct tax arithmetic.
+\item Advance and final tax arithmetic.
 \end{itemize}
 \textbf{Storage choices}\\
 Money: integer pence. Dates/timestamps: SQLite \code{TEXT}. Advance due is stored on the declaration; final liability on its assessment.
@@ -164,62 +164,55 @@ Money: integer pence. Dates/timestamps: SQLite \code{TEXT}. Advance due is store
 \small
 \begin{tabular}{@{}clrrl@{}}\toprule
 Case & Type & Advance & Final & Outcome\\\midrule
-1 & BEV & £300 & £360 & £60 extra, paid\\
-2 & BEV & £300 & £240 & £60 refunded\\
+1 & BEV & £300 & £180 & £120 refunded\\
+2 & BEV & £150 & £180 & £30 extra, paid\\
 3 & BEV & £300 & £300 & No adjustment\\
 4 & PHEV & £120 & £150 & £30 extra, paid\\
 5 & PHEV & £150 & £180 & \alert{£30 still owed}\\\bottomrule
 \end{tabular}
 \par\medskip
-5 owners + 5 vehicles + 5 declarations +\\10 inspections + 5 assessments + 8 payments\\= \textbf{38 linked rows, five business cases}.
+5 owners + 4 vehicles + 5 declarations +\\9 readings + 5 assessments + 8 payments\\= \textbf{36 linked rows, five business cases}.
 \column{.36\textwidth}
-\begin{block}{Case 5: trace the balance}
-22,000 − 10,000 = \textbf{12,000 miles}\par\smallskip
-12,000 miles × 1.5 p/mile\\= 18,000 p = \textbf{£180}\par\smallskip
-£180 liability − £150 received\\= \alert{£30 outstanding}
+\begin{block}{One car, two settlements}
+1 January: one verified reading, 26,000 miles.\par\smallskip
+Alice: 20,000 → 26,000.\\Ben: 26,000 → 32,000.\par\smallskip
+Each owes £180 for 6,000 miles. Their advances differ.
 \end{block}
 \end{columns}
 \sources{[DB] Read-only recomputation of all five cases. All advances are paid; case 5 has no additional-payment record. Full evidence: A15–A17. Fictional examples, not a population estimate.}
 \end{frame}
 
 % 10 — 55 seconds
-\begin{frame}[fragile]{Analysis 1 | Plan the advance liability by vehicle type}
-\textbf{Question:} what advance amounts and mileage were declared for 2028/29?
-\begin{center}
-\begin{tabular}{@{}lcrrr@{}}\toprule
-Start year & Type & Vehicles & Declared miles & Advance liability\\\midrule
-2028 & BEV & 3 & 30,000 & £900.00\\
-2028 & PHEV & 2 & 18,000 & £270.00\\\bottomrule
-\end{tabular}
-\end{center}
-\begin{lstlisting}
-FROM declarations AS d
-JOIN vehicles AS v ON d.vehicle_id = v.vehicle_id
-GROUP BY strftime('%Y', d.period_start), v.vehicle_type
-\end{lstlisting}
-\textbf{JOIN} supplies the type; \textbf{GROUP BY} forms year/type groups; sums give mileage and advance liability.
-\keyline{£1,170 planned advances, grouped by period start year.}
-\sources{[Q1] database/queries/expected\_revenue.sql, executed unchanged. 2028/29 billing year, grouped by start year 2028. Original output alias: expected\_revenue\_gbp. Complete SQL/output: A18.}
+\begin{frame}[fragile]{Analysis 1 | Forecast final tax by vehicle type}
+\textbf{What final tax should management expect for 2028/29?}
+\begin{center}\begin{tabular}{@{}lcrrr@{}}\toprule
+Type & Vehicles & January forecast & Final miles & April final tax\\\midrule
+BEV & 2 & £630 & 22,000 & £660\\
+PHEV & 2 & £270 & 22,000 & £330\\\bottomrule
+\end{tabular}\end{center}
+On 3 January, Alice is assessed and four periods are open. Replace her original £300 estimate with £180; use Ben's £150 estimate for the remainder.
+\keyline{£900 expected in January → £990 assessed in April.}
+\sources{[Q1] One contribution per declaration; distinct vehicles by April billing year. Closed but unassessed segments flag the group as incomplete. Independent fixture states, not a historical ledger.}
 \end{frame}
 
 % 11 — 60 seconds
 \begin{frame}[fragile]{Analysis 2 | Plan the scale of settlement adjustments}
 \begin{center}
 \begin{tabular}{@{}crrrrr@{}}\toprule
-Start year & Assessed & Extra cases & Refund cases & Extra tax & Refunds\\\midrule
-2028 & 5 & 3 & 1 & £120.00 & £60.00\\\bottomrule
+Cycle & Assessed & Extra cases & Refund cases & Extra tax & Refunds\\\midrule
+2028/29 & 5 & 3 & 1 & £90.00 & £120.00\\\bottomrule
 \end{tabular}
 \end{center}
 \begin{lstlisting}
-JOIN tax_assessments AS a ON d.declaration_id = a.declaration_id
-SUM(CASE WHEN a.final_tax_pence > d.advance_due_pence
-    THEN a.final_tax_pence - d.advance_due_pence ELSE 0 END)
+SUM(delta>0) AS additional_payment_cases, SUM(delta<0) AS refund_cases,
+SUM(MAX(delta,0))/100.0 AS additional_tax_gbp,
+SUM(MAX(-delta,0))/100.0 AS refunds_gbp
 \end{lstlisting}
-{\small Excerpt: the conditional sum counts only positive differences; a second expression handles refunds.}
+{\small Each difference is final tax minus original advance due. Positive and negative differences are summed separately.}
 \medskip
 \begin{columns}[T,onlytextwidth]
 \column{.48\textwidth}\textbf{Planning meaning}\\Three additional assessments and one refund indicate settlement-processing work. One case needs no adjustment.
-\column{.48\textwidth}\textbf{Cash distinction}\\The query does not join payments.\\\alert{£120 assessed ≠ £30 still outstanding.}
+\column{.48\textwidth}\textbf{Cash distinction}\\The query does not join payments.\\\alert{£90 assessed ≠ £30 still outstanding.}
 \end{columns}
 \sources{[Q2] database/queries/additional\_tax.sql, executed unchanged. Comparison is with advance due (all paid in this sample). Full SQL/output: A19–A20; supplementary cash check: A21.}
 \end{frame}
@@ -251,9 +244,9 @@ Annual declaration peaks and heavy reports can slow or interrupt processing.\\
 Inconsistent identifiers, units and out-of-order records can create wrong assessments.\\
 \textbf{Define authoritative ownership and standardised, versioned interfaces.}
 \end{block}
-\textbf{Concrete decision:} proposed ownership is DVLA for registration, MOT providers for verified readings, and the tax authority for assessments.
+\textbf{Concrete decision:} proposed ownership is DVLA for registration, authorised centres for readings, and the tax authority for assessments.
 \par\medskip
-\textbf{Proposed validation:} interface contracts require stable identifiers, miles, explicit dates and provenance; test duplicates and out-of-order readings before release.
+\textbf{Proposed validation:} match seller, registration, date and reading before acceptance; reject duplicate evidence and preserve historical liability.
 \par\medskip
 \textbf{Trade-off:} shared contracts reduce ambiguity but require partner coordination and version management.
 \sources{Architecture chain 2 of 3. No live interfaces or automated cross-agency controls exist in the prototype. [L5] PDF pp. 12, 15–16; [L6] p. 18.}
@@ -308,11 +301,11 @@ The earlier reporting drawing promised this. Yet the query joins declarations to
 \begin{block}{Correction in this draft}
 The revised model reports \textbf{gross adjustments}: final tax minus advance due.\par\smallskip
 Use signed payment totals for remaining balances:\\
-£1,230 − (£1,170 + £90 − £60)\\
+£990 − (£1,020 + £60 − £120)\\
 = \alert{£30 outstanding}.
 \end{block}
 \end{columns}
-\textbf{Detection:} compare the proposed indicator with the query's tables and reconcile the payments. £120 is assessed extra tax; £90 has already been received.
+\textbf{Detection:} compare the proposed indicator with the query's tables and reconcile the payments. £90 is assessed extra tax; £60 has already been received.
 \par\smallskip
 \textbf{Course lesson:} integrated management information needs a precise business definition, not just valid SQL.
 \sources{7b: [D3] original queriesbody at baseline bab8c0f (agent=Codex); [Q2], [DB], [L4] pp. 48–49. The earlier presentation agent identified the mismatch; the post-meeting revision corrected the editable drawing too.}
@@ -323,7 +316,7 @@ Use signed payment totals for remaining balances:\\
 \textbf{7c | How the agents checked the design}
 \begin{itemize}\itemsep4pt
 \item EPC: follow each XOR to an end event. An invoice is not a receipt.
-\item ER: trace an assessment back to its declaration. Changing the current registration in a disposable copy left the liable owner unchanged.
+\item ER: trace an assessment back to its declaration. Ben holds the registration while Alice retains her refund.
 \item SQL: recalculate miles from both readings and reconcile liability with signed cash.
 \end{itemize}
 \textbf{Course insight:} a foreign key proves the reading exists, not that it belongs to the right vehicle. A valid join can still answer the wrong planning question.
@@ -337,12 +330,12 @@ Use signed payment totals for remaining balances:\\
 \keyline{Estimate → evidence → liability → cash → useful management information}
 \begin{itemize}\itemsep9pt
 \item Three process models connect to six SQLite tables and five settlement cases.
-\item Two real SQL analyses support advance planning and settlement workload.
-\item The key distinction holds: \textbf{£1,230 assessed = £1,200 net cash + £30 receivable}.
+\item Two real SQL analyses support tax forecasting and settlement workload.
+\item The key distinction holds: \textbf{£990 assessed = £960 net cash + £30 receivable}.
 \end{itemize}
 \medskip
 \textbf{Limits:} one fictional year; exceptional cases and operational controls remain outside this prototype. Three architecture principles guide the next stage.
-\sources{End of narrated English draft. Appendix A1–A23 contains complete models, implementation evidence, SQL, results and sources. Final course delivery requires German voice-over PowerPoint and separate database submission.}
+\sources{End of narrated English draft. Appendix A1–A24 contains complete models, implementation evidence, SQL, results and sources. Final course delivery requires German voice-over PowerPoint and separate database submission.}
 \end{frame}
 
 \appendix

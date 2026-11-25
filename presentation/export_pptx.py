@@ -39,8 +39,8 @@ def main():
         notes.append(body.strip())
     appendix = (HERE / "assets/appendix.tex").read_text(encoding="utf-8")
     titles += re.findall(r"\\begin\{frame\}(?:\[fragile\])?\{(A\d+ \| [^{}]+)\}", appendix)
-    if len(notes) != 19 or len(titles) != 42:
-        raise ValueError("Expected 19 main slides followed by A1–A23")
+    if len(notes) != 19 or len(titles) != 43:
+        raise ValueError("Expected 19 main slides followed by A1–A24")
 
     deck = Presentation()
     deck.slide_width, deck.slide_height = Inches(40 / 3), Inches(7.5)

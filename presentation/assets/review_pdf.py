@@ -16,7 +16,7 @@ PRESENTATION = Path(__file__).resolve().parents[1]
 OUT = PRESENTATION / "build/review"
 OUT.mkdir(parents=True, exist_ok=True)
 pdf = pymupdf.open(PRESENTATION / "final_presentation.pdf")
-assert len(pdf) == 42, f"Unexpected page count: {len(pdf)}"
+assert len(pdf) == 43, f"Unexpected page count: {len(pdf)}"
 notes = (PRESENTATION / "speaker_notes_en.md").read_text(encoding="utf-8")
 sections = re.split(r"^## ", notes, flags=re.M)[1:]
 assert len(sections) == 19
@@ -27,11 +27,11 @@ assert budgets <= 15 * 60
 
 # Check the appendix's six source ranges against the actual, complete CREATE
 # statements, so an edit above a listing cannot silently shift its evidence.
-setup = (PRESENTATION.parent / "scripts/setup_database.py").read_text(encoding="utf-8")
+setup = (PRESENTATION / "assets/six_table_listings.txt").read_text(encoding="utf-8")
 appendix = (PRESENTATION / "assets/appendix.tex").read_text(encoding="utf-8")
-ranges = re.findall(r"firstline=(\d+),lastline=(\d+)\]\{\.\./scripts/setup_database\.py\}", appendix)
+ranges = re.findall(r"\\lstinputlisting\[language=SQL,[^\n]*?firstline=(\d+),lastline=(\d+)\]\{assets/six_table_listings\.txt\}", appendix)
 listed = ["\n".join(setup.splitlines()[int(start)-1:int(end)]) for start, end in ranges]
-assert len(listed) == 6 and listed == re.findall(r"^CREATE TABLE .*?^\)$", setup, re.M | re.S)
+assert len(listed) == 6 and listed == re.findall(r"^CREATE TABLE .*?^\) STRICT;$", setup, re.M | re.S)
 text_pages, off_page, collisions = [], [], []
 for number, page in enumerate(pdf, 1):
     page.get_pixmap(matrix=pymupdf.Matrix(2, 2)).save(OUT / f"page-{number:02}.png")
@@ -61,7 +61,7 @@ def normal(text):
 for index, section in enumerate(sections):
     title = re.sub(r"^\d+\. | — \d+ s$", "", section.split("\n")[0])
     assert normal(title) in normal(text_pages[index]), (index + 1, title)
-for index in range(19, 42):
+for index in range(19, 43):
     assert f"A{index-18} |" in text_pages[index]
 for term in ("Matthias Vogelgesang", "Center for modern beamer themes", "lorem, ipsum",
              "Riemann Hypothesis", "Largest cities in the world", "knuth92"):
@@ -81,7 +81,7 @@ for start in range(0, len(pdf), 4):
         draw.text((x, y-18), f"PDF page {index+1}", fill="black")
     sheet.save(OUT / f"sheet-{start+1:02}-{min(start+4,len(pdf)):02}.png")
 
-report = {"pages": len(pdf), "main_slides": 19, "appendix_slides": 23,
+report = {"pages": len(pdf), "main_slides": 19, "appendix_slides": 24,
           "spoken_words": words, "budget_seconds": budgets,
           "off_page_text": off_page, "possible_text_collisions": collisions,
           "slide_note_titles_match": True,

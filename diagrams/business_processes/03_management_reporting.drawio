@@ -1,151 +1,793 @@
 <?xml version='1.0' encoding='utf-8'?>
-<mxfile host="app.diagrams.net" agent="Codex" version="24.7.17" type="device"><diagram id="eved-3" name="03 - Management reporting">
-    <mxGraphModel dx="1440" dy="1440" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1440" pageHeight="1440" math="0" shadow="0" background="#FFFFFF">
+<mxfile host="app.diagrams.net" type="device" compressed="false">
+  <diagram id="p3-revised-process" name="Process">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2457" pageHeight="2281" math="0" shadow="0" background="#ffffff">
       <root>
         <mxCell id="0" />
-        <mxCell id="1" parent="0" />
-        <mxCell id="title" value="P3 | Management reporting" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=32;fontColor=#17324D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;fontStyle=1;text;spacing=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="60" y="35" width="1320" height="60" />
-        </mxCell>
-        <mxCell id="subtitle" value="EPC process model • turn transaction records into planning information • release only validated aggregates" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#54687D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;text;spacing=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="60" y="100" width="1320" height="45" />
-        </mxCell>
-        <mxCell id="legendbg" value="" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=18;fontColor=#17324D;fillColor=#F1F5FA;strokeColor=#D4DFEB;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="60" y="175" width="250" height="390" />
-        </mxCell>
-        <mxCell id="legendtitle" value="EPC notation" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#17324D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;fontStyle=1;text;spacing=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="82" y="193" width="206" height="36" />
-        </mxCell>
-        <mxCell id="legendbody" value="" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;text;spacing=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="82" y="241" width="206" height="310" />
-        </mxCell>
-        <mxCell id="le" value="State / event" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="80" y="245" width="210" height="55" />
-        </mxCell>
-        <mxCell id="lf" value="Action / function" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="80" y="320" width="210" height="65" />
-        </mxCell>
-        <mxCell id="lx" value="XOR" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#17324D;fillColor=white;strokeColor=#17324D;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;fontStyle=1;ellipse;aspect=fixed;spacing=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="80" y="410" width="44" height="44" />
-        </mxCell>
-        <mxCell id="lxt" value="Exactly one path" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=15;fontColor=#17324D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;text;spacing=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="140" y="415" width="150" height="40" />
-        </mxCell>
-        <mxCell id="lrole" value="[Role] identifies who acts.&#10;Role labels are annotations,&#10;not control-flow nodes." style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#54687D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;text;spacing=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="80" y="475" width="215" height="75" />
-        </mxCell>
-        <mxCell id="inputsbg" value="" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=18;fontColor=#17324D;fillColor=#F1F5FA;strokeColor=#D4DFEB;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="850" y="175" width="530" height="365" />
-        </mxCell>
-        <mxCell id="inputstitle" value="REPORTING DATA" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#17324D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;fontStyle=1;text;spacing=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="872" y="193" width="486" height="36" />
-        </mxCell>
-        <mxCell id="inputsbody" value="Q1: declarations + vehicles (vehicle type).&#10;Q2: declarations + final tax assessments.&#10;Both group by billing-period start year.&#10;&#10;Separate cash check: aggregate signed payments per&#10;declaration before joining to final assessments." style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;text;spacing=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="872" y="241" width="486" height="285" />
-        </mxCell>
-        <mxCell id="start" value="Reporting date reached" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="390" y="175" width="280" height="60" />
-        </mxCell>
-        <mxCell id="extract" value="Extract billing-period records&#10;[Analyst]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="370" y="265" width="320" height="80" />
-        </mxCell>
-        <mxCell id="available" value="Reporting dataset available" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="390" y="375" width="280" height="60" />
-        </mxCell>
-        <mxCell id="check" value="Check completeness&#10;and consistency&#10;[Controlling]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="370" y="465" width="320" height="80" />
-        </mxCell>
-        <mxCell id="decision" value="XOR" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#17324D;fillColor=white;strokeColor=#17324D;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;fontStyle=1;ellipse;aspect=fixed;spacing=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="508" y="585" width="44" height="44" />
-        </mxCell>
-        <mxCell id="valid" value="Reporting data accepted" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="390" y="670" width="280" height="60" />
-        </mxCell>
-        <mxCell id="aggregate" value="Run advance liability and&#10;gross adjustment queries&#10;[Analyst]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="370" y="760" width="320" height="80" />
-        </mxCell>
-        <mxCell id="indicators" value="Management indicators&#10;available" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="390" y="870" width="280" height="60" />
-        </mxCell>
-        <mxCell id="prepare" value="Review and release report&#10;[Authority management]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="370" y="960" width="320" height="80" />
-        </mxCell>
-        <mxCell id="draft" value="Management report released" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="390" y="1070" width="280" height="60" />
-        </mxCell>
-        <mxCell id="release" value="Plan advances and settlement capacity&#10;[Authority management]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="370" y="1160" width="320" height="80" />
-        </mxCell>
-        <mxCell id="end" value="Planning decision documented" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="390" y="1270" width="280" height="60" />
-        </mxCell>
-        <mxCell id="invalid" value="Data quality issues detected" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="930" y="670" width="280" height="60" />
-        </mxCell>
-        <mxCell id="escalate" value="Log issues and request correction&#10;[Controlling]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="910" y="760" width="320" height="80" />
-        </mxCell>
-        <mxCell id="blocked" value="Report withheld;&#10;correction requested" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="920" y="870" width="300" height="60" />
-        </mxCell>
-        <mxCell id="queriesbg" value="" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=18;fontColor=#17324D;fillColor=#F1F5FA;strokeColor=#D4DFEB;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="850" y="1020" width="530" height="325" />
-        </mxCell>
-        <mxCell id="queriestitle" value="TWO IMPLEMENTED SQL ANALYSES" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#17324D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;fontStyle=1;text;spacing=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="872" y="1038" width="486" height="36" />
-        </mxCell>
-        <mxCell id="queriesbody" value="1. Distinct vehicles, declared miles and estimated&#10;advance liability by type and period start year.&#10;&#10;2. Assessed declarations, extra/refund cases and&#10;gross additional tax/refunds by period start year.&#10;Compare final tax with advance due, not cash.&#10;&#10;Use the separate payment check for receivables." style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;text;spacing=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="872" y="1086" width="486" height="245" />
-        </mxCell>
-        <mxCell id="footer" value="Basis: Case A, task 2 (management information) and task 5 (two multi-table analyses). No production data warehouse required." style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#54687D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;text;spacing=0;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="60" y="1385" width="1320" height="35" />
-        </mxCell>
-        <mxCell id="edge-0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="start" target="extract">
-          <mxGeometry as="geometry" relative="1" />
-        </mxCell>
-        <mxCell id="edge-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="extract" target="available">
-          <mxGeometry as="geometry" relative="1" />
-        </mxCell>
-        <mxCell id="edge-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="available" target="check">
-          <mxGeometry as="geometry" relative="1" />
-        </mxCell>
-        <mxCell id="edge-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="check" target="decision">
-          <mxGeometry as="geometry" relative="1" />
-        </mxCell>
-        <mxCell id="edge-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="decision" target="valid">
-          <mxGeometry as="geometry" relative="1" />
-        </mxCell>
-        <mxCell id="edge-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="valid" target="aggregate">
-          <mxGeometry as="geometry" relative="1" />
-        </mxCell>
-        <mxCell id="edge-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="aggregate" target="indicators">
-          <mxGeometry as="geometry" relative="1" />
-        </mxCell>
-        <mxCell id="edge-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="indicators" target="prepare">
-          <mxGeometry as="geometry" relative="1" />
-        </mxCell>
-        <mxCell id="edge-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="prepare" target="draft">
-          <mxGeometry as="geometry" relative="1" />
-        </mxCell>
-        <mxCell id="edge-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="draft" target="release">
-          <mxGeometry as="geometry" relative="1" />
-        </mxCell>
-        <mxCell id="edge-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="release" target="end">
-          <mxGeometry as="geometry" relative="1" />
-        </mxCell>
-        <mxCell id="edge-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="decision" target="invalid">
-          <mxGeometry as="geometry" relative="1">
-            <Array as="points">
-              <mxPoint x="1070" y="607" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="edge-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="invalid" target="escalate">
-          <mxGeometry as="geometry" relative="1" />
-        </mxCell>
-        <mxCell id="edge-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;endArrow=block;endFill=1;strokeColor=#687D93;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="escalate" target="blocked">
-          <mxGeometry as="geometry" relative="1" />
-        </mxCell>
+        <mxCell id="flow" value="Control flow" parent="0" />
+        <mxCell id="context" value="Roles, systems and data" parent="0" />
+        <mxCell id="notes" value="Title and legend" parent="0" />
+        <object id="flow-0" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="p3_start" target="p3_extract_merge" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0058;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0074;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-1" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="p3_extract_merge" target="p3_extract" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0117;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0052;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-2" label="" kind="control-flow" added="false">
+          <mxCell edge="1" parent="flow" source="p3_extract" target="p3_available" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#697680;strokeWidth=1.4;dashed=0;dashPattern=5 2;exitX=0.6667;exitY=1.004;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5878;entryY=-0.0035;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-p3_extract-output" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="p3_extract" target="sat-p3_extract-output" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=0.7919;exitY=-0.0037;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0035;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="1785.16" y="381.91" />
+                <mxPoint x="2127.16" y="381.91" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="flow-3" label="" kind="control-flow" added="false">
+          <mxCell edge="1" parent="flow" source="p3_available" target="p3_check" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#697680;strokeWidth=1.4;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0036;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-4" label="" kind="control-flow" added="false">
+          <mxCell edge="1" parent="flow" source="p3_check" target="p3_quality_split" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#697680;strokeWidth=1.4;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0069;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0077;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-5" label="" kind="control-flow" added="false">
+          <mxCell edge="1" parent="flow" source="p3_quality_split" target="p3_accepted" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#697680;strokeWidth=1.4;dashed=0;dashPattern=5 2;exitX=0.3334;exitY=0.9826;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.926;entryY=0.3437;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-6" label="" kind="control-flow" added="false">
+          <mxCell edge="1" parent="flow" source="p3_quality_split" target="p3_issues" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#697680;strokeWidth=1.4;dashed=0;dashPattern=5 2;exitX=0.6666;exitY=0.9763;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.2043;entryY=0.0903;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="1729.99" y="765.91" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="flow-11" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="p3_accepted" target="p3_analysis_split" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.1217;exitY=0.7448;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.004;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-32" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="p3_issues" target="p3_correction_merge" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.609;exitY=1.0013;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0123;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-33" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="p3_correction_merge" target="p3_log" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0083;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.3182;entryY=-0.0033;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-7" label="" kind="control-flow" added="false">
+          <mxCell edge="1" parent="flow" source="p3_log" target="p3_withheld" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#697680;strokeWidth=1.4;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0031;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0017;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-8" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="p3_withheld" target="p3_correct" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0019;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0062;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-9" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="p3_correct" target="p3_refreshed" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0027;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0002;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-p3_correct-output" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="p3_correct" target="sat-p3_correct-output" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=1.0015;exitY=0.3437;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.0015;entryY=0.3804;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-10" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="p3_refreshed" target="p3_extract_merge" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.9972;exitY=0.5068;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.0026;entryY=0.5209;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="2381.66" y="1311.91" />
+                <mxPoint x="2381.66" y="345.91" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="flow-12" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="p3_analysis_split" target="p3_advance_query" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=-0.0011;exitY=0.5083;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0058;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="589.16" y="897.91" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="flow-13" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="p3_analysis_split" target="p3_adjustment_query" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0083;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0033;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-14" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="p3_advance_query" target="p3_advance_ready" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.7566;exitY=1.0031;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.2491;entryY=-0.0017;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-16" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="p3_advance_ready" target="p3_analysis_join" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.9186;exitY=0.6653;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.0003;entryY=0.5249;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="825.16" y="1200.91" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="flow-15" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="p3_adjustment_query" target="p3_adjustment_ready" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.0354;exitY=1.0031;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.9877;entryY=0.4744;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-17" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="p3_adjustment_ready" target="p3_analysis_join" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.1798;exitY=0.8613;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.0043;entryY=0.5249;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="1068.9" y="1200.91" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="flow-18" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="p3_analysis_join" target="p3_compile" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0117;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0037;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-19" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="p3_compile" target="p3_compiled" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0002;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0005;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-p3_compile-output" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="p3_compile" target="sat-p3_compile-output" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=0.7775;exitY=-0.0044;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.0296;entryY=-0.0018;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="1040.65" y="1252.91" />
+                <mxPoint x="1321.54" y="1252.91" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="flow-20" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="p3_compiled" target="p3_review_merge" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.006;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0074;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-21" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="p3_review_merge" target="p3_review" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0103;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0013;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-22" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="p3_review" target="p3_review_split" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0069;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.008;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-23" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="p3_review_split" target="p3_approved" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=-0.0063;exitY=0.5243;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.8857;entryY=0.2645;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="700.12" y="1660.91" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="flow-24" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="p3_review_split" target="p3_revision_needed" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.3334;exitY=0.9826;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.4834;entryY=-0.0031;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-34" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="p3_review_split" target="p3_review_source_issue" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.6666;exitY=0.9734;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.2067;entryY=0.0862;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="975.99" y="1721.91" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="flow-28" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="p3_approved" target="p3_release" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.4556;exitY=1.0004;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0065;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-25" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="p3_revision_needed" target="p3_revise" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.5285;exitY=1.0004;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0065;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-35" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="p3_review_source_issue" target="p3_correction_merge" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.9958;exitY=0.5106;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.0063;entryY=0.5083;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="1562.91" y="1757.91" />
+                <mxPoint x="1562.91" y="897.91" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="flow-26" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="p3_revise" target="p3_revised" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0037;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0004;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-27" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="p3_revised" target="p3_review_merge" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.9572;exitY=0.4125;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.0071;entryY=0.5243;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="1162.55" y="1499.91" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="flow-29" label="" kind="control-flow" added="true">
+          <mxCell edge="1" parent="flow" source="p3_release" target="p3_released" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#2163c4;strokeWidth=1.9;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0037;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0004;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-30" label="" kind="control-flow" added="false">
+          <mxCell edge="1" parent="flow" source="p3_released" target="p3_plan" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#697680;strokeWidth=1.4;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0036;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="flow-31" label="" kind="control-flow" added="false">
+          <mxCell edge="1" parent="flow" source="p3_plan" target="p3_end" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=7;strokeColor=#697680;strokeWidth=1.4;dashed=0;dashPattern=5 2;exitX=0.5;exitY=1.0013;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=-0.0021;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-p3_extract-role" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-p3_extract-role" target="p3_extract" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=none;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=0.954;exitY=1.001;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.3333;entryY=1.0058;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="1392.35" y="486.91" />
+                <mxPoint x="1689.33" y="486.91" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="assoc-p3_extract-input" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-p3_extract-input" target="p3_extract" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=-0.002;exitY=0.6357;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.0007;entryY=0.6775;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-p3_extract-system" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-p3_extract-system" target="p3_extract" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=none;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=1.002;exitY=0.3587;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.0007;entryY=0.3506;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-p3_check-role" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-p3_check-role" target="p3_check" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=none;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=1.0016;exitY=0.3502;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.0012;entryY=0.379;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-p3_log-role" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-p3_log-role" target="p3_log" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=none;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=1.002;exitY=0.3402;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.0007;entryY=0.371;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-p3_correct-role" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-p3_correct-role" target="p3_correct" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=none;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=1.002;exitY=0.3522;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.0007;entryY=0.3437;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-p3_advance_query-role" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-p3_advance_query-role" target="p3_advance_query" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=none;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=0.8547;exitY=1.0021;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.0299;entryY=1.0038;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="214.66" y="1019.91" />
+                <mxPoint x="467.41" y="1019.91" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="assoc-p3_advance_query-input" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-p3_advance_query-input" target="p3_advance_query" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=-0.0014;exitY=0.6689;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.0013;entryY=0.6787;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-p3_advance_query-system" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-p3_advance_query-system" target="p3_advance_query" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=none;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=1.0006;exitY=0.3598;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.0005;entryY=0.3517;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-p3_adjustment_query-role" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-p3_adjustment_query-role" target="p3_adjustment_query" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=none;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=0.7272;exitY=1.0064;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.0177;entryY=1.0027;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="1052.78" y="1031.91" />
+                <mxPoint x="1317.75" y="1031.91" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="assoc-p3_adjustment_query-input" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-p3_adjustment_query-input" target="p3_adjustment_query" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=-0.0014;exitY=0.6689;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.0002;entryY=0.6787;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-p3_adjustment_query-system" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-p3_adjustment_query-system" target="p3_adjustment_query" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=none;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=1;exitY=0.3598;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.0002;entryY=0.3517;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-p3_compile-role" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-p3_compile-role" target="p3_compile" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=none;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=0.8968;exitY=-0.0026;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.135;entryY=-0.0033;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="607.88" y="1277.91" />
+                <mxPoint x="877.44" y="1277.91" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object id="assoc-p3_compile-input" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-p3_compile-input" target="p3_compile" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=block;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=-0.0001;exitY=0.6157;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.0014;entryY=0.6802;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-p3_compile-system" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-p3_compile-system" target="p3_compile" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=none;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=1.0001;exitY=0.3431;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.0014;entryY=0.334;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-p3_review-role" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-p3_review-role" target="p3_review" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=none;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=1.0016;exitY=0.3417;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.0004;entryY=0.3721;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-p3_revise-role" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-p3_revise-role" target="p3_revise" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=none;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=1.002;exitY=0.3557;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.0007;entryY=0.3835;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-p3_release-role" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-p3_release-role" target="p3_release" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=none;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=1.0002;exitY=0.3535;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.0017;entryY=0.345;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assoc-p3_plan-role" label="" kind="association" added="false">
+          <mxCell edge="1" parent="context" source="sat-p3_plan-role" target="p3_plan" style="edgeStyle=none;noEdgeStyle=1;rounded=0;curved=0;html=0;startArrow=none;endArrow=none;endFill=1;endSize=5;strokeColor=#a3acb3;strokeWidth=0.8;dashed=1;dashPattern=5 2;exitX=1.0006;exitY=0.3552;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.0014;entryY=0.3831;entryDx=0;entryDy=0;entryPerimeter=0;">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_start" label="Reporting date reached" description="The agreed reporting date starts one management reporting cycle. The reporting schedule is a project assumption." added="false" kind="event" model_id="p3_start" phase="Prepare and validate source data" original_label="Reporting date reached" tooltip="Reporting date reached&#10;&#10;The agreed reporting date starts one management reporting cycle. The reporting schedule is a project assumption.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#b72c7d;strokeWidth=1.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="1552.1" y="235.4" width="344.12" height="55.05" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_extract_merge" label="XOR" description="Initial reporting and corrected-source rework enter the extraction step through this exclusive merge. Only one of these paths continues at a time." added="true" kind="xor" model_id="p3_extract_merge" phase="Prepare and validate source data" original_label="XOR" tooltip="XOR&#10;&#10;Initial reporting and corrected-source rework enter the extraction step through this exclusive merge. Only one of these paths continues at a time.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=10;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=2;fillColor=#657078;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=ellipse;perimeter=ellipsePerimeter;">
+            <mxGeometry x="1706.66" y="327.68" width="35" height="35" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_extract" label="Extract billing-period&#10;records" description="Select a consistent reporting snapshot and agreed period. Preserve the existing extraction step. The implemented queries group by the year of period_start, which must be stated in the report." role="Reporting analyst" system="SQLite / reporting workspace" inputs="Reporting period and snapshot definition&#10;declarations&#10;vehicles&#10;tax_assessments" outputs="Reporting dataset with population and period boundaries" added="false" kind="function" model_id="p3_extract" phase="Prepare and validate source data" original_label="Extract billing-period records" tooltip="Extract billing-period records&#10;&#10;Select a consistent reporting snapshot and agreed period. Preserve the existing extraction step. The implemented queries group by the year of period_start, which must be stated in the report.&#10;&#10;Role: Reporting analyst&#10;&#10;Application: SQLite / reporting workspace&#10;&#10;Inputs: Reporting period and snapshot definition; declarations; vehicles; tax_assessments&#10;&#10;Outputs: Reporting dataset with population and period boundaries">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#edf7ee;strokeColor=#347b42;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1619.66" y="407.68" width="209" height="52" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_available" label="Reporting dataset available" description="The input records and their coverage are available for validation." added="false" kind="event" model_id="p3_available" phase="Prepare and validate source data" original_label="Reporting dataset available" tooltip="Reporting dataset available&#10;&#10;The input records and their coverage are available for validation.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#b72c7d;strokeWidth=1.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="1525.84" y="504.92" width="396.64" height="55.05" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_check" label="Check completeness and&#10;consistency" description="Check missing and duplicate records, declaration-to-assessment links, reporting coverage, distance and amount consistency, and the intended population. A declaration without a final assessment is not automatically a data error: it remains outside the assessed population and its coverage must be stated." role="Controlling" system="SQLite / validation worksheet" inputs="Reporting dataset&#10;Expected reporting population&#10;Declared validation rules" outputs="Data-quality result and coverage statement" added="false" kind="function" model_id="p3_check" phase="Prepare and validate source data" original_label="Check completeness and consistency" tooltip="Check completeness and consistency&#10;&#10;Check missing and duplicate records, declaration-to-assessment links, reporting coverage, distance and amount consistency, and the intended population. A declaration without a final assessment is not automatically a data error: it remains outside the assessed population and its coverage must be stated.&#10;&#10;Role: Controlling&#10;&#10;Application: SQLite / validation worksheet&#10;&#10;Inputs: Reporting dataset; Expected reporting population; Declared validation rules&#10;&#10;Outputs: Data-quality result and coverage statement">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#edf7ee;strokeColor=#347b42;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1612.66" y="597.2" width="223" height="52" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_quality_split" label="XOR" description="Exactly one outcome follows the data-quality check: accepted data or issues requiring correction." added="false" kind="xor" model_id="p3_quality_split" phase="Prepare and validate source data" original_label="XOR" tooltip="XOR&#10;&#10;Exactly one outcome follows the data-quality check: accepted data or issues requiring correction.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=10;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=2;fillColor=#657078;strokeColor=#657078;strokeWidth=1.3;shadow=0;shape=ellipse;perimeter=ellipsePerimeter;">
+            <mxGeometry x="1706.66" y="686.2" width="35" height="35" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_accepted" label="Reporting data accepted" description="Data meets the declared validation rules. The report may proceed while explicitly distinguishing all declarations from assessed declarations." added="false" kind="event" model_id="p3_accepted" phase="Prepare and validate source data" original_label="Reporting data accepted" tooltip="Reporting data accepted&#10;&#10;Data meets the declared validation rules. The report may proceed while explicitly distinguishing all declarations from assessed declarations.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#b72c7d;strokeWidth=1.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="1385.4" y="773.14" width="359.52" height="55.05" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_issues" label="Data-quality issues&#10;detected" description="Issues prevent release of this reporting snapshot. The corrective branch must finish before fresh extraction." added="false" kind="event" model_id="p3_issues" phase="Prepare and validate source data" original_label="Data-quality issues detected" tooltip="Data-quality issues detected&#10;&#10;Issues prevent release of this reporting snapshot. The corrective branch must finish before fresh extraction.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#b72c7d;strokeWidth=1.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="1849.02" y="758.25" width="284.28" height="84.83" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_correction_merge" label="XOR" description="A source-data issue discovered in the initial quality check or during management review enters the same issue-logging and correction workflow. These alternative discovery paths merge without waiting for each other." added="true" kind="xor" model_id="p3_correction_merge" phase="Prepare and validate source data" original_label="XOR" tooltip="XOR&#10;&#10;A source-data issue discovered in the initial quality check or during management review enters the same issue-logging and correction workflow. These alternative discovery paths merge without waiting for each other.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=10;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=2;fillColor=#657078;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=ellipse;perimeter=ellipsePerimeter;">
+            <mxGeometry x="2004.66" y="880.12" width="35" height="35" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_log" label="Log issues and request&#10;correction" description="Preserve the existing exception activity and accept defects found either during source validation or management review. Describe affected source records and ask the responsible source-data owner to correct verified errors. Do not silently repair business values inside a published aggregate." role="Controlling" system="Issue log / correction workflow (conceptual)" inputs="Data-quality result or management source-defect finding&#10;Affected source-record references" outputs="Correction request and issue list" added="false" kind="function" model_id="p3_log" phase="Prepare and validate source data" original_label="Log issues and request correction" tooltip="Log issues and request correction&#10;&#10;Preserve the existing exception activity and accept defects found either during source validation or management review. Describe affected source records and ask the responsible source-data owner to correct verified errors. Do not silently repair business values inside a published aggregate.&#10;&#10;Role: Controlling&#10;&#10;Application: Issue log / correction workflow (conceptual)&#10;&#10;Inputs: Data-quality result or management source-defect finding; Affected source-record references&#10;&#10;Outputs: Correction request and issue list">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#edf7ee;strokeColor=#347b42;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1955.66" y="953.62" width="209" height="52" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_withheld" label="Report withheld; correction&#10;requested" description="The existing blocked outcome is now a waiting state that leads to source correction and fresh extraction, whether the defect was found during initial validation or report review. No report is released from the rejected snapshot." added="false" kind="event" model_id="p3_withheld" phase="Prepare and validate source data" original_label="Report withheld; correction requested" tooltip="Report withheld; correction requested&#10;&#10;The existing blocked outcome is now a waiting state that leads to source correction and fresh extraction, whether the defect was found during initial validation or report review. No report is released from the rejected snapshot.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#b72c7d;strokeWidth=1.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="1864.87" y="1044.16" width="390.58" height="84.83" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_correct" label="Correct source records" description="The source-data owner investigates the logged issues and corrects verified errors in the originating process. The full reporting cycle then re-extracts and revalidates the updated data. This is a proposed human workflow, not a claim that correction tracking is implemented in the database." role="Source-data owner / tax operations" system="Source systems and correction workflow (conceptual)" inputs="Correction request&#10;Underlying declarations and assessments&#10;Supporting evidence" outputs="Updated source records&#10;Correction completion note" added="true" kind="function" model_id="p3_correct" phase="Prepare and validate source data" original_label="Correct source records" tooltip="Correct source records&#10;&#10;The source-data owner investigates the logged issues and corrects verified errors in the originating process. The full reporting cycle then re-extracts and revalidates the updated data. This is a proposed human workflow, not a claim that correction tracking is implemented in the database.&#10;&#10;Role: Source-data owner / tax operations&#10;&#10;Application: Source systems and correction workflow (conceptual)&#10;&#10;Inputs: Correction request; Underlying declarations and assessments; Supporting evidence&#10;&#10;Outputs: Updated source records; Correction completion note">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#edf7ee;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1955.66" y="1174.04" width="209" height="52" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_refreshed" label="Source records corrected" description="Corrected source data is ready. Return to extraction, not directly to the accepted-data event." added="true" kind="event" model_id="p3_refreshed" phase="Prepare and validate source data" original_label="Source records corrected" tooltip="Source records corrected&#10;&#10;Corrected source data is ready. Return to extraction, not directly to the accepted-data event.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="1879.14" y="1284.01" width="362.04" height="55.05" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_analysis_split" label="AND" description="Both existing analyses are mandatory. They may be performed independently on the same accepted reporting snapshot. Their outputs are both required before compilation." added="true" kind="and" model_id="p3_analysis_split" phase="Run both analyses" original_label="AND" tooltip="AND&#10;&#10;Both existing analyses are mandatory. They may be performed independently on the same accepted reporting snapshot. Their outputs are both required before compilation.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=10;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=2;fillColor=#657078;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=ellipse;perimeter=ellipsePerimeter;">
+            <mxGeometry x="1411.66" y="880.12" width="35" height="35" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_advance_query" label="Aggregate expected advance&#10;liability" description="Make the first existing analysis explicit. expected_revenue.sql joins declarations to vehicles and groups by period_start year and vehicle_type. It returns distinct vehicles, declared miles, and advance_due_pence totals converted to GBP. These are assessed advance liabilities, not received cash." role="Reporting analyst" system="SQLite / expected_revenue.sql" inputs="Accepted declarations&#10;Vehicle types" outputs="Distinct vehicles by type and period-start year&#10;Total declared miles&#10;Expected advance liability in GBP" added="false" kind="function" model_id="p3_advance_query" phase="Run both analyses" original_label="Aggregate expected advance liability" tooltip="Aggregate expected advance liability&#10;&#10;Make the first existing analysis explicit. expected_revenue.sql joins declarations to vehicles and groups by period_start year and vehicle_type. It returns distinct vehicles, declared miles, and advance_due_pence totals converted to GBP. These are assessed advance liabilities, not received cash.&#10;&#10;Role: Reporting analyst&#10;&#10;Application: SQLite / expected_revenue.sql&#10;&#10;Inputs: Accepted declarations; Vehicle types&#10;&#10;Outputs: Distinct vehicles by type and period-start year; Total declared miles; Expected advance liability in GBP">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#edf7ee;strokeColor=#347b42;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="459.66" y="953.62" width="259" height="52" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_advance_ready" label="Advance-liability&#10;indicators ready" description="The first set of existing indicators is ready, including its reporting population and year/type grouping." added="true" kind="event" model_id="p3_advance_ready" phase="Run both analyses" original_label="Advance-liability indicators ready" tooltip="Advance-liability indicators ready&#10;&#10;The first set of existing indicators is ready, including its reporting population and year/type grouping.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="592.55" y="1044.16" width="253.22" height="84.83" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_adjustment_query" label="Aggregate gross assessed&#10;adjustments" description="Make the second existing analysis explicit. additional_tax.sql joins declarations to tax_assessments and groups by period_start year. It compares final_tax_pence with advance_due_pence to count top-up/refund cases and total gross additional tax/refunds. It does not calculate cash receivables or payments already made." role="Reporting analyst" system="SQLite / additional_tax.sql" inputs="Accepted declarations&#10;Final tax assessments" outputs="Assessed declaration counts&#10;Additional-payment and refund case counts&#10;Gross additional tax and gross refunds in GBP" added="false" kind="function" model_id="p3_adjustment_query" phase="Run both analyses" original_label="Aggregate gross assessed adjustments" tooltip="Aggregate gross assessed adjustments&#10;&#10;Make the second existing analysis explicit. additional_tax.sql joins declarations to tax_assessments and groups by period_start year. It compares final_tax_pence with advance_due_pence to count top-up/refund cases and total gross additional tax/refunds. It does not calculate cash receivables or payments already made.&#10;&#10;Role: Reporting analyst&#10;&#10;Application: SQLite / additional_tax.sql&#10;&#10;Inputs: Accepted declarations; Final tax assessments&#10;&#10;Outputs: Assessed declaration counts; Additional-payment and refund case counts; Gross additional tax and gross refunds in GBP">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#edf7ee;strokeColor=#347b42;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1313.66" y="953.62" width="231" height="52" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_adjustment_ready" label="Assessed-adjustment&#10;indicators ready" description="The second set of existing indicators is ready for assessed declarations only. Preserve this population distinction in the report." added="true" kind="event" model_id="p3_adjustment_ready" phase="Run both analyses" original_label="Assessed-adjustment indicators ready" tooltip="Assessed-adjustment indicators ready&#10;&#10;The second set of existing indicators is ready for assessed declarations only. Preserve this population distinction in the report.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="1012.62" y="1044.16" width="313.08" height="84.83" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_analysis_join" label="AND" description="Compilation waits for both completed analysis branches. This is a genuine synchronization, not an alternative-path merge." added="true" kind="and" model_id="p3_analysis_join" phase="Run both analyses" original_label="AND" tooltip="AND&#10;&#10;Compilation waits for both completed analysis branches. This is a genuine synchronization, not an alternative-path merge.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=10;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=2;fillColor=#657078;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=ellipse;perimeter=ellipsePerimeter;">
+            <mxGeometry x="952.66" y="1182.54" width="35" height="35" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_compile" label="Compile management report" description="Combine both outputs with definitions, period boundaries, coverage, comparison bases, and relevant limitations. Describe expected advances and gross assessed adjustments separately. Cash-flow or receivables claims require an additional payments-based analysis and are outside these two queries." role="Reporting analyst" system="Reporting workspace (conceptual)" inputs="Advance-liability indicators&#10;Assessed-adjustment indicators&#10;Coverage and validation statement" outputs="Draft management report" added="true" kind="function" model_id="p3_compile" phase="Compile, review, and revise" original_label="Compile management report" tooltip="Compile management report&#10;&#10;Combine both outputs with definitions, period boundaries, coverage, comparison bases, and relevant limitations. Describe expected advances and gross assessed adjustments separately. Cash-flow or receivables claims require an additional payments-based analysis and are outside these two queries.&#10;&#10;Role: Reporting analyst&#10;&#10;Application: Reporting workspace (conceptual)&#10;&#10;Inputs: Advance-liability indicators; Assessed-adjustment indicators; Coverage and validation statement&#10;&#10;Outputs: Draft management report">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#edf7ee;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="843.16" y="1285.54" width="254" height="52" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_compiled" label="Management report compiled" description="A complete draft is available for management review." added="true" kind="event" model_id="p3_compiled" phase="Compile, review, and revise" original_label="Management report compiled" tooltip="Management report compiled&#10;&#10;A complete draft is available for management review.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="758.08" y="1389.27" width="424.16" height="55.05" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_review_merge" label="XOR" description="The first complete draft and a revised draft enter the same review function through an exclusive merge." added="true" kind="xor" model_id="p3_review_merge" phase="Compile, review, and revise" original_label="XOR" tooltip="XOR&#10;&#10;The first complete draft and a revised draft enter the same review function through an exclusive merge.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=10;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=2;fillColor=#657078;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=ellipse;perimeter=ellipsePerimeter;">
+            <mxGeometry x="952.66" y="1481.56" width="35" height="35" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_review" label="Review management report" description="Separate review from the existing combined review-and-release activity. Verify the arithmetic, population definitions, interpretation of liabilities versus cash, and usefulness for planning. Record exactly one result: approval, report-level revision required, or a source-data defect requiring source correction and full revalidation." role="Authority management" system="Management review workflow (conceptual)" inputs="Draft or revised management report&#10;Indicator definitions&#10;Coverage statement" outputs="Report review outcome&#10;Report revision comments or source-data defect details when required" added="false" kind="function" model_id="p3_review" phase="Compile, review, and revise" original_label="Review management report" tooltip="Review management report&#10;&#10;Separate review from the existing combined review-and-release activity. Verify the arithmetic, population definitions, interpretation of liabilities versus cash, and usefulness for planning. Record exactly one result: approval, report-level revision required, or a source-data defect requiring source correction and full revalidation.&#10;&#10;Role: Authority management&#10;&#10;Application: Management review workflow (conceptual)&#10;&#10;Inputs: Draft or revised management report; Indicator definitions; Coverage statement&#10;&#10;Outputs: Report review outcome; Report revision comments or source-data defect details when required">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#edf7ee;strokeColor=#347b42;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="847.66" y="1553.56" width="245" height="52" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_review_split" label="XOR" description="Exactly one review result follows: approved for release, report-level revision required, or a source-data defect identified. The source-data defect branch visibly restarts controlled source correction and extraction." added="true" kind="xor" model_id="p3_review_split" phase="Compile, review, and revise" original_label="XOR" tooltip="XOR&#10;&#10;Exactly one review result follows: approved for release, report-level revision required, or a source-data defect identified. The source-data defect branch visibly restarts controlled source correction and extraction.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=10;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=2;fillColor=#657078;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=ellipse;perimeter=ellipsePerimeter;">
+            <mxGeometry x="952.66" y="1642.56" width="35" height="35" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_approved" label="Management report approved" description="Management approves the reviewed report for controlled release." added="true" kind="event" model_id="p3_approved" phase="Compile, review, and revise" original_label="Management report approved" tooltip="Management report approved&#10;&#10;Management approves the reviewed report for controlled release.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="321.32" y="1729.49" width="427.68" height="55.05" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_revision_needed" label="Report revision required" description="Review requests changes to the report, presentation, definitions, or interpretation while the underlying data remains accepted. Source-data defects take the separate source-correction branch." added="true" kind="event" model_id="p3_revision_needed" phase="Compile, review, and revise" original_label="Report revision required" tooltip="Report revision required&#10;&#10;Review requests changes to the report, presentation, definitions, or interpretation while the underlying data remains accepted. Source-data defects take the separate source-correction branch.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="794.57" y="1729.49" width="351.18" height="55.05" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_review_source_issue" label="Source-data defect&#10;identified" description="Management review identifies a defect in the underlying source records rather than a report-level presentation or interpretation issue. Withhold release and enter the same controlled source-correction cycle used by the initial quality check." added="true" kind="event" model_id="p3_review_source_issue" phase="Compile, review, and revise" original_label="Source-data defect identified" tooltip="Source-data defect identified&#10;&#10;Management review identifies a defect in the underlying source records rather than a report-level presentation or interpretation issue. Withhold release and enter the same controlled source-correction cycle used by the initial quality check.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="1182.02" y="1714.6" width="284.28" height="84.83" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_revise" label="Revise report and&#10;interpretation" description="Address report-level review comments using the already validated source data and query outputs. Update explanations, population labels, tables, or planning interpretation, then submit the revised draft to the same review step. Source-data defects use the distinct source-correction branch." role="Reporting analyst" system="Reporting workspace (conceptual)" inputs="Management revision comments&#10;Validated query outputs&#10;Previous report draft" outputs="Revised management report" added="true" kind="function" model_id="p3_revise" phase="Compile, review, and revise" original_label="Revise report and interpretation" tooltip="Revise report and interpretation&#10;&#10;Address report-level review comments using the already validated source data and query outputs. Update explanations, population labels, tables, or planning interpretation, then submit the revised draft to the same review step. Source-data defects use the distinct source-correction branch.&#10;&#10;Role: Reporting analyst&#10;&#10;Application: Reporting workspace (conceptual)&#10;&#10;Inputs: Management revision comments; Validated query outputs; Previous report draft&#10;&#10;Outputs: Revised management report">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#edf7ee;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="875.66" y="1837.97" width="209" height="52" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_revised" label="Management report revised" description="The revised draft must be reviewed again before it can be released." added="true" kind="event" model_id="p3_revised" phase="Compile, review, and revise" original_label="Management report revised" tooltip="Management report revised&#10;&#10;The revised draft must be reviewed again before it can be released.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#2163c4;strokeWidth=2.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="780.71" y="1928.71" width="398.9" height="55.05" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_release" label="Release approved management&#10;report" description="Make the release part of the existing review-and-release activity explicit. Distribute the approved version to the intended management audience and keep its reporting period and version identifiable." role="Controlling / reporting analyst" system="Controlled report repository (conceptual)" inputs="Approved management report" outputs="Released management report" added="false" kind="function" model_id="p3_release" phase="Release and use for planning" original_label="Release approved management report" tooltip="Release approved management report&#10;&#10;Make the release part of the existing review-and-release activity explicit. Distribute the approved version to the intended management audience and keep its reporting period and version identifiable.&#10;&#10;Role: Controlling / reporting analyst&#10;&#10;Application: Controlled report repository (conceptual)&#10;&#10;Inputs: Approved management report&#10;&#10;Outputs: Released management report">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#edf7ee;strokeColor=#347b42;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="377.16" y="1837.97" width="278" height="52" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_released" label="Management report released" description="The approved reporting package is available to the authority management team." added="false" kind="event" model_id="p3_released" phase="Release and use for planning" original_label="Management report released" tooltip="Management report released&#10;&#10;The approved reporting package is available to the authority management team.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#b72c7d;strokeWidth=1.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="308.88" y="1928.71" width="414.56" height="55.05" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_plan" label="Plan advances and&#10;settlement capacity" description="Preserve the current final management action. Use declared advance liabilities and the volumes and sizes of gross assessed adjustments to plan revenue expectations and settlement workload. Distinguish these planning measures from actual cash collections or outstanding receivables." role="Authority management" system="Planning worksheet / decision record (conceptual)" inputs="Released management report&#10;Planning objectives and capacity assumptions" outputs="Documented advance and settlement-capacity plan" added="false" kind="function" model_id="p3_plan" phase="Release and use for planning" original_label="Plan advances and settlement capacity" tooltip="Plan advances and settlement capacity&#10;&#10;Preserve the current final management action. Use declared advance liabilities and the volumes and sizes of gross assessed adjustments to plan revenue expectations and settlement workload. Distinguish these planning measures from actual cash collections or outstanding receivables.&#10;&#10;Role: Authority management&#10;&#10;Application: Planning worksheet / decision record (conceptual)&#10;&#10;Inputs: Released management report; Planning objectives and capacity assumptions&#10;&#10;Outputs: Documented advance and settlement-capacity plan">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#edf7ee;strokeColor=#347b42;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="411.66" y="2020.99" width="209" height="52" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_end" label="Planning decision&#10;documented" description="The reporting cycle ends with the existing documented planning decision. No legal policy change or automatic collection action is implied." added="false" kind="event" model_id="p3_end" phase="Release and use for planning" original_label="Planning decision documented" tooltip="Planning decision documented&#10;&#10;The reporting cycle ends with the existing documented planning decision. No legal policy change or automatic collection action is implied.">
+          <mxCell vertex="1" parent="flow" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#b72c7d;strokeWidth=1.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="382.98" y="2110.04" width="266.36" height="84.83" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-p3_extract-role" label="ROLE&#10;Reporting analyst" kind="satellite" association_type="role" activity_id="p3_extract" full_value="Reporting analyst" tooltip="Reporting analyst">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fff3d8;strokeColor=#b48127;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1251.16" y="412.68" width="148" height="42" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-p3_extract-input" label="INPUT&#10;Reporting period and&#10;snapshot definition&#10;declarations …" kind="satellite" association_type="input" activity_id="p3_extract" full_value="Reporting period and snapshot definition&#10;declarations&#10;vehicles&#10;tax_assessments" tooltip="Reporting period and snapshot definition&#10;declarations&#10;vehicles&#10;tax_assessments">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#f0f2f4;strokeColor=#7b8790;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1865.16" y="399.68" width="148" height="68" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-p3_extract-system" label="APPLICATION&#10;SQLite / reporting&#10;workspace" kind="satellite" association_type="system" activity_id="p3_extract" full_value="SQLite / reporting workspace" tooltip="SQLite / reporting workspace">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#e9f4fa;strokeColor=#327c9b;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1435.16" y="406.18" width="148" height="55" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-p3_extract-output" label="OUTPUT&#10;Reporting dataset with&#10;population and period&#10;boundaries" kind="satellite" association_type="output" activity_id="p3_extract" full_value="Reporting dataset with population and period boundaries" tooltip="Reporting dataset with population and period boundaries">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#f0f2f4;strokeColor=#7b8790;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="2049.16" y="399.68" width="156" height="68" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-p3_check-role" label="ROLE&#10;Controlling" kind="satellite" association_type="role" activity_id="p3_check" full_value="Controlling" tooltip="Controlling">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fff3d8;strokeColor=#b48127;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1428.16" y="602.2" width="148" height="42" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-p3_log-role" label="ROLE&#10;Controlling" kind="satellite" association_type="role" activity_id="p3_log" full_value="Controlling" tooltip="Controlling">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fff3d8;strokeColor=#b48127;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1771.16" y="958.62" width="148" height="42" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-p3_correct-role" label="ROLE&#10;Source-data owner /&#10;tax operations" kind="satellite" association_type="role" activity_id="p3_correct" full_value="Source-data owner / tax operations" tooltip="Source-data owner / tax operations">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fff3d8;strokeColor=#b48127;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1771.16" y="1172.54" width="148" height="55" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-p3_correct-output" label="OUTPUT&#10;Updated source records&#10;Correction completion&#10;note" kind="satellite" association_type="output" activity_id="p3_correct" full_value="Updated source records&#10;Correction completion note" tooltip="Updated source records&#10;Correction completion note">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#f0f2f4;strokeColor=#7b8790;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="2200.66" y="1166.04" width="163" height="68" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-p3_advance_query-role" label="ROLE&#10;Reporting analyst" kind="satellite" association_type="role" activity_id="p3_advance_query" full_value="Reporting analyst" tooltip="Reporting analyst">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fff3d8;strokeColor=#b48127;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="88.16" y="958.62" width="148" height="42" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-p3_advance_query-input" label="INPUT&#10;Accepted declarations&#10;Vehicle types" kind="satellite" association_type="input" activity_id="p3_advance_query" full_value="Accepted declarations&#10;Vehicle types" tooltip="Accepted declarations&#10;Vehicle types">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#f0f2f4;strokeColor=#7b8790;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="755.16" y="952.12" width="154" height="55" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-p3_advance_query-system" label="APPLICATION&#10;SQLite /&#10;expected_revenue.sql" kind="satellite" association_type="system" activity_id="p3_advance_query" full_value="SQLite / expected_revenue.sql" tooltip="SQLite / expected_revenue.sql">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#e9f4fa;strokeColor=#327c9b;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="272.66" y="952.12" width="151" height="55" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-p3_adjustment_query-role" label="ROLE&#10;Reporting analyst" kind="satellite" association_type="role" activity_id="p3_adjustment_query" full_value="Reporting analyst" tooltip="Reporting analyst">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fff3d8;strokeColor=#b48127;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="945.16" y="958.62" width="148" height="42" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-p3_adjustment_query-input" label="INPUT&#10;Accepted declarations&#10;Final tax assessments" kind="satellite" association_type="input" activity_id="p3_adjustment_query" full_value="Accepted declarations&#10;Final tax assessments" tooltip="Accepted declarations&#10;Final tax assessments">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#f0f2f4;strokeColor=#7b8790;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1581.16" y="952.12" width="154" height="55" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-p3_adjustment_query-system" label="APPLICATION&#10;SQLite /&#10;additional_tax.sql" kind="satellite" association_type="system" activity_id="p3_adjustment_query" full_value="SQLite / additional_tax.sql" tooltip="SQLite / additional_tax.sql">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#e9f4fa;strokeColor=#327c9b;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1129.16" y="952.12" width="148" height="55" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-p3_compile-role" label="ROLE&#10;Reporting analyst" kind="satellite" association_type="role" activity_id="p3_compile" full_value="Reporting analyst" tooltip="Reporting analyst">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fff3d8;strokeColor=#b48127;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="475.16" y="1290.54" width="148" height="42" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-p3_compile-input" label="INPUT&#10;Advance-liability&#10;indicators&#10;Assessed-adjustment&#10;indicators …" kind="satellite" association_type="input" activity_id="p3_compile" full_value="Advance-liability indicators&#10;Assessed-adjustment indicators&#10;Coverage and validation statement" tooltip="Advance-liability indicators&#10;Assessed-adjustment indicators&#10;Coverage and validation statement">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#f0f2f4;strokeColor=#7b8790;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1133.16" y="1271.04" width="148" height="81" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-p3_compile-system" label="APPLICATION&#10;Reporting workspace&#10;(conceptual)" kind="satellite" association_type="system" activity_id="p3_compile" full_value="Reporting workspace (conceptual)" tooltip="Reporting workspace (conceptual)">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#e9f4fa;strokeColor=#327c9b;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="659.16" y="1284.04" width="148" height="55" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-p3_compile-output" label="OUTPUT&#10;Draft management&#10;report" kind="satellite" association_type="output" activity_id="p3_compile" full_value="Draft management report" tooltip="Draft management report">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#f0f2f4;strokeColor=#7b8790;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="1317.16" y="1284.04" width="148" height="55" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-p3_review-role" label="ROLE&#10;Authority management" kind="satellite" association_type="role" activity_id="p3_review" full_value="Authority management" tooltip="Authority management">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fff3d8;strokeColor=#b48127;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="651.16" y="1558.56" width="160" height="42" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-p3_revise-role" label="ROLE&#10;Reporting analyst" kind="satellite" association_type="role" activity_id="p3_revise" full_value="Reporting analyst" tooltip="Reporting analyst">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fff3d8;strokeColor=#b48127;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="691.16" y="1842.97" width="148" height="42" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-p3_release-role" label="ROLE&#10;Controlling /&#10;reporting analyst" kind="satellite" association_type="role" activity_id="p3_release" full_value="Controlling / reporting analyst" tooltip="Controlling / reporting analyst">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fff3d8;strokeColor=#b48127;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="193.16" y="1836.47" width="148" height="55" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="sat-p3_plan-role" label="ROLE&#10;Authority management" kind="satellite" association_type="role" activity_id="p3_plan" full_value="Authority management" tooltip="Authority management">
+          <mxCell vertex="1" parent="context" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fff3d8;strokeColor=#b48127;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="215.16" y="2025.99" width="160" height="42" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="title" label="P3 | Management reporting and planning" kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=30;fontStyle=1;fontColor=#243d4a;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="55" y="30" width="2346.82" height="52" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="subtitle" label="Complete revised EPC  ·  11 functions  ·  15 events  ·  7 connectors  ·  Revision 2" kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=15;fontStyle=0;fontColor=#566b76;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="55" y="89" width="2346.82" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="legend-event" label="Event / state" kind="legend">
+          <mxCell vertex="1" parent="notes" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fcedf5;strokeColor=#b72c7d;strokeWidth=1.3;shadow=0;shape=hexagon;perimeter=hexagonPerimeter;size=0.25;">
+            <mxGeometry x="55" y="135" width="175" height="40" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="legend-function" label="Function / action" kind="legend">
+          <mxCell vertex="1" parent="notes" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#edf7ee;strokeColor=#347b42;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="250" y="135" width="190" height="40" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="legend-xor" label="XOR" kind="legend">
+          <mxCell vertex="1" parent="notes" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=10;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=2;fillColor=#657078;strokeColor=#657078;strokeWidth=1.3;shadow=0;shape=ellipse;perimeter=ellipsePerimeter;">
+            <mxGeometry x="465" y="135" width="40" height="40" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="legend-and" label="AND" kind="legend">
+          <mxCell vertex="1" parent="notes" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=10;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=2;fillColor=#657078;strokeColor=#657078;strokeWidth=1.3;shadow=0;shape=ellipse;perimeter=ellipsePerimeter;">
+            <mxGeometry x="522" y="135" width="40" height="40" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="legend-role" label="Role" kind="legend">
+          <mxCell vertex="1" parent="notes" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#fff3d8;strokeColor=#b48127;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="590" y="135" width="145" height="40" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="legend-system" label="Application" kind="legend">
+          <mxCell vertex="1" parent="notes" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#e9f4fa;strokeColor=#327c9b;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="755" y="135" width="155" height="40" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="legend-input" label="Data input / output" kind="legend">
+          <mxCell vertex="1" parent="notes" style="html=0;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#243d4a;align=center;verticalAlign=middle;spacing=2;fillColor=#f0f2f4;strokeColor=#7b8790;strokeWidth=1.3;shadow=0;shape=rectangle;rounded=1;absoluteArcSize=1;arcSize=16;perimeter=rectanglePerimeter;">
+            <mxGeometry x="930" y="135" width="200" height="40" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="legend-notes" label="Blue outline / line: added or revised behaviour.    Dashed links: responsibility, application or data association." kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=12;fontStyle=0;fontColor=#566b76;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="55" y="183" width="1500" height="22" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="footer" label="Revised proposal from epc-process-explorer.html. Open the Notes page for assumptions. Activity properties contain full role, application and data allocations." kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=12;fontStyle=0;fontColor=#566b76;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="55" y="2235.07" width="2346.82" height="25" as="geometry" />
+          </mxCell>
+        </object>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="p3-notes" name="Notes">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1220" pageHeight="1450" math="0" shadow="0" background="#ffffff">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="notes" value="Model notes" parent="0" />
+        <object id="notes-title" label="P3 | Model notes" kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=30;fontStyle=1;fontColor=#243d4a;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="50" y="40" width="1120" height="55" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="notes-subtitle" label="Management reporting and planning" kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=21;fontStyle=1;fontColor=#243d4a;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="50" y="100" width="1120" height="40" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="notes-summary" label="Full revised P3: validate source data, complete correction and revalidation, run both implemented analyses,&#10;review and revise the complete report, release it, and document planning decisions." kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=16;fontStyle=0;fontColor=#243d4a;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="50" y="160" width="1120" height="58" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assumptions-title" label="Scope and assumptions" kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=21;fontStyle=1;fontColor=#243d4a;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="50" y="252" width="1120" height="34" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assumption-1" label="1. This is a proposed full business-process model. Human correction, review, versioning, and approval workflows are&#10;   conceptual; their storage and automation are not claimed to exist in the current database." kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=15;fontStyle=0;fontColor=#243d4a;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="50" y="302" width="1120" height="54" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assumption-2" label="2. Both analyses use the same accepted reporting snapshot. Existing queries group by billing-period start year;&#10;   expected advances additionally group by vehicle type." kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=15;fontStyle=0;fontColor=#243d4a;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="50" y="369" width="1120" height="54" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assumption-3" label="3. Expected advance liability is based on advance_due_pence. Gross assessed adjustments compare final_tax_pence&#10;   with advance_due_pence. Neither measure is received cash or net receivables." kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=15;fontStyle=0;fontColor=#243d4a;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="50" y="436" width="1120" height="54" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assumption-4" label="4. A missing final assessment is not automatically an error: distinguish the population of all declarations from&#10;   the population of assessed declarations and disclose coverage." kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=15;fontStyle=0;fontColor=#243d4a;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="50" y="503" width="1120" height="54" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assumption-5" label="5. Report-level revision uses the validated query outputs. Source-data defects discovered during management review&#10;   follow the explicitly modeled correction branch, then fresh extraction, validation, both analyses, compilation,&#10;   and review." kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=15;fontStyle=0;fontColor=#243d4a;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="50" y="570" width="1120" height="75" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="assumption-6" label="6. No statutory deadline, retry limit, tax rate change, or automatic enforcement action is introduced." kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=15;fontStyle=0;fontColor=#243d4a;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="50" y="658" width="1120" height="33" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="editing-title" label="Using the editable diagram" kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=21;fontStyle=1;fontColor=#243d4a;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="50" y="726" width="1120" height="34" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="editing-0" label="• Every process shape, label, connector and satellite object is a native draw.io element." kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=15;fontStyle=0;fontColor=#243d4a;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="50" y="775" width="1120" height="29" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="editing-1" label="• The Process page has separate layers for control flow, roles / systems / data, and the title / legend." kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=15;fontStyle=0;fontColor=#243d4a;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="50" y="812" width="1120" height="29" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="editing-2" label="• Activity custom properties retain the full description, role, application, inputs and outputs from the HTML." kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=15;fontStyle=0;fontColor=#243d4a;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="50" y="849" width="1120" height="29" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="editing-3" label="• Some visible satellite labels are abbreviated to keep the diagram readable. Full values remain in the properties." kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=15;fontStyle=0;fontColor=#243d4a;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="50" y="886" width="1120" height="29" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="editing-4" label="• Blue outlines and connections identify additions or revisions compared with the repository model." kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=15;fontStyle=0;fontColor=#243d4a;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="50" y="923" width="1120" height="29" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="editing-5" label="• This file contains the complete revised proposal from Revision 2 of the HTML. It does not change the repository." kind="annotation">
+          <mxCell vertex="1" parent="notes" style="shape=text;html=0;whiteSpace=wrap;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=15;fontStyle=0;fontColor=#243d4a;align=left;verticalAlign=middle;spacing=0;">
+            <mxGeometry x="50" y="960" width="1120" height="29" as="geometry" />
+          </mxCell>
+        </object>
       </root>
     </mxGraphModel>
   </diagram>

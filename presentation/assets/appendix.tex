@@ -1,4 +1,4 @@
-% Unnarrated appendices A1–A23. Each frame is one PDF page.
+% Unnarrated appendices A1–A24. Each frame is one PDF page.
 \begin{frame}{A1 | Calculation rules and the billing boundary}
 \small
 \begin{tabularx}{\textwidth}{@{}p{.27\textwidth}X@{}}\toprule
@@ -11,10 +11,10 @@ Remaining balance (pence) & Final liability − net payments. Positive = owner o
 \medskip
 \textbf{Period:} \code{[2028-04-01, 2029-04-01)}. The closing reading is taken at the exclusive upper boundary, covering distance through 31 March 2029.
 \par\smallskip
-\textbf{Rounding:} nearest penny, half upwards after multiplication. Example: 3 PHEV miles × 1.5 p/mile = 4.5 p → 5 p. Python's default \code{round()} does not guarantee this rule.
+\textbf{Rounding:} half up per assessment. Two separate one-mile PHEV periods cost 2p each; two miles assessed once cost 3p.
 \par\smallskip
 \textbf{Record semantics:} refunds store positive amounts and are subtracted. Due, assessed and paid are different measures. Current tax amounts were inserted, not automatically calculated.
-\sources{[S] Scope.md, §§5–6; [DB] sample\_data.sql and read-only verification. BEV 3 p/mile; PHEV 1.5 p/mile, fixed throughout this demonstration.}
+\sources{[S] Scope.md, “Periods, evidence and money”; [DB] sample\_data.sql and read-only verification. BEV 3 p/mile; PHEV 1.5 p/mile, fixed throughout this demonstration.}
 \end{frame}
 
 \begin{frame}{A2 | Process 1, part 1: validate the declaration}
@@ -39,13 +39,13 @@ Remaining balance (pence) & Final liability − net payments. Positive = owner o
 \begin{frame}{A4 | Process 2, part 1: evidence determines liability}
 \begin{center}\input{assets/p2_assessment}\end{center}
 \epclegend
-\sources{All three branch events continue on A5. Required checks: same vehicle, exact period boundaries, opening before closing, non-decreasing miles. Invalid/missing-reading exceptions are outside scope. [S], [L2].}
+\sources{All three branch events continue on A5. Required checks: same vehicle, exact period boundaries, opening before closing, non-decreasing miles. Transfer review and buyer declaration: A24. [S], [L2].}
 \end{frame}
 
 \begin{frame}{A5 | Process 2, part 2: complete the selected cash path}
 \begin{center}\input{assets/p2_branches}\end{center}
 \epclegend
-\sources{Continuation from A4, exactly one branch per case. Sample outcomes: cases 1/4 additional paid; 2 refund paid; 3 balanced; 5 additional still unpaid. [D2], [DB].}
+\sources{Continuation from A4, exactly one branch per case. Sample outcomes: cases 2/4 additional paid; 1 refund paid; 3 balanced; 5 additional still unpaid. [D2], [DB].}
 \end{frame}
 
 \begin{frame}{A6 | Process 3, part 1: accept only consistent data}
@@ -59,8 +59,8 @@ Remaining balance (pence) & Final liability − net payments. Positive = owner o
 \begin{center}\input{assets/p3_release}\end{center}
 \begin{tabularx}{\textwidth}{@{}p{.40\textwidth}X@{}}\toprule
 \textbf{Implemented aggregate} & \textbf{Decision enabled}\\\midrule
-Estimated advance liability by type/year & Plan advance revenue and understand the declared mileage mix.\\
-Gross extra tax/refunds by start year & Plan settlement-processing capacity and scale of adjustments.\\\bottomrule
+Expected final tax by type/year & Forecast receipts before all periods are assessed.\\
+Gross extra tax/refunds by billing year & Plan settlement-processing capacity and scale of adjustments.\\\bottomrule
 \end{tabularx}\par
 \epclegend
 \sources{Continuation from A6. [Q1–Q2] are the two actual analyses. Cash/outstanding reporting is supplementary validation in A21, not the meaning of Q2. [L4] PDF pp. 48–49.}
@@ -73,19 +73,19 @@ Gross extra tax/refunds by start year & Plan settlement-processing capacity and 
 \sources{All attributes shown; named relationships map to the foreign keys on A10–A14. [L3] PDF p. 28.}
 \end{frame}
 
-\begin{frame}{A9 | Cardinalities, lifecycle and inspection reuse}
+\begin{frame}{A9 | Cardinalities, lifecycle and reading reuse}
 \small
 \begin{tabularx}{\textwidth}{@{}p{.37\textwidth}X@{}}\toprule
 \textbf{Relationship} & \textbf{Meaning and implementation}\\\midrule
 Owner 1 — 0..* Vehicle & One current registered owner per vehicle.\\
 Owner 1 — 0..* Declaration & The assessment inherits its declaration's liable owner.\\
-Vehicle 1 — 0..* Declaration / Inspection & One vehicle per row; several segments per year are possible.\\
+Vehicle 1 — 0..* Declaration / Reading & One vehicle per row; several segments per year are possible.\\
 Declaration 1 — 0..* Payment & An advance can precede assessment.\\
 Declaration 1 — 0..1 Assessment & At most one final decision (unique declaration FK).\\
-Inspection 1 — 0..1 Assessment, per role & An assessment needs two readings, each unique in its role.\\\bottomrule
+Reading 1 — 0..1 Assessment, per role & An assessment needs two readings, each unique in its role.\\\bottomrule
 \end{tabularx}\par
 \medskip
-\textbf{At handover:} one verified reading would close the outgoing owner's segment and open the incoming owner's. The model allows this reuse; transfer processing and valuation are not automated.
+\textbf{At handover:} one verified reading closes the outgoing owner's segment and opens the incoming owner's. Reading 2 belongs to both assessments in different roles.
 \sources{[DB], [L3–L4]. Same vehicle, distinct readings and valid boundary dates require business checks.}
 \end{frame}
 
@@ -95,67 +95,63 @@ Inspection 1 — 0..1 Assessment, per role & An assessment needs two readings, e
 \textbf{Relation / concept} & \textbf{Columns: type and meaning}\\\midrule
 \code{vehicle_owners}\newline Vehicle owner & \code{owner_id} INTEGER PK; \code{full_name}, \code{postal_address} TEXT. Stores the responsible fictional owner.\\\addlinespace
 \code{vehicles}\newline Current registration & \code{vehicle_id} INTEGER PK; \code{owner_id} INTEGER FK → current owner; \code{registration_number} TEXT UNIQUE; \code{vehicle_type} TEXT (BEV/PHEV). Rate is not stored.\\\addlinespace
-\code{declarations}\newline Declaration period & \code{declaration_id} INTEGER PK; \code{vehicle_id} INTEGER FK → vehicle; \code{owner_id} INTEGER FK → liable owner; \code{period_start}, \code{period_end} TEXT; \code{estimated_miles}, \code{advance_due_pence} INTEGER; \code{submitted_at} TEXT. UNIQUE(vehicle\_id, period\_start).\\\bottomrule
+\code{declarations}\newline Declaration period & \code{declaration_id} INTEGER PK; \code{vehicle_id} INTEGER FK → vehicle; \code{owner_id} INTEGER FK → liable owner; \code{period_start}, \code{period_end} (effective), \code{declared_period_end} (original) TEXT; \code{estimated_miles}, \code{advance_due_pence} INTEGER; \code{submitted_at} TEXT. UNIQUE(vehicle\_id, period\_start).\\\bottomrule
 \end{tabularx}\par
 \medskip
-\textbf{Mapping:} place the foreign key on the many side of each one-to-many relationship.
+\textbf{Mapping:} effective closure preserves the original estimate, demand, end date, liable owner and cash history.
 \par\smallskip
 \textbf{Storage:} integer primary keys; all other fields are \code{NOT NULL}. SQLite dates are text here.
-\sources{[DB] scripts/setup\_database.py and PRAGMA table\_info/foreign\_key\_list/index\_list. [L3] PDF p. 15; [L4] pp. 15–18.}
+\sources{[DB] database/schema.sql and PRAGMA table\_info/foreign\_key\_list/index\_list. [L3] PDF p. 15; [L4] pp. 15–18.}
 \end{frame}
 
 \begin{frame}{A11 | Relational mapping and dictionary: readings to cash}
 \small
 \begin{tabularx}{\textwidth}{@{}p{.27\textwidth}X@{}}\toprule
 \textbf{Relation / concept} & \textbf{Columns: type and meaning}\\\midrule
-\code{mot_inspections}\newline MOT inspection & \code{inspection_id} INTEGER PK; \code{vehicle_id} INTEGER FK; \code{inspection_date} TEXT; \code{odometer_miles} INTEGER; \code{mot_centre_ref} TEXT. UNIQUE(vehicle\_id, inspection\_date).\\\addlinespace
-\code{tax_assessments}\newline Tax assessment & \code{assessment_id} INTEGER PK; \code{declaration_id} INTEGER FK UNIQUE; \code{opening_inspection_id}, \code{closing_inspection_id} INTEGER FKs, each UNIQUE; \code{assessed_at} TEXT; \code{final_tax_pence} INTEGER.\\\addlinespace
+\code{odometer_readings}\newline Odometer reading & \code{reading_id} INTEGER PK; \code{vehicle_id} INTEGER FK; \code{reading_date} TEXT; \code{odometer_miles} INTEGER; \code{reading_type} (MOT/TRANSFER), \code{centre_ref} TEXT. UNIQUE(vehicle\_id, reading\_date).\\\addlinespace
+\code{tax_assessments}\newline Tax assessment & \code{assessment_id} INTEGER PK; \code{declaration_id} INTEGER FK UNIQUE; \code{opening_reading_id}, \code{closing_reading_id} INTEGER FKs, each UNIQUE; \code{assessed_at} TEXT; \code{final_tax_pence} INTEGER.\\\addlinespace
 \code{payments}\newline Cash movement & \code{payment_id} INTEGER PK; \code{declaration_id} INTEGER FK; \code{payment_type} TEXT; \code{amount_pence} INTEGER; \code{paid_at} TEXT. Types used: ADVANCE, ADDITIONAL, REFUND.\\\bottomrule
 \end{tabularx}\par
 \medskip
 All non-PK fields are explicitly \code{NOT NULL}. Stored derived amounts provide a simple assessment record, but do not guarantee consistency with mileage/rates. Balances are calculated, not stored columns.
-\sources{[DB] Actual schema and metadata; all dates/timestamps are TEXT. No CHECK constraints or triggers validate types, positivity, dates or cross-record business rules. [L4] PDF pp. 15–18.}
+\sources{[DB] Actual schema and metadata; all dates/timestamps are TEXT. STRICT tables and CHECKs enforce types and ranges; Python checks dates, readings and periods. [L4] PDF pp. 15–18.}
 \end{frame}
 
 \begin{frame}[fragile]{A12 | Schema evidence: owner and vehicle master data}
 \begin{columns}[T,onlytextwidth]
 \column{.43\textwidth}
-\lstinputlisting[language=SQL,firstline=13,lastline=17]{../scripts/setup_database.py}
+\lstinputlisting[language=SQL,firstline=1,lastline=5]{assets/six_table_listings.txt}
 \column{.53\textwidth}
-\lstinputlisting[language=SQL,firstline=22,lastline=28]{../scripts/setup_database.py}
+\lstinputlisting[language=SQL,firstline=7,lastline=12]{assets/six_table_listings.txt}
 \end{columns}
 \medskip
 \textbf{Enforced:} one referenced current owner per vehicle (with foreign keys enabled), a unique registration number, mandatory name/address/type.
 \par\medskip
 \textbf{Current versus historical:} updating this registration does not reassign a declaration. Its liable owner is a separate foreign key (A13); verifying the registration is a designed agency task.
-\sources{Verbatim CREATE statements from [DB] scripts/setup\_database.py, checked against sqlite\_master. Setup creates tables; scripts/load\_db.py separately inserts the sample.}
+\sources{Verbatim CREATE statements from [DB] database/schema.sql, checked against sqlite\_master. Setup creates tables; scripts/load\_db.py separately inserts the sample.}
 \end{frame}
 
 \begin{frame}[fragile]{A13 | Schema evidence: one declaration and reading per key}
 \begin{columns}[T,onlytextwidth]
 \column{.50\textwidth}
-\lstinputlisting[language=SQL,firstline=33,lastline=45]{../scripts/setup_database.py}
+\lstinputlisting[language=SQL,firstline=14,lastline=26]{assets/six_table_listings.txt}
 \column{.46\textwidth}
-\lstinputlisting[language=SQL,firstline=50,lastline=58]{../scripts/setup_database.py}
+\lstinputlisting[language=SQL,firstline=28,lastline=36]{assets/six_table_listings.txt}
 \end{columns}
-\medskip
-\textbf{Uniqueness:} one declaration per vehicle/start date; one inspection per vehicle/reading date.
-\par\smallskip
-Different start dates can still overlap. Period boundaries and mileage order need business checks.
-\sources{[DB] Actual CREATE statements; foreign keys enabled in setup and loading.}
+\sources{[DB] The loader checks overlap and mileage order. Triggers preserve the original declaration and guard early closure.}
 \end{frame}
 
 \begin{frame}[fragile]{A14 | Schema evidence: assessment is optional; payments are many}
 \begin{columns}[T,onlytextwidth]
 \column{.57\textwidth}
-\lstinputlisting[language=SQL,basicstyle=\linespread{1}\ttfamily\fontsize{7.3}{9}\selectfont,firstline=63,lastline=73]{../scripts/setup_database.py}
+\lstinputlisting[language=SQL,basicstyle=\linespread{1}\ttfamily\fontsize{7.3}{9}\selectfont,firstline=38,lastline=45]{assets/six_table_listings.txt}
 \column{.39\textwidth}
-\lstinputlisting[language=SQL,basicstyle=\linespread{1}\ttfamily\fontsize{7.3}{9}\selectfont,firstline=78,lastline=85]{../scripts/setup_database.py}
+\lstinputlisting[language=SQL,basicstyle=\linespread{1}\ttfamily\fontsize{7.3}{9}\selectfont,firstline=47,lastline=53]{assets/six_table_listings.txt}
 \end{columns}
 \medskip
 \textbf{Why keep both entities?} The final liability is a tax decision; payments are completed cash movements. A declaration can have an advance before an assessment exists.
 \par\smallskip
-Each inspection FK is independently unique. The schema does not require the two inspection IDs to differ or belong to the declaration's vehicle.
+Each reading FK is independently unique. The schema does not require the two reading IDs to differ or belong to the declaration's vehicle.
 \sources{Verbatim CREATE statements from [DB]. Integrity check = ok; foreign-key check = no violations. These results do not certify the omitted business rules.}
 \end{frame}
 
@@ -163,17 +159,17 @@ Each inspection FK is independently unique. The schema does not require the two 
 \begin{center}
 \begin{tabular}{@{}clrrrr@{}}\toprule
 Case & Type & Estimated miles & Opening miles & Closing miles & Actual miles\\\midrule
-1 & BEV & 10,000 & 20,000 & 32,000 & 12,000\\
-2 & BEV & 10,000 & 40,000 & 48,000 & 8,000\\
+1 & BEV & 10,000 & 20,000 & 26,000 & 6,000\\
+2 & BEV & 5,000 & 26,000 & 32,000 & 6,000\\
 3 & BEV & 10,000 & 15,000 & 25,000 & 10,000\\
 4 & PHEV & 8,000 & 30,000 & 40,000 & 10,000\\
 5 & PHEV & 10,000 & 10,000 & 22,000 & 12,000\\\bottomrule
 \end{tabular}
 \end{center}
-\textbf{Shared boundaries:} opening 1 April 2028; closing 1 April 2029. Billing dates use the exclusive end convention.
+\textbf{Shared boundaries:} 1 April to 1 April, split at 1 January for vehicle 1. Billing dates use the exclusive end convention.
 \par\medskip
-\textbf{Why these are business cases:} each settlement links an owner, vehicle, annual declaration, two readings, assessment and its payment history. They exercise three outcomes and an unfinished additional-payment path in Process 2.
-\sources{[DB] Read-only recomputation from the working database. Case number = declaration ID. 5+5+5+10+5+8 = 38 stored records, not five arbitrary rows.}
+\textbf{Why these are business cases:} each settlement links an owner, vehicle, declaration, two readings, assessment and its payment history. They exercise three outcomes and an unfinished additional-payment path in Process 2.
+\sources{[DB] Read-only recomputation from the working database. Case number = declaration ID. 5+4+5+9+5+8 = 36 stored records, not five arbitrary rows.}
 \end{frame}
 
 \begin{frame}{A16 | Five business cases: liability, signed cash and open balance}
@@ -181,20 +177,20 @@ Case & Type & Estimated miles & Opening miles & Closing miles & Actual miles\\\m
 \begin{center}
 \begin{tabular}{@{}crrrrrr@{}}\toprule
 Case & Advance due/paid & Final tax & Extra paid & Refund paid & Net cash & Remaining\\\midrule
-1 & £300 & £360 & £60 & £0 & £360 & £0\\
-2 & £300 & £240 & £0 & £60 & £240 & £0\\
+1 & £300 & £180 & £0 & £120 & £180 & £0\\
+2 & £150 & £180 & £30 & £0 & £180 & £0\\
 3 & £300 & £300 & £0 & £0 & £300 & £0\\
 4 & £120 & £150 & £30 & £0 & £150 & £0\\
 5 & £150 & £180 & £0 & £0 & £150 & \alert{£30}\\\midrule
-Total & £1,170 & £1,230 & £90 & £60 & £1,200 & £30\\\bottomrule
+Total & £1,020 & £990 & £60 & £120 & £960 & £30\\\bottomrule
 \end{tabular}
 \end{center}
-\textbf{Assessments:} gross extra tax £60 + £30 + £30 = £120; gross refund £60; net adjustment £60.
+\textbf{Assessments:} three £30 extras; one £120 refund. Net adjustment: −£30.
 \par\medskip
-\textbf{Payments:} all five advances paid on 1 April 2028; two additional payments and one refund on 3 April 2029. Assessments dated 2 April 2029.
+\textbf{Payments:} four April advances, one January advance. Alice was assessed on 1 January and refunded on 2 January. Annual assessments on 2 April precede additional receipts on 3 April.
 \par\smallskip
-Refund records contain positive values; the £60 is subtracted to obtain net cash. Case 5 has no extra receipt.
-\sources{[DB] sample\_data.sql and actual joined records, independently reconciled. Current sample totals across the billing lifecycle, not cash collected within calendar year 2028.}
+Refund records contain positive values; the £120 is subtracted to obtain net cash. Case 5 has no extra receipt.
+\sources{[DB] sample\_data.sql and actual joined records, independently reconciled. Sample totals across the billing lifecycle, not cash collected within calendar year 2028.}
 \end{frame}
 
 \begin{frame}{A17 | Inserted case 5: one settlement across six relations}
@@ -202,62 +198,53 @@ Refund records contain positive values; the £60 is subtracted to obtain net cas
 \begin{tabularx}{\textwidth}{@{}p{.26\textwidth}X@{}}\toprule
 \textbf{Relation / key} & \textbf{Inserted case evidence}\\\midrule
 Owner 5 & Emma Example; 5 Example Road, Birmingham (fictional).\\
-Vehicle 5 & current owner\_id 5; registration DEMO005; type PHEV.\\
-Declaration 5 & vehicle\_id 5; liable owner\_id 5; 2028-04-01 to exclusive 2029-04-01; estimate 10,000 miles; advance 15,000 pence.\\
-Inspections 9 and 10 & vehicle\_id 5; 10,000 miles on 2028-04-01; 22,000 miles on 2029-04-01; centre DEMO-MOT-05.\\
-Assessment 5 & declaration\_id 5; opening ID 9; closing ID 10; final liability 18,000 pence.\\
+Vehicle 4 & current owner\_id 5; registration DEMO004; type PHEV.\\
+Declaration 5 & vehicle\_id 4; liable owner\_id 5; 2028-04-01 to exclusive 2029-04-01; estimate 10,000 miles; advance 15,000 pence.\\
+Readings 8 and 9 & vehicle\_id 4; 10,000 miles on 2028-04-01; 22,000 miles on 2029-04-01; centre CENTRE-04.\\
+Assessment 5 & declaration\_id 5; opening ID 8; closing ID 9; final liability 18,000 pence.\\
 Payment 5 & declaration\_id 5; ADVANCE; 15,000 pence; received 2028-04-01T10:00:00Z. No ADDITIONAL payment.\\\bottomrule
 \end{tabularx}\par
 \medskip
 This case is assessed but has not completed Process 2's payment branch. The unpaid amount is derived from records; invoice issuance is not persisted in a separate table.
-\sources{[DB] database/queries/sample\_data.sql, lines 12, 20, 29, 37, 50–51, 60. Verification replayed the actual schema/inserts in memory and matched every committed row.}
+\sources{[DB] database/queries/sample\_data.sql. Fresh schema and sample replay matched every row.}
 \end{frame}
 
 \begin{frame}[fragile]{A18 | Analysis 1: complete SQL and actual output}
-\lstinputlisting{../database/queries/expected_revenue.sql}
-\smallskip
-\small
-\begin{tabular}{@{}lcrrr@{}}\toprule
-Start year & Type & Vehicles & Declared miles & Advance liability GBP\\\midrule
-2028 & BEV & 3 & 30,000 & 900.00\\
-2028 & PHEV & 2 & 18,000 & 270.00\\\bottomrule
-\end{tabular}
-\par\smallskip
-The alias \code{expected_revenue_gbp} means \textbf{estimated advance liability}. Each vehicle counts once per type/start-year group; miles and amounts sum across its declarations. This is not cash received.
-\sources{[Q1] Exact file, executed read-only. Two joined tables: declarations and vehicles. Rounding here formats sums of already-stored pence as GBP; it is not the mileage tax calculation.}
+\lstinputlisting[basicstyle=\linespread{1}\ttfamily\fontsize{7.5}{8.6}\selectfont,firstline=56,lastline=72]{assets/six_table_listings.txt}
+\sources{[Q1] April output (year, type, vehicles, miles, GBP, incomplete): (2028, BEV, 2, 22000, 660, 0); (2028, PHEV, 2, 22000, 330, 0).}
 \end{frame}
 
 \begin{frame}[fragile]{A19 | Analysis 2: complete SQL}
-\lstinputlisting[basicstyle=\linespread{1}\ttfamily\fontsize{8.4}{10}\selectfont,emptylines=0]{../database/queries/additional_tax.sql}
+\lstinputlisting[basicstyle=\linespread{1}\ttfamily\fontsize{8.4}{10}\selectfont,emptylines=0,firstline=75,lastline=84]{assets/six_table_listings.txt}
 \sources{[Q2] Exact file, executed read-only. Two joined tables: declarations and tax\_assessments. The inner join includes assessed declarations only. Results and cash reconciliation: A20.}
 \end{frame}
 
 \begin{frame}{A20 | Analysis 2 output and the complete financial reconciliation}
 \small
 \begin{tabular}{@{}crrrrr@{}}\toprule
-Start year & Assessed & Extra cases & Refund cases & Extra tax GBP & Refunds GBP\\\midrule
-2028 & 5 & 3 & 1 & 120.00 & 60.00\\\bottomrule
+Cycle & Assessed & Extra cases & Refund cases & Extra tax GBP & Refunds GBP\\\midrule
+2028/29 & 5 & 3 & 1 & 90.00 & 120.00\\\bottomrule
 \end{tabular}\par
 \medskip
 \begin{columns}[T,onlytextwidth]
 \column{.50\textwidth}
 \begin{tabular}{@{}lr@{}}\toprule
 \textbf{Liability measures} & \textbf{GBP}\\\midrule
-Estimated advance liability & 1,170\\
-Final assessed liability & 1,230\\
-Gross additional tax assessed & 120\\
-Gross refunds assessed & 60\\\bottomrule
+Original advances due & 1,020\\
+Final assessed liability & 990\\
+Gross additional tax assessed & 90\\
+Gross refunds assessed & 120\\\bottomrule
 \end{tabular}
 \column{.46\textwidth}
 \begin{tabular}{@{}lr@{}}\toprule
 \textbf{Cash measures} & \textbf{GBP}\\\midrule
-Advances received & 1,170\\
-Additional payments received & 90\\
-Refunds paid (subtract) & 60\\
-Net cash received & 1,200\\\bottomrule
+Advances received & 1,020\\
+Additional payments received & 60\\
+Refunds paid (subtract) & 120\\
+Net cash received & 960\\\bottomrule
 \end{tabular}
 \end{columns}
-\keyline{£1,230 − £1,200 = £30 still receivable}
+\keyline{£990 − £960 = £30 still receivable}
 {\small The cash measures are supplementary verification, not additional columns returned by Analysis 2. All five advances are paid, so due equals received only in this sample.}
 \sources{[Q2] Exact result with shortened headings; [DB] reconciled cash totals. Planned workload is 3 extra-tax cases, 1 refund case, and 1 no-adjustment case.}
 \end{frame}
@@ -265,7 +252,7 @@ Net cash received & 1,200\\\bottomrule
 \begin{frame}[fragile]{A21 | Supplementary validation: aggregate payments before joining}
 \begin{columns}[T,onlytextwidth]
 \column{.71\textwidth}
-\lstinputlisting[basicstyle=\ttfamily\fontsize{7.5}{9}\selectfont,firstline=3]{assets/outstanding_validation.sql}
+\lstinputlisting[basicstyle=\ttfamily\fontsize{7.5}{9}\selectfont,firstline=87,lastline=101]{assets/six_table_listings.txt}
 \column{.26\textwidth}
 \small
 \begin{tabular}{@{}cr@{}}\toprule
@@ -298,7 +285,7 @@ Page references are PDF positions. The earlier English draft records the lecture
 
 \begin{frame}{A23 | Sources: project evidence and AI attribution}
 \fontsize{8.3}{10.2}\selectfont
-\textbf{Project:} Mathis Clément, \emph{ikt-hsg-2026}. Post-meeting working tree, 23 November 2026; baseline \code{bab8c0f}.\\
+\textbf{Project:} Mathis Clément, \emph{ikt-hsg-2026}. Ownership-transfer revision, 25 November 2026; historical reflection baseline \code{bab8c0f}.\\
 \url{https://github.com/Mclement197/ikt-hsg-2026}
 \begin{description}
 \item[S] \code{Scope.md}; run and hand-in instructions in \code{README.md}.
@@ -311,4 +298,9 @@ Page references are PDF positions. The earlier English draft records the lecture
 \par\smallskip
 The author's final review, personal design claims and separate HSG AI-use declaration remain required. Diagram notation adaptations and presentation-specific corrections are documented in \code{assets/README.md}.
 \sources{Editable model sources: diagrams/ and presentation/assets/. The PowerPoint uses rendered slides from the corrected LaTeX source.}
+\end{frame}
+
+\begin{frame}{A24 | Process 2 detail: accept a handover before settling}
+\begin{center}\input{assets/p2_handover}\end{center}
+\sources{AND initiates both interfaces independently. Dashed line: information input, not control flow. An annual closing proceeds directly to A4. Resubmit corrected evidence for a fresh review.}
 \end{frame}

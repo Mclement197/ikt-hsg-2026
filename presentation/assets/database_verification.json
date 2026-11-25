@@ -1,652 +1,240 @@
 {
-  "database_sha256": "7301f099339e94dc5bf68ed3a695c55095b4c1e656295042e6794942e2dad6e1",
-  "database_unchanged": true,
-  "integrity_check": [
-    "ok"
-  ],
-  "foreign_key_check": [],
-  "metadata": {
-    "declarations": {
-      "columns": [
-        {
-          "cid": 0,
-          "name": "declaration_id",
-          "type": "INTEGER",
-          "notnull": 0,
-          "dflt_value": null,
-          "pk": 1
-        },
-        {
-          "cid": 1,
-          "name": "vehicle_id",
-          "type": "INTEGER",
-          "notnull": 1,
-          "dflt_value": null,
-          "pk": 0
-        },
-        {
-          "cid": 2,
-          "name": "owner_id",
-          "type": "INTEGER",
-          "notnull": 1,
-          "dflt_value": null,
-          "pk": 0
-        },
-        {
-          "cid": 3,
-          "name": "period_start",
-          "type": "TEXT",
-          "notnull": 1,
-          "dflt_value": null,
-          "pk": 0
-        },
-        {
-          "cid": 4,
-          "name": "period_end",
-          "type": "TEXT",
-          "notnull": 1,
-          "dflt_value": null,
-          "pk": 0
-        },
-        {
-          "cid": 5,
-          "name": "estimated_miles",
-          "type": "INTEGER",
-          "notnull": 1,
-          "dflt_value": null,
-          "pk": 0
-        },
-        {
-          "cid": 6,
-          "name": "advance_due_pence",
-          "type": "INTEGER",
-          "notnull": 1,
-          "dflt_value": null,
-          "pk": 0
-        },
-        {
-          "cid": 7,
-          "name": "submitted_at",
-          "type": "TEXT",
-          "notnull": 1,
-          "dflt_value": null,
-          "pk": 0
-        }
-      ],
-      "foreign_keys": [
-        {
-          "id": 0,
-          "seq": 0,
-          "table": "vehicle_owners",
-          "from": "owner_id",
-          "to": "owner_id",
-          "on_update": "NO ACTION",
-          "on_delete": "NO ACTION",
-          "match": "NONE"
-        },
-        {
-          "id": 1,
-          "seq": 0,
-          "table": "vehicles",
-          "from": "vehicle_id",
-          "to": "vehicle_id",
-          "on_update": "NO ACTION",
-          "on_delete": "NO ACTION",
-          "match": "NONE"
-        }
-      ],
-      "unique_indexes": {
-        "sqlite_autoindex_declarations_1": [
-          {
-            "seqno": 0,
-            "cid": 1,
-            "name": "vehicle_id"
-          },
-          {
-            "seqno": 1,
-            "cid": 3,
-            "name": "period_start"
-          }
-        ]
-      },
-      "rows": 5
-    },
-    "mot_inspections": {
-      "columns": [
-        {
-          "cid": 0,
-          "name": "inspection_id",
-          "type": "INTEGER",
-          "notnull": 0,
-          "dflt_value": null,
-          "pk": 1
-        },
-        {
-          "cid": 1,
-          "name": "vehicle_id",
-          "type": "INTEGER",
-          "notnull": 1,
-          "dflt_value": null,
-          "pk": 0
-        },
-        {
-          "cid": 2,
-          "name": "inspection_date",
-          "type": "TEXT",
-          "notnull": 1,
-          "dflt_value": null,
-          "pk": 0
-        },
-        {
-          "cid": 3,
-          "name": "odometer_miles",
-          "type": "INTEGER",
-          "notnull": 1,
-          "dflt_value": null,
-          "pk": 0
-        },
-        {
-          "cid": 4,
-          "name": "mot_centre_ref",
-          "type": "TEXT",
-          "notnull": 1,
-          "dflt_value": null,
-          "pk": 0
-        }
-      ],
-      "foreign_keys": [
-        {
-          "id": 0,
-          "seq": 0,
-          "table": "vehicles",
-          "from": "vehicle_id",
-          "to": "vehicle_id",
-          "on_update": "NO ACTION",
-          "on_delete": "NO ACTION",
-          "match": "NONE"
-        }
-      ],
-      "unique_indexes": {
-        "sqlite_autoindex_mot_inspections_1": [
-          {
-            "seqno": 0,
-            "cid": 1,
-            "name": "vehicle_id"
-          },
-          {
-            "seqno": 1,
-            "cid": 2,
-            "name": "inspection_date"
-          }
-        ]
-      },
-      "rows": 10
-    },
-    "payments": {
-      "columns": [
-        {
-          "cid": 0,
-          "name": "payment_id",
-          "type": "INTEGER",
-          "notnull": 0,
-          "dflt_value": null,
-          "pk": 1
-        },
-        {
-          "cid": 1,
-          "name": "declaration_id",
-          "type": "INTEGER",
-          "notnull": 1,
-          "dflt_value": null,
-          "pk": 0
-        },
-        {
-          "cid": 2,
-          "name": "payment_type",
-          "type": "TEXT",
-          "notnull": 1,
-          "dflt_value": null,
-          "pk": 0
-        },
-        {
-          "cid": 3,
-          "name": "amount_pence",
-          "type": "INTEGER",
-          "notnull": 1,
-          "dflt_value": null,
-          "pk": 0
-        },
-        {
-          "cid": 4,
-          "name": "paid_at",
-          "type": "TEXT",
-          "notnull": 1,
-          "dflt_value": null,
-          "pk": 0
-        }
-      ],
-      "foreign_keys": [
-        {
-          "id": 0,
-          "seq": 0,
-          "table": "declarations",
-          "from": "declaration_id",
-          "to": "declaration_id",
-          "on_update": "NO ACTION",
-          "on_delete": "NO ACTION",
-          "match": "NONE"
-        }
-      ],
-      "unique_indexes": {},
-      "rows": 8
-    },
-    "tax_assessments": {
-      "columns": [
-        {
-          "cid": 0,
-          "name": "assessment_id",
-          "type": "INTEGER",
-          "notnull": 0,
-          "dflt_value": null,
-          "pk": 1
-        },
-        {
-          "cid": 1,
-          "name": "declaration_id",
-          "type": "INTEGER",
-          "notnull": 1,
-          "dflt_value": null,
-          "pk": 0
-        },
-        {
-          "cid": 2,
-          "name": "opening_inspection_id",
-          "type": "INTEGER",
-          "notnull": 1,
-          "dflt_value": null,
-          "pk": 0
-        },
-        {
-          "cid": 3,
-          "name": "closing_inspection_id",
-          "type": "INTEGER",
-          "notnull": 1,
-          "dflt_value": null,
-          "pk": 0
-        },
-        {
-          "cid": 4,
-          "name": "assessed_at",
-          "type": "TEXT",
-          "notnull": 1,
-          "dflt_value": null,
-          "pk": 0
-        },
-        {
-          "cid": 5,
-          "name": "final_tax_pence",
-          "type": "INTEGER",
-          "notnull": 1,
-          "dflt_value": null,
-          "pk": 0
-        }
-      ],
-      "foreign_keys": [
-        {
-          "id": 0,
-          "seq": 0,
-          "table": "mot_inspections",
-          "from": "closing_inspection_id",
-          "to": "inspection_id",
-          "on_update": "NO ACTION",
-          "on_delete": "NO ACTION",
-          "match": "NONE"
-        },
-        {
-          "id": 1,
-          "seq": 0,
-          "table": "mot_inspections",
-          "from": "opening_inspection_id",
-          "to": "inspection_id",
-          "on_update": "NO ACTION",
-          "on_delete": "NO ACTION",
-          "match": "NONE"
-        },
-        {
-          "id": 2,
-          "seq": 0,
-          "table": "declarations",
-          "from": "declaration_id",
-          "to": "declaration_id",
-          "on_update": "NO ACTION",
-          "on_delete": "NO ACTION",
-          "match": "NONE"
-        }
-      ],
-      "unique_indexes": {
-        "sqlite_autoindex_tax_assessments_3": [
-          {
-            "seqno": 0,
-            "cid": 3,
-            "name": "closing_inspection_id"
-          }
-        ],
-        "sqlite_autoindex_tax_assessments_2": [
-          {
-            "seqno": 0,
-            "cid": 2,
-            "name": "opening_inspection_id"
-          }
-        ],
-        "sqlite_autoindex_tax_assessments_1": [
-          {
-            "seqno": 0,
-            "cid": 1,
-            "name": "declaration_id"
-          }
-        ]
-      },
-      "rows": 5
-    },
-    "vehicle_owners": {
-      "columns": [
-        {
-          "cid": 0,
-          "name": "owner_id",
-          "type": "INTEGER",
-          "notnull": 0,
-          "dflt_value": null,
-          "pk": 1
-        },
-        {
-          "cid": 1,
-          "name": "full_name",
-          "type": "TEXT",
-          "notnull": 1,
-          "dflt_value": null,
-          "pk": 0
-        },
-        {
-          "cid": 2,
-          "name": "postal_address",
-          "type": "TEXT",
-          "notnull": 1,
-          "dflt_value": null,
-          "pk": 0
-        }
-      ],
-      "foreign_keys": [],
-      "unique_indexes": {},
-      "rows": 5
-    },
-    "vehicles": {
-      "columns": [
-        {
-          "cid": 0,
-          "name": "vehicle_id",
-          "type": "INTEGER",
-          "notnull": 0,
-          "dflt_value": null,
-          "pk": 1
-        },
-        {
-          "cid": 1,
-          "name": "owner_id",
-          "type": "INTEGER",
-          "notnull": 1,
-          "dflt_value": null,
-          "pk": 0
-        },
-        {
-          "cid": 2,
-          "name": "registration_number",
-          "type": "TEXT",
-          "notnull": 1,
-          "dflt_value": null,
-          "pk": 0
-        },
-        {
-          "cid": 3,
-          "name": "vehicle_type",
-          "type": "TEXT",
-          "notnull": 1,
-          "dflt_value": null,
-          "pk": 0
-        }
-      ],
-      "foreign_keys": [
-        {
-          "id": 0,
-          "seq": 0,
-          "table": "vehicle_owners",
-          "from": "owner_id",
-          "to": "owner_id",
-          "on_update": "NO ACTION",
-          "on_delete": "NO ACTION",
-          "match": "NONE"
-        }
-      ],
-      "unique_indexes": {
-        "sqlite_autoindex_vehicles_1": [
-          {
-            "seqno": 0,
-            "cid": 2,
-            "name": "registration_number"
-          }
-        ]
-      },
-      "rows": 5
-    }
+  "counts": {
+    "vehicle_owners": 5,
+    "vehicles": 4,
+    "vehicle_types": 2,
+    "ownership_periods": 5,
+    "tax_cases": 5,
+    "payments": 8,
+    "payment_allocations": 8,
+    "tax_years": 1,
+    "tax_rates": 2,
+    "declarations": 5,
+    "mot_centres": 4,
+    "odometer_readings": 9,
+    "tax_assessments": 5
   },
-  "analyses": {
-    "expected_revenue": [
-      {
-        "period_start_year": "2028",
-        "vehicle_type": "BEV",
-        "number_of_vehicles": 3,
-        "total_declared_miles": 30000,
-        "expected_revenue_gbp": 900.0
-      },
-      {
-        "period_start_year": "2028",
-        "vehicle_type": "PHEV",
-        "number_of_vehicles": 2,
-        "total_declared_miles": 18000,
-        "expected_revenue_gbp": 270.0
-      }
-    ],
-    "additional_tax": [
-      {
-        "period_start_year": "2028",
-        "assessed_declarations": 5,
-        "additional_payment_cases": 3,
-        "refund_cases": 1,
-        "additional_tax_gbp": 120.0,
-        "refunds_gbp": 60.0
-      }
-    ]
-  },
+  "foreign_keys": 21,
   "cases": [
-    {
-      "declaration_id": 1,
-      "vehicle_type": "BEV",
-      "vehicle_id": 1,
-      "liable_owner_id": 1,
-      "current_owner_id": 1,
-      "assessed_at": "2029-04-02T09:00:00Z",
-      "period_start": "2028-04-01",
-      "period_end": "2029-04-01",
-      "estimated_miles": 10000,
-      "advance_due_pence": 30000,
-      "opening_id": 1,
-      "closing_id": 2,
-      "opening_vehicle": 1,
-      "closing_vehicle": 1,
-      "opening_date": "2028-04-01",
-      "closing_date": "2029-04-01",
-      "opening_miles": 20000,
-      "closing_miles": 32000,
-      "actual_miles": 12000,
-      "final_tax_pence": 36000,
-      "advance_paid": 30000,
-      "extra_paid": 6000,
-      "refund_paid": 0,
-      "net_cash": 36000,
-      "remaining_balance": 0
-    },
-    {
-      "declaration_id": 2,
-      "vehicle_type": "BEV",
-      "vehicle_id": 2,
-      "liable_owner_id": 2,
-      "current_owner_id": 2,
-      "assessed_at": "2029-04-02T09:00:00Z",
-      "period_start": "2028-04-01",
-      "period_end": "2029-04-01",
-      "estimated_miles": 10000,
-      "advance_due_pence": 30000,
-      "opening_id": 3,
-      "closing_id": 4,
-      "opening_vehicle": 2,
-      "closing_vehicle": 2,
-      "opening_date": "2028-04-01",
-      "closing_date": "2029-04-01",
-      "opening_miles": 40000,
-      "closing_miles": 48000,
-      "actual_miles": 8000,
-      "final_tax_pence": 24000,
-      "advance_paid": 30000,
-      "extra_paid": 0,
-      "refund_paid": 6000,
-      "net_cash": 24000,
-      "remaining_balance": 0
-    },
-    {
-      "declaration_id": 3,
-      "vehicle_type": "BEV",
-      "vehicle_id": 3,
-      "liable_owner_id": 3,
-      "current_owner_id": 3,
-      "assessed_at": "2029-04-02T09:00:00Z",
-      "period_start": "2028-04-01",
-      "period_end": "2029-04-01",
-      "estimated_miles": 10000,
-      "advance_due_pence": 30000,
-      "opening_id": 5,
-      "closing_id": 6,
-      "opening_vehicle": 3,
-      "closing_vehicle": 3,
-      "opening_date": "2028-04-01",
-      "closing_date": "2029-04-01",
-      "opening_miles": 15000,
-      "closing_miles": 25000,
-      "actual_miles": 10000,
-      "final_tax_pence": 30000,
-      "advance_paid": 30000,
-      "extra_paid": 0,
-      "refund_paid": 0,
-      "net_cash": 30000,
-      "remaining_balance": 0
-    },
-    {
-      "declaration_id": 4,
-      "vehicle_type": "PHEV",
-      "vehicle_id": 4,
-      "liable_owner_id": 4,
-      "current_owner_id": 4,
-      "assessed_at": "2029-04-02T09:00:00Z",
-      "period_start": "2028-04-01",
-      "period_end": "2029-04-01",
-      "estimated_miles": 8000,
-      "advance_due_pence": 12000,
-      "opening_id": 7,
-      "closing_id": 8,
-      "opening_vehicle": 4,
-      "closing_vehicle": 4,
-      "opening_date": "2028-04-01",
-      "closing_date": "2029-04-01",
-      "opening_miles": 30000,
-      "closing_miles": 40000,
-      "actual_miles": 10000,
-      "final_tax_pence": 15000,
-      "advance_paid": 12000,
-      "extra_paid": 3000,
-      "refund_paid": 0,
-      "net_cash": 15000,
-      "remaining_balance": 0
-    },
-    {
-      "declaration_id": 5,
-      "vehicle_type": "PHEV",
-      "vehicle_id": 5,
-      "liable_owner_id": 5,
-      "current_owner_id": 5,
-      "assessed_at": "2029-04-02T09:00:00Z",
-      "period_start": "2028-04-01",
-      "period_end": "2029-04-01",
-      "estimated_miles": 10000,
-      "advance_due_pence": 15000,
-      "opening_id": 9,
-      "closing_id": 10,
-      "opening_vehicle": 5,
-      "closing_vehicle": 5,
-      "opening_date": "2028-04-01",
-      "closing_date": "2029-04-01",
-      "opening_miles": 10000,
-      "closing_miles": 22000,
-      "actual_miles": 12000,
-      "final_tax_pence": 18000,
-      "advance_paid": 15000,
-      "extra_paid": 0,
-      "refund_paid": 0,
-      "net_cash": 15000,
-      "remaining_balance": 3000
-    }
+    [
+      1,
+      "Alice Example",
+      1,
+      "2028-04-01T00:00:00Z",
+      "2029-01-01T00:00:00Z",
+      "2029-04-01T00:00:00Z",
+      10000,
+      30000,
+      20000,
+      26000,
+      18000
+    ],
+    [
+      2,
+      "Ben Example",
+      1,
+      "2029-01-01T00:00:00Z",
+      "2029-04-01T00:00:00Z",
+      "2029-04-01T00:00:00Z",
+      5000,
+      15000,
+      26000,
+      32000,
+      18000
+    ],
+    [
+      3,
+      "Clara Example",
+      2,
+      "2028-04-01T00:00:00Z",
+      "2029-04-01T00:00:00Z",
+      "2029-04-01T00:00:00Z",
+      10000,
+      30000,
+      15000,
+      25000,
+      30000
+    ],
+    [
+      4,
+      "Daniel Example",
+      3,
+      "2028-04-01T00:00:00Z",
+      "2029-04-01T00:00:00Z",
+      "2029-04-01T00:00:00Z",
+      8000,
+      12000,
+      30000,
+      40000,
+      15000
+    ],
+    [
+      5,
+      "Emma Example",
+      4,
+      "2028-04-01T00:00:00Z",
+      "2029-04-01T00:00:00Z",
+      "2029-04-01T00:00:00Z",
+      10000,
+      15000,
+      10000,
+      22000,
+      18000
+    ]
   ],
-  "supplementary_outstanding": [
-    {
-      "declaration_id": 1,
-      "final_gbp": 360.0,
-      "net_cash_gbp": 360.0,
-      "remaining_gbp": 0.0
-    },
-    {
-      "declaration_id": 2,
-      "final_gbp": 240.0,
-      "net_cash_gbp": 240.0,
-      "remaining_gbp": 0.0
-    },
-    {
-      "declaration_id": 3,
-      "final_gbp": 300.0,
-      "net_cash_gbp": 300.0,
-      "remaining_gbp": 0.0
-    },
-    {
-      "declaration_id": 4,
-      "final_gbp": 150.0,
-      "net_cash_gbp": 150.0,
-      "remaining_gbp": 0.0
-    },
-    {
-      "declaration_id": 5,
-      "final_gbp": 180.0,
-      "net_cash_gbp": 150.0,
-      "remaining_gbp": 30.0
-    }
+  "january_forecast": [
+    [
+      "2028/29",
+      "BEV",
+      2,
+      21000,
+      630.0,
+      0
+    ],
+    [
+      "2028/29",
+      "PHEV",
+      2,
+      18000,
+      270.0,
+      0
+    ]
   ],
-  "totals_pence": {
-    "advance_due_pence": 117000,
-    "final_tax_pence": 123000,
-    "advance_paid": 117000,
-    "extra_paid": 9000,
-    "refund_paid": 6000,
-    "net_cash": 120000,
-    "remaining_balance": 3000,
-    "gross_additional_assessed": 12000,
-    "gross_refunds_assessed": 6000
-  },
-  "memory_replay_matches": true,
-  "registration_change_preserves_liable_owner_in_replay": true,
-  "business_rule_sample_checks": "passed; not schema-enforced guarantees"
+  "final_forecast": [
+    [
+      "2028/29",
+      "BEV",
+      2,
+      22000,
+      660.0,
+      0
+    ],
+    [
+      "2028/29",
+      "PHEV",
+      2,
+      22000,
+      330.0,
+      0
+    ]
+  ],
+  "adjustments": [
+    [
+      "2028/29",
+      5,
+      3,
+      1,
+      90.0,
+      120.0,
+      0
+    ]
+  ],
+  "cash_by_case": [
+    [
+      1,
+      180.0,
+      180.0,
+      0.0
+    ],
+    [
+      2,
+      180.0,
+      180.0,
+      0.0
+    ],
+    [
+      3,
+      300.0,
+      300.0,
+      0.0
+    ],
+    [
+      4,
+      150.0,
+      150.0,
+      0.0
+    ],
+    [
+      5,
+      180.0,
+      150.0,
+      30.0
+    ]
+  ],
+  "posted_payments": [
+    [
+      1,
+      1,
+      "TX-001",
+      "IN",
+      30000,
+      30000,
+      0
+    ],
+    [
+      2,
+      2,
+      "TX-002",
+      "IN",
+      15000,
+      15000,
+      0
+    ],
+    [
+      3,
+      3,
+      "TX-003",
+      "IN",
+      30000,
+      30000,
+      0
+    ],
+    [
+      4,
+      4,
+      "TX-004",
+      "IN",
+      12000,
+      12000,
+      0
+    ],
+    [
+      5,
+      5,
+      "TX-005",
+      "IN",
+      15000,
+      15000,
+      0
+    ],
+    [
+      6,
+      1,
+      "TX-006",
+      "OUT",
+      12000,
+      12000,
+      0
+    ],
+    [
+      7,
+      2,
+      "TX-007",
+      "IN",
+      3000,
+      3000,
+      0
+    ],
+    [
+      8,
+      4,
+      "TX-008",
+      "IN",
+      3000,
+      3000,
+      0
+    ]
+  ],
+  "integrity": "ok",
+  "foreign_key_errors": 0
 }

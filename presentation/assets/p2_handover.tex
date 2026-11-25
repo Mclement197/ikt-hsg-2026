@@ -1,0 +1,20 @@
+\begin{tikzpicture}[function/.append style={text width=2.65cm},event/.append style={text width=2.55cm}]
+\node[event] (a) at (0,0) {Transfer notified};
+\node[function] (b) at (3.5,0) {Verify registration, date and reading\\{\scriptsize [Authority + centre]}};
+\node[xor] (x) at (5.7,0) {XOR};
+\node[event] (bad) at (8,0) {Evidence conflicting or incomplete};
+\node[function] (fix) at (11.6,0) {Request correction\\{\scriptsize [Case officer]}};
+\node[event] (wait) at (11.6,-1.4) {Review pending};
+\node[event] (ok) at (5.7,-1.4) {Handover verified};
+\node[function] (close) at (5.7,-2.65) {Close seller period; update registration};
+\node[xor] (both) at (5.7,-3.6) {AND};
+\node[event] (s) at (2,-4.3) {Seller boundary ready};
+\node[event] (i) at (9.5,-4.3) {Buyer period open};
+\node[function,double] (settle) at (2,-5.35) {P2: assess seller (A4)};
+\node[function,double] (declare) at (9.5,-5.35) {P1: declare remainder (A2)};
+\foreach \s/\t in {a/b,b/x,x/bad,bad/fix,fix/wait,x/ok,ok/close,close/both,s/settle,i/declare} \draw[flow] (\s)--(\t);
+\draw[flow] (both.west)-|(s.north);
+\draw[flow] (both.east)-|(i.north);
+\node[role,text width=2.9cm] (data) at (0,-1.45) {Seller and buyer IDs, dated centre evidence, DVLA reference};
+\draw[dashed,draw=muted] (data)--(b);
+\end{tikzpicture}

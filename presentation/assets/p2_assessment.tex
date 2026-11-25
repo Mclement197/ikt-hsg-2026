@@ -1,6 +1,6 @@
 \begin{tikzpicture}[function/.append style={text width=2.5cm},event/.append style={text width=2.35cm}]
-\node[event] (a) at (0,0) {Billing period\\ended};
-\node[function] (b) at (3.1,0) {Record verified\\closing reading\\{\scriptsize [MOT centre]}};
+\node[event] (a) at (0,0) {Annual or seller\\boundary reached};
+\node[function] (b) at (3.1,0) {Record verified\\closing reading\\{\scriptsize [Verified centre]}};
 \node[event] (c) at (6.2,0) {Closing reading\\available};
 \node[function] (d) at (9.3,0) {Validate both\\boundary readings\\{\scriptsize [Authority]}};
 \node[event] (e) at (12.4,0) {Reading pair\\accepted};
@@ -14,5 +14,5 @@
 \foreach \s/\t in {a/b,b/c,c/d,d/e,e/f,f/g,g/h,h/x,x/j} \draw[flow] (\s)--(\t);
 \draw[flow] (x.west)-|(i.north);
 \draw[flow] (x.east)-|(k.north);
-\node[role,text width=4cm,anchor=west] at (-1,-1.8) {Opening reading is already recorded at period start. Valid, same-vehicle, non-decreasing readings are the in-scope path.};
+\node[role,text width=4cm,anchor=west] at (-1,-1.8) {At transfer, use the accepted centre evidence (A24). Valid, same-vehicle, non-decreasing readings are the in-scope path.};
 \end{tikzpicture}
