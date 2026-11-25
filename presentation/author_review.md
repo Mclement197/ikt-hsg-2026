@@ -10,9 +10,9 @@
 
 ## Final-submission steps
 
-- Review and approve the English substance, including the three personal statements above; update the corresponding slides, notes and requirements checklist.
+- Trace the 20,000 → 26,000 → 32,000 handover and confirm the two separate settlements. Review and approve the English substance, including the three personal statements above; update the corresponding slides, notes and requirements checklist.
 - After approval, translate the LaTeX explanations, diagram labels and speaker notes into German. Keep source titles and SQL identifiers accurate. Align translated notes headings with the new slide titles.
-- Re-export the PowerPoint from source (see [README](../README.md)), keeping all 19 main slides and 23 appendices. Inspect the translated diagrams, code and layout. Save the German recording as a separate file.
+- Re-export the PowerPoint from source (see [README](../README.md)), keeping all 19 main slides and 24 appendices. Inspect the translated diagrams, code and layout. Save the German recording as a separate file.
 - Record narration in **your own spoken voice**. Generated speech is prohibited. Rehearse and check the final German recording is **no longer than 15 minutes**; leave the appendix unnarrated unless needed within that limit.
 - Complete the separate **HSG AI-use declaration** using the official instructions. Include earlier AI-assisted work, English presentation preparation and this post-meeting revision/export. The reflection slides supplement, not replace, the declaration.
 - Upload the developed **SQLite database separately** together with the required presentation/declaration material. The database for this project is `database/electromobility.db`.

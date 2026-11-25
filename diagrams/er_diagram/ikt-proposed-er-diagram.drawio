@@ -1,0 +1,1135 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" type="device" compressed="false">
+  <diagram id="ev-tax-er" name="EV tax ER diagram">
+    <mxGraphModel dx="2200" dy="1980" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2200" pageHeight="1980" math="0" shadow="0" background="#FFFFFF">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="top_accent" value="" style="rounded=0;absoluteArcSize=1;arcSize=0;whiteSpace=wrap;html=0;fillColor=#08766C;strokeColor=none;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="2200" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="eyebrow" value="IKT  /  CASE A  /  PROPOSED SQLITE MODEL" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=15;fontColor=#08766C;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="43" width="850" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="title" value="Electric vehicle tax" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=39;fontColor=#172E4D;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="80" width="1000" height="47" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" value="Entity–relationship diagram" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=25;fontColor=#637A9B;fontStyle=0;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="130" width="1000" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="table_count" value="13 TABLES" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=17;fontColor=#172E4D;fontStyle=1;align=right;verticalAlign=middle;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="1640" y="48" width="480" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="link_count" value="18 cross-table links + 3 revision links" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=14;fontColor=#637A9B;fontStyle=0;align=right;verticalAlign=middle;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="1570" y="80" width="550" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="proposal_caption" value="Based on the proposed expanded structure" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=13;fontColor=#637A9B;fontStyle=0;align=right;verticalAlign=middle;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="1570" y="108" width="550" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_swatch_Ownership" value="" style="rounded=1;absoluteArcSize=1;arcSize=3;whiteSpace=wrap;html=0;fillColor=#08766C;strokeColor=none;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="184" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_label_Ownership" value="Ownership" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=14;fontColor=#637A9B;fontStyle=0;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="102" y="177" width="145" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_swatch_Tax" value="" style="rounded=1;absoluteArcSize=1;arcSize=3;whiteSpace=wrap;html=0;fillColor=#315BBA;strokeColor=none;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="184" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_label_Tax" value="Tax" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=14;fontColor=#637A9B;fontStyle=0;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="282" y="177" width="145" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_swatch_Evidence" value="" style="rounded=1;absoluteArcSize=1;arcSize=3;whiteSpace=wrap;html=0;fillColor=#A5660D;strokeColor=none;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="184" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_label_Evidence" value="Evidence" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=14;fontColor=#637A9B;fontStyle=0;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="462" y="177" width="145" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_swatch_Cash" value="" style="rounded=1;absoluteArcSize=1;arcSize=3;whiteSpace=wrap;html=0;fillColor=#7544A7;strokeColor=none;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="184" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_label_Cash" value="Cash" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=14;fontColor=#637A9B;fontStyle=0;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="642" y="177" width="145" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="header_rule" value="" style="rounded=0;absoluteArcSize=1;arcSize=0;whiteSpace=wrap;html=0;fillColor=#D6E1EF;strokeColor=none;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="218" width="2040" height="1" as="geometry" />
+        </mxCell>
+        <object id="table_vehicle_owners" label="" kind="table" entity="vehicle_owners" group="Ownership" tooltip="Identifies the liable person. Keep names and contact details here, not repeated in every declaration.&#10;One person can have several ownership periods.&#10;Current contact details are not historical address evidence. Add notice-address snapshots only if notices enter scope.">
+          <mxCell style="rounded=1;absoluteArcSize=1;arcSize=11;html=0;fillColor=#FFFFFF;strokeColor=#D6E1EF;strokeWidth=1;shadow=1;container=1;collapsible=0;recursiveResize=0;connectable=0;" vertex="1" parent="1">
+            <mxGeometry x="80" y="250" width="320" height="150" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="head_vehicle_owners" value="" style="rounded=1;absoluteArcSize=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#08766C;strokeColor=none;strokeWidth=1;" vertex="1" parent="table_vehicle_owners">
+          <mxGeometry x="0" y="0" width="320" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="head_square_vehicle_owners" value="" style="rounded=0;absoluteArcSize=1;arcSize=0;whiteSpace=wrap;html=0;fillColor=#08766C;strokeColor=none;strokeWidth=1;" vertex="1" parent="table_vehicle_owners">
+          <mxGeometry x="0" y="30" width="320" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="name_vehicle_owners" value="vehicle_owners" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=20;fontColor=#FFFFFF;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="table_vehicle_owners">
+          <mxGeometry x="16" y="8" width="292" height="38" as="geometry" />
+        </mxCell>
+        <object id="field_vehicle_owners_owner_id" label="owner_id" kind="field" entity="vehicle_owners" column="owner_id" key="PK" nullable="false" source_spec="owner_id PK">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_vehicle_owners">
+            <mxGeometry x="0" y="54" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="key_vehicle_owners_owner_id" value="PK" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11;fontColor=#A76A00;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="field_vehicle_owners_owner_id">
+          <mxGeometry x="12" y="0" width="38" height="28" as="geometry" />
+        </mxCell>
+        <object id="field_vehicle_owners_full_name" label="full_name" kind="field" entity="vehicle_owners" column="full_name" key="" nullable="false" source_spec="full_name">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#F8FAFD;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_vehicle_owners">
+            <mxGeometry x="0" y="82" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="field_vehicle_owners_postal_address" label="postal_address" kind="field" entity="vehicle_owners" column="postal_address" key="" nullable="false" source_spec="postal_address">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_vehicle_owners">
+            <mxGeometry x="0" y="110" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="table_vehicles" label="" kind="table" entity="vehicles" group="Ownership" tooltip="Identifies the vehicle independently of whoever owns it.&#10;Current owner is derived from ownership_periods.&#10;Registration and vehicle classification are assumed stable within the demo.">
+          <mxCell style="rounded=1;absoluteArcSize=1;arcSize=11;html=0;fillColor=#FFFFFF;strokeColor=#D6E1EF;strokeWidth=1;shadow=1;container=1;collapsible=0;recursiveResize=0;connectable=0;" vertex="1" parent="1">
+            <mxGeometry x="80" y="660" width="320" height="150" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="head_vehicles" value="" style="rounded=1;absoluteArcSize=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#08766C;strokeColor=none;strokeWidth=1;" vertex="1" parent="table_vehicles">
+          <mxGeometry x="0" y="0" width="320" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="head_square_vehicles" value="" style="rounded=0;absoluteArcSize=1;arcSize=0;whiteSpace=wrap;html=0;fillColor=#08766C;strokeColor=none;strokeWidth=1;" vertex="1" parent="table_vehicles">
+          <mxGeometry x="0" y="30" width="320" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="name_vehicles" value="vehicles" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=20;fontColor=#FFFFFF;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="table_vehicles">
+          <mxGeometry x="16" y="8" width="292" height="38" as="geometry" />
+        </mxCell>
+        <object id="field_vehicles_vehicle_id" label="vehicle_id" kind="field" entity="vehicles" column="vehicle_id" key="PK" nullable="false" source_spec="vehicle_id PK">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_vehicles">
+            <mxGeometry x="0" y="54" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="key_vehicles_vehicle_id" value="PK" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11;fontColor=#A76A00;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="field_vehicles_vehicle_id">
+          <mxGeometry x="12" y="0" width="38" height="28" as="geometry" />
+        </mxCell>
+        <object id="field_vehicles_registration_number" label="registration_number" kind="field" entity="vehicles" column="registration_number" key="UQ" nullable="false" source_spec="registration_number UNIQUE">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#F8FAFD;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_vehicles">
+            <mxGeometry x="0" y="82" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="key_vehicles_registration_number" value="UQ" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11;fontColor=#637A9B;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="field_vehicles_registration_number">
+          <mxGeometry x="12" y="0" width="38" height="28" as="geometry" />
+        </mxCell>
+        <object id="field_vehicles_vehicle_type_id" label="vehicle_type_id" kind="field" entity="vehicles" column="vehicle_type_id" key="FK" nullable="false" source_spec="vehicle_type_id FK">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_vehicles">
+            <mxGeometry x="0" y="110" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="key_vehicles_vehicle_type_id" value="FK" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11;fontColor=#315BBA;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="field_vehicles_vehicle_type_id">
+          <mxGeometry x="12" y="0" width="38" height="28" as="geometry" />
+        </mxCell>
+        <object id="table_vehicle_types" label="" kind="table" entity="vehicle_types" group="Ownership" tooltip="Defines the supported BEV and PHEV categories.&#10;Permitted codes are BEV and PHEV.&#10;A CHECK on vehicles is a smaller alternative if there are no classification attributes.">
+          <mxCell style="rounded=1;absoluteArcSize=1;arcSize=11;html=0;fillColor=#FFFFFF;strokeColor=#D6E1EF;strokeWidth=1;shadow=1;container=1;collapsible=0;recursiveResize=0;connectable=0;" vertex="1" parent="1">
+            <mxGeometry x="80" y="1070" width="320" height="150" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="head_vehicle_types" value="" style="rounded=1;absoluteArcSize=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#08766C;strokeColor=none;strokeWidth=1;" vertex="1" parent="table_vehicle_types">
+          <mxGeometry x="0" y="0" width="320" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="head_square_vehicle_types" value="" style="rounded=0;absoluteArcSize=1;arcSize=0;whiteSpace=wrap;html=0;fillColor=#08766C;strokeColor=none;strokeWidth=1;" vertex="1" parent="table_vehicle_types">
+          <mxGeometry x="0" y="30" width="320" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="name_vehicle_types" value="vehicle_types" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=20;fontColor=#FFFFFF;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="table_vehicle_types">
+          <mxGeometry x="16" y="8" width="292" height="38" as="geometry" />
+        </mxCell>
+        <object id="field_vehicle_types_vehicle_type_id" label="vehicle_type_id" kind="field" entity="vehicle_types" column="vehicle_type_id" key="PK" nullable="false" source_spec="vehicle_type_id PK">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_vehicle_types">
+            <mxGeometry x="0" y="54" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="key_vehicle_types_vehicle_type_id" value="PK" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11;fontColor=#A76A00;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="field_vehicle_types_vehicle_type_id">
+          <mxGeometry x="12" y="0" width="38" height="28" as="geometry" />
+        </mxCell>
+        <object id="field_vehicle_types_code" label="code" kind="field" entity="vehicle_types" column="code" key="UQ" nullable="false" source_spec="code UNIQUE">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#F8FAFD;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_vehicle_types">
+            <mxGeometry x="0" y="82" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="key_vehicle_types_code" value="UQ" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11;fontColor=#637A9B;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="field_vehicle_types_code">
+          <mxGeometry x="12" y="0" width="38" height="28" as="geometry" />
+        </mxCell>
+        <object id="field_vehicle_types_description" label="description" kind="field" entity="vehicle_types" column="description" key="" nullable="false" source_spec="description">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_vehicle_types">
+            <mxGeometry x="0" y="110" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="table_ownership_periods" label="" kind="table" entity="ownership_periods" group="Ownership" tooltip="Records which person is liable for a vehicle during a dated interval.&#10;Intervals are [start, end); NULL end means no end has yet been recorded.&#10;For each vehicle, periods cannot overlap.&#10;After an assessment is issued, its ownership identity and relevant boundaries cannot be silently rewritten.&#10;A later sale may close an open ownership period if all already-issued case intersections remain unchanged; do not freeze the entire multiyear ownership record.">
+          <mxCell style="rounded=1;absoluteArcSize=1;arcSize=11;html=0;fillColor=#FFFFFF;strokeColor=#D6E1EF;strokeWidth=1;shadow=1;container=1;collapsible=0;recursiveResize=0;connectable=0;" vertex="1" parent="1">
+            <mxGeometry x="600" y="250" width="320" height="246" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="head_ownership_periods" value="" style="rounded=1;absoluteArcSize=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#08766C;strokeColor=none;strokeWidth=1;" vertex="1" parent="table_ownership_periods">
+          <mxGeometry x="0" y="0" width="320" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="head_square_ownership_periods" value="" style="rounded=0;absoluteArcSize=1;arcSize=0;whiteSpace=wrap;html=0;fillColor=#08766C;strokeColor=none;strokeWidth=1;" vertex="1" parent="table_ownership_periods">
+          <mxGeometry x="0" y="30" width="320" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="name_ownership_periods" value="ownership_periods" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=20;fontColor=#FFFFFF;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="table_ownership_periods">
+          <mxGeometry x="16" y="8" width="292" height="38" as="geometry" />
+        </mxCell>
+        <object id="field_ownership_periods_ownership_id" label="ownership_id" kind="field" entity="ownership_periods" column="ownership_id" key="PK" nullable="false" source_spec="ownership_id PK">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_ownership_periods">
+            <mxGeometry x="0" y="54" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="key_ownership_periods_ownership_id" value="PK" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11;fontColor=#A76A00;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="field_ownership_periods_ownership_id">
+          <mxGeometry x="12" y="0" width="38" height="28" as="geometry" />
+        </mxCell>
+        <object id="field_ownership_periods_vehicle_id" label="vehicle_id" kind="field" entity="ownership_periods" column="vehicle_id" key="FK" nullable="false" source_spec="vehicle_id FK">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#F8FAFD;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_ownership_periods">
+            <mxGeometry x="0" y="82" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="key_ownership_periods_vehicle_id" value="FK" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11;fontColor=#315BBA;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="field_ownership_periods_vehicle_id">
+          <mxGeometry x="12" y="0" width="38" height="28" as="geometry" />
+        </mxCell>
+        <object id="field_ownership_periods_owner_id" label="owner_id" kind="field" entity="ownership_periods" column="owner_id" key="FK" nullable="false" source_spec="owner_id FK">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_ownership_periods">
+            <mxGeometry x="0" y="110" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="key_ownership_periods_owner_id" value="FK" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11;fontColor=#315BBA;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="field_ownership_periods_owner_id">
+          <mxGeometry x="12" y="0" width="38" height="28" as="geometry" />
+        </mxCell>
+        <object id="field_ownership_periods_valid_from_at" label="valid_from_at" kind="field" entity="ownership_periods" column="valid_from_at" key="" nullable="false" source_spec="valid_from_at">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#F8FAFD;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_ownership_periods">
+            <mxGeometry x="0" y="138" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="field_ownership_periods_valid_to_at" label="valid_to_at ?" kind="field" entity="ownership_periods" column="valid_to_at" key="" nullable="true" source_spec="valid_to_at NULL">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_ownership_periods">
+            <mxGeometry x="0" y="166" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="note_bg_ownership_periods" value="" style="rounded=0;absoluteArcSize=1;arcSize=0;whiteSpace=wrap;html=0;fillColor=#E9F6F3;strokeColor=none;strokeWidth=1;" vertex="1" parent="table_ownership_periods">
+          <mxGeometry x="1" y="206" width="318" height="39" as="geometry" />
+        </mxCell>
+        <mxCell id="note_ownership_periods" value="No overlapping periods per vehicle" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11.5;fontColor=#08766C;fontStyle=0;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="table_ownership_periods">
+          <mxGeometry x="12" y="209" width="296" height="31" as="geometry" />
+        </mxCell>
+        <object id="table_tax_cases" label="" kind="table" entity="tax_cases" group="Tax" tooltip="Provides a stable account for one ownership period within one tax year.&#10;UNIQUE(ownership_id, tax_year_id).&#10;Effective bounds are the non-empty intersection of ownership and tax-year bounds.&#10;Owner and vehicle come through ownership_id, not duplicate independent columns.&#10;A case can have an ended mileage period and still have an unpaid balance.">
+          <mxCell style="rounded=1;absoluteArcSize=1;arcSize=11;html=0;fillColor=#FFFFFF;strokeColor=#D6E1EF;strokeWidth=1;shadow=1;container=1;collapsible=0;recursiveResize=0;connectable=0;" vertex="1" parent="1">
+            <mxGeometry x="600" y="660" width="320" height="218" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="head_tax_cases" value="" style="rounded=1;absoluteArcSize=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#315BBA;strokeColor=none;strokeWidth=1;" vertex="1" parent="table_tax_cases">
+          <mxGeometry x="0" y="0" width="320" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="head_square_tax_cases" value="" style="rounded=0;absoluteArcSize=1;arcSize=0;whiteSpace=wrap;html=0;fillColor=#315BBA;strokeColor=none;strokeWidth=1;" vertex="1" parent="table_tax_cases">
+          <mxGeometry x="0" y="30" width="320" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="name_tax_cases" value="tax_cases" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=20;fontColor=#FFFFFF;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="table_tax_cases">
+          <mxGeometry x="16" y="8" width="292" height="38" as="geometry" />
+        </mxCell>
+        <object id="field_tax_cases_case_id" label="case_id" kind="field" entity="tax_cases" column="case_id" key="PK" nullable="false" source_spec="case_id PK">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_tax_cases">
+            <mxGeometry x="0" y="54" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="key_tax_cases_case_id" value="PK" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11;fontColor=#A76A00;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="field_tax_cases_case_id">
+          <mxGeometry x="12" y="0" width="38" height="28" as="geometry" />
+        </mxCell>
+        <object id="field_tax_cases_ownership_id" label="ownership_id" kind="field" entity="tax_cases" column="ownership_id" key="FK" nullable="false" source_spec="ownership_id FK">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#F8FAFD;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_tax_cases">
+            <mxGeometry x="0" y="82" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="key_tax_cases_ownership_id" value="FK" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11;fontColor=#315BBA;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="field_tax_cases_ownership_id">
+          <mxGeometry x="12" y="0" width="38" height="28" as="geometry" />
+        </mxCell>
+        <object id="field_tax_cases_tax_year_id" label="tax_year_id" kind="field" entity="tax_cases" column="tax_year_id" key="FK" nullable="false" source_spec="tax_year_id FK">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_tax_cases">
+            <mxGeometry x="0" y="110" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="key_tax_cases_tax_year_id" value="FK" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11;fontColor=#315BBA;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="field_tax_cases_tax_year_id">
+          <mxGeometry x="12" y="0" width="38" height="28" as="geometry" />
+        </mxCell>
+        <object id="field_tax_cases_created_at" label="created_at" kind="field" entity="tax_cases" column="created_at" key="" nullable="false" source_spec="created_at">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#F8FAFD;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_tax_cases">
+            <mxGeometry x="0" y="138" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="note_bg_tax_cases" value="" style="rounded=0;absoluteArcSize=1;arcSize=0;whiteSpace=wrap;html=0;fillColor=#EDF2FE;strokeColor=none;strokeWidth=1;" vertex="1" parent="table_tax_cases">
+          <mxGeometry x="1" y="178" width="318" height="39" as="geometry" />
+        </mxCell>
+        <mxCell id="note_tax_cases" value="UQ: ownership period + tax year" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11.5;fontColor=#315BBA;fontStyle=0;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="table_tax_cases">
+          <mxGeometry x="12" y="181" width="296" height="31" as="geometry" />
+        </mxCell>
+        <object id="table_payments" label="" kind="table" entity="payments" group="Cash" tooltip="Records actual received money or an actual refund, independently of estimates and decisions.&#10;Direction: IN or OUT; amount_pence &gt; 0.&#10;UNIQUE(source_system, external_reference) prevents duplicate bank-event import.&#10;Record posted cash only. Pending refund authorisation is not cash.&#10;Posted cash is not deleted or edited. Actual refunds/chargebacks need separate bank evidence; clerical errors need an audited correction workflow outside the core demonstrator.">
+          <mxCell style="rounded=1;absoluteArcSize=1;arcSize=11;html=0;fillColor=#FFFFFF;strokeColor=#D6E1EF;strokeWidth=1;shadow=1;container=1;collapsible=0;recursiveResize=0;connectable=0;" vertex="1" parent="1">
+            <mxGeometry x="600" y="1070" width="320" height="302" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="head_payments" value="" style="rounded=1;absoluteArcSize=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#7544A7;strokeColor=none;strokeWidth=1;" vertex="1" parent="table_payments">
+          <mxGeometry x="0" y="0" width="320" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="head_square_payments" value="" style="rounded=0;absoluteArcSize=1;arcSize=0;whiteSpace=wrap;html=0;fillColor=#7544A7;strokeColor=none;strokeWidth=1;" vertex="1" parent="table_payments">
+          <mxGeometry x="0" y="30" width="320" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="name_payments" value="payments" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=20;fontColor=#FFFFFF;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="table_payments">
+          <mxGeometry x="16" y="8" width="292" height="38" as="geometry" />
+        </mxCell>
+        <object id="field_payments_payment_id" label="payment_id" kind="field" entity="payments" column="payment_id" key="PK" nullable="false" source_spec="payment_id PK">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_payments">
+            <mxGeometry x="0" y="54" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="key_payments_payment_id" value="PK" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11;fontColor=#A76A00;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="field_payments_payment_id">
+          <mxGeometry x="12" y="0" width="38" height="28" as="geometry" />
+        </mxCell>
+        <object id="field_payments_owner_id" label="owner_id" kind="field" entity="payments" column="owner_id" key="FK" nullable="false" source_spec="owner_id FK">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#F8FAFD;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_payments">
+            <mxGeometry x="0" y="82" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="key_payments_owner_id" value="FK" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11;fontColor=#315BBA;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="field_payments_owner_id">
+          <mxGeometry x="12" y="0" width="38" height="28" as="geometry" />
+        </mxCell>
+        <object id="field_payments_direction" label="direction" kind="field" entity="payments" column="direction" key="" nullable="false" source_spec="direction">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_payments">
+            <mxGeometry x="0" y="110" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="field_payments_amount_pence" label="amount_pence" kind="field" entity="payments" column="amount_pence" key="" nullable="false" source_spec="amount_pence">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#F8FAFD;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_payments">
+            <mxGeometry x="0" y="138" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="field_payments_paid_at" label="paid_at" kind="field" entity="payments" column="paid_at" key="" nullable="false" source_spec="paid_at">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_payments">
+            <mxGeometry x="0" y="166" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="field_payments_source_system" label="source_system" kind="field" entity="payments" column="source_system" key="" nullable="false" source_spec="source_system">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#F8FAFD;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_payments">
+            <mxGeometry x="0" y="194" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="field_payments_external_reference" label="external_reference" kind="field" entity="payments" column="external_reference" key="" nullable="false" source_spec="external_reference">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_payments">
+            <mxGeometry x="0" y="222" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="note_bg_payments" value="" style="rounded=0;absoluteArcSize=1;arcSize=0;whiteSpace=wrap;html=0;fillColor=#F3ECFA;strokeColor=none;strokeWidth=1;" vertex="1" parent="table_payments">
+          <mxGeometry x="1" y="262" width="318" height="39" as="geometry" />
+        </mxCell>
+        <mxCell id="note_payments" value="UQ: source + external reference" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11.5;fontColor=#7544A7;fontStyle=0;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="table_payments">
+          <mxGeometry x="12" y="265" width="296" height="31" as="geometry" />
+        </mxCell>
+        <object id="table_payment_allocations" label="" kind="table" entity="payment_allocations" group="Cash" tooltip="Assigns all or part of a bank transaction to one or more tax cases.&#10;Each allocation is an immutable additive event with its own ID and unique action reference; multiple allocations may link the same payment and case. allocated_pence &gt; 0.&#10;Sum of allocations cannot exceed the payment amount.&#10;An allocation must concern the payment owner's own cases under the proposed scope.&#10;Unallocated cash remains visible separately.&#10;A single transfer can cover several cases; each case can receive several instalments.">
+          <mxCell style="rounded=1;absoluteArcSize=1;arcSize=11;html=0;fillColor=#FFFFFF;strokeColor=#D6E1EF;strokeWidth=1;shadow=1;container=1;collapsible=0;recursiveResize=0;connectable=0;" vertex="1" parent="1">
+            <mxGeometry x="600" y="1530" width="320" height="246" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="head_payment_allocations" value="" style="rounded=1;absoluteArcSize=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#7544A7;strokeColor=none;strokeWidth=1;" vertex="1" parent="table_payment_allocations">
+          <mxGeometry x="0" y="0" width="320" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="head_square_payment_allocations" value="" style="rounded=0;absoluteArcSize=1;arcSize=0;whiteSpace=wrap;html=0;fillColor=#7544A7;strokeColor=none;strokeWidth=1;" vertex="1" parent="table_payment_allocations">
+          <mxGeometry x="0" y="30" width="320" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="name_payment_allocations" value="payment_allocations" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=20;fontColor=#FFFFFF;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="table_payment_allocations">
+          <mxGeometry x="16" y="8" width="292" height="38" as="geometry" />
+        </mxCell>
+        <object id="field_payment_allocations_allocation_id" label="allocation_id" kind="field" entity="payment_allocations" column="allocation_id" key="PK" nullable="false" source_spec="allocation_id PK">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_payment_allocations">
+            <mxGeometry x="0" y="54" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="key_payment_allocations_allocation_id" value="PK" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11;fontColor=#A76A00;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="field_payment_allocations_allocation_id">
+          <mxGeometry x="12" y="0" width="38" height="28" as="geometry" />
+        </mxCell>
+        <object id="field_payment_allocations_payment_id" label="payment_id" kind="field" entity="payment_allocations" column="payment_id" key="FK" nullable="false" source_spec="payment_id FK">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#F8FAFD;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_payment_allocations">
+            <mxGeometry x="0" y="82" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="key_payment_allocations_payment_id" value="FK" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11;fontColor=#315BBA;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="field_payment_allocations_payment_id">
+          <mxGeometry x="12" y="0" width="38" height="28" as="geometry" />
+        </mxCell>
+        <object id="field_payment_allocations_case_id" label="case_id" kind="field" entity="payment_allocations" column="case_id" key="FK" nullable="false" source_spec="case_id FK">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_payment_allocations">
+            <mxGeometry x="0" y="110" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="key_payment_allocations_case_id" value="FK" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11;fontColor=#315BBA;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="field_payment_allocations_case_id">
+          <mxGeometry x="12" y="0" width="38" height="28" as="geometry" />
+        </mxCell>
+        <object id="field_payment_allocations_allocated_pence" label="allocated_pence" kind="field" entity="payment_allocations" column="allocated_pence" key="" nullable="false" source_spec="allocated_pence">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#F8FAFD;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_payment_allocations">
+            <mxGeometry x="0" y="138" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="field_payment_allocations_allocation_reference" label="allocation_reference" kind="field" entity="payment_allocations" column="allocation_reference" key="UQ" nullable="false" source_spec="allocation_reference UNIQUE">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_payment_allocations">
+            <mxGeometry x="0" y="166" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="key_payment_allocations_allocation_reference" value="UQ" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11;fontColor=#637A9B;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="field_payment_allocations_allocation_reference">
+          <mxGeometry x="12" y="0" width="38" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="note_bg_payment_allocations" value="" style="rounded=0;absoluteArcSize=1;arcSize=0;whiteSpace=wrap;html=0;fillColor=#F3ECFA;strokeColor=none;strokeWidth=1;" vertex="1" parent="table_payment_allocations">
+          <mxGeometry x="1" y="206" width="318" height="39" as="geometry" />
+        </mxCell>
+        <mxCell id="note_payment_allocations" value="Repeated payment/case pairs allowed" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11.5;fontColor=#7544A7;fontStyle=0;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="table_payment_allocations">
+          <mxGeometry x="12" y="209" width="296" height="31" as="geometry" />
+        </mxCell>
+        <object id="table_tax_years" label="" kind="table" entity="tax_years" group="Tax" tooltip="Defines the billing year independently of calendar-year grouping.&#10;Year end is exclusive.&#10;Year intervals must be valid and non-overlapping.&#10;Protect year boundaries once cases or issued decisions depend on them; changes require a controlled correction/migration.">
+          <mxCell style="rounded=1;absoluteArcSize=1;arcSize=11;html=0;fillColor=#FFFFFF;strokeColor=#D6E1EF;strokeWidth=1;shadow=1;container=1;collapsible=0;recursiveResize=0;connectable=0;" vertex="1" parent="1">
+            <mxGeometry x="1120" y="250" width="320" height="178" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="head_tax_years" value="" style="rounded=1;absoluteArcSize=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#315BBA;strokeColor=none;strokeWidth=1;" vertex="1" parent="table_tax_years">
+          <mxGeometry x="0" y="0" width="320" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="head_square_tax_years" value="" style="rounded=0;absoluteArcSize=1;arcSize=0;whiteSpace=wrap;html=0;fillColor=#315BBA;strokeColor=none;strokeWidth=1;" vertex="1" parent="table_tax_years">
+          <mxGeometry x="0" y="30" width="320" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="name_tax_years" value="tax_years" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=20;fontColor=#FFFFFF;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="table_tax_years">
+          <mxGeometry x="16" y="8" width="292" height="38" as="geometry" />
+        </mxCell>
+        <object id="field_tax_years_tax_year_id" label="tax_year_id" kind="field" entity="tax_years" column="tax_year_id" key="PK" nullable="false" source_spec="tax_year_id PK">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_tax_years">
+            <mxGeometry x="0" y="54" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="key_tax_years_tax_year_id" value="PK" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11;fontColor=#A76A00;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="field_tax_years_tax_year_id">
+          <mxGeometry x="12" y="0" width="38" height="28" as="geometry" />
+        </mxCell>
+        <object id="field_tax_years_label" label="label" kind="field" entity="tax_years" column="label" key="UQ" nullable="false" source_spec="label UNIQUE">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#F8FAFD;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_tax_years">
+            <mxGeometry x="0" y="82" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="key_tax_years_label" value="UQ" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11;fontColor=#637A9B;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="field_tax_years_label">
+          <mxGeometry x="12" y="0" width="38" height="28" as="geometry" />
+        </mxCell>
+        <object id="field_tax_years_starts_at" label="starts_at" kind="field" entity="tax_years" column="starts_at" key="" nullable="false" source_spec="starts_at">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_tax_years">
+            <mxGeometry x="0" y="110" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="field_tax_years_ends_at" label="ends_at" kind="field" entity="tax_years" column="ends_at" key="" nullable="false" source_spec="ends_at">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#F8FAFD;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_tax_years">
+            <mxGeometry x="0" y="138" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="table_tax_rates" label="" kind="table" entity="tax_rates" group="Tax" tooltip="Stores an exact rate for each vehicle class and tax year.&#10;UNIQUE(vehicle_type_id, tax_year_id).&#10;BEV = 6 half-pence/mile; PHEV = 3.&#10;Rates remain fixed within one year and immutable after use.">
+          <mxCell style="rounded=1;absoluteArcSize=1;arcSize=11;html=0;fillColor=#FFFFFF;strokeColor=#D6E1EF;strokeWidth=1;shadow=1;container=1;collapsible=0;recursiveResize=0;connectable=0;" vertex="1" parent="1">
+            <mxGeometry x="1120" y="660" width="320" height="218" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="head_tax_rates" value="" style="rounded=1;absoluteArcSize=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#315BBA;strokeColor=none;strokeWidth=1;" vertex="1" parent="table_tax_rates">
+          <mxGeometry x="0" y="0" width="320" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="head_square_tax_rates" value="" style="rounded=0;absoluteArcSize=1;arcSize=0;whiteSpace=wrap;html=0;fillColor=#315BBA;strokeColor=none;strokeWidth=1;" vertex="1" parent="table_tax_rates">
+          <mxGeometry x="0" y="30" width="320" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="name_tax_rates" value="tax_rates" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=20;fontColor=#FFFFFF;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="table_tax_rates">
+          <mxGeometry x="16" y="8" width="292" height="38" as="geometry" />
+        </mxCell>
+        <object id="field_tax_rates_tax_rate_id" label="tax_rate_id" kind="field" entity="tax_rates" column="tax_rate_id" key="PK" nullable="false" source_spec="tax_rate_id PK">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_tax_rates">
+            <mxGeometry x="0" y="54" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="key_tax_rates_tax_rate_id" value="PK" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11;fontColor=#A76A00;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="field_tax_rates_tax_rate_id">
+          <mxGeometry x="12" y="0" width="38" height="28" as="geometry" />
+        </mxCell>
+        <object id="field_tax_rates_vehicle_type_id" label="vehicle_type_id" kind="field" entity="tax_rates" column="vehicle_type_id" key="FK" nullable="false" source_spec="vehicle_type_id FK">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#F8FAFD;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_tax_rates">
+            <mxGeometry x="0" y="82" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="key_tax_rates_vehicle_type_id" value="FK" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11;fontColor=#315BBA;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="field_tax_rates_vehicle_type_id">
+          <mxGeometry x="12" y="0" width="38" height="28" as="geometry" />
+        </mxCell>
+        <object id="field_tax_rates_tax_year_id" label="tax_year_id" kind="field" entity="tax_rates" column="tax_year_id" key="FK" nullable="false" source_spec="tax_year_id FK">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_tax_rates">
+            <mxGeometry x="0" y="110" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="key_tax_rates_tax_year_id" value="FK" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11;fontColor=#315BBA;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="field_tax_rates_tax_year_id">
+          <mxGeometry x="12" y="0" width="38" height="28" as="geometry" />
+        </mxCell>
+        <object id="field_tax_rates_half_pence_per_mile" label="half_pence_per_mile" kind="field" entity="tax_rates" column="half_pence_per_mile" key="" nullable="false" source_spec="half_pence_per_mile">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#F8FAFD;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_tax_rates">
+            <mxGeometry x="0" y="138" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="note_bg_tax_rates" value="" style="rounded=0;absoluteArcSize=1;arcSize=0;whiteSpace=wrap;html=0;fillColor=#EDF2FE;strokeColor=none;strokeWidth=1;" vertex="1" parent="table_tax_rates">
+          <mxGeometry x="1" y="178" width="318" height="39" as="geometry" />
+        </mxCell>
+        <mxCell id="note_tax_rates" value="UQ: vehicle type + tax year" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11.5;fontColor=#315BBA;fontStyle=0;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="table_tax_rates">
+          <mxGeometry x="12" y="181" width="296" height="31" as="geometry" />
+        </mxCell>
+        <object id="table_declarations" label="" kind="table" entity="declarations" group="Tax" tooltip="Preserves submitted mileage estimates and their original coverage, including later revisions.&#10;UNIQUE(case_id, revision_no); at most one current accepted revision.&#10;Status: DRAFT, ACCEPTED, REJECTED, SUPERSEDED.&#10;A seller's original annual estimate is preserved even when ownership ends early.&#10;Submitted coverage was valid when accepted; later transfer closure is represented separately.&#10;For an unassessed case, a historical estimate whose coverage no longer matches the effective case interval is excluded from a complete projection and flagged for revision.">
+          <mxCell style="rounded=1;absoluteArcSize=1;arcSize=11;html=0;fillColor=#FFFFFF;strokeColor=#D6E1EF;strokeWidth=1;shadow=1;container=1;collapsible=0;recursiveResize=0;connectable=0;" vertex="1" parent="1">
+            <mxGeometry x="1120" y="1070" width="320" height="414" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="head_declarations" value="" style="rounded=1;absoluteArcSize=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#315BBA;strokeColor=none;strokeWidth=1;" vertex="1" parent="table_declarations">
+          <mxGeometry x="0" y="0" width="320" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="head_square_declarations" value="" style="rounded=0;absoluteArcSize=1;arcSize=0;whiteSpace=wrap;html=0;fillColor=#315BBA;strokeColor=none;strokeWidth=1;" vertex="1" parent="table_declarations">
+          <mxGeometry x="0" y="30" width="320" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="name_declarations" value="declarations" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=20;fontColor=#FFFFFF;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="table_declarations">
+          <mxGeometry x="16" y="8" width="292" height="38" as="geometry" />
+        </mxCell>
+        <object id="field_declarations_declaration_id" label="declaration_id" kind="field" entity="declarations" column="declaration_id" key="PK" nullable="false" source_spec="declaration_id PK">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_declarations">
+            <mxGeometry x="0" y="54" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="key_declarations_declaration_id" value="PK" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11;fontColor=#A76A00;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="field_declarations_declaration_id">
+          <mxGeometry x="12" y="0" width="38" height="28" as="geometry" />
+        </mxCell>
+        <object id="field_declarations_case_id" label="case_id" kind="field" entity="declarations" column="case_id" key="FK" nullable="false" source_spec="case_id FK">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#F8FAFD;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_declarations">
+            <mxGeometry x="0" y="82" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="key_declarations_case_id" value="FK" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11;fontColor=#315BBA;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="field_declarations_case_id">
+          <mxGeometry x="12" y="0" width="38" height="28" as="geometry" />
+        </mxCell>
+        <object id="field_declarations_revision_no" label="revision_no" kind="field" entity="declarations" column="revision_no" key="" nullable="false" source_spec="revision_no">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_declarations">
+            <mxGeometry x="0" y="110" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="field_declarations_coverage_start_at" label="coverage_start_at" kind="field" entity="declarations" column="coverage_start_at" key="" nullable="false" source_spec="coverage_start_at">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#F8FAFD;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_declarations">
+            <mxGeometry x="0" y="138" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="field_declarations_coverage_end_at" label="coverage_end_at" kind="field" entity="declarations" column="coverage_end_at" key="" nullable="false" source_spec="coverage_end_at">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_declarations">
+            <mxGeometry x="0" y="166" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="field_declarations_estimated_miles" label="estimated_miles" kind="field" entity="declarations" column="estimated_miles" key="" nullable="false" source_spec="estimated_miles">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#F8FAFD;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_declarations">
+            <mxGeometry x="0" y="194" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="field_declarations_tax_rate_id" label="tax_rate_id" kind="field" entity="declarations" column="tax_rate_id" key="FK" nullable="false" source_spec="tax_rate_id FK">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_declarations">
+            <mxGeometry x="0" y="222" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="key_declarations_tax_rate_id" value="FK" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11;fontColor=#315BBA;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="field_declarations_tax_rate_id">
+          <mxGeometry x="12" y="0" width="38" height="28" as="geometry" />
+        </mxCell>
+        <object id="field_declarations_advance_due_pence" label="advance_due_pence" kind="field" entity="declarations" column="advance_due_pence" key="" nullable="false" source_spec="advance_due_pence">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#F8FAFD;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_declarations">
+            <mxGeometry x="0" y="250" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="field_declarations_submitted_at" label="submitted_at" kind="field" entity="declarations" column="submitted_at" key="" nullable="false" source_spec="submitted_at">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_declarations">
+            <mxGeometry x="0" y="278" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="field_declarations_status" label="status" kind="field" entity="declarations" column="status" key="" nullable="false" source_spec="status">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#F8FAFD;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_declarations">
+            <mxGeometry x="0" y="306" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="field_declarations_supersedes_declaration_id" label="supersedes_declaration_id ?" kind="field" entity="declarations" column="supersedes_declaration_id" key="FK↺" nullable="true" source_spec="supersedes_declaration_id FK NULL" references="declarations" references_column="declaration_id" cardinality="0..1 predecessor">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_declarations">
+            <mxGeometry x="0" y="334" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="key_declarations_supersedes_declaration_id" value="FK↺" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11;fontColor=#315BBA;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="field_declarations_supersedes_declaration_id">
+          <mxGeometry x="12" y="0" width="38" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="note_bg_declarations" value="" style="rounded=0;absoluteArcSize=1;arcSize=0;whiteSpace=wrap;html=0;fillColor=#EDF2FE;strokeColor=none;strokeWidth=1;" vertex="1" parent="table_declarations">
+          <mxGeometry x="1" y="374" width="318" height="39" as="geometry" />
+        </mxCell>
+        <mxCell id="note_declarations" value="At most one current accepted revision" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11.5;fontColor=#315BBA;fontStyle=0;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="table_declarations">
+          <mxGeometry x="12" y="377" width="296" height="31" as="geometry" />
+        </mxCell>
+        <object id="table_mot_centres" label="" kind="table" entity="mot_centres" group="Evidence" tooltip="Identifies the source responsible for verifying a mileage observation.&#10;References use foreign keys rather than repeated free-text identifiers.&#10;Accepted observations must have an authorised verification source.">
+          <mxCell style="rounded=1;absoluteArcSize=1;arcSize=11;html=0;fillColor=#FFFFFF;strokeColor=#D6E1EF;strokeWidth=1;shadow=1;container=1;collapsible=0;recursiveResize=0;connectable=0;" vertex="1" parent="1">
+            <mxGeometry x="1640" y="250" width="320" height="178" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="head_mot_centres" value="" style="rounded=1;absoluteArcSize=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#A5660D;strokeColor=none;strokeWidth=1;" vertex="1" parent="table_mot_centres">
+          <mxGeometry x="0" y="0" width="320" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="head_square_mot_centres" value="" style="rounded=0;absoluteArcSize=1;arcSize=0;whiteSpace=wrap;html=0;fillColor=#A5660D;strokeColor=none;strokeWidth=1;" vertex="1" parent="table_mot_centres">
+          <mxGeometry x="0" y="30" width="320" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="name_mot_centres" value="mot_centres" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=20;fontColor=#FFFFFF;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="table_mot_centres">
+          <mxGeometry x="16" y="8" width="292" height="38" as="geometry" />
+        </mxCell>
+        <object id="field_mot_centres_mot_centre_id" label="mot_centre_id" kind="field" entity="mot_centres" column="mot_centre_id" key="PK" nullable="false" source_spec="mot_centre_id PK">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_mot_centres">
+            <mxGeometry x="0" y="54" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="key_mot_centres_mot_centre_id" value="PK" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11;fontColor=#A76A00;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="field_mot_centres_mot_centre_id">
+          <mxGeometry x="12" y="0" width="38" height="28" as="geometry" />
+        </mxCell>
+        <object id="field_mot_centres_centre_ref" label="centre_ref" kind="field" entity="mot_centres" column="centre_ref" key="UQ" nullable="false" source_spec="centre_ref UNIQUE">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#F8FAFD;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_mot_centres">
+            <mxGeometry x="0" y="82" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="key_mot_centres_centre_ref" value="UQ" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11;fontColor=#637A9B;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="field_mot_centres_centre_ref">
+          <mxGeometry x="12" y="0" width="38" height="28" as="geometry" />
+        </mxCell>
+        <object id="field_mot_centres_name" label="name" kind="field" entity="mot_centres" column="name" key="" nullable="false" source_spec="name">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_mot_centres">
+            <mxGeometry x="0" y="110" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="field_mot_centres_postal_address" label="postal_address" kind="field" entity="mot_centres" column="postal_address" key="" nullable="false" source_spec="postal_address">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#F8FAFD;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_mot_centres">
+            <mxGeometry x="0" y="138" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="table_odometer_readings" label="" kind="table" entity="odometer_readings" group="Evidence" tooltip="Stores mileage evidence from an MOT, handover or tax-period boundary.&#10;Reading kinds: MOT, HANDOVER, PERIOD_BOUNDARY.&#10;Accepted readings are retained; corrections create successor records.&#10;One handover reading can close the seller's assessment and open the buyer's.&#10;Unknown or unverified readings never become zero-mile evidence.&#10;New assessments use current accepted evidence. A correction supersedes the previous observation in the same vehicle-specific chain; historical assessments retain their original references.">
+          <mxCell style="rounded=1;absoluteArcSize=1;arcSize=11;html=0;fillColor=#FFFFFF;strokeColor=#D6E1EF;strokeWidth=1;shadow=1;container=1;collapsible=0;recursiveResize=0;connectable=0;" vertex="1" parent="1">
+            <mxGeometry x="1640" y="660" width="320" height="414" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="head_odometer_readings" value="" style="rounded=1;absoluteArcSize=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#A5660D;strokeColor=none;strokeWidth=1;" vertex="1" parent="table_odometer_readings">
+          <mxGeometry x="0" y="0" width="320" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="head_square_odometer_readings" value="" style="rounded=0;absoluteArcSize=1;arcSize=0;whiteSpace=wrap;html=0;fillColor=#A5660D;strokeColor=none;strokeWidth=1;" vertex="1" parent="table_odometer_readings">
+          <mxGeometry x="0" y="30" width="320" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="name_odometer_readings" value="odometer_readings" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=20;fontColor=#FFFFFF;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="table_odometer_readings">
+          <mxGeometry x="16" y="8" width="292" height="38" as="geometry" />
+        </mxCell>
+        <object id="field_odometer_readings_reading_id" label="reading_id" kind="field" entity="odometer_readings" column="reading_id" key="PK" nullable="false" source_spec="reading_id PK">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_odometer_readings">
+            <mxGeometry x="0" y="54" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="key_odometer_readings_reading_id" value="PK" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11;fontColor=#A76A00;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="field_odometer_readings_reading_id">
+          <mxGeometry x="12" y="0" width="38" height="28" as="geometry" />
+        </mxCell>
+        <object id="field_odometer_readings_vehicle_id" label="vehicle_id" kind="field" entity="odometer_readings" column="vehicle_id" key="FK" nullable="false" source_spec="vehicle_id FK">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#F8FAFD;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_odometer_readings">
+            <mxGeometry x="0" y="82" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="key_odometer_readings_vehicle_id" value="FK" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11;fontColor=#315BBA;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="field_odometer_readings_vehicle_id">
+          <mxGeometry x="12" y="0" width="38" height="28" as="geometry" />
+        </mxCell>
+        <object id="field_odometer_readings_mot_centre_id" label="mot_centre_id ?" kind="field" entity="odometer_readings" column="mot_centre_id" key="FK" nullable="true" source_spec="mot_centre_id FK, nullable while pending" tooltip="Optional while pending; exactly one verification centre is required for accepted evidence.">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_odometer_readings">
+            <mxGeometry x="0" y="110" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="key_odometer_readings_mot_centre_id" value="FK" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11;fontColor=#315BBA;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="field_odometer_readings_mot_centre_id">
+          <mxGeometry x="12" y="0" width="38" height="28" as="geometry" />
+        </mxCell>
+        <object id="field_odometer_readings_observed_at" label="observed_at" kind="field" entity="odometer_readings" column="observed_at" key="" nullable="false" source_spec="observed_at">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#F8FAFD;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_odometer_readings">
+            <mxGeometry x="0" y="138" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="field_odometer_readings_odometer_miles" label="odometer_miles" kind="field" entity="odometer_readings" column="odometer_miles" key="" nullable="false" source_spec="odometer_miles">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_odometer_readings">
+            <mxGeometry x="0" y="166" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="field_odometer_readings_reading_kind" label="reading_kind" kind="field" entity="odometer_readings" column="reading_kind" key="" nullable="false" source_spec="reading_kind">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#F8FAFD;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_odometer_readings">
+            <mxGeometry x="0" y="194" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="field_odometer_readings_verification_status" label="verification_status" kind="field" entity="odometer_readings" column="verification_status" key="" nullable="false" source_spec="verification_status">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_odometer_readings">
+            <mxGeometry x="0" y="222" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="field_odometer_readings_evidence_ref" label="evidence_ref" kind="field" entity="odometer_readings" column="evidence_ref" key="" nullable="false" source_spec="evidence_ref">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#F8FAFD;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_odometer_readings">
+            <mxGeometry x="0" y="250" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="field_odometer_readings_recorded_at" label="recorded_at" kind="field" entity="odometer_readings" column="recorded_at" key="" nullable="false" source_spec="recorded_at">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_odometer_readings">
+            <mxGeometry x="0" y="278" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="field_odometer_readings_verified_at" label="verified_at ?" kind="field" entity="odometer_readings" column="verified_at" key="" nullable="true" source_spec="verified_at NULL">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#F8FAFD;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_odometer_readings">
+            <mxGeometry x="0" y="306" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="field_odometer_readings_supersedes_reading_id" label="supersedes_reading_id ?" kind="field" entity="odometer_readings" column="supersedes_reading_id" key="FK↺" nullable="true" source_spec="supersedes_reading_id FK NULL" references="odometer_readings" references_column="reading_id" cardinality="0..1 predecessor">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_odometer_readings">
+            <mxGeometry x="0" y="334" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="key_odometer_readings_supersedes_reading_id" value="FK↺" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11;fontColor=#315BBA;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="field_odometer_readings_supersedes_reading_id">
+          <mxGeometry x="12" y="0" width="38" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="note_bg_odometer_readings" value="" style="rounded=0;absoluteArcSize=1;arcSize=0;whiteSpace=wrap;html=0;fillColor=#FFF6E7;strokeColor=none;strokeWidth=1;" vertex="1" parent="table_odometer_readings">
+          <mxGeometry x="1" y="374" width="318" height="39" as="geometry" />
+        </mxCell>
+        <mxCell id="note_odometer_readings" value="Centre required for accepted evidence" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11.5;fontColor=#A5660D;fontStyle=0;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="table_odometer_readings">
+          <mxGeometry x="12" y="377" width="296" height="31" as="geometry" />
+        </mxCell>
+        <object id="table_tax_assessments" label="" kind="table" entity="tax_assessments" group="Tax" tooltip="Records an issued tax decision and the exact evidence used to calculate it.&#10;At most one current issued assessment per case; drafts do not replace issued decisions.&#10;Both current accepted readings must match the case vehicle and assessed boundaries.&#10;Amounts and calculation evidence are immutable once issued; revisions supersede explicitly.&#10;Reading references are not globally unique, so revisions and adjacent cases can reuse evidence.&#10;Assessments and declarations both belong to the same stable case; assessed liability uses actual evidence and is not tied to a changeable estimate.">
+          <mxCell style="rounded=1;absoluteArcSize=1;arcSize=11;html=0;fillColor=#FFFFFF;strokeColor=#D6E1EF;strokeWidth=1;shadow=1;container=1;collapsible=0;recursiveResize=0;connectable=0;" vertex="1" parent="1">
+            <mxGeometry x="1640" y="1240" width="320" height="442" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="head_tax_assessments" value="" style="rounded=1;absoluteArcSize=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#315BBA;strokeColor=none;strokeWidth=1;" vertex="1" parent="table_tax_assessments">
+          <mxGeometry x="0" y="0" width="320" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="head_square_tax_assessments" value="" style="rounded=0;absoluteArcSize=1;arcSize=0;whiteSpace=wrap;html=0;fillColor=#315BBA;strokeColor=none;strokeWidth=1;" vertex="1" parent="table_tax_assessments">
+          <mxGeometry x="0" y="30" width="320" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="name_tax_assessments" value="tax_assessments" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=20;fontColor=#FFFFFF;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="table_tax_assessments">
+          <mxGeometry x="16" y="8" width="292" height="38" as="geometry" />
+        </mxCell>
+        <object id="field_tax_assessments_assessment_id" label="assessment_id" kind="field" entity="tax_assessments" column="assessment_id" key="PK" nullable="false" source_spec="assessment_id PK">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_tax_assessments">
+            <mxGeometry x="0" y="54" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="key_tax_assessments_assessment_id" value="PK" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11;fontColor=#A76A00;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="field_tax_assessments_assessment_id">
+          <mxGeometry x="12" y="0" width="38" height="28" as="geometry" />
+        </mxCell>
+        <object id="field_tax_assessments_case_id" label="case_id" kind="field" entity="tax_assessments" column="case_id" key="FK" nullable="false" source_spec="case_id FK">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#F8FAFD;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_tax_assessments">
+            <mxGeometry x="0" y="82" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="key_tax_assessments_case_id" value="FK" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11;fontColor=#315BBA;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="field_tax_assessments_case_id">
+          <mxGeometry x="12" y="0" width="38" height="28" as="geometry" />
+        </mxCell>
+        <object id="field_tax_assessments_revision_no" label="revision_no" kind="field" entity="tax_assessments" column="revision_no" key="" nullable="false" source_spec="revision_no">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_tax_assessments">
+            <mxGeometry x="0" y="110" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="field_tax_assessments_opening_reading_id" label="opening_reading_id" kind="field" entity="tax_assessments" column="opening_reading_id" key="FK" nullable="false" source_spec="opening_reading_id FK">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#F8FAFD;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_tax_assessments">
+            <mxGeometry x="0" y="138" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="key_tax_assessments_opening_reading_id" value="FK" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11;fontColor=#315BBA;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="field_tax_assessments_opening_reading_id">
+          <mxGeometry x="12" y="0" width="38" height="28" as="geometry" />
+        </mxCell>
+        <object id="field_tax_assessments_closing_reading_id" label="closing_reading_id" kind="field" entity="tax_assessments" column="closing_reading_id" key="FK" nullable="false" source_spec="closing_reading_id FK">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_tax_assessments">
+            <mxGeometry x="0" y="166" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="key_tax_assessments_closing_reading_id" value="FK" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11;fontColor=#315BBA;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="field_tax_assessments_closing_reading_id">
+          <mxGeometry x="12" y="0" width="38" height="28" as="geometry" />
+        </mxCell>
+        <object id="field_tax_assessments_tax_rate_id" label="tax_rate_id" kind="field" entity="tax_assessments" column="tax_rate_id" key="FK" nullable="false" source_spec="tax_rate_id FK">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#F8FAFD;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_tax_assessments">
+            <mxGeometry x="0" y="194" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="key_tax_assessments_tax_rate_id" value="FK" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11;fontColor=#315BBA;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="field_tax_assessments_tax_rate_id">
+          <mxGeometry x="12" y="0" width="38" height="28" as="geometry" />
+        </mxCell>
+        <object id="field_tax_assessments_period_start_at" label="period_start_at" kind="field" entity="tax_assessments" column="period_start_at" key="" nullable="false" source_spec="period_start_at">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_tax_assessments">
+            <mxGeometry x="0" y="222" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="field_tax_assessments_period_end_at" label="period_end_at" kind="field" entity="tax_assessments" column="period_end_at" key="" nullable="false" source_spec="period_end_at">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#F8FAFD;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_tax_assessments">
+            <mxGeometry x="0" y="250" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="field_tax_assessments_final_tax_pence" label="final_tax_pence" kind="field" entity="tax_assessments" column="final_tax_pence" key="" nullable="false" source_spec="final_tax_pence">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_tax_assessments">
+            <mxGeometry x="0" y="278" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="field_tax_assessments_assessed_at" label="assessed_at" kind="field" entity="tax_assessments" column="assessed_at" key="" nullable="false" source_spec="assessed_at">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#F8FAFD;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_tax_assessments">
+            <mxGeometry x="0" y="306" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="field_tax_assessments_status" label="status" kind="field" entity="tax_assessments" column="status" key="" nullable="false" source_spec="status">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#FFFFFF;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_tax_assessments">
+            <mxGeometry x="0" y="334" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="field_tax_assessments_supersedes_assessment_id" label="supersedes_assessment_id ?" kind="field" entity="tax_assessments" column="supersedes_assessment_id" key="FK↺" nullable="true" source_spec="supersedes_assessment_id FK NULL" references="tax_assessments" references_column="assessment_id" cardinality="0..1 predecessor">
+          <mxCell style="rounded=0;html=0;whiteSpace=wrap;overflow=hidden;strokeColor=none;fillColor=#F8FAFD;fontFamily=Courier New;fontSize=14;fontColor=#172E4D;align=left;verticalAlign=middle;spacingLeft=57;spacingRight=5;" vertex="1" parent="table_tax_assessments">
+            <mxGeometry x="0" y="362" width="320" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="key_tax_assessments_supersedes_assessment_id" value="FK↺" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11;fontColor=#315BBA;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="field_tax_assessments_supersedes_assessment_id">
+          <mxGeometry x="12" y="0" width="38" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="note_bg_tax_assessments" value="" style="rounded=0;absoluteArcSize=1;arcSize=0;whiteSpace=wrap;html=0;fillColor=#EDF2FE;strokeColor=none;strokeWidth=1;" vertex="1" parent="table_tax_assessments">
+          <mxGeometry x="1" y="402" width="318" height="39" as="geometry" />
+        </mxCell>
+        <mxCell id="note_tax_assessments" value="At most one current issued revision" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=11.5;fontColor=#315BBA;fontStyle=0;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="table_tax_assessments">
+          <mxGeometry x="12" y="405" width="296" height="31" as="geometry" />
+        </mxCell>
+        <object id="rel_vehicles_vehicle_type_id" label="" kind="relationship" parent_entity="vehicle_types" child_entity="vehicles" foreign_key="vehicle_type_id" parent_key="vehicle_type_id" parent_cardinality="1" child_cardinality="0..N" tooltip="vehicle_types.vehicle_type_id → vehicles.vehicle_type_id; 1 parent per child; 0..N children per parent.">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#08766C;strokeWidth=1.8;startArrow=oval;startSize=4;startFill=1;endArrow=oval;endSize=4;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;jumpStyle=gap;jumpSize=6;orthogonalLoop=1;jettySize=auto;" edge="1" parent="1" source="field_vehicle_types_vehicle_type_id" target="field_vehicles_vehicle_type_id">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="490" y="1138" />
+                <mxPoint x="490" y="784" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <mxCell id="cardinality_1" value="1" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#08766C;fontStyle=1;align=left;verticalAlign=middle;spacing=0;labelBackgroundColor=#FFFFFF;" vertex="1" parent="field_vehicle_types_vehicle_type_id">
+          <mxGeometry x="329" y="-12" width="38" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="cardinality_2" value="0..N" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#08766C;fontStyle=1;align=left;verticalAlign=middle;spacing=0;labelBackgroundColor=#FFFFFF;" vertex="1" parent="field_vehicles_vehicle_type_id">
+          <mxGeometry x="329" y="-12" width="38" height="18" as="geometry" />
+        </mxCell>
+        <object id="rel_ownership_periods_owner_id" label="" kind="relationship" parent_entity="vehicle_owners" child_entity="ownership_periods" foreign_key="owner_id" parent_key="owner_id" parent_cardinality="1" child_cardinality="0..N" tooltip="vehicle_owners.owner_id → ownership_periods.owner_id; 1 parent per child; 0..N children per parent.">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#08766C;strokeWidth=1.8;startArrow=oval;startSize=4;startFill=1;endArrow=oval;endSize=4;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;jumpStyle=gap;jumpSize=6;orthogonalLoop=1;jettySize=auto;" edge="1" parent="1" source="field_vehicle_owners_owner_id" target="field_ownership_periods_owner_id">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="545" y="318" />
+                <mxPoint x="545" y="374" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <mxCell id="cardinality_3" value="1" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#08766C;fontStyle=1;align=left;verticalAlign=middle;spacing=0;labelBackgroundColor=#FFFFFF;" vertex="1" parent="field_vehicle_owners_owner_id">
+          <mxGeometry x="329" y="-12" width="38" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="cardinality_4" value="0..N" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#08766C;fontStyle=1;align=right;verticalAlign=middle;spacing=0;labelBackgroundColor=#FFFFFF;" vertex="1" parent="field_ownership_periods_owner_id">
+          <mxGeometry x="-46" y="-12" width="38" height="18" as="geometry" />
+        </mxCell>
+        <object id="rel_ownership_periods_vehicle_id" label="" kind="relationship" parent_entity="vehicles" child_entity="ownership_periods" foreign_key="vehicle_id" parent_key="vehicle_id" parent_cardinality="1" child_cardinality="0..N" tooltip="vehicles.vehicle_id → ownership_periods.vehicle_id; 1 parent per child; 0..N children per parent.">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#08766C;strokeWidth=1.8;startArrow=oval;startSize=4;startFill=1;endArrow=oval;endSize=4;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;jumpStyle=gap;jumpSize=6;orthogonalLoop=1;jettySize=auto;" edge="1" parent="1" source="field_vehicles_vehicle_id" target="field_ownership_periods_vehicle_id">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="520" y="728" />
+                <mxPoint x="520" y="346" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <mxCell id="cardinality_5" value="1" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#08766C;fontStyle=1;align=left;verticalAlign=middle;spacing=0;labelBackgroundColor=#FFFFFF;" vertex="1" parent="field_vehicles_vehicle_id">
+          <mxGeometry x="329" y="-12" width="38" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="cardinality_6" value="0..N" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#08766C;fontStyle=1;align=right;verticalAlign=middle;spacing=0;labelBackgroundColor=#FFFFFF;" vertex="1" parent="field_ownership_periods_vehicle_id">
+          <mxGeometry x="-46" y="-12" width="38" height="18" as="geometry" />
+        </mxCell>
+        <object id="rel_tax_rates_vehicle_type_id" label="" kind="relationship" parent_entity="vehicle_types" child_entity="tax_rates" foreign_key="vehicle_type_id" parent_key="vehicle_type_id" parent_cardinality="1" child_cardinality="0..N" tooltip="vehicle_types.vehicle_type_id → tax_rates.vehicle_type_id; 1 parent per child; 0..N children per parent.">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#315BBA;strokeWidth=1.8;startArrow=oval;startSize=4;startFill=1;endArrow=oval;endSize=4;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;jumpStyle=gap;jumpSize=6;orthogonalLoop=1;jettySize=auto;" edge="1" parent="1" source="field_vehicle_types_vehicle_type_id" target="field_tax_rates_vehicle_type_id">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="465" y="1138" />
+                <mxPoint x="465" y="980" />
+                <mxPoint x="1010" y="980" />
+                <mxPoint x="1010" y="756" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <mxCell id="cardinality_7" value="0..N" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#315BBA;fontStyle=1;align=right;verticalAlign=middle;spacing=0;labelBackgroundColor=#FFFFFF;" vertex="1" parent="field_tax_rates_vehicle_type_id">
+          <mxGeometry x="-46" y="-12" width="38" height="18" as="geometry" />
+        </mxCell>
+        <object id="rel_tax_rates_tax_year_id" label="" kind="relationship" parent_entity="tax_years" child_entity="tax_rates" foreign_key="tax_year_id" parent_key="tax_year_id" parent_cardinality="1" child_cardinality="0..N" tooltip="tax_years.tax_year_id → tax_rates.tax_year_id; 1 parent per child; 0..N children per parent.">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#315BBA;strokeWidth=1.8;startArrow=oval;startSize=4;startFill=1;endArrow=oval;endSize=4;endFill=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;jumpStyle=gap;jumpSize=6;orthogonalLoop=1;jettySize=auto;" edge="1" parent="1" source="field_tax_years_tax_year_id" target="field_tax_rates_tax_year_id">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="1045" y="318" />
+                <mxPoint x="1045" y="784" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <mxCell id="cardinality_8" value="1" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#315BBA;fontStyle=1;align=right;verticalAlign=middle;spacing=0;labelBackgroundColor=#FFFFFF;" vertex="1" parent="field_tax_years_tax_year_id">
+          <mxGeometry x="-46" y="-12" width="38" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="cardinality_9" value="0..N" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#315BBA;fontStyle=1;align=right;verticalAlign=middle;spacing=0;labelBackgroundColor=#FFFFFF;" vertex="1" parent="field_tax_rates_tax_year_id">
+          <mxGeometry x="-46" y="-12" width="38" height="18" as="geometry" />
+        </mxCell>
+        <object id="rel_odometer_readings_vehicle_id" label="" kind="relationship" parent_entity="vehicles" child_entity="odometer_readings" foreign_key="vehicle_id" parent_key="vehicle_id" parent_cardinality="1" child_cardinality="0..N" tooltip="vehicles.vehicle_id → odometer_readings.vehicle_id; 1 parent per child; 0..N children per parent.">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#A5660D;strokeWidth=1.8;startArrow=oval;startSize=4;startFill=1;endArrow=oval;endSize=4;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;jumpStyle=gap;jumpSize=6;orthogonalLoop=1;jettySize=auto;" edge="1" parent="1" source="field_vehicles_vehicle_id" target="field_odometer_readings_vehicle_id">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="435" y="728" />
+                <mxPoint x="435" y="560" />
+                <mxPoint x="1530" y="560" />
+                <mxPoint x="1530" y="756" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <mxCell id="cardinality_10" value="0..N" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#A5660D;fontStyle=1;align=right;verticalAlign=middle;spacing=0;labelBackgroundColor=#FFFFFF;" vertex="1" parent="field_odometer_readings_vehicle_id">
+          <mxGeometry x="-46" y="-12" width="38" height="18" as="geometry" />
+        </mxCell>
+        <object id="rel_odometer_readings_mot_centre_id" label="" kind="relationship" parent_entity="mot_centres" child_entity="odometer_readings" foreign_key="mot_centre_id" parent_key="mot_centre_id" parent_cardinality="0..1*" child_cardinality="0..N" tooltip="mot_centres.mot_centre_id → odometer_readings.mot_centre_id; 0..1* parent per child; 0..N children per parent.">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#A5660D;strokeWidth=1.8;startArrow=oval;startSize=4;startFill=1;endArrow=oval;endSize=4;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;jumpStyle=gap;jumpSize=6;orthogonalLoop=1;jettySize=auto;" edge="1" parent="1" source="field_mot_centres_mot_centre_id" target="field_odometer_readings_mot_centre_id">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="2100" y="318" />
+                <mxPoint x="2100" y="784" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <mxCell id="cardinality_11" value="0..1*" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#A5660D;fontStyle=1;align=left;verticalAlign=middle;spacing=0;labelBackgroundColor=#FFFFFF;" vertex="1" parent="field_mot_centres_mot_centre_id">
+          <mxGeometry x="329" y="-12" width="38" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="cardinality_12" value="0..N" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#A5660D;fontStyle=1;align=left;verticalAlign=middle;spacing=0;labelBackgroundColor=#FFFFFF;" vertex="1" parent="field_odometer_readings_mot_centre_id">
+          <mxGeometry x="329" y="-12" width="38" height="18" as="geometry" />
+        </mxCell>
+        <object id="rel_tax_cases_ownership_id" label="" kind="relationship" parent_entity="ownership_periods" child_entity="tax_cases" foreign_key="ownership_id" parent_key="ownership_id" parent_cardinality="1" child_cardinality="0..N" tooltip="ownership_periods.ownership_id → tax_cases.ownership_id; 1 parent per child; 0..N children per parent.">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#315BBA;strokeWidth=1.8;startArrow=oval;startSize=4;startFill=1;endArrow=oval;endSize=4;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;jumpStyle=gap;jumpSize=6;orthogonalLoop=1;jettySize=auto;" edge="1" parent="1" source="field_ownership_periods_ownership_id" target="field_tax_cases_ownership_id">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="960" y="318" />
+                <mxPoint x="960" y="756" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <mxCell id="cardinality_13" value="1" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#315BBA;fontStyle=1;align=left;verticalAlign=middle;spacing=0;labelBackgroundColor=#FFFFFF;" vertex="1" parent="field_ownership_periods_ownership_id">
+          <mxGeometry x="329" y="-12" width="38" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="cardinality_14" value="0..N" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#315BBA;fontStyle=1;align=left;verticalAlign=middle;spacing=0;labelBackgroundColor=#FFFFFF;" vertex="1" parent="field_tax_cases_ownership_id">
+          <mxGeometry x="329" y="-12" width="38" height="18" as="geometry" />
+        </mxCell>
+        <object id="rel_tax_cases_tax_year_id" label="" kind="relationship" parent_entity="tax_years" child_entity="tax_cases" foreign_key="tax_year_id" parent_key="tax_year_id" parent_cardinality="1" child_cardinality="0..N" tooltip="tax_years.tax_year_id → tax_cases.tax_year_id; 1 parent per child; 0..N children per parent.">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#315BBA;strokeWidth=1.8;startArrow=oval;startSize=4;startFill=1;endArrow=oval;endSize=4;endFill=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;jumpStyle=gap;jumpSize=6;orthogonalLoop=1;jettySize=auto;" edge="1" parent="1" source="field_tax_years_tax_year_id" target="field_tax_cases_tax_year_id">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="990" y="318" />
+                <mxPoint x="990" y="784" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <mxCell id="cardinality_15" value="0..N" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#315BBA;fontStyle=1;align=left;verticalAlign=middle;spacing=0;labelBackgroundColor=#FFFFFF;" vertex="1" parent="field_tax_cases_tax_year_id">
+          <mxGeometry x="329" y="-12" width="38" height="18" as="geometry" />
+        </mxCell>
+        <object id="rel_declarations_case_id" label="" kind="relationship" parent_entity="tax_cases" child_entity="declarations" foreign_key="case_id" parent_key="case_id" parent_cardinality="1" child_cardinality="0..N" tooltip="tax_cases.case_id → declarations.case_id; 1 parent per child; 0..N children per parent.">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#315BBA;strokeWidth=1.8;startArrow=oval;startSize=4;startFill=1;endArrow=oval;endSize=4;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;jumpStyle=gap;jumpSize=6;orthogonalLoop=1;jettySize=auto;" edge="1" parent="1" source="field_tax_cases_case_id" target="field_declarations_case_id">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="1080" y="728" />
+                <mxPoint x="1080" y="1166" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <mxCell id="cardinality_16" value="1" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#315BBA;fontStyle=1;align=left;verticalAlign=middle;spacing=0;labelBackgroundColor=#FFFFFF;" vertex="1" parent="field_tax_cases_case_id">
+          <mxGeometry x="329" y="-12" width="38" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="cardinality_17" value="0..N" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#315BBA;fontStyle=1;align=right;verticalAlign=middle;spacing=0;labelBackgroundColor=#FFFFFF;" vertex="1" parent="field_declarations_case_id">
+          <mxGeometry x="-46" y="-12" width="38" height="18" as="geometry" />
+        </mxCell>
+        <object id="rel_declarations_tax_rate_id" label="" kind="relationship" parent_entity="tax_rates" child_entity="declarations" foreign_key="tax_rate_id" parent_key="tax_rate_id" parent_cardinality="1" child_cardinality="0..N" tooltip="tax_rates.tax_rate_id → declarations.tax_rate_id; 1 parent per child; 0..N children per parent.">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#315BBA;strokeWidth=1.8;startArrow=oval;startSize=4;startFill=1;endArrow=oval;endSize=4;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;jumpStyle=gap;jumpSize=6;orthogonalLoop=1;jettySize=auto;" edge="1" parent="1" source="field_tax_rates_tax_rate_id" target="field_declarations_tax_rate_id">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="1470" y="728" />
+                <mxPoint x="1470" y="1306" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <mxCell id="cardinality_18" value="1" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#315BBA;fontStyle=1;align=left;verticalAlign=middle;spacing=0;labelBackgroundColor=#FFFFFF;" vertex="1" parent="field_tax_rates_tax_rate_id">
+          <mxGeometry x="329" y="-12" width="38" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="cardinality_19" value="0..N" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#315BBA;fontStyle=1;align=left;verticalAlign=middle;spacing=0;labelBackgroundColor=#FFFFFF;" vertex="1" parent="field_declarations_tax_rate_id">
+          <mxGeometry x="329" y="-12" width="38" height="18" as="geometry" />
+        </mxCell>
+        <object id="rel_tax_assessments_case_id" label="" kind="relationship" parent_entity="tax_cases" child_entity="tax_assessments" foreign_key="case_id" parent_key="case_id" parent_cardinality="1" child_cardinality="0..N" tooltip="tax_cases.case_id → tax_assessments.case_id; 1 parent per child; 0..N children per parent.">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#315BBA;strokeWidth=1.8;startArrow=oval;startSize=4;startFill=1;endArrow=oval;endSize=4;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;jumpStyle=gap;jumpSize=6;orthogonalLoop=1;jettySize=auto;" edge="1" parent="1" source="field_tax_cases_case_id" target="field_tax_assessments_case_id">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="1015" y="728" />
+                <mxPoint x="1015" y="1510" />
+                <mxPoint x="1550" y="1510" />
+                <mxPoint x="1550" y="1336" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <mxCell id="cardinality_20" value="0..N" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#315BBA;fontStyle=1;align=right;verticalAlign=middle;spacing=0;labelBackgroundColor=#FFFFFF;" vertex="1" parent="field_tax_assessments_case_id">
+          <mxGeometry x="-46" y="-12" width="38" height="18" as="geometry" />
+        </mxCell>
+        <object id="rel_tax_assessments_tax_rate_id" label="" kind="relationship" parent_entity="tax_rates" child_entity="tax_assessments" foreign_key="tax_rate_id" parent_key="tax_rate_id" parent_cardinality="1" child_cardinality="0..N" tooltip="tax_rates.tax_rate_id → tax_assessments.tax_rate_id; 1 parent per child; 0..N children per parent.">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#315BBA;strokeWidth=1.8;startArrow=oval;startSize=4;startFill=1;endArrow=oval;endSize=4;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;jumpStyle=gap;jumpSize=6;orthogonalLoop=1;jettySize=auto;" edge="1" parent="1" source="field_tax_rates_tax_rate_id" target="field_tax_assessments_tax_rate_id">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="1500" y="728" />
+                <mxPoint x="1500" y="1448" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <mxCell id="cardinality_21" value="0..N" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#315BBA;fontStyle=1;align=right;verticalAlign=middle;spacing=0;labelBackgroundColor=#FFFFFF;" vertex="1" parent="field_tax_assessments_tax_rate_id">
+          <mxGeometry x="-46" y="-12" width="38" height="18" as="geometry" />
+        </mxCell>
+        <object id="rel_tax_assessments_opening_reading_id" label="" kind="relationship" parent_entity="odometer_readings" child_entity="tax_assessments" foreign_key="opening_reading_id" parent_key="reading_id" parent_cardinality="1" child_cardinality="0..N" tooltip="odometer_readings.reading_id → tax_assessments.opening_reading_id; 1 parent per child; 0..N children per parent.">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#A5660D;strokeWidth=1.8;startArrow=oval;startSize=4;startFill=1;endArrow=oval;endSize=4;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;jumpStyle=gap;jumpSize=6;orthogonalLoop=1;jettySize=auto;" edge="1" parent="1" source="field_odometer_readings_reading_id" target="field_tax_assessments_opening_reading_id">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="2020" y="728" />
+                <mxPoint x="2020" y="1392" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <mxCell id="cardinality_22" value="1" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#A5660D;fontStyle=1;align=left;verticalAlign=middle;spacing=0;labelBackgroundColor=#FFFFFF;" vertex="1" parent="field_odometer_readings_reading_id">
+          <mxGeometry x="329" y="-12" width="38" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="cardinality_23" value="0..N" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#A5660D;fontStyle=1;align=left;verticalAlign=middle;spacing=0;labelBackgroundColor=#FFFFFF;" vertex="1" parent="field_tax_assessments_opening_reading_id">
+          <mxGeometry x="329" y="-12" width="38" height="18" as="geometry" />
+        </mxCell>
+        <object id="rel_tax_assessments_closing_reading_id" label="" kind="relationship" parent_entity="odometer_readings" child_entity="tax_assessments" foreign_key="closing_reading_id" parent_key="reading_id" parent_cardinality="1" child_cardinality="0..N" tooltip="odometer_readings.reading_id → tax_assessments.closing_reading_id; 1 parent per child; 0..N children per parent.">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#A5660D;strokeWidth=1.8;startArrow=oval;startSize=4;startFill=1;endArrow=oval;endSize=4;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;jumpStyle=gap;jumpSize=6;orthogonalLoop=1;jettySize=auto;" edge="1" parent="1" source="field_odometer_readings_reading_id" target="field_tax_assessments_closing_reading_id">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="2055" y="728" />
+                <mxPoint x="2055" y="1420" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <mxCell id="cardinality_24" value="0..N" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#A5660D;fontStyle=1;align=left;verticalAlign=middle;spacing=0;labelBackgroundColor=#FFFFFF;" vertex="1" parent="field_tax_assessments_closing_reading_id">
+          <mxGeometry x="329" y="-12" width="38" height="18" as="geometry" />
+        </mxCell>
+        <object id="rel_payments_owner_id" label="" kind="relationship" parent_entity="vehicle_owners" child_entity="payments" foreign_key="owner_id" parent_key="owner_id" parent_cardinality="1" child_cardinality="0..N" tooltip="vehicle_owners.owner_id → payments.owner_id; 1 parent per child; 0..N children per parent.">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#7544A7;strokeWidth=1.8;startArrow=oval;startSize=4;startFill=1;endArrow=oval;endSize=4;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;jumpStyle=gap;jumpSize=6;orthogonalLoop=1;jettySize=auto;" edge="1" parent="1" source="field_vehicle_owners_owner_id" target="field_payments_owner_id">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="450" y="318" />
+                <mxPoint x="450" y="1166" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <mxCell id="cardinality_25" value="0..N" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#7544A7;fontStyle=1;align=right;verticalAlign=middle;spacing=0;labelBackgroundColor=#FFFFFF;" vertex="1" parent="field_payments_owner_id">
+          <mxGeometry x="-46" y="-12" width="38" height="18" as="geometry" />
+        </mxCell>
+        <object id="rel_payment_allocations_payment_id" label="" kind="relationship" parent_entity="payments" child_entity="payment_allocations" foreign_key="payment_id" parent_key="payment_id" parent_cardinality="1" child_cardinality="0..N" tooltip="payments.payment_id → payment_allocations.payment_id; 1 parent per child; 0..N children per parent.">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#7544A7;strokeWidth=1.8;startArrow=oval;startSize=4;startFill=1;endArrow=oval;endSize=4;endFill=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;jumpStyle=gap;jumpSize=6;orthogonalLoop=1;jettySize=auto;" edge="1" parent="1" source="field_payments_payment_id" target="field_payment_allocations_payment_id">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="550" y="1138" />
+                <mxPoint x="550" y="1626" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <mxCell id="cardinality_26" value="1" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#7544A7;fontStyle=1;align=right;verticalAlign=middle;spacing=0;labelBackgroundColor=#FFFFFF;" vertex="1" parent="field_payments_payment_id">
+          <mxGeometry x="-46" y="-12" width="38" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="cardinality_27" value="0..N" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#7544A7;fontStyle=1;align=right;verticalAlign=middle;spacing=0;labelBackgroundColor=#FFFFFF;" vertex="1" parent="field_payment_allocations_payment_id">
+          <mxGeometry x="-46" y="-12" width="38" height="18" as="geometry" />
+        </mxCell>
+        <object id="rel_payment_allocations_case_id" label="" kind="relationship" parent_entity="tax_cases" child_entity="payment_allocations" foreign_key="case_id" parent_key="case_id" parent_cardinality="1" child_cardinality="0..N" tooltip="tax_cases.case_id → payment_allocations.case_id; 1 parent per child; 0..N children per parent.">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;strokeColor=#7544A7;strokeWidth=1.8;startArrow=oval;startSize=4;startFill=1;endArrow=oval;endSize=4;endFill=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;jumpStyle=gap;jumpSize=6;orthogonalLoop=1;jettySize=auto;" edge="1" parent="1" source="field_tax_cases_case_id" target="field_payment_allocations_case_id">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="570" y="728" />
+                <mxPoint x="570" y="1654" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <mxCell id="cardinality_28" value="1" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#7544A7;fontStyle=1;align=right;verticalAlign=middle;spacing=0;labelBackgroundColor=#FFFFFF;" vertex="1" parent="field_tax_cases_case_id">
+          <mxGeometry x="-46" y="-12" width="38" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="cardinality_29" value="0..N" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12;fontColor=#7544A7;fontStyle=1;align=right;verticalAlign=middle;spacing=0;labelBackgroundColor=#FFFFFF;" vertex="1" parent="field_payment_allocations_case_id">
+          <mxGeometry x="-46" y="-12" width="38" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="role_opening" value="opening" style="edgeLabel;html=0;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;resizable=1;fontFamily=Arial;fontSize=13;fontStyle=1;fontColor=#A5660D;labelBackgroundColor=#FFFFFF;" vertex="1" connectable="0" parent="rel_tax_assessments_opening_reading_id">
+          <mxGeometry x="0" y="0" width="66" height="22" as="geometry" relative="1">
+            <mxPoint x="-33" y="92" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="role_closing" value="closing" style="edgeLabel;html=0;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;resizable=1;fontFamily=Arial;fontSize=13;fontStyle=1;fontColor=#A5660D;labelBackgroundColor=#FFFFFF;" vertex="1" connectable="0" parent="rel_tax_assessments_closing_reading_id">
+          <mxGeometry x="0" y="0" width="66" height="22" as="geometry" relative="1">
+            <mxPoint x="-33" y="118" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cardinality_panel" value="" style="rounded=1;absoluteArcSize=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#F7FAFD;strokeColor=#D6E1EF;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="1355" width="320" height="226" as="geometry" />
+        </mxCell>
+        <mxCell id="cardinality_panel_title" value="HOW TO READ THE LINKS" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=13;fontColor=#637A9B;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="98" y="1373" width="280" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="cardinality_legend_symbol_0" value="1" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=19;fontColor=#172E4D;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="98" y="1400" width="62" height="27" as="geometry" />
+        </mxCell>
+        <mxCell id="cardinality_legend_desc_0" value="Exactly one" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=13;fontColor=#637A9B;fontStyle=0;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="165" y="1400" width="215" height="27" as="geometry" />
+        </mxCell>
+        <mxCell id="cardinality_legend_symbol_1" value="0..N" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=19;fontColor=#172E4D;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="98" y="1435" width="62" height="27" as="geometry" />
+        </mxCell>
+        <mxCell id="cardinality_legend_desc_1" value="Zero or many" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=13;fontColor=#637A9B;fontStyle=0;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="165" y="1435" width="215" height="27" as="geometry" />
+        </mxCell>
+        <mxCell id="cardinality_legend_symbol_2" value="0..1*" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=19;fontColor=#172E4D;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="98" y="1470" width="62" height="27" as="geometry" />
+        </mxCell>
+        <mxCell id="cardinality_legend_desc_2" value="Optional while pending" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=13;fontColor=#637A9B;fontStyle=0;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="165" y="1470" width="215" height="27" as="geometry" />
+        </mxCell>
+        <mxCell id="centre_required_note" value="* Accepted mileage evidence&#10;must have one verifying centre." style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12.2;fontColor=#637A9B;fontStyle=0;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="98" y="1514" width="282" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="revision_panel" value="" style="rounded=1;absoluteArcSize=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#F7FAFD;strokeColor=#D6E1EF;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="1610" width="320" height="166" as="geometry" />
+        </mxCell>
+        <mxCell id="revision_panel_title" value="REVISION LINKS" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=13;fontColor=#637A9B;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="98" y="1627" width="280" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="revision_symbol" value="FK↺" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=16;fontColor=#315BBA;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="98" y="1659" width="48" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="revision_legend" value="References this table’s PK" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12.2;fontColor=#637A9B;fontStyle=0;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="148" y="1659" width="235" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="revision_note" value="Each supersedes_* field points&#10;to 0..1 earlier record.&#10;The three loops are shown inline." style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12.2;fontColor=#637A9B;fontStyle=0;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="98" y="1694" width="280" height="69" as="geometry" />
+        </mxCell>
+        <mxCell id="footer_rule" value="" style="rounded=0;absoluteArcSize=1;arcSize=0;whiteSpace=wrap;html=0;fillColor=#D6E1EF;strokeColor=none;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="1820" width="2040" height="1" as="geometry" />
+        </mxCell>
+        <mxCell id="footer_key" value="PK  Primary key" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=14;fontColor=#A76A00;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="1836" width="210" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="footer_foreign" value="FK  Foreign key" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=14;fontColor=#315BBA;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="310" y="1836" width="220" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="footer_unique" value="UQ  Unique value / combination" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=14;fontColor=#637A9B;fontStyle=1;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="545" y="1836" width="420" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="footer_nullable" value="?  Nullable or conditional" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=14;fontColor=#637A9B;fontStyle=0;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="975" y="1836" width="420" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="footer_summary" value="A tax case links one ownership period with one tax year. Estimates, issued decisions and cash remain distinct." style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=15;fontColor=#172E4D;fontStyle=0;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="1877" width="2040" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="footer_caveat" value="Assessment links describe issued decisions. Supersession, non-overlap and allocation limits require explicit integrity rules." style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=13;fontColor=#637A9B;fontStyle=0;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="1909" width="2040" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="footer_version" value="DESIGN PROPOSAL  ·  ENGLISH VERSION" style="text;html=0;strokeColor=none;fillColor=none;whiteSpace=wrap;overflow=hidden;fontFamily=Arial;fontSize=12.5;fontColor=#637A9B;fontStyle=1;align=right;verticalAlign=middle;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="1560" y="1941" width="560" height="24" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

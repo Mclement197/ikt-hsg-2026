@@ -1,0 +1,101 @@
+CREATE TABLE vehicle_owners (
+  owner_id INTEGER PRIMARY KEY,
+  full_name TEXT NOT NULL,
+  postal_address TEXT NOT NULL
+) STRICT;
+
+CREATE TABLE vehicles (
+  vehicle_id INTEGER PRIMARY KEY,
+  owner_id INTEGER NOT NULL REFERENCES vehicle_owners,
+  registration_number TEXT NOT NULL UNIQUE,
+  vehicle_type TEXT NOT NULL CHECK(vehicle_type IN ('BEV','PHEV'))
+) STRICT;
+
+CREATE TABLE declarations (
+  declaration_id INTEGER PRIMARY KEY,
+  vehicle_id INTEGER NOT NULL REFERENCES vehicles,
+  owner_id INTEGER NOT NULL REFERENCES vehicle_owners,
+  period_start TEXT NOT NULL,
+  period_end TEXT NOT NULL,
+  declared_period_end TEXT NOT NULL,
+  estimated_miles INTEGER NOT NULL CHECK(estimated_miles >= 0),
+  advance_due_pence INTEGER NOT NULL CHECK(advance_due_pence >= 0),
+  submitted_at TEXT NOT NULL,
+  CHECK(period_start < period_end AND period_end <= declared_period_end),
+  UNIQUE(vehicle_id, period_start)
+) STRICT;
+
+CREATE TABLE odometer_readings (
+  reading_id INTEGER PRIMARY KEY,
+  vehicle_id INTEGER NOT NULL REFERENCES vehicles,
+  reading_date TEXT NOT NULL,
+  odometer_miles INTEGER NOT NULL CHECK(odometer_miles >= 0),
+  reading_type TEXT NOT NULL CHECK(reading_type IN ('MOT','TRANSFER')),
+  centre_ref TEXT NOT NULL CHECK(trim(centre_ref) <> ''),
+  UNIQUE(vehicle_id, reading_date)
+) STRICT;
+
+CREATE TABLE tax_assessments (
+  assessment_id INTEGER PRIMARY KEY,
+  declaration_id INTEGER NOT NULL UNIQUE REFERENCES declarations,
+  opening_reading_id INTEGER NOT NULL UNIQUE REFERENCES odometer_readings,
+  closing_reading_id INTEGER NOT NULL UNIQUE REFERENCES odometer_readings,
+  assessed_at TEXT NOT NULL,
+  final_tax_pence INTEGER NOT NULL CHECK(final_tax_pence >= 0)
+) STRICT;
+
+CREATE TABLE payments (
+  payment_id INTEGER PRIMARY KEY,
+  declaration_id INTEGER NOT NULL REFERENCES declarations,
+  payment_type TEXT NOT NULL CHECK(payment_type IN ('ADVANCE','ADDITIONAL','REFUND')),
+  amount_pence INTEGER NOT NULL CHECK(amount_pence > 0),
+  paid_at TEXT NOT NULL
+) STRICT;
+
+-- A18: forecast listing as printed in the six-table English review deck.
+WITH report(day) AS (VALUES ('2029-04-04')), segments AS (
+ SELECT strftime('%Y',period_start,'-3 months') AS year, vehicle_type, d.vehicle_id,
+   CASE WHEN assessment_id IS NOT NULL THEN c.odometer_miles-o.odometer_miles
+        WHEN day < period_end THEN estimated_miles END AS miles,
+   CASE WHEN assessment_id IS NOT NULL THEN final_tax_pence
+        WHEN day < period_end THEN advance_due_pence END AS tax
+ FROM declarations d JOIN vehicles v USING(vehicle_id) CROSS JOIN report
+ LEFT JOIN tax_assessments a USING(declaration_id)
+ LEFT JOIN odometer_readings o ON o.reading_id=a.opening_reading_id
+ LEFT JOIN odometer_readings c ON c.reading_id=a.closing_reading_id
+ WHERE period_start <= day
+)
+SELECT year AS billing_year_start, vehicle_type, COUNT(DISTINCT vehicle_id) AS vehicles,
+ CASE WHEN COUNT(miles)=COUNT(*) THEN SUM(miles) END AS miles,
+ CASE WHEN COUNT(tax)=COUNT(*) THEN SUM(tax)/100.0 END AS expected_final_gbp,
+ COUNT(*)-COUNT(tax) AS incomplete_segments
+FROM segments GROUP BY year, vehicle_type ORDER BY year, vehicle_type;
+
+-- A19: assessed adjustments listing in that deck.
+WITH adjustments AS (
+ SELECT strftime('%Y',d.period_start,'-3 months') AS billing_year_start,
+        a.final_tax_pence-d.advance_due_pence AS delta
+ FROM declarations AS d JOIN tax_assessments AS a USING(declaration_id)
+)
+SELECT billing_year_start, COUNT(*) AS assessed_declarations,
+ SUM(delta>0) AS additional_payment_cases, SUM(delta<0) AS refund_cases,
+ SUM(MAX(delta,0))/100.0 AS additional_tax_gbp,
+ SUM(MAX(-delta,0))/100.0 AS refunds_gbp
+FROM adjustments GROUP BY billing_year_start ORDER BY billing_year_start;
+
+-- A21: cash reconciliation listing in that deck.
+WITH net_payments AS (
+  SELECT declaration_id,
+    SUM(CASE WHEN payment_type = 'REFUND'
+             THEN -amount_pence ELSE amount_pence END) AS net_pence
+  FROM payments
+  GROUP BY declaration_id
+)
+SELECT a.declaration_id,
+  a.final_tax_pence / 100.0 AS final_gbp,
+  COALESCE(p.net_pence, 0) / 100.0 AS net_cash_gbp,
+  (a.final_tax_pence - COALESCE(p.net_pence, 0)) / 100.0
+    AS remaining_gbp
+FROM tax_assessments AS a
+LEFT JOIN net_payments AS p ON p.declaration_id = a.declaration_id
+ORDER BY a.declaration_id;

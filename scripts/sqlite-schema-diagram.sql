@@ -34,7 +34,7 @@ SELECT
     CASE
         -- When the previous row's table name is the same as this one,
         -- do nothing.
-        WHEN LAG(t.name, 1) OVER (ORDER BY t.name) = t.name THEN ''
+        WHEN LAG(t.name, 1) OVER (ORDER BY t.name, i.cid) = t.name THEN ''
 
         -- Otherwise, this is the first row of a new table, so start
         -- the node markup and add a header row.  Normally in GraphViz,
@@ -76,7 +76,7 @@ SELECT
     CASE
         -- When the next row's table name is the same as this one,
         -- do nothing.
-        WHEN LEAD(t.name, 1) OVER (ORDER BY t.name) = t.name THEN ''
+        WHEN LEAD(t.name, 1) OVER (ORDER BY t.name, i.cid) = t.name THEN ''
 
         -- Otherwise, this is the last row of a database table, so end
         -- the table markup.

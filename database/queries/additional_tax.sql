@@ -1,22 +1,22 @@
-SELECT
-    strftime('%Y', d.period_start) AS period_start_year,
-    COUNT(*) AS assessed_declarations,
-
-    SUM(CASE WHEN a.final_tax_pence > d.advance_due_pence
-        THEN 1 ELSE 0 END) AS additional_payment_cases,
-
-    SUM(CASE WHEN a.final_tax_pence < d.advance_due_pence
-        THEN 1 ELSE 0 END) AS refund_cases,
-
-    ROUND(SUM(CASE WHEN a.final_tax_pence > d.advance_due_pence
-        THEN a.final_tax_pence - d.advance_due_pence
-        ELSE 0 END) / 100.0, 2) AS additional_tax_gbp,
-
-    ROUND(SUM(CASE WHEN a.final_tax_pence < d.advance_due_pence
-        THEN d.advance_due_pence - a.final_tax_pence
-        ELSE 0 END) / 100.0, 2) AS refunds_gbp
-
-FROM declarations AS d
-JOIN tax_assessments AS a ON d.declaration_id = a.declaration_id
-GROUP BY strftime('%Y', d.period_start)
-ORDER BY period_start_year;
+-- Compare the current issued decision with the FIRST accepted advance demand.
+-- A later revision does not rewrite that historical comparison. Cash is separate.
+WITH adjustments AS (
+  SELECT y.label AS billing_year, a.final_tax_pence - (
+    SELECT d.advance_due_pence FROM declarations d
+    WHERE d.case_id = a.case_id AND d.status IN ('ACCEPTED', 'SUPERSEDED')
+    ORDER BY d.revision_no LIMIT 1
+  ) AS delta
+  FROM tax_assessments a
+  JOIN tax_cases c USING (case_id)
+  JOIN tax_years y USING (tax_year_id)
+  WHERE a.status = 'ISSUED'
+)
+SELECT billing_year, COUNT(*) AS assessed_cases,
+       COUNT(CASE WHEN delta > 0 THEN 1 END) AS additional_payment_cases,
+       COUNT(CASE WHEN delta < 0 THEN 1 END) AS refund_cases,
+       CASE WHEN COUNT(delta) = COUNT(*) THEN SUM(MAX(delta, 0)) / 100.0 END AS additional_tax_gbp,
+       CASE WHEN COUNT(delta) = COUNT(*) THEN SUM(MAX(-delta, 0)) / 100.0 END AS refunds_gbp,
+       COUNT(*) - COUNT(delta) AS missing_advance_cases
+FROM adjustments
+GROUP BY billing_year
+ORDER BY billing_year;
