@@ -593,7 +593,7 @@
         <mxCell id="inputstitle" value="REPORTING DATA" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#17324D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;fontStyle=1;text;spacing=0;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="872" y="193" width="486" height="36" />
         </mxCell>
-        <mxCell id="inputsbody" value="Q1: declarations, vehicles, assessments and readings.&#10;Q2: declarations and assessments.&#10;April-to-March cycle; explicit reporting date.&#10;&#10;Cash: sum signed payments per declaration first." style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;text;spacing=0;" vertex="1" parent="1">
+        <mxCell id="inputsbody" value="Q1: Intersect registered ownerships with the April–March tax year. Include every segment started by the cutoff, even without a tax case. Use issued assessments and their readings, or accepted estimates matching still-open segments.&#10;&#10;Q2: Issued tax and the original advance due per case.&#10;Cash is checked separately using signed allocations." style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;text;spacing=0;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="872" y="241" width="486" height="285" />
         </mxCell>
         <mxCell id="start" value="Reporting date reached" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
@@ -632,7 +632,7 @@
         <mxCell id="end" value="Planning decision documented" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="390" y="1270" width="280" height="60" />
         </mxCell>
-        <mxCell id="invalid" value="Data quality issues detected" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
+        <mxCell id="invalid" value="Coverage or data issue" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#FCE5EB;strokeColor=#AD4765;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;shape=hexagon;perimeter=hexagonPerimeter;size=0.14;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="930" y="670" width="280" height="60" />
         </mxCell>
         <mxCell id="escalate" value="Log issues and request correction&#10;[Controlling]" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=#E6F4E8;strokeColor=#42805A;strokeWidth=1.5;align=center;verticalAlign=middle;spacing=12;rounded=1;arcSize=10;" vertex="1" parent="1">
@@ -647,7 +647,7 @@
         <mxCell id="queriestitle" value="TWO IMPLEMENTED SQL ANALYSES" style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#17324D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;fontStyle=1;text;spacing=0;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="872" y="1038" width="486" height="36" />
         </mxCell>
-        <mxCell id="queriesbody" value="1. Expected final tax: assessed + open estimates. Count distinct vehicles; flag closed, unassessed periods.&#10;&#10;2. Gross extras and refunds assessed versus original advance due. Not unpaid cash." style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;text;spacing=0;" vertex="1" parent="1">
+        <mxCell id="queriesbody" value="1. By billing-year label and vehicle type: distinct vehicles, assessed or estimated miles, expected final tax (GBP) and incomplete segments. A gap withholds group miles, group tax and the grand total. Correct the source, extract again and revalidate before release.&#10;&#10;2. Gross additions and refunds: issued tax versus original advance due. These are adjustments, not cash." style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#17324D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;text;spacing=0;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="872" y="1086" width="486" height="245" />
         </mxCell>
         <mxCell id="footer" value="Basis: Case A, task 2 (management information) and task 5 (two multi-table analyses). No production data warehouse required." style="whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#54687D;fillColor=none;strokeColor=none;strokeWidth=1.5;align=left;verticalAlign=middle;spacing=12;text;spacing=0;" vertex="1" parent="1">

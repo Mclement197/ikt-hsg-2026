@@ -1,0 +1,123 @@
+(function(){'use strict';
+const P=window.ProcessDemo,M=window.EPC_MODEL,H=window.PortalKit,e=H.esc;
+const $=id=>document.getElementById(id);
+const nodes=new Map(M.nodes.map(n=>[n.id,n]));
+let state,undo=[],autoTimer=null,autoCount=0,scale=.9,follow=true,selected=null,expanded=false,modalReturn=null,parallelScaleBefore=null;
+const icon=(name,size=20)=>{const shapes={road:'<path d="M9 3 7 21M15 3l2 18M12 3v4m0 4v3m0 4v3"/>',help:'<circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 4 2c-1 .6-1.5 1.2-1.5 2.5M12 17h.01"/>',play:'<path d="m9 5 11 7-11 7z"/>',pause:'<path d="M8 5v14M16 5v14"/>',expand:'<path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/>',close:'<path d="m6 6 12 12M6 18 18 6"/>',plus:'<path d="M5 12h14M12 5v14"/>',minus:'<path d="M5 12h14"/>',map:'<rect x="8" y="3" width="8" height="5" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/><rect x="14" y="16" width="7" height="5" rx="1"/><path d="M12 8v4H6.5v4M12 12h5.5v4"/>',portal:'<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.1m3 0h.1"/>',check:'<path d="m5 12 4 4L19 6"/>',scenario:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>'};return '<svg width="'+size+'" height="'+size+'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+(shapes[name]||shapes.map)+'</svg>';};
+const shortPhase={p1:['Declaration & validation','Advance assessment','Receipts & follow-up'],p2:['Reading evidence','Final tax assessment','Payment or refund','Reconciliation'],p3:['Data preparation','Parallel analyses','Review & revision','Management planning']};
+function init(){
+ document.title=P.id.toUpperCase()+' | '+P.title+' | eVED Process Lab';
+ $('app').innerHTML=`<header class="topbar"><div class="brand"><span class="brand-mark">${icon('road',26)}</span><span class="brand-word">eVED</span><span class="brand-divider"></span><span class="brand-sub">Business process lab</span></div><div class="top-actions"><span class="offline-badge">Offline · Mock data</span><button id="auto" class="btn btn-ghost">${icon('play',16)}<span>Play example</span></button><button id="help" class="btn btn-ghost">${icon('help',17)}<span>How it works</span></button></div></header>
+ <div class="layout"><aside class="sidebar"><div class="side-kicker">Case A · Electromobility</div><div class="process-number">${e(P.id.toUpperCase())}</div><h2>${e(P.title)}</h2><nav id="phases" class="side-phases" aria-label="Process phases"></nav><div class="side-case"><div class="side-kicker">Demo case</div><div id="case-info"></div></div><p class="side-note">A working demonstration of the revised EPC. All people, records and transactions are fictional.</p></aside><main class="workspace"><div class="page-head"><div><div class="eyebrow">From business model to working portal</div><h1>${e(P.title)}</h1><p class="lead">${e(P.subtitle)}</p><div class="demo-scenario-name">Scenario <strong id="scenario-name"></strong></div></div><button id="scenarios" class="btn btn-secondary scenario-trigger">${icon('scenario',17)}Change scenario</button></div>
+ <div class="work-grid"><div class="portal-col"><div id="completion"></div><section class="portal-frame" aria-label="Interactive mock portal"><div class="portal-top"><div class="portal-brand">${icon('portal',19)}eVED service portal</div><div class="role-chip"><div id="avatar" class="avatar"></div><div><span>You are acting as</span><strong id="role"></strong></div></div></div><div id="metrics" class="metric-strip"></div><div id="portal-content" class="portal-screen"></div></section><div id="coach" class="coach"></div><div class="portal-tools"><button id="undo" class="btn btn-secondary btn-sm">Undo action</button><button id="reset" class="btn btn-ghost btn-sm">Restart scenario</button><button id="download" class="btn btn-ghost btn-sm">Download run log</button><span id="action-count" class="count"></span></div><details class="trace-panel"><summary>Activity log <span id="trace-count" class="badge"></span></summary><div id="trace" class="trace-items"></div></details><p class="bottom-note">Project assumptions: BEV 3p/mile, PHEV 1.5p/mile. Monetary results are rounded to the nearest penny. No real authentication, submissions, payments or external connections. Reloading starts a fresh demo.</p></div>
+ <section id="epc-panel" class="epc-panel" aria-label="Live EPC process navigator"><div class="epc-header"><div class="epc-title"><span class="live-pip"></span><h2>Live EPC / EPK</h2></div><div class="epc-head-actions"><button id="expand" class="btn btn-secondary icon-btn" title="Expand full process map" aria-label="Expand full process map">${icon('expand',17)}</button></div></div><div id="current-task" class="current-task" aria-live="polite"></div><div class="map-toolbar"><button id="zoom-out" class="btn btn-ghost icon-btn" aria-label="Zoom out">${icon('minus',14)}</button><span id="zoom-label" class="zoom">90%</span><button id="zoom-in" class="btn btn-ghost icon-btn" aria-label="Zoom in">${icon('plus',14)}</button><button id="fit" class="btn btn-ghost btn-sm">Overview</button><button id="focus" class="btn btn-secondary btn-sm">Current step</button><label class="follow-label"><input id="follow" type="checkbox" checked>Follow</label></div><div id="map-viewport" class="map-viewport" tabindex="0" aria-label="Scrollable process diagram. Drag to pan; select a shape for details."><div id="map-canvas" class="map-canvas hide-context">${M.svg}</div></div><div class="map-legend"><span class="key"><i class="key-box current"></i>Current</span><span class="key"><i class="key-box visited"></i>Completed</span><span class="key"><i class="key-box"></i>Not yet visited</span></div><label class="map-context-toggle"><input id="context" type="checkbox">Show roles, systems and data</label><div id="map-detail" class="map-detail" hidden></div></section></div></main></div><div id="live-status" class="sr-only" aria-live="polite"></div><div id="modal-root"></div>`;
+ for(const n of M.nodes){const g=document.getElementById(M.id+'-revised-node-'+n.id);if(g){g.dataset.node=n.id;g.setAttribute('tabindex','0');g.setAttribute('role','button');g.setAttribute('aria-label',n.type+': '+n.label.replace(/\n/g,' '));}}
+ const svg=$('map-canvas').querySelector('svg');svg.setAttribute('role','group');svg.setAttribute('aria-label','Complete revised '+M.title);
+ $('portal-content').addEventListener('click',ev=>{const b=ev.target.closest('[data-action]');if(b&&!b.disabled){if(ev.isTrusted)stopAuto();perform(b.dataset.action,collect(),b.dataset.value);}});
+ $('portal-content').addEventListener('input',ev=>{if(ev.isTrusted)stopAuto();});
+ $('portal-content').addEventListener('change',ev=>{if(ev.isTrusted)stopAuto();});
+ $('portal-content').addEventListener('submit',ev=>{ev.preventDefault();const b=$('portal-content').querySelector('[data-action].suggested:not(:disabled)');if(b)b.click();});
+ $('coach').addEventListener('click',ev=>{if(ev.target.closest('[data-guide]')){stopAuto();guided();}});
+ $('scenarios').onclick=showScenarios;$('help').onclick=showHelp;$('auto').onclick=()=>autoTimer?stopAuto():startAuto();
+ $('reset').onclick=()=>{stopAuto();reset(state.scenarioId);};$('undo').onclick=()=>{stopAuto();if(undo.length){state=undo.pop();selected=null;render();}};
+ $('download').onclick=download;
+ $('zoom-in').onclick=()=>zoom(scale*1.2);$('zoom-out').onclick=()=>zoom(scale/1.2);$('fit').onclick=overview;
+ $('focus').onclick=()=>{follow=true;$('follow').checked=true;zoom(.92,false);focusActive();};$('follow').onchange=ev=>{follow=ev.target.checked;if(follow)focusActive();};
+ $('context').onchange=ev=>$('map-canvas').classList.toggle('hide-context',!ev.target.checked);
+ $('expand').onclick=toggleExpand;
+ $('map-canvas').addEventListener('click',ev=>{if(dragMoved)return;const g=ev.target.closest('[data-node]');if(g)inspect(g.dataset.node);});
+ $('map-canvas').addEventListener('keydown',ev=>{if((ev.key==='Enter'||ev.key===' ')&&ev.target.dataset.node){ev.preventDefault();inspect(ev.target.dataset.node);}});
+ setupPan();
+ document.addEventListener('keydown',ev=>{if(ev.key==='Escape'){if($('modal-root').children.length)closeModal();else if(expanded)toggleExpand();} if(ev.key==='Tab')trapFocus(ev);});
+ reset(P.scenarios[0].id);
+}
+function reset(id){state=P.create(id);state.trace=state.trace||[];state.visited=state.visited||[];state.active=state.active||[];state.edgeVisits=M.edges.filter(edge=>state.visited.includes(edge.from)&&(state.visited.includes(edge.to)||state.active.includes(edge.to))).map(edge=>edge.from+'>'+edge.to);state.error=null;state.errorFields=[];state.done=Boolean(state.done);state.actionCount=0;undo=[];selected=null;parallelScaleBefore=null;follow=true;$('follow').checked=true;zoom(.9,false);render();}
+function collect(){const out={};$('portal-content').querySelectorAll('input[name],select[name],textarea[name]').forEach(x=>{out[x.name]=x.type==='checkbox'?x.checked:x.value;});return out;}
+function fill(fields){for(const [name,value] of Object.entries(fields||{})){const x=Array.from($('portal-content').querySelectorAll('[name]')).find(x=>x.name===name);if(x){if(x.type==='checkbox')x.checked=Boolean(value);else x.value=value;}}}
+function perform(action,form,value){
+ if(value!==undefined)form._value=value;
+ const before=JSON.parse(JSON.stringify(state)),oldStage=state.stage;
+ try{P.act(state,action,form,H);}catch(error){console.error(error);state=before;H.fail(state,'The demo could not perform that action. Restart the scenario to try again.');stopAuto();}
+ const changed=JSON.stringify(state)!==JSON.stringify(before);
+ if(changed){undo.push(before);state.actionCount=(before.actionCount||0)+1;}
+ render();
+ if(state.error&&state.stage===oldStage){fill(form);const first=state.errorFields&&state.errorFields[0];if(first){const el=Array.from($('portal-content').querySelectorAll('[name]')).find(x=>x.name===first);if(el){el.setAttribute('aria-invalid','true');el.focus({preventScroll:true});}}}
+ if(state.done||state.error)stopAuto();
+ if(changed&&!state.error){const frame=document.querySelector('.portal-frame');if(window.scrollY>frame.offsetTop+60)frame.scrollIntoView({block:'start',behavior:'auto'});}
+ return changed;
+}
+function render(){
+ const scenario=P.scenarios.find(x=>x.id===state.scenarioId)||P.scenarios[0];
+ $('scenario-name').textContent=scenario.title;$('role').textContent=state.role;$('avatar').textContent=state.role.split(/\s+/).map(w=>w[0]).slice(0,2).join('').toUpperCase();
+ $('case-info').innerHTML=P.caseInfo(state).map(r=>'<div class="case-pair"><span>'+e(r.label)+'</span><strong>'+e(r.value)+'</strong></div>').join('');
+ $('metrics').classList.toggle('four',P.metrics(state).length===4);
+ $('metrics').innerHTML=P.metrics(state).map(r=>'<div class="metric '+e(r.tone||'')+'"><span class="label">'+e(r.label)+'</span><div class="value">'+e(r.value)+'</div>'+(r.detail?'<div class="detail">'+e(r.detail)+'</div>':'')+'</div>').join('');
+ const errors=state.error?'<div class="error-banner" role="alert">'+H.alert('danger','Please check this action',state.error)+'</div>':'';
+ $('portal-content').innerHTML=errors+P.render(state,H);
+ for(const name of state.errorFields||[])for(const el of $('portal-content').querySelectorAll('[name]'))if(el.name===name)el.setAttribute('aria-invalid','true');
+ const guide=state.done?null:P.guide(state);
+ if(guide){$('coach').innerHTML='<div class="coach-content"><div class="coach-label">Guided walkthrough</div><strong>'+e(guide.title)+'</strong><p>'+e(guide.detail)+'</p></div><button class="btn btn-secondary btn-sm" data-guide>Perform suggested action</button>';for(const b of $('portal-content').querySelectorAll('[data-action]'))if(b.dataset.action===guide.action&&!b.disabled)b.classList.add('suggested');}
+ else{$('coach').innerHTML='<div class="coach-content"><div class="coach-label">Scenario complete</div><strong>Inspect the outcome or try another path</strong><p>Compare the completed EPC path with a correction, pending-payment or review scenario.</p></div>';$('coach').querySelector('strong').textContent='Inspect the outcome or try another scenario';}
+ const completion=state.done?(state.completion||{title:'Scenario complete',detail:'This run has reached its process outcome.',tone:'success'}):null;
+ $('completion').innerHTML=completion?'<div class="completion-strip '+e(completion.tone||'success')+'"><h2>'+e(completion.title)+'</h2><p>'+e(completion.detail)+'</p></div>':'';
+ $('action-count').textContent=(state.actionCount||0)+' actions';$('undo').disabled=!undo.length;$('trace-count').textContent=state.trace.length;
+ $('trace').innerHTML=state.trace.length?state.trace.slice().reverse().map(t=>'<article class="trace-item '+e(t.tone||'')+'"><strong>'+e(t.title)+'</strong><p>'+e(t.detail)+'</p><small>'+e(t.role)+' · Action '+e(t.index||'')+(t.nodes&&t.nodes.length?' · '+t.nodes.length+' EPC elements':'')+'</small></article>').join(''):'<p class="small muted">Your actions and their process effects will appear here.</p>';
+ renderPhases();renderMap();
+ $('live-status').textContent=(state.error?'Action blocked. '+state.error:'Current role: '+state.role+'. '+state.active.map(id=>nodes.get(id)?.label.replace(/\n/g,' ')).join(' and '));
+ window.DemoApp.state=state;
+}
+function renderPhases(){
+ $('phases').innerHTML=M.phases.map((p,i)=>{const active=p.nodeIds.some(id=>state.active.includes(id));const visited=p.nodeIds.some(id=>state.visited.includes(id));return '<div class="phase-item '+(active?'active':visited?'visited':'')+'"><span class="phase-marker">'+(visited&&!active?'✓':i+1)+'</span><span>'+e((shortPhase[P.id]||[])[i]||p.label)+'</span></div>';}).join('');
+}
+function renderMap(){
+ const visited=new Set(state.visited),active=new Set(state.active),edgeVisits=new Set(state.edgeVisits||[]);
+ for(const n of M.nodes){const g=document.getElementById(M.id+'-revised-node-'+n.id);if(g){g.classList.toggle('visited',visited.has(n.id));g.classList.toggle('active',active.has(n.id));g.classList.toggle('inspected',selected===n.id);g.setAttribute('aria-pressed',selected===n.id?'true':'false');}}
+ M.edges.forEach((edge,i)=>{const g=document.getElementById(M.id+'-revised-edge-'+i);if(g)g.classList.toggle('traversed',edgeVisits.has(edge.from+'>'+edge.to)||(visited.has(edge.from)&&active.has(edge.to)));});
+ const labels=state.active.map(id=>nodes.get(id)).filter(Boolean);
+ $('current-task').className='current-task'+(state.done?' completed':'');
+ $('current-task').innerHTML='<div class="eyebrow">'+(state.done?'Process outcome':labels.length>1?'Parallel activities':'Current process position')+'</div><strong>'+labels.map(n=>e(n.label.replace(/\n/g,' '))).join(' + ')+'</strong><small>'+(state.done?'Reached through the actions recorded in this run.':labels.length>1?'Both branches must finish before the AND join can continue.':'Complete the action in the portal to move the process forward.')+'</small>';
+ if(selected)inspect(selected,false);else $('map-detail').hidden=true;
+ if(follow)requestAnimationFrame(()=>requestAnimationFrame(focusActive));
+}
+function zoom(value,center=true){
+ $('map-canvas').classList.remove('overview');
+ const svg=$('map-canvas').querySelector('svg'),view=svg.viewBox.baseVal,v=$('map-viewport'),old=scale;
+ const x=(v.scrollLeft+v.clientWidth/2-50)/old,y=(v.scrollTop+v.clientHeight/2-50)/old;
+ scale=Math.max(.14,Math.min(1.65,value));svg.style.width=(view.width*scale)+'px';svg.style.height=(view.height*scale)+'px';
+ $('zoom-label').textContent=Math.round(scale*100)+'%';$('zoom-out').disabled=scale<=.14;$('zoom-in').disabled=scale>=1.65;
+ if(center){v.scrollLeft=x*scale+50-v.clientWidth/2;v.scrollTop=y*scale+50-v.clientHeight/2;}
+}
+function focusActive(){
+ const v=$('map-viewport'),elements=state.active.map(id=>document.getElementById(M.id+'-revised-node-'+id)).filter(Boolean);if(!elements.length)return;
+ if(elements.length===1&&parallelScaleBefore!==null){const previous=parallelScaleBefore;parallelScaleBefore=null;zoom(previous,false);}
+ let rs=elements.map(el=>el.getBoundingClientRect()),vr=v.getBoundingClientRect();
+ let left=Math.min(...rs.map(r=>r.left)),right=Math.max(...rs.map(r=>r.right));
+ if(elements.length>1&&right-left>v.clientWidth-60&&scale>.35){if(parallelScaleBefore===null)parallelScaleBefore=scale;zoom(Math.max(.35,scale*(v.clientWidth-65)/(right-left)),false);rs=elements.map(el=>el.getBoundingClientRect());left=Math.min(...rs.map(r=>r.left));right=Math.max(...rs.map(r=>r.right));}
+ const top=Math.min(...rs.map(r=>r.top));
+ v.scrollLeft=Math.max(0,v.scrollLeft+(left+right)/2-vr.left-v.clientWidth/2);
+ v.scrollTop=Math.max(0,v.scrollTop+top-vr.top-Math.min(100,v.clientHeight*.22));
+}
+function overview(){follow=false;$('follow').checked=false;const v=$('map-viewport'),box=$('map-canvas').querySelector('svg').viewBox.baseVal;zoom(Math.min((v.clientWidth-50)/box.width,(v.clientHeight-50)/box.height),false);$('map-canvas').classList.add('overview');v.scrollLeft=0;v.scrollTop=0;}
+function inspect(id,announce=true){
+ selected=id;const n=nodes.get(id);if(!n)return;
+ for(const g of $('map-canvas').querySelectorAll('[data-node]')){g.classList.toggle('inspected',g.dataset.node===id);g.setAttribute('aria-pressed',g.dataset.node===id?'true':'false');}
+ $('map-detail').hidden=false;
+ $('map-detail').innerHTML='<div class="row">'+H.badge(n.type==='function'?'Activity':n.type==='event'?'Event':n.type.toUpperCase()+' connector')+'<button class="btn btn-ghost btn-sm" id="close-detail">Close details</button></div><h3>'+e(n.label.replace(/\n/g,' '))+'</h3><p>'+e(n.description||'Control-flow connector in this process.')+'</p>'+(n.type==='function'?H.kv([{label:'Responsible',value:n.role},{label:'Application',value:n.system},{label:'Inputs',value:(n.inputs||[]).join('; ')},{label:'Outputs',value:(n.outputs||[]).join('; ')}]):'')+'<p class="muted small">Inspecting a shape does not change the process.</p>';
+ $('close-detail').onclick=()=>{selected=null;$('map-detail').hidden=true;renderMap();};
+ if(announce)$('live-status').textContent='Selected '+n.label;
+}
+let drag=null,dragMoved=false;
+function setupPan(){const v=$('map-viewport');v.addEventListener('pointerdown',ev=>{if(ev.button!==0)return;drag={x:ev.clientX,y:ev.clientY,left:v.scrollLeft,top:v.scrollTop};dragMoved=false;});v.addEventListener('pointermove',ev=>{if(!drag)return;const dx=ev.clientX-drag.x,dy=ev.clientY-drag.y;if(Math.abs(dx)+Math.abs(dy)>6){dragMoved=true;v.classList.add('dragging');v.scrollLeft=drag.left-dx;v.scrollTop=drag.top-dy;}});window.addEventListener('pointerup',()=>{drag=null;v.classList.remove('dragging');setTimeout(()=>{dragMoved=false;},0);});}
+function toggleExpand(){expanded=!expanded;$('epc-panel').classList.toggle('expanded',expanded);$('expand').innerHTML=icon(expanded?'close':'expand',17);$('expand').setAttribute('aria-label',expanded?'Close expanded map':'Expand full process map');$('expand').title=expanded?'Close expanded map':'Expand full process map';if(expanded){const b=document.createElement('div');b.className='map-backdrop';b.id='map-backdrop';b.onclick=toggleExpand;document.body.appendChild(b);document.body.style.overflow='hidden';$('epc-panel').setAttribute('role','dialog');$('epc-panel').setAttribute('aria-modal','true');zoom(.9,false);requestAnimationFrame(focusActive);$('expand').focus();}else{$('map-backdrop')?.remove();document.body.style.overflow='';$('epc-panel').removeAttribute('role');$('epc-panel').removeAttribute('aria-modal');if(follow)requestAnimationFrame(focusActive);}}
+function guided(){const g=P.guide(state);if(!g||state.done){stopAuto();return false;}fill(g.fields||{});const b=Array.from($('portal-content').querySelectorAll('[data-action]')).find(b=>b.dataset.action===g.action&&!b.disabled);if(!b){stopAuto();console.error('Guided action not available',g.action,state.stage);return false;}b.click();return true;}
+function startAuto(){if(state.done)reset(state.scenarioId);autoCount=0;$('auto').innerHTML=icon('pause',16)+'<span>Pause example</span>';autoTimer=setInterval(()=>{if(++autoCount>70||state.done){stopAuto();return;}if(!guided())stopAuto();},2500);guided();}
+function stopAuto(){if(autoTimer)clearInterval(autoTimer);autoTimer=null;if($('auto'))$('auto').innerHTML=icon('play',16)+'<span>Play example</span>';}
+function modal(html){stopAuto();modalReturn=document.activeElement;$('modal-root').innerHTML='<div class="modal-backdrop"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">'+html+'</section></div>';document.body.style.overflow='hidden';$('modal-root').querySelector('[data-close]').onclick=closeModal;$('modal-root').querySelector('.modal-backdrop').onclick=ev=>{if(ev.target.classList.contains('modal-backdrop'))closeModal();};$('modal-root').querySelector('button')?.focus();}
+function closeModal(){$('modal-root').innerHTML='';document.body.style.overflow=expanded?'hidden':'';modalReturn?.focus();}
+function showScenarios(){modal('<header class="modal-head"><div><div class="eyebrow">Explore a different outcome</div><h2 id="modal-title">Choose a demo scenario</h2></div><button class="btn btn-ghost icon-btn" data-close aria-label="Close scenario chooser">'+icon('close')+'</button></header><p class="lead">Each scenario starts with different mock evidence. Use the actual portal controls, or follow the suggested actions. Selecting a scenario resets the current run.</p><div class="scenario-grid">'+P.scenarios.map((x,i)=>'<button class="scenario-card '+(x.id===state.scenarioId?'active':'')+'" data-scenario="'+e(x.id)+'">'+(x.id===state.scenarioId?H.badge('Current scenario','success'):H.badge(i===0?'Start here':'Alternative path'))+'<strong>'+e(x.title)+'</strong><p>'+e(x.description)+'</p></button>').join('')+'</div>');for(const b of $('modal-root').querySelectorAll('[data-scenario]'))b.onclick=()=>{reset(b.dataset.scenario);closeModal();};}
+function showHelp(){modal('<header class="modal-head"><div><div class="eyebrow">Interactive teaching demo</div><h2 id="modal-title">See the process work</h2></div><button class="btn btn-ghost icon-btn" data-close aria-label="Close help">'+icon('close')+'</button></header><p class="lead">The portal and EPC are two views of the same case. Every action changes both the mock records and the process position.</p><div class="how-grid"><div class="how-card">'+icon('portal',28)+'<h3>Use the portal</h3><p>Enter values, inspect evidence and press the real action buttons. The account badge shows whose role you are playing.</p></div><div class="how-card">'+icon('map',28)+'<h3>Follow the EPC</h3><p>Amber marks the current task or event. Teal shows completed work. Drag the map, expand it or select any shape for details.</p></div><div class="how-card">'+icon('scenario',28)+'<h3>Test an exception</h3><p>Change scenario to trigger corrections or unresolved cases. The process must handle these outcomes, too.</p></div></div>'+H.alert('info','For a quick presentation','Start with the default scenario. Use Play example for an automatic walkthrough, or Perform suggested action to advance one real portal action at a time.')+'<p class="small muted">EPC means Event-driven Process Chain. EPK is the German abbreviation, Ereignisgesteuerte Prozesskette. Events describe states; functions describe work. XOR selects one outcome. AND requires all parallel branches. This demo runs entirely in your browser, with no real transactions.</p>');}
+function trapFocus(ev){const scope=$('modal-root').querySelector('.modal')||(expanded?$('epc-panel'):null);if(!scope)return;const list=Array.from(scope.querySelectorAll('button:not(:disabled),input:not(:disabled),select:not(:disabled),textarea:not(:disabled),[tabindex="0"]')).filter(x=>x.offsetParent!==null);if(!list.length)return;if(ev.shiftKey&&document.activeElement===list[0]){ev.preventDefault();list[list.length-1].focus();}else if(!ev.shiftKey&&document.activeElement===list[list.length-1]){ev.preventDefault();list[0].focus();}}
+function download(){const data={demo:P.title,scenario:state.scenarioId,role:state.role,currentNodes:state.active,completedNodes:state.visited,outcome:state.completion||null,mockData:state.data,activityLog:state.trace};const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=P.id+'-demo-run.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+window.DemoApp={state:null,reset,perform,guided,render,stopAuto,startAuto,model:M,process:P,helpers:H};
+init();
+})();
