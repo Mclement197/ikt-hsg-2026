@@ -99,6 +99,7 @@ with TemporaryDirectory() as tmp:
         assert final == [("2028/29", "BEV", 2, 22000, 660, 0), ("2028/29", "PHEV", 2, 22000, 330, 0)]
         assert gross == [("2028/29", 5, 3, 1, 90, 120, 0)]
         assert balances == [(1,180,180,0), (2,180,180,0), (3,300,300,0), (4,150,150,0), (5,180,150,30)]
+        assert sum(r[7] for r in cases) == 102000  # original demands, in pence
         assert [(p[1], p[3], p[4]) for p in posted] == [(i, "IN", r[7]) for i, r in enumerate(cases, 1)] + [
             (1, "OUT", 12000), (2, "IN", 3000), (4, "IN", 3000)]
         assert all(p[4] == p[5] and p[6] == 0 for p in posted)
@@ -130,6 +131,14 @@ with TemporaryDirectory() as tmp:
         # A later sale can close an ownership without changing last year's issued period.
         copy.execute("UPDATE ownership_periods SET valid_to_at='2029-06-01T00:00:00Z' WHERE ownership_id=2")
         assert copy.execute(forecast).fetchall() == final
+        copy.rollback()
+
+        # Clara's ownership ends where the next year starts. Only Ben, Daniel and
+        # Emma continue into it; none of their old cases covers the new year.
+        copy.execute("UPDATE ownership_periods SET valid_to_at=? WHERE ownership_id=3", (end,))
+        copy.execute("INSERT INTO tax_years VALUES (2,'2029/30',?,'2030-04-01T00:00:00Z')", (end,))
+        assert copy.execute(forecast).fetchall() == final + [
+            ("2029/30","BEV",1,None,None,1), ("2029/30","PHEV",2,None,None,2)]
         copy.rollback()
 
         # One bank payment, two of Daniel's cases, three postings, and some cash left over.
@@ -179,13 +188,56 @@ with TemporaryDirectory() as tmp:
 with closing(connect(":memory:")) as db:
     db.executescript((root / "database/schema.sql").read_text(encoding="utf-8"))
     before_refund, rest = sample.split("-- Refund paid")
-    db.executescript(before_refund)
+    # Replay registration, the shared reading and Alice's assessment. Hold back
+    # Ben's case, estimate and bank entries so we can add them in stages.
+    buyer_case = before_refund.index("INSERT INTO tax_cases", before_refund.index("-- January handover"))
+    seller_assessment = before_refund.index("INSERT INTO tax_assessments", buyer_case)
+    buyer_estimate = before_refund.index("INSERT INTO declarations", seller_assessment)
+    db.executescript(before_refund[:buyer_case] + before_refund[seller_assessment:buyer_estimate])
     assert db.execute(cash).fetchall() == [(1,180,300,-120)]
     db.executescript("-- Refund paid" + rest.split("-- Annual closing")[0])
     validate(db)
+    missing_buyer = db.execute(january).fetchall()
+    phev = ("2028/29","PHEV",2,18000,270,0)
+    assert missing_buyer == [("2028/29","BEV",2,None,None,1), phev]
+
+    db.execute("INSERT INTO tax_cases VALUES (2,2,1,'2029-01-04T00:00:00Z')")
+    assert db.execute(january).fetchall() == missing_buyer  # case exists, but too late
+    db.rollback()
+    db.executescript(before_refund[buyer_case:seller_assessment])
+    assert db.execute(january).fetchall() == missing_buyer  # on-time case with no estimate
+
+    # A late estimate is unusable; an accepted zero at the cutoff is a real value.
+    for submitted, expected in [("2029-01-04T00:00:00Z", missing_buyer),
+                                ("2029-01-03T00:00:00Z", [("2028/29","BEV",2,16000,480,0), phev])]:
+        db.execute("INSERT INTO declarations VALUES (2,2,1,?,?,0,1,0,?,'ACCEPTED',NULL)",
+                   (handover, end, submitted))
+        assert db.execute(january).fetchall() == expected
+        db.rollback()
+
+    db.executescript(before_refund[buyer_estimate:])
+    validate(db)
     midyear = db.execute(january).fetchall()
-    assert midyear == [("2028/29","BEV",2,21000,630,0), ("2028/29","PHEV",2,18000,270,0)]
+    assert midyear == [("2028/29","BEV",2,21000,630,0), phev]
     assert db.execute(forecast).fetchall() == [("2028/29","BEV",2,None,None,2), ("2028/29","PHEV",2,None,None,2)]
+    db.execute("INSERT INTO vehicles VALUES (5,'DEMO005',1)")
+    db.execute("INSERT INTO ownership_periods VALUES (6,5,2,'2029-01-03T00:00:01Z',NULL)")
+    assert db.execute(january).fetchall() == midyear
+    assert db.execute(january.replace("2029-01-03T00:00:00Z", "2029-01-03T00:00:01Z")).fetchall() == [
+        ("2028/29","BEV",3,None,None,1), phev]  # start exactly at cutoff
+    db.rollback()
+    # Clara closes with no new miles. Her zero assessment counts once issued,
+    # but cannot cover the closed segment on the preceding day's report.
+    closed = "2029-01-02T00:00:00Z"
+    db.execute("UPDATE ownership_periods SET valid_to_at=? WHERE ownership_id=3", (closed,))
+    db.execute("""INSERT INTO odometer_readings VALUES (10,2,2,?,15000,'PERIOD_BOUNDARY',
+               'ACCEPTED','ZERO-201',?,?,NULL)""", (closed, closed, closed))
+    db.execute("""INSERT INTO tax_assessments VALUES (3,3,1,4,10,1,?,?,0,
+               '2029-01-04T00:00:00Z','ISSUED',NULL)""", (start, closed))
+    assert db.execute(january).fetchall() == [("2028/29","BEV",2,None,None,1), phev]
+    assert db.execute(january.replace("2029-01-03", "2029-01-04")).fetchall() == [
+        ("2028/29","BEV",2,11000,330,0), phev]
+    db.rollback()
     # Pending evidence can lack a centre; accepting it cannot.
     db.execute("""INSERT INTO odometer_readings VALUES (10,2,NULL,'2029-01-02T12:00:00Z',22000,
                'MOT','PENDING','PENDING-201','2029-01-02T12:01:00Z',NULL,NULL)""")
@@ -209,9 +261,11 @@ with closing(connect(":memory:")) as db:
     assert db.execute(adjustments).fetchall() == gross  # comparison is with Daniel's original £120
 
 evidence = dict(counts=counts, foreign_keys=len(links), cases=cases, january_forecast=midyear,
+                january_missing_buyer_forecast=missing_buyer,
                 final_forecast=final, adjustments=gross, cash_by_case=balances, posted_payments=posted,
                 integrity="ok", foreign_key_errors=0)
 if len(sys.argv) == 1:
     (assets / "database_verification.json").write_text(json.dumps(evidence, indent=2) + "\n", encoding="utf-8")
 print("Verified fresh rebuild: 13 tables, 21 foreign keys, five cases. January GBP 900; "
+      "without Ben's case: BEV incomplete (1), PHEV GBP 270. "
       "April GBP 990 assessed = GBP 960 net cash + GBP 30 outstanding.")
